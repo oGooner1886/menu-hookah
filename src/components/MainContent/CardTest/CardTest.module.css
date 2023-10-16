@@ -113,7 +113,6 @@
     color: rgba(0,0,0,0.5);
     border: 1px solid rgba(0,0,0,0.5);
     border-radius: 8px;
-    font-family: var(--rd-font-family-light);
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -122,6 +121,8 @@
     margin: 0;
     font-size: 22px;
     outline: none;
+    position: relative;
+
 }
 .images{
     min-width: 40%;
