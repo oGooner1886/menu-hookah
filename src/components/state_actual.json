@@ -94,7 +94,7 @@
           "gallery": "/Pasta/Pasta with shrimp.jpg"
         }
       ],
-      "light snacks": [
+      "lightSnacks": [
         {
           "uid": 10,
           "title": "Сэндвич с куриной грудкой",
@@ -174,7 +174,7 @@
           "gallery": "/Poke/Poke with shrimp.jpg"
         }
       ],
-      "hot dish": [
+      "hotDish": [
         {
           "uid": 18,
           "title": "Блюдо от Шефа",
@@ -414,7 +414,7 @@
           "gallery": "/Desserts/.jpg"
         }
       ],
-      "ice cream": [
+      "iceCream": [
         {
           "uid": 44,
           "title": "Шарик мороженого",
