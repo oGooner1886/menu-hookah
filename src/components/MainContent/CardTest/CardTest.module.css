@@ -127,6 +127,9 @@
     position: relative;
 
 }
+.desc__price_button:hover{
+    transform: scale(1.05);
+}
 .images{
     min-width: 40%;
     max-width: 40%;
