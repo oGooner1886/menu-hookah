@@ -1,5 +1,4 @@
 {
-  "_comment": "блюда от 1, группы от 101, соусы от 1001",
   "products": [
     {
       "salads": [
@@ -54,7 +53,7 @@
       ],
       "pasta": [
         {
-          "uid": 6,
+          "uid": 600,
           "title": "Паста Карбонара",
           "portion": 0,
           "price": "319",
@@ -86,7 +85,7 @@
           "gallery": "/Pasta/Wok with chicken.jpg"
         },
         {
-          "uid": 9,
+          "uid": 900,
           "title": "WOK с креветками",
           "portion": 0,
           "price": "379",

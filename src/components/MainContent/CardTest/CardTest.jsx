@@ -3,6 +3,7 @@ import style from "./CardTest.module.css";
 
 import Products from "./Products/Products";
 const CardTest = (props) => {
+  
   const salads = props.item.salads;
   const pasta = props.item.pasta;
   const lightSnacks = props.item.lightSnacks;
@@ -21,51 +22,56 @@ const CardTest = (props) => {
   const alcohol = props.item.alcohol;
 
   return (
+    
+    
     <div className={style.wrapper}>
       {salads.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {pasta.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {lightSnacks.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {poke.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {hotDish.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {soup.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
+      })}
+      {snacks.map((item) => {
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {desserts.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {iceCream.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {milkshake.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {smoothie.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {coffee.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {tea.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {lemonade.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {drink.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
       {alcohol.map((item) => {
-        return <Products item={item} />;
+        return <Products item={item} onAdd={props.onAdd} key={item.uid}/>;
       })}
     </div>
   );

@@ -125,10 +125,23 @@
     font-size: 22px;
     outline: none;
     position: relative;
-
+}
+.desc__price_button span{
+    position: relative;
+    top: -2px;
 }
 .desc__price_button:hover{
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
+    color: rgba(0,0,0,1);
+    border: 1px solid rgba(0,0,0,1);
+}
+.desc__price_quantity{
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    font-size: 18px;
+    margin: 0 12px;
+    padding: 0;
 }
 .images{
     min-width: 40%;

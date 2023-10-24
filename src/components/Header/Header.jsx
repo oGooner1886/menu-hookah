@@ -2,10 +2,16 @@ import React from "react";
 import logo from "../../assets/images/logoNua.jpg";
 import style from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  TfiInstagram,
+  SlSocialVkontakte,
+  PiTelegramLogoLight,
+} from "react-icons/fa";
 
-const Header = () => {
- return (
+const Header = (props) => {
+  
+  return (
     <header className={style.header}>
       <div>
         <img className={style.header__logo} src={logo} alt="" />
@@ -13,7 +19,7 @@ const Header = () => {
       <nav className={style.header__nav}>
         <div className={style.header__nav_item}>
           <NavLink
-            to={"/home"}
+            to={"/"}
             className={({ isActive }) =>
               isActive ? style.header__nav_active : style.header__nav_item
             }
@@ -62,14 +68,13 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={style.header__nav_item}>
-          <NavLink
-            to={"/order"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
-          >
-            <FaShoppingCart className={style.header__nav_cart} />
-          </NavLink>
+          <div className={style.header_infoBlock}>
+            <NavLink to={"/order"} className={style.header_cartLink}>
+              <div className={style.header_cartWrapper} title="Корзина">
+                Заказ / 0&nbsp;₽
+              </div>
+            </NavLink>
+          </div>
         </div>
       </nav>
     </header>
@@ -78,4 +83,24 @@ const Header = () => {
 
 export default Header;
 
-
+// ! корзина - кнопка прямоугольная
+{
+  /* <div class={style.header_infoBlock}>
+              <a href="/demo/order" class={style.header_cartLink}>
+                <div class={style.header_cartWrapper} title="Корзина">
+                  Заказ / 990&nbsp;₽
+                </div>
+              </a>
+            </div> */
+}
+// ! корзина - через иконку
+{
+  /* <NavLink
+            to={"/order"}
+            className={({ isActive }) =>
+              isActive ? style.header__nav_active : style.header__nav_item
+            }
+          >
+            <FaShoppingCart className={style.header__nav_cart} />
+          </NavLink> */
+}
