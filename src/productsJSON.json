@@ -1,0 +1,1526 @@
+[
+  {
+    "uid": 1,
+    "title": "Салат Греческий",
+    "portion": 0,
+    "price": 219,
+    "totalPrice": 219,
+    "description": "Микс салата, томаты, огурец, болгарский перец, сыр Фета, лук красный, маслины, бальзамический соус",
+    "gallery": "/Salads/Greece.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 2,
+    "title": "Теплый салат с говядиной",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "description": "Говядина, микс салата, огурец, томаты черри, лук красный, кунжутный соус",
+    "gallery": "/Salads/Warm salad with beef.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 3,
+    "title": "Цезарь с курицей",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "description": "Куриное филе, салат Айсберг, томаты черри, пармезан, соус Цезарь",
+    "gallery": "/Salads/Caesar with chicken.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 4,
+    "title": "Цезарь с креветками",
+    "portion": 0,
+    "price": 299,
+    "totalPrice": 299,
+    "description": "Креветки, салат Айсберг, томаты черри, пармезан соус Цезарь",
+    "gallery": "/Salads/Caesar with shrimp.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 5,
+    "title": "Салат с сёмгой",
+    "portion": 0,
+    "price": 289,
+    "totalPrice": 289,
+    "description": "Сёмга слабосолёная, микс салата, томаты черри, вяленные томаты, авокадо, творожный сыр, соус собственного приготовления",
+    "gallery": "/Salads/Salmon salad.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 6,
+    "title": "Салат с осьминогом",
+    "portion": 0,
+    "price": 429,
+    "totalPrice": 429,
+    "description": "",
+    "gallery": "/Salads/Salmon salad.jpg",
+    "category": "salads"
+  },
+  {
+    "uid": 100,
+    "title": "Паста Карбонара",
+    "portion": 0,
+    "price": 319,
+    "totalPrice": 319,
+    "description": "Бекон, яйцо, лук, чеснок, пармезан, сливки",
+    "gallery": "/Pasta/Carbonara pasta.jpg",
+    "category": "pasta"
+  },
+  {
+    "uid": 101,
+    "title": "Паста с курицей и грибами",
+    "portion": 0,
+    "price": 319,
+    "totalPrice": 319,
+    "descr": "Куриное филе, шампиньоны, лук, чеснок, пармезан, сливки",
+    "gallery": "/Pasta/Pasta with chicken and mushrooms.jpg",
+    "category": "pasta"
+  },
+  {
+    "uid": 102,
+    "title": "Паста с креветками",
+    "portion": 0,
+    "price": 379,
+    "totalPrice": 379,
+    "descr": "Креветки, красный лук, чеснок, томаты черри, пармезан, сливки, масло растительное",
+    "gallery": "/Pasta/Pasta with shrimp.jpg",
+    "category": "pasta"
+  },
+  {
+    "uid": 103,
+    "title": "WOK с курицей",
+    "portion": 0,
+    "price": 329,
+    "totalPrice": 329,
+    "descr": "Куриное филе, красный лук, болгарский перец, шампиньоны, стручковая фасоль, чеснок, томаты черри, имбирь, кунжут, соус терияки",
+    "gallery": "/Pasta/Wok with chicken.jpg",
+    "category": "pasta"
+  },
+  {
+    "uid": 104,
+    "title": "WOK с креветками",
+    "portion": 0,
+    "price": 379,
+    "totalPrice": 379,
+    "descr": "",
+    "gallery": "/Pasta/Pasta with shrimp.jpg",
+    "category": "pasta"
+  },
+  {
+    "uid": 200,
+    "title": "Сэндвич с куриной грудкой",
+    "portion": 0,
+    "price": 239,
+    "totalPrice": 239,
+    "descr": "Хлеб, куриная копченая грудка, огурец, томат, микс салата, моцарелла, чесночный соус",
+    "gallery": "/Light snacks/Chicken breast sandwich.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 201,
+    "title": "Сэндвич с яйцом и беконом",
+    "portion": 0,
+    "price": 239,
+    "totalPrice": 239,
+    "descr": "Хлеб, бекон, томат, микс салата, моцарелла, яйцо куриное, соус",
+    "gallery": "/Light snacks/Egg and bacon sandwich.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 202,
+    "title": "Сэндвич с сёмгой",
+    "portion": 0,
+    "price": 279,
+    "totalPrice": 279,
+    "descr": "Хлеб, микс салата, семга слабосоленая, огурец, авокадо, салат Айсберг, сыр творожный",
+    "gallery": "/Light snacks/Salmon sandwich.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 203,
+    "title": "Ролл с курицей",
+    "portion": 0,
+    "price": 249,
+    "totalPrice": 249,
+    "descr": "",
+    "gallery": "/Light snacks/.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 204,
+    "title": "Ролл с сёмгой",
+    "portion": 0,
+    "price": 289,
+    "totalPrice": 289,
+    "descr": "",
+    "gallery": "/Light snacks/.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 205,
+    "title": "Кесадилья с куриной грудкой",
+    "portion": 0,
+    "price": 259,
+    "totalPrice": 259,
+    "descr": "Пшеничная лепешка, куриное филе, томат, моцарелла, руккола, соус томатный или песто на выбор.",
+    "editions": [
+      {
+        "uid": 20501,
+        "img": "",
+        "sause": "Томатный"
+      },
+      {
+        "uid": 20502,
+        "img": "",
+        "sause": "Песто"
+      }
+    ],
+    "gallery": "/Light snacks/Quesadilla with chicken.jpg",
+    "category": "lightSnacks"
+  },
+  {
+    "uid": 300,
+    "title": "Поке с лососем",
+    "portion": 0,
+    "price": 389,
+    "totalPrice": 389,
+    "descr": "Сёмга слабосоленая, авокадо, огурец, салат чукка, рис, листья нори, кунжутный соус",
+    "gallery": "/Poke/Poke with salmon.jpg",
+    "category": "poke"
+  },
+  {
+    "uid": 301,
+    "title": "Поке с креветками",
+    "portion": 0,
+    "price": 389,
+    "totalPrice": 389,
+    "descr": "",
+    "gallery": "/Poke/Poke with shrimp.jpg",
+    "category": "poke"
+  },
+  {
+    "uid": 400,
+    "title": "Блюдо от Шефа",
+    "portion": 0,
+    "price": 469,
+    "totalPrice": 469,
+    "descr": "Куриное филе, картофель, шампиньоны, лук красный, томаты черри, перец болгарский, мед, горчица зернистая.",
+    "gallery": "/menu/Hot dish/Food from chief.jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 401,
+    "title": "Куриный стейк",
+    "portion": 0,
+    "price": 419,
+    "totalPrice": 419,
+    "descr": "Куриное филе, .",
+    "gallery": "/menu/Hot dish/.jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 402,
+    "title": "Свиная корейка на кости",
+    "portion": 0,
+    "price": 560,
+    "totalPrice": 560,
+    "descr": "",
+    "gallery": "/menu/Hot dish/.jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 403,
+    "title": "Бифштекс из говядины",
+    "portion": 0,
+    "price": 489,
+    "totalPrice": 489,
+    "descr": "",
+    "gallery": "/menu/Hot dish/.jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 404,
+    "title": "Соте из морепродуктов",
+    "portion": 0,
+    "price": 619,
+    "totalPrice": 619,
+    "descr": "Осьминог, креветки, кальмар, филе тилапии, картофель, лук красный, томаты черри, базилик, сливки.",
+    "gallery": "/Hot dish/Seafood saute.jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 500,
+    "title": "Грибной крем суп",
+    "portion": 0,
+    "price": 229,
+    "totalPrice": 229,
+    "descr": "Шампиньоны, картофель, лук, чеснок, молоко, сливки, тимьян, масло сливочное",
+    "gallery": "/Soup/Mushroom cream soup.jpg",
+    "category": "soup"
+  },
+  {
+    "uid": 501,
+    "title": "Суп куриный с домашней лапшой",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 229,
+    "descr": "Куриное филе, вермишель, яйцо",
+    "gallery": "/Soup/Chicken soup.jpg",
+    "category": "soup"
+  },
+  {
+    "uid": 600,
+    "title": "Креветки северные",
+    "portion": 0,
+    "price": 319,
+    "totalPrice": 319,
+    "descr": "",
+    "gallery": "/Snack/.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 601,
+    "title": "Картофель фри",
+    "portion": 0,
+    "price": 149,
+    "totalPrice": 149,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 60101,
+        "price": 149,
+        "totalPrice": 149,
+        "weight": "150"
+      },
+      {
+        "uid": 60102,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "250"
+      }
+    ],
+    "gallery": "/Snack/French fries.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 602,
+    "title": "Картофель по деревенски",
+    "portion": 0,
+    "price": 179,
+    "totalPrice": 179,
+    "descr": "",
+    "gallery": "/Snack/Rustic potatoes.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 603,
+    "title": "Куриные наггетсы",
+    "portion": 0,
+    "price": 219,
+    "totalPrice": 219,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 60301,
+        "price": 219,
+        "totalPrice": 219,
+        "weight": "150"
+      },
+      {
+        "uid": 60302,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "300"
+      }
+    ],
+    "gallery": "/Snack/Chicken nuggets.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 604,
+    "title": "Фисташки",
+    "portion": 0,
+    "price": 180,
+    "totalPrice": 180,
+    "descr": "",
+    "gallery": "/Snack/.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 605,
+    "title": "Солённый арахис",
+    "portion": 0,
+    "price": 120,
+    "totalPrice": 120,
+    "descr": "",
+    "gallery": "/Snack/.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 606,
+    "title": "Гренки",
+    "portion": 0,
+    "price": 119,
+    "totalPrice": 119,
+    "descr": "",
+    "gallery": "/Snack/Croutons.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 607,
+    "title": "Чипсы картофельные",
+    "portion": 0,
+    "price": 149,
+    "totalPrice": 149,
+    "descr": "",
+    "gallery": "[]",
+    "category": "snacks"
+  },
+  {
+    "uid": 608,
+    "title": "Колбаски гриль",
+    "portion": 0,
+    "price": 329,
+    "totalPrice": 329,
+    "descr": "",
+    "gallery": "[]",
+    "category": "snacks"
+  },
+  {
+    "uid": 609,
+    "title": "Сырные шарики",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "[]",
+    "category": "snacks"
+  },
+  {
+    "uid": 610,
+    "title": "Пивная тарелка",
+    "portion": 0,
+    "price": 609,
+    "totalPrice": 609,
+    "descr": "Куриные нагетсы, сыр косичка, гренки, колбаски гриль, картофель по-деревенски, сырные шарики",
+    "gallery": "/Snack/Beers plate.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 700,
+    "title": "Чайная тарелка",
+    "portion": 0,
+    "price": 399,
+    "totalPrice": 399,
+    "descr": "Финики, попкорн, драже, орехи, мёд.",
+    "gallery": "/Desserts/Tea`s plate.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 701,
+    "title": "Чизкейк манго-маракуйя",
+    "portion": 0,
+    "price": 249,
+    "totalPrice": 249,
+    "descr": "",
+    "gallery": "/Desserts/Mango passion fruit cheesecake.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 702,
+    "title": "Чизкейк клубника-лайм",
+    "portion": 0,
+    "price": 249,
+    "totalPrice": 249,
+    "descr": "",
+    "gallery": "/Desserts/.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 703,
+    "title": "Брауни",
+    "portion": 0,
+    "price": 220,
+    "totalPrice": 220,
+    "descr": "",
+    "gallery": "/Desserts/.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 704,
+    "title": "Вишнёвый тарт",
+    "portion": 0,
+    "price": 260,
+    "totalPrice": 260,
+    "descr": "",
+    "gallery": "/Desserts/.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 705,
+    "title": "Меренговый рулет",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Desserts/Meringue roll.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 706,
+    "title": "Астраханский деликатес",
+    "portion": 0,
+    "price": 249,
+    "totalPrice": 249,
+    "descr": "",
+    "gallery": "/Desserts/Astrakhan.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 707,
+    "title": "Фруктовая нарезка",
+    "portion": 0,
+    "price": 0,
+    "totalPrice": 0,
+    "descr": "",
+    "gallery": "/Desserts/.jpg",
+    "category": "desserts"
+  },
+  {
+    "uid": 800,
+    "title": "Шарик мороженого",
+    "portion": 0,
+    "price": 69,
+    "totalPrice": 69,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 80001,
+        "subtitle": "Сливочный пломбир",
+        "price": 69,
+        "totalPrice": 69,
+        "weight": "50"
+      },
+      {
+        "uid": 80002,
+        "subtitle": "Шоколадный пломбир",
+        "price": 69,
+        "totalPrice": 69,
+        "weight": "50"
+      },
+      {
+        "uid": 80003,
+        "subtitle": "Клубничный пломбир",
+        "price": 69,
+        "totalPrice": 69,
+        "weight": "50"
+      },
+      {
+        "uid": 80004,
+        "subtitle": "Фисташковый пломбир",
+        "price": 69,
+        "totalPrice": 69,
+        "weight": "50"
+      }
+    ],
+    "gallery": "/Ice cream/Ice cream ball.jpg",
+    "category": "iceCream"
+  },
+  {
+    "uid": 801,
+    "title": "Мороженое комбо",
+    "portion": 0,
+    "price": 229,
+    "totalPrice": 229,
+    "descr": "3 шарика мороженого + сироп/топинг + наполнитель",
+    "gallery": "/Ice cream/Combo.jpg",
+    "category": "iceCream"
+  },
+  {
+    "uid": 900,
+    "title": "Банан-орео",
+    "portion": 0,
+    "price": 239,
+    "totalPrice": 239,
+    "descr": "",
+    "gallery": "/Milkshake/.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 901,
+    "title": "Тропический",
+    "portion": 0,
+    "price": 239,
+    "totalPrice": 239,
+    "descr": "",
+    "gallery": "/Milkshake/.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 902,
+    "title": "Классический",
+    "portion": 0,
+    "price": 200,
+    "totalPrice": 200,
+    "descr": "",
+    "gallery": "/Milkshake/Classic milkshake.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 903,
+    "title": "Клубничный",
+    "portion": 0,
+    "price": 200,
+    "totalPrice": 200,
+    "descr": "",
+    "gallery": "/Milkshake/Strawberry milkshake.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 904,
+    "title": "Банановый",
+    "portion": 0,
+    "price": 200,
+    "totalPrice": 200,
+    "descr": "",
+    "gallery": "/Milkshake/Banana milkshake.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 905,
+    "title": "Шоколадный",
+    "portion": 0,
+    "price": 200,
+    "totalPrice": 200,
+    "descr": "",
+    "gallery": "/Milkshake/.jpg",
+    "category": "milkshake"
+  },
+  {
+    "uid": 1000,
+    "title": "Pinkman",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/Pinkman.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1001,
+    "title": "Kiwi Smoothie",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1002,
+    "title": "Клубника-киви",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1003,
+    "title": "Банан-вишня-орех",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/Banana-Strawberry-Nu.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1004,
+    "title": "Банан-клубника",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/Banan-Strawberry.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1005,
+    "title": "Тропический",
+    "portion": 0,
+    "price": 199,
+    "totalPrice": 199,
+    "descr": "",
+    "gallery": "/Smoothie/.jpg",
+    "category": "smoothie"
+  },
+  {
+    "uid": 1100,
+    "title": "Американо",
+    "portion": 0,
+    "price": 159,
+    "totalPrice": 159,
+    "descr": "",
+    "weight": "180 мл.",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1101,
+    "title": "Двойной эспрессо",
+    "portion": 0,
+    "price": 139,
+    "totalPrice": 139,
+    "descr": "",
+    "weight": "60 мл.",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1102,
+    "title": "Капучино",
+    "portion": 0,
+    "price": 159,
+    "totalPrice": 159,
+    "descr": "",
+    "weight": "210 мл.",
+    "editions": [
+      {
+        "uid": 110201,
+        "price": 159,
+        "totalPrice": 159,
+        "weight": "210 мл."
+      },
+      {
+        "uid": 110202,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": ""
+      }
+    ],
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1103,
+    "title": "Латте",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "weight": "230 мл.",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1104,
+    "title": "Айс латте",
+    "portion": 0,
+    "price": 219,
+    "totalPrice": 219,
+    "descr": "",
+    "weight": "350 мл.",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1105,
+    "title": "Бамбл",
+    "portion": 0,
+    "price": 209,
+    "totalPrice": 209,
+    "descr": "",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1106,
+    "title": "Раф",
+    "portion": 0,
+    "price": 220,
+    "totalPrice": 220,
+    "descr": "",
+    "weight": "230",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1107,
+    "title": "Раф",
+    "portion": 0,
+    "price": 190,
+    "totalPrice": 190,
+    "descr": "",
+    "gallery": "/Coffee/.jpg",
+    "category": "coffee"
+  },
+  {
+    "uid": 1200,
+    "title": "Ягодный чай",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120001,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120002,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/berry tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1201,
+    "title": "Облепиховый чай",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120101,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120102,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1202,
+    "title": "Цитрусовый чай",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120201,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120202,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/citrus tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1203,
+    "title": "Чай грейпфрут-смородина",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120301,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120302,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/grapefruit, blackberry.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1204,
+    "title": "Чай клубника-базилик",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120401,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120402,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/strawberry tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1205,
+    "title": "Вишнёвый чай",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120501,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120502,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1206,
+    "title": "Тропический чай",
+    "portion": 0,
+    "price": 269,
+    "totalPrice": 269,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120601,
+        "price": 269,
+        "totalPrice": 269,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120602,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1207,
+    "title": "Чёрный чай",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120701,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120702,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/black tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1208,
+    "title": "Чёрный чай c бергамотом",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120801,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120802,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/bergamot.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1209,
+    "title": "Зелёный чай",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120901,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.5"
+      },
+      {
+        "uid": 120902,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/green tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1210,
+    "title": "Зелёный чай c жасмином",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121001,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.5"
+      },
+      {
+        "uid": 121002,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1211,
+    "title": "Молочный улун",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121101,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.5"
+      },
+      {
+        "uid": 121102,
+        "price": 209,
+        "totalPrice": 209,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Tea/.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1300,
+    "title": "Классический лимонад",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 130001,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.4"
+      },
+      {
+        "uid": 130002,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/Classic.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1301,
+    "title": "Ягодный лимонад",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 130101,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.4"
+      },
+      {
+        "uid": 130102,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/Berry.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1302,
+    "title": "Лимонад мандарин-эстрагон",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 130201,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.4"
+      },
+      {
+        "uid": 130202,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/Mandarin tarragon.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1303,
+    "title": "Лимонад смородина-лаванда",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 130301,
+        "price": 189,
+        "totalPrice": 189,
+        "weight": "0.4"
+      },
+      {
+        "uid": 130302,
+        "price": 299,
+        "totalPrice": 299,
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1304,
+    "title": "Лимонад апероль",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+
+    "editions": [
+      {
+        "uid": 8201,
+        "price": "189",
+        "weight": "0.4"
+      },
+      {
+        "uid": 8202,
+        "price": "299",
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/Aperol.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1305,
+    "title": "Лимонад грейпфрут-карамель",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+
+    "editions": [
+      {
+        "uid": 8301,
+        "price": "189",
+        "weight": "0.4"
+      },
+      {
+        "uid": 8302,
+        "price": "299",
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1306,
+    "title": "Лимонад NUA",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "editions": [
+      {
+        "uid": 8401,
+        "price": "189",
+        "weight": "0.4"
+      },
+      {
+        "uid": 8402,
+        "price": "299",
+        "weight": "1"
+      }
+    ],
+    "gallery": "/Lemonade/.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1400,
+    "title": "Вода",
+    "portion": 0,
+    "price": 89,
+    "totalPrice": 89,
+    "descr": "",
+    "weight": "0.5",
+    "editions": [
+      {
+        "uid": 8501,
+        "subtitle": "Газированная вода",
+        "price": "89",
+        "weight": "0.5"
+      },
+      {
+        "uid": 8502,
+        "subtitle": "Негазированная вода",
+        "price": "89",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1401,
+    "title": "Рычал-Су",
+    "portion": 0,
+    "price": 139,
+    "totalPrice": 139,
+    "descr": "",
+    "gallery": "/Drink/.jpg",
+    "category": "drimk",
+    "weight": "0.5"
+  },
+  {
+    "uid": 1402,
+    "title": "Газированный напиток",
+    "portion": 0,
+    "price": 109,
+    "totalPrice": 109,
+    "descr": "",
+    "weight": "0.5",
+    "editions": [
+      {
+        "uid": 8701,
+        "subtitle": "Cola",
+        "price": "109",
+        "weight": "0.5"
+      },
+      {
+        "uid": 8702,
+        "subtitle": "Fanta",
+        "price": "109",
+        "weight": "0.5"
+      },
+      {
+        "uid": 8703,
+        "subtitle": "Sprite",
+        "price": "109",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1403,
+    "title": "Холодный чай",
+    "portion": 0,
+    "price": 109,
+    "totalPrice": 109,
+    "descr": "",
+    "gallery": "/Drink/.jpg",
+    "weight": "0.5"
+  },
+  {
+    "uid": 1404,
+    "title": "Натуральный сок",
+    "portion": 0,
+    "price": 209,
+    "totalPrice": 209,
+    "descr": "",
+    "weight": "",
+    "editions": [{}],
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1405,
+    "title": "Свежевыжатый сок",
+    "portion": 0,
+    "price": 219,
+    "totalPrice": 219,
+    "descr": "",
+    "weight": "0.25",
+    "editions": [{}],
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1406,
+    "title": "Лимонад натахтари",
+    "portion": 0,
+    "price": 139,
+    "totalPrice": 139,
+    "descr": "",
+    "weight": "0.5",
+    "editions": [{}],
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1407,
+    "title": "Red Bull",
+    "portion": 0,
+    "price": 189,
+    "totalPrice": 189,
+    "descr": "",
+    "weight": "0.25",
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1408,
+    "title": "Adrenalin Rush",
+    "portion": 0,
+    "price": 139,
+    "totalPrice": 139,
+    "descr": "",
+    "weight": "0.25",
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1500,
+    "title": "Пиво",
+    "portion": 0,
+    "price": 169,
+    "totalPrice": 169,
+    "descr": "",
+    "weight": "0.5",
+    "editions": [
+      {
+        "uid": 9401,
+        "subtitle": "Алкогольное",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9402,
+        "subtitle": "Безалкогольное",
+        "price": "169",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1501,
+    "title": "Разливное пиво пшеничное",
+    "portion": 0,
+    "price": 129,
+    "totalPrice": 129,
+    "descr": "",
+    "weight": "0.33",
+    "editions": [
+      {
+        "uid": 9501,
+        "price": "129",
+        "weight": "0.33"
+      },
+      {
+        "uid": 9502,
+        "price": "159",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1502,
+    "title": "Разливное пиво светлое",
+    "portion": 0,
+    "price": 129,
+    "totalPrice": 129,
+    "descr": "",
+    "weight": "0.33",
+    "editions": [
+      {
+        "uid": 9601,
+        "price": "129",
+        "weight": "0.33"
+      },
+      {
+        "uid": 9602,
+        "price": "159",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1503,
+    "title": "Разливное пиво янтарное",
+    "portion": 0,
+    "price": 129,
+    "totalPrice": 129,
+    "descr": "",
+    "weight": "0.33",
+    "editions": [
+      {
+        "uid": 9701,
+        "price": "129",
+        "weight": "0.33"
+      },
+      {
+        "uid": 9702,
+        "price": "159",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1504,
+    "title": "Импортное пиво",
+    "portion": 0,
+    "price": 279,
+    "totalPrice": 279,
+    "descr": "",
+    "weight": "0.3",
+    "editions": [
+      {
+        "uid": 9801,
+        "price": "279",
+        "weight": "0.3"
+      },
+      {
+        "uid": 9802,
+        "price": "359",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1505,
+    "title": "Сидр White Phoenix",
+    "portion": 0,
+    "price": 169,
+    "totalPrice": 169,
+    "descr": "",
+    "weight": "0.5",
+    "editions": [
+      {
+        "uid": 9901,
+        "subtitle": "Тёмная вишня",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9902,
+        "subtitle": "Кокос-цитрус",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9903,
+        "subtitle": "Виноград-мандарин",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9904,
+        "subtitle": "Гранат-малина",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9905,
+        "subtitle": "Дыня-мята",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9906,
+        "subtitle": "Манго-чили",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9907,
+        "subtitle": "Малина",
+        "price": "169",
+        "weight": "0.5"
+      },
+      {
+        "uid": 9908,
+        "subtitle": "Красное яблоко",
+        "price": "169",
+        "weight": "0.5"
+      }
+    ],
+    "gallery": "/Alcohol/.jpg",
+    "category": "alcohol"
+  }
+]

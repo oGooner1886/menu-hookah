@@ -5,50 +5,62 @@
         {
           "uid": 1,
           "title": "Салат Греческий",
-          "portion": 0,
-          "price": "219",
+          "portion": 5,
+          "price": 219,
+          "totalPrice": 219,
           "description": "Микс салата, томаты, огурец, болгарский перец, сыр Фета, лук красный, маслины, бальзамический соус",
-          "gallery": "/Salads/Greece.jpg"
+          "gallery": "/Salads/Greece.jpg",
+          "category": "salads"
         },
         {
           "uid": 2,
           "title": "Теплый салат с говядиной",
           "portion": 0,
-          "price": "269",
+          "price": 269,
+          "totalPrice": 269,
           "description": "Говядина, микс салата, огурец, томаты черри, лук красный, кунжутный соус",
-          "gallery": "/Salads/Warm salad with beef.jpg"
+          "gallery": "/Salads/Warm salad with beef.jpg",
+          "category": "salads"
         },
         {
           "uid": 3,
           "title": "Цезарь с курицей",
           "portion": 0,
-          "price": "269",
+          "price": 269,
+          "totalPrice": 269,
           "description": "Куриное филе, салат Айсберг, томаты черри, пармезан, соус Цезарь",
-          "gallery": "/Salads/Caesar with chicken.jpg"
+          "gallery": "/Salads/Caesar with chicken.jpg",
+          "category": "salads"
         },
         {
           "uid": 4,
           "title": "Цезарь с креветками",
           "portion": 0,
-          "price": "299",
+          "price": 299,
+          "totalPrice": 299,
           "description": "Креветки, салат Айсберг, томаты черри, пармезан соус Цезарь",
-          "gallery": "/Salads/Caesar with shrimp.jpg"
+          "gallery": "/Salads/Caesar with shrimp.jpg",
+          "category": "salads"
         },
         {
           "uid": 5,
           "title": "Салат с сёмгой",
           "portion": 0,
-          "price": "289",
+          "price": 289,
+          "totalPrice": 289,
           "description": "Сёмга слабосолёная, микс салата, томаты черри, вяленные томаты, авокадо, творожный сыр, соус собственного приготовления",
-          "gallery": "/Salads/Salmon salad.jpg"
+          "gallery": "/Salads/Salmon salad.jpg",
+          "category": "salads"
         },
         {
           "uid": 6,
           "title": "Салат с осьминогом",
           "portion": 0,
-          "price": "429",
+          "price": 429,
+          "totalPrice": 429,
           "description": "",
-          "gallery": "/Salads/Salmon salad.jpg"
+          "gallery": "/Salads/Salmon salad.jpg",
+          "category": "salads"
         }
       ],
       "pasta": [
@@ -1382,7 +1394,7 @@
             "gallery": "[]"
           }
         ],
-        "options for sandwich and snacks" : [
+        "options for sandwich and snacks": [
           {
             "uid": 100,
             "title": "Соус",
@@ -1439,7 +1451,6 @@
             "descr": "",
             "gallery": "[]"
           }
-          
         ]
       }
     }

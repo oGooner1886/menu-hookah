@@ -3,10 +3,7 @@ import style from "../CardTest.module.css";
 
 const Products = (props) => {
   const [count, setCount] = useState(0);
-  const [countPrice, setCountPrice] = useState(0)
-  const addPriceToCart = () => {
-    setCountPrice(countPrice + props.item.price)
-  }
+
   const handleClickIncr = () => {
     setCount(count + 1);
   };
@@ -37,9 +34,7 @@ const Products = (props) => {
               onClick={() => {
                 handleClickIncr()
                 props.onAdd(props.item)
-                addPriceToCart()
               }}
-              // onClick={() => props.onAdd(props.item)}
             >
               <span>+</span>
             </button>
