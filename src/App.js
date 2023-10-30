@@ -6,11 +6,11 @@ import Modal from "./components/Modal/Modal";
 import Promo from "./components/promo/Promo";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Order from "./components/Header/Order/Order";
 import Menu from "./components/Menu/Menu";
 
 import products from "./productsJSON.json";
 import Context from "./Context/Context";
+import OrderContainer from "./components/Header/Order/OrderContainer";
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -18,12 +18,19 @@ function App() {
   const [quantity, setQuantity] = useState(products);
 
   const addToOrder = (item) => {
+    let isInCart = false;
+    orders.forEach((el) => {
+      if (el.uid === item.uid) {
+        isInCart = true;
+      }
+    });
+    if(!isInCart){
     setOrders((orders) => [...orders, item]);
+  }
   };
   const removeToOrder = () => {
     setOrders((orders) => []);
   };
-
 
   const incrQuantity = (uid) => {
     setQuantity((quantity) => {
@@ -35,7 +42,6 @@ function App() {
             // totalPrice: prod.portion * prod.price
           };
         }
-
         return item;
       });
     });
@@ -57,15 +63,16 @@ function App() {
   };
   const valueContext = {
     store,
+    orders,
     quantity,
     setQuantity,
     addToOrder,
     incrQuantity,
     decrQuantity,
-    removeToOrder
+    removeToOrder,
   };
 
-  useEffect(() => {}, [orders]);
+  useEffect(() => {console.log('he');}, [orders]);
   useEffect(() => {}, [quantity]);
 
   return (
@@ -74,20 +81,17 @@ function App() {
         <Header />
         <Routes>
           <Route path={"/home"} element={<Home />}></Route>
-          {/* <Route
-          path={"/menu"}
-          element={<MainContent onAdd={addToOrder} />}
-        ></Route> */}
           <Route path={"/menu"} element={<Menu />}></Route>
+          <Route path={"/order"} element={<OrderContainer />}></Route>
         </Routes>
-        <Routes>
+        {/* <Routes>
           <Route
             path={"/order"}
             element={orders.map((el) => (
               <Order key={el.uid} item={el} />
             ))}
           ></Route>
-        </Routes>
+        </Routes> */}
 
         <Modal active={modalActive} setActive={setModalActive} />
 

@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 
 const Header = (props) => {
-  
   return (
     <header className={style.header}>
       <div>

@@ -47,8 +47,8 @@
 .order__item_photo{
     line-height: 1.15;
     touch-action: manipulation;
-    height: 150px;
-    width: 150px;
+    height: 80px;
+    width: 80px;
     min-width: 60px;
     overflow: hidden;
     background-color: #f5f5f5;
