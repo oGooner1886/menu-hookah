@@ -22,14 +22,25 @@ function App() {
     orders.forEach((el) => {
       if (el.uid === item.uid) {
         isInCart = true;
+        return ++el.portion, (el.totalPrice = +(el.portion * el.price));
       }
     });
-    if(!isInCart){
-    setOrders((orders) => [...orders, item]);
-  }
+    if (!isInCart) {
+      setOrders((orders) => [...orders, item]);
+    }
   };
-  const removeToOrder = () => {
-    setOrders((orders) => []);
+
+  const removeToOrder = (item) => {
+    let isInCart = true;
+    orders.forEach((el) => {
+      if (el.uid === item.uid) {
+        isInCart = false;
+        return --el.portion, (el.totalPrice = +(el.portion * el.price));
+      }
+    });
+    if (!isInCart) {
+      setOrders((orders) => [...orders]);
+    }
   };
 
   const incrQuantity = (uid) => {
@@ -39,7 +50,6 @@ function App() {
           return {
             ...item,
             portion: ++item.portion,
-            // totalPrice: prod.portion * prod.price
           };
         }
         return item;
@@ -52,7 +62,7 @@ function App() {
         if (item.uid === uid) {
           return {
             ...item,
-            portion: item.portion > 1 ? --item.portion : 0,
+            portion: item.portion > 0 ? --item.portion : 0,
             // totalPrice: prod.portion * prod.price
           };
         }
@@ -70,9 +80,10 @@ function App() {
     incrQuantity,
     decrQuantity,
     removeToOrder,
+    products,
   };
 
-  useEffect(() => {console.log('he');}, [orders]);
+  useEffect(() => {}, [orders]);
   useEffect(() => {}, [quantity]);
 
   return (

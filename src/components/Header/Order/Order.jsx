@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import styles from "./Order.module.css";
 
 const Order = ({ item }) => {
-  const { title, price, gallery, uid, portion } = item;
+  const { title, totalPrice, gallery, uid, portion } = item;
 
+  
   return (
     <div className={styles.order}>
       <div className={styles.order__list}>
@@ -20,7 +21,7 @@ const Order = ({ item }) => {
               <h2 className={styles.order__item_title}>{title}</h2>
               <div className={styles.order__item_options}>
                 <div className={styles.order__counter}>
-                  <button className={styles.order__counter_button}>
+                  <button className={styles.order__counter_button} >
                     <span>-</span>
                   </button>
                   <p className={styles.order__counter_quantity}>
@@ -31,7 +32,7 @@ const Order = ({ item }) => {
                   </button>
                 </div>
                 <div className={styles.order__price}>
-                  <p>{price}₽</p>
+                  <p>{totalPrice}₽</p>
                 </div>
               </div>
             </div>
