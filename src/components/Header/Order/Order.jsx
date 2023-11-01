@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./Order.module.css";
 
-const Order = ({ item }) => {
+const Order = ({ item, add }) => {
   const { title, totalPrice, gallery, uid, portion } = item;
 
   
@@ -27,7 +27,7 @@ const Order = ({ item }) => {
                   <p className={styles.order__counter_quantity}>
                     <span>{portion}</span>
                   </p>
-                  <button className={styles.order__counter_button}>
+                  <button className={styles.order__counter_button} onClick={()=>add(item)}>
                     <span>+</span>
                   </button>
                 </div>

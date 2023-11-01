@@ -2,25 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./Order.module.css";
 import Context from "../../../Context/Context";
 import Order from "./Order"
-import OrderTitle from "./OrderTitle";
+import OrderTitle from "./OrderTitle/OrderTitle";
 import EmptyOrder from "./EmptyOrder/EmptyOrder";
-import AmountOrder from "./EmptyOrder/AmountOrder/AmountOrder";
+import AmountOrder from "./AmountOrder/AmountOrder";
 
 const OrderContainer = () => {
   const value = useContext(Context)
-  const {orders} = value
-  const arrAllPrice = orders.map((el)=>el.totalPrice)
-  let amount = arrAllPrice.reduce((sum, current) => sum + current, 0);
+  const {amount,orders, addToOrder} = value
   
   
+  useEffect(()=>{console.log(orders);
+  }, [orders])
   return (
     <div>
-      {value.orders.length === 0 ? <EmptyOrder/> : <OrderTitle/> }
+      {orders.length === 0 ? <EmptyOrder/> : <OrderTitle/> }
       
-      {value.orders.map((el) => (
-              <Order key={el.uid} item={el} />
+      {orders.map((el) => (
+              <Order key={el.uid} item={el} add={addToOrder}/>
             ))}
-      {value.orders.length > 0  && <AmountOrder amount={amount} /> }
+      {orders.length > 0  && <AmountOrder amount={amount} /> }
     </div>
   );
 };

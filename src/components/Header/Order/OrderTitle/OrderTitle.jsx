@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import styles from "./Order.module.css";
 import style from "./OrderTitle.module.css"
-import Context from "../../../Context/Context";
 import {BsArrowLeft} from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
 

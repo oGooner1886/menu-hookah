@@ -17,7 +17,7 @@ const MenuItem = ({ item, incr, decr, addToOrder, remove, editPrice }) => {
               //   onClick={() => handleClickDecr()}
               onClick={() => {
                 decr(uid);
-                remove(item);
+                remove(item, uid);
               }}
             >
               <span>-</span>
