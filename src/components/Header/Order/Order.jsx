@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
 import styles from "./Order.module.css";
 
-const Order = ({ item, add }) => {
+const Order = ({ item, add, remove }) => {
   const { title, totalPrice, gallery, uid, portion } = item;
 
-  
   return (
     <div className={styles.order}>
       <div className={styles.order__list}>
@@ -21,13 +19,19 @@ const Order = ({ item, add }) => {
               <h2 className={styles.order__item_title}>{title}</h2>
               <div className={styles.order__item_options}>
                 <div className={styles.order__counter}>
-                  <button className={styles.order__counter_button} >
+                  <button
+                    className={styles.order__counter_button}
+                    onClick={() => remove(item, uid)}
+                  >
                     <span>-</span>
                   </button>
                   <p className={styles.order__counter_quantity}>
                     <span>{portion}</span>
                   </p>
-                  <button className={styles.order__counter_button} onClick={()=>add(item)}>
+                  <button
+                    className={styles.order__counter_button}
+                    onClick={() => add(item, uid)}
+                  >
                     <span>+</span>
                   </button>
                 </div>

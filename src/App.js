@@ -12,11 +12,10 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const [orders, setOrders] = useState([]);
-  const [store, setStore] = useState(products);
   const [quantity, setQuantity] = useState(products);
 
-  const addToOrder = (item) => {
-    let isInCart = orders.find((el) => el.uid == item.uid);
+  const addToOrder = (item, uid) => {
+    let isInCart = orders.find((el) => el.uid === item.uid);
     if (isInCart) {
       setOrders((prevOrders) => {
         return [
@@ -35,41 +34,6 @@ function App() {
     } else {
       setOrders((orders) => [...orders, item]);
     }
-  };
-
-  // const addToOrder = (item) => {
-  //   let isInCart = false;
-  //   orders.forEach((el) => {
-  //     if (el.uid === item.uid) {
-  //       isInCart = true;
-  //       el.portion = ++el.portion
-  //       el.totalPrice = +(el.portion * el.price);
-  //     }
-  //   });
-  //   if (!isInCart) {
-  //     setOrders((orders) => [...orders, item]);
-  //   }
-  // };
-
-  const removeToOrder = (item, uid) => {
-    let isInCart = true;
-    orders.forEach((el) => {
-      if (el.uid === item.uid) {
-        isInCart = false;
-        return --el.portion, (el.totalPrice = +(el.portion * el.price));
-      }
-    });
-    if (!isInCart) {
-      setOrders((orders) => [...orders]);
-    }
-    setOrders((orders) => {
-      return orders.filter((item) => {
-        return uid != item.uid;
-      });
-    });
-  };
-
-  const incrQuantity = (uid) => {
     setQuantity((quantity) => {
       return quantity.map((item) => {
         if (item.uid === uid) {
@@ -82,31 +46,58 @@ function App() {
       });
     });
   };
-  const decrQuantity = (uid) => {
+  const removeToOrder = (item, uid) => {
+    let isInCart = orders.find((el) => el.uid === item.uid);
+    if (isInCart) {
+      setOrders((prevOrders) => {
+        return [
+          ...prevOrders.map((el) => {
+            if (el.uid === item.uid) {
+              return {
+                ...el,
+                portion: el.portion < 1 ? 0 : --el.portion,
+                totalPrice: +(el.portion * el.price),
+              };
+            }
+
+            return el;
+          }),
+        ];
+      });
+    } else {
+      setOrders((orders) => [...orders]);
+    }
+    if (item.portion === 0) {
+      setOrders((prevOrders) => {
+        return prevOrders.filter((item) => {
+          return uid !== item.uid;
+        });
+      });
+    }
     setQuantity((quantity) => {
       return quantity.map((item) => {
         if (item.uid === uid) {
           return {
             ...item,
-            portion: item.portion > 0 ? --item.portion : 0,
+            portion: item.portion > 1 ? --item.portion : 0,
           };
         }
         return item;
       });
     });
   };
+
   const arrAllPrice = orders.map((el) => el.totalPrice);
+
   let amount = arrAllPrice.reduce((sum, current) => sum + current, 0);
+
   const valueContext = {
-    store,
     orders,
+    setOrders,
     quantity,
     setQuantity,
     addToOrder,
-    incrQuantity,
-    decrQuantity,
     removeToOrder,
-    products,
     amount,
   };
 

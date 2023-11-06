@@ -4,9 +4,10 @@ import Context from "../../../Context/Context";
 
 const MenuItemContainer = ({ item }) => {
   const value = useContext(Context);
-  const {addToOrder, editPrice} = value
+  const {addToOrder} = value
+
   
-  return <MenuItem item={item} incr={value.incrQuantity} decr={value.decrQuantity} addToOrder={addToOrder} remove={value.removeToOrder} editPrice={editPrice}/>;
+  return <MenuItem item={item} addToOrder={addToOrder} remove={value.removeToOrder} />;
 };
 
 export default MenuItemContainer;
