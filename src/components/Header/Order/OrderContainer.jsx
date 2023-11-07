@@ -8,18 +8,36 @@ import AmountOrder from "./AmountOrder/AmountOrder";
 
 const OrderContainer = () => {
   const value = useContext(Context);
-  const { amount, orders, addToOrder, removeToOrder, quantity } = value;
+  const { products, amount, order, addToOrder, removeFromOrder } = value;
 
-  useEffect(() => {}, [orders]);
-  useEffect(() => {}, [quantity]);
+  const orderSize = Object.keys(order).length
+
   return (
     <div>
-      {orders.length === 0 ? <EmptyOrder /> : <OrderTitle />}
+      {orderSize === 0 ? <EmptyOrder /> : <OrderTitle />}
 
-      {orders.map((el) => (
-        <Order key={el.uid} item={el} add={addToOrder} remove={removeToOrder} />
-      ))}
-      {orders.length > 0 && <AmountOrder amount={amount} />}
+      {products.map((product) => {
+
+        if (order[product.uid]) {
+          const portion = order[product.uid] || 0
+          const totalPrice = portion * product.price
+
+          return (
+              <Order
+                  key={product.uid}
+                  item={product}
+                  portion={portion}
+                  totalPrice={totalPrice}
+                  add={addToOrder}
+                  remove={removeFromOrder}
+              />
+          )
+        }
+
+        return null
+      })}
+
+      {orderSize > 0 && <AmountOrder amount={amount} />}
     </div>
   );
 };

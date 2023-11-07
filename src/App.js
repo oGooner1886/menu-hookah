@@ -11,99 +11,59 @@ import OrderContainer from "./components/Header/Order/OrderContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 function App() {
   const [modalActive, setModalActive] = useState(false);
-  const [orders, setOrders] = useState([]);
   const [quantity, setQuantity] = useState(products);
+  const [order, setOrder] = useState({})
 
-  const addToOrder = (item, uid) => {
-    let isInCart = orders.find((el) => el.uid === item.uid);
-    if (isInCart) {
-      setOrders((prevOrders) => {
-        return [
-          ...prevOrders.map((el) => {
-            if (el.uid === item.uid) {
-              return {
-                ...el,
-                portion: ++el.portion,
-                totalPrice: +(el.portion * el.price),
-              };
-            }
-            return el;
-          }),
-        ];
-      });
-    } else {
-      setOrders((orders) => [...orders, item]);
-    }
-    setQuantity((quantity) => {
-      return quantity.map((item) => {
-        if (item.uid === uid) {
-          return {
-            ...item,
-            portion: ++item.portion,
-          };
-        }
-        return item;
-      });
-    });
-  };
-  const removeToOrder = (item, uid) => {
-    let isInCart = orders.find((el) => el.uid === item.uid);
-    if (isInCart) {
-      setOrders((prevOrders) => {
-        return [
-          ...prevOrders.map((el) => {
-            if (el.uid === item.uid) {
-              return {
-                ...el,
-                portion: el.portion < 1 ? 0 : --el.portion,
-                totalPrice: +(el.portion * el.price),
-              };
-            }
+  const addToOrder = (uid) => {
+    setOrder(prevOrder => {
+      const nextOrder = {...prevOrder}
 
-            return el;
-          }),
-        ];
-      });
-    } else {
-      setOrders((orders) => [...orders]);
-    }
-    if (item.portion === 0) {
-      setOrders((prevOrders) => {
-        return prevOrders.filter((item) => {
-          return uid !== item.uid;
-        });
-      });
-    }
-    setQuantity((quantity) => {
-      return quantity.map((item) => {
-        if (item.uid === uid) {
-          return {
-            ...item,
-            portion: item.portion > 1 ? --item.portion : 0,
-          };
-        }
-        return item;
-      });
-    });
+      if (nextOrder[uid]) {
+        nextOrder[uid]++
+      } else {
+        nextOrder[uid] = 1
+      }
+
+      return nextOrder
+    })
   };
 
-  const arrAllPrice = orders.map((el) => el.totalPrice);
+  const removeFromOrder = (uid) => {
+    setOrder(prevOrder => {
+      const nextOrder = {...prevOrder}
 
-  let amount = arrAllPrice.reduce((sum, current) => sum + current, 0);
+      if (nextOrder[uid]) {
+        nextOrder[uid]--
+
+        if (nextOrder[uid] === 0) {
+          delete nextOrder[uid]
+        }
+      }
+
+      return nextOrder
+    })
+  }
+
+  const amount = products.reduce((total, product) => {
+    if (order[product.uid]) {
+      return total + (product.price * order[product.uid])
+    }
+
+    return total
+  }, 0);
+
 
   const valueContext = {
-    orders,
-    setOrders,
-    quantity,
-    setQuantity,
-    addToOrder,
-    removeToOrder,
+    products,
+    order,
     amount,
+    addToOrder,
+    removeFromOrder,
   };
 
   useEffect(() => {
-    console.log(orders);
-  }, [orders]);
+    console.log(order);
+  }, [order]);
   useEffect(() => {}, [quantity]);
 
   return (

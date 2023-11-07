@@ -1,15 +1,17 @@
 import React, { useContext, useState } from "react";
- import MenuItemContainer from "./MenuItem/MenuItemContainer";
 import style from "./Menu.module.css";
 import Context from "../../Context/Context";
+import MenuItem from "./MenuItem/MenuItem";
+
 const Menu = () => {
 
-    const value = useContext(Context)
+    const { products, order, addToOrder, removeFromOrder } = useContext(Context)
 
-  return (
+
+    return (
   <div className={style.wrapper}>
     {
-        value.quantity.map((item) => <MenuItemContainer key={item.uid} item={item}/>)
+        products.map((item) => <MenuItem key={item.uid} item={item} portion={order[item.uid] || 0} addToOrder={addToOrder} removeFromOrder={removeFromOrder} />)
     }
   </div>
   )

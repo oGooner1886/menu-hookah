@@ -1,7 +1,7 @@
 import styles from "./Order.module.css";
 
-const Order = ({ item, add, remove }) => {
-  const { title, totalPrice, gallery, uid, portion } = item;
+const Order = ({ item, totalPrice, portion, add, remove }) => {
+  const { title, gallery, uid } = item;
 
   return (
     <div className={styles.order}>
@@ -21,7 +21,7 @@ const Order = ({ item, add, remove }) => {
                 <div className={styles.order__counter}>
                   <button
                     className={styles.order__counter_button}
-                    onClick={() => remove(item, uid)}
+                    onClick={() => remove(uid)}
                   >
                     <span>-</span>
                   </button>
@@ -30,7 +30,7 @@ const Order = ({ item, add, remove }) => {
                   </p>
                   <button
                     className={styles.order__counter_button}
-                    onClick={() => add(item, uid)}
+                    onClick={() => add(uid)}
                   >
                     <span>+</span>
                   </button>

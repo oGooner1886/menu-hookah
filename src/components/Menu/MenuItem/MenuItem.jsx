@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../Menu.module.css";
-const MenuItem = ({ item, addToOrder, remove }) => {
-  const { title, description, price, gallery, uid, portion } = item;
+const MenuItem = ({ item, portion, addToOrder, removeFromOrder }) => {
+  const { title, description, price, gallery, uid } = item;
   return (
     <div className={style.item}>
       <div className={style.desc}>
@@ -15,7 +15,7 @@ const MenuItem = ({ item, addToOrder, remove }) => {
             <button
               className={style.desc__price_button}
               onClick={() => {
-                remove(item, uid);
+                removeFromOrder(uid);
               }}
             >
               <span>-</span>
@@ -26,7 +26,7 @@ const MenuItem = ({ item, addToOrder, remove }) => {
             <button
               className={style.desc__price_button}
               onClick={() => {
-                addToOrder(item, uid);
+                addToOrder(uid);
               }}
             >
               <span>+</span>

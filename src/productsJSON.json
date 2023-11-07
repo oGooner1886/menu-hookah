@@ -2,9 +2,7 @@
   {
     "uid": 1,
     "title": "Салат Греческий",
-    "portion": 0,
     "price": 219,
-    "totalPrice": 219,
     "description": "Микс салата, томаты, огурец, болгарский перец, сыр Фета, лук красный, маслины, бальзамический соус",
     "gallery": "/Salads/Greece.jpg",
     "category": "salads"
