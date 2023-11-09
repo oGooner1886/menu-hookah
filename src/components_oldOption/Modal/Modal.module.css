@@ -1,0 +1,117 @@
+.modal{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    
+}
+
+.modalActive{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    
+}
+
+.modal__block{
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    
+    
+}
+.modal__content{
+    max-width: 1100px;
+}
+.modal__content_header{
+    margin-bottom: 20px;
+}
+.modal__content_header h1{
+    font-weight: 800;
+    text-align: center;
+    font-size: 24px;
+}
+.modal__content_header h2{
+    padding-top: 10px;
+    font-weight: 800;
+    text-align: center;
+    font-size: 18px;
+}
+
+.modal__content_main{
+    text-align: center;
+}
+.modal__content_main p {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+/* button */
+
+.modal__agree{
+    padding-top: 15px;
+    text-align: center;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    
+}
+.modal__agree button {
+    border-radius: 4px;
+    background-color: #5ca1e1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    padding: 16px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 36px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  }
+  
+  .modal__agree button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .modal__agree button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .modal__agree button:hover{
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  
+  .modal__agree button:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+  .modal__agree div{
+    margin-top: 15px;
+    font-size: 24px;
+  }
+.modal__agree_btn{
+    margin-top: 15px;
+}
