@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const OrderTitle = () => {
   return (
-    <div>
+    <div className={style.blockTitle}>
       <div className={style.empty}>
         <NavLink to={"/menu"} className={style.empty__link}>
           <span className={style.link__backArrow}>

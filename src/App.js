@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Menu from "./components/Menu/Menu";
 import products from "./productsJSON.json";
+
 import Context from "./Context/Context";
 
 import OrderContainer from "./components/Header/Order/OrderContainer";
@@ -26,6 +27,7 @@ function App() {
       return nextOrder
     })
   };
+
   const removeFromOrder = (uid) => {
     setOrder((prevOrder) => {
       const nextOrder = {...prevOrder}
@@ -55,7 +57,7 @@ function App() {
     amount,
   };
 
-  useEffect(() => {console.log(order)}, [order]);
+  useEffect(() => {}, [order]);
   
 
   return (

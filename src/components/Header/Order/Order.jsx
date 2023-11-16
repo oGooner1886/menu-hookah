@@ -1,7 +1,11 @@
 import styles from "./Order.module.css";
+import OrderEditionsOption from "./OrderEditionsOption";
+import OrderSauceOption from "./OrderSauceOption";
 
 const Order = ({ item, add, remove, totalPrice, portion }) => {
   const { title, gallery, uid } = item;
+  const sauce = item.sauce;
+  const editions = item.editions
 
   return (
     <div className={styles.order}>
@@ -39,6 +43,24 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
                   <p>{totalPrice}₽</p>
                 </div>
               </div>
+              {item.sauce ? (
+                <select>
+                  {sauce.map((el) => {
+                    return <OrderSauceOption key={el.uid} el={el} />;
+                  })}
+                </select>
+              ) : (
+                ""
+              )}
+              {item.editions ? (
+                <select>
+                  {editions.map((el) => {
+                    return <OrderEditionsOption key={el.uid} el={el}/>;
+                  })}
+                </select>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

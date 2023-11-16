@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./Order.module.css";
 import Context from "../../../Context/Context";
 import Order from "./Order";
@@ -6,10 +6,14 @@ import OrderTitle from "./OrderTitle/OrderTitle";
 import EmptyOrder from "./EmptyOrder/EmptyOrder";
 import AmountOrder from "./AmountOrder/AmountOrder";
 
+
+
 const OrderContainer = () => {
   const value = useContext(Context);
   const { products, amount, order, addToOrder, removeFromOrder } = value;
-
+  
+  
+  
   const orderSize = Object.keys(order).length;
 
   useEffect(() => {}, [order]);
@@ -31,6 +35,7 @@ const OrderContainer = () => {
               totalPrice={totalPrice}
               add={addToOrder}
               remove={removeFromOrder}
+              
             />
           );
         }

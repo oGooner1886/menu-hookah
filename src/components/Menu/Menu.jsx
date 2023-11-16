@@ -4,9 +4,28 @@ import Context from "../../Context/Context";
 import MenuItem from "./MenuItem/MenuItem";
 const Menu = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-
+  let salads = products.filter(item => item.uid < 100)
+  // const editions = products.map((item)=>{
+    
+  //     return item.sauce
+    
+  // })
+  // console.log(editions);
+  
+  
+  
+  
   return (
     <div className={style.wrapper}>
+      
+      {/* {salads.map((item) => (
+        <MenuItem 
+        key={item.uid}
+        item={item}
+        portion={order[item.uid] || 0}
+        addToOrder={addToOrder}
+        removeFromOrder={removeFromOrder}/>
+      ))} */}
       {products.map((item) => (
         <MenuItem
           key={item.uid}
@@ -15,7 +34,9 @@ const Menu = () => {
           addToOrder={addToOrder}
           removeFromOrder={removeFromOrder}
         />
-      ))}
+      )
+      
+      )}
     </div>
   );
 };

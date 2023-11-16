@@ -4,10 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: fixed;
+    position: fixed;
     z-index: 100;
-    width: 100%;
-    margin: 0 auto; */
+    min-width: 1200px;
+    margin: 0 auto;
 }
 
 
@@ -22,6 +22,7 @@
 }
 
 .header__nav {
+    padding-top: 20px;
     font-size: 16px;
     text-decoration: none;
     display: flex;
