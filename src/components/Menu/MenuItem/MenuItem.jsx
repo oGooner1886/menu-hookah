@@ -35,7 +35,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder }) => {
         </div>
       </div>
       <div className={style.images}>
-        <img src={"./images/menu" + gallery} alt="" />
+        <img src={"../images/menu" + gallery} alt="" />
       </div>
     </div>
   );

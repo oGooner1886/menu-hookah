@@ -4,7 +4,7 @@ import Context from "../../Context/Context";
 import MenuItem from "./MenuItem/MenuItem";
 const Menu = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  let salads = products.filter(item => item.uid < 100)
+  // let salads = products.filter(item => item.uid < 100)
   // const editions = products.map((item)=>{
     
   //     return item.sauce

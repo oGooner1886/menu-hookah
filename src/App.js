@@ -11,6 +11,9 @@ import Context from "./Context/Context";
 
 import OrderContainer from "./components/Header/Order/OrderContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Category from "./components/Category/Category";
+import Salads from "./components/Category/Salads/Salads";
+import Soup from "./components/Category/Soup/Soup";
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
@@ -64,9 +67,12 @@ function App() {
     <Context.Provider value={valueContext}>
       <div className="App">
         <HeaderContainer />
+        <Category />
         <Routes>
           <Route path={"/home"} element={<Home />}></Route>
           <Route path={"/menu"} element={<Menu />}></Route>
+          <Route path={"/menu/salads"} element={<Salads/>}></Route>
+          <Route path={"/menu/soup"} element={<Soup/>}></Route>
           <Route path={"/order"} element={<OrderContainer />}></Route>
         </Routes>
         <Modal active={modalActive} setActive={setModalActive} />
