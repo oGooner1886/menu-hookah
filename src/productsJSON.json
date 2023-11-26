@@ -421,16 +421,16 @@
     "portion": 0,
     "price": 29,
     "descr": "",
-    "gallery": "/Snack/Sriracha.jpg",
+    "gallery": "",
     "category": "snacks"
   },
   {
     "uid": 691,
-    "title": "Тост",
+    "title": "Хлеб",
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "/Snack/.jpg",
+    "gallery": "",
     "category": "snacks"
   },
 
@@ -562,7 +562,7 @@
     "category": "iceCream"
   },
   {
-    "uid": 802,
+    "uid": 890,
     "title": "Тертый орех",
     "portion": 0,
     "price": 49,
@@ -571,7 +571,7 @@
     "category": "iceCream"
   },
   {
-    "uid": 803,
+    "uid": 891,
     "title": "Шоколад",
     "portion": 0,
     "price": 49,
@@ -580,7 +580,7 @@
     "category": "iceCream"
   },
   {
-    "uid": 804,
+    "uid": 892,
     "title": "Маршмеллоу",
     "portion": 0,
     "price": 49,
@@ -589,7 +589,7 @@
     "category": "iceCream"
   },
   {
-    "uid": 805,
+    "uid": 893,
     "title": "Банан",
     "portion": 0,
     "price": 49,
@@ -769,20 +769,17 @@
     "title": "Ягодный чай",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120001,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120002,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/berry tea.jpg",
@@ -793,20 +790,17 @@
     "title": "Облепиховый чай",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120101,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120102,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/Sea buckthorn.jpg",
@@ -817,20 +811,17 @@
     "title": "Цитрусовый чай",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120201,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120202,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/citrus tea.jpg",
@@ -841,20 +832,18 @@
     "title": "Чай грейпфрут-смородина",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120301,
         "price": 269,
         "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120302,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/grapefruit, blackberry.jpg",
@@ -871,14 +860,12 @@
       {
         "uid": 120401,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120402,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/strawberry tea.jpg",
@@ -889,20 +876,17 @@
     "title": "Вишнёвый чай",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120501,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120502,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/Cherry.jpg",
@@ -910,119 +894,104 @@
   },
   {
     "uid": 1206,
-    "title": "Тропический чай",
+    "title": "Марокканский чай",
     "portion": 0,
     "price": 269,
-    "totalPrice": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120601,
         "price": 269,
-        "totalPrice": 269,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 120602,
         "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/Tropic.jpg",
+    "gallery": "",
     "category": "tea"
   },
   {
     "uid": 1207,
-    "title": "Чёрный чай",
+    "title": "Клюквенный чай",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 269,
     "descr": "",
     "editions": [
       {
         "uid": 120701,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.5"
+        "price": 269,
+        "weight": "0.5 л."
       },
       {
         "uid": 120702,
-        "price": 209,
-        "totalPrice": 209,
-        "weight": "1"
+        "price": 299,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1208,
+    "title": "Чёрный чай",
+    "portion": 0,
+    "price": 189,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 120801,
+        "price": 199,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 120802,
+        "price": 219,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/black tea.jpg",
     "category": "tea"
   },
   {
-    "uid": 1208,
+    "uid": 1209,
     "title": "Чёрный чай c бергамотом",
     "portion": 0,
     "price": 189,
-    "totalPrice": 189,
     "descr": "",
     "editions": [
       {
-        "uid": 120801,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.5"
+        "uid": 120901,
+        "price": 199,
+        "weight": "0.5 л."
       },
       {
-        "uid": 120802,
-        "price": 209,
-        "totalPrice": 209,
-        "weight": "1"
+        "uid": 120902,
+        "price": 219,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/bergamot.jpg",
     "category": "tea"
   },
   {
-    "uid": 1209,
+    "uid": 1210,
     "title": "Зелёный чай",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
-    "descr": "",
-    "editions": [
-      {
-        "uid": 120901,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.5"
-      },
-      {
-        "uid": 120902,
-        "price": 209,
-        "totalPrice": 209,
-        "weight": "1"
-      }
-    ],
-    "gallery": "/Tea/green tea.jpg",
-    "category": "tea"
-  },
-  {
-    "uid": 1210,
-    "title": "Зелёный чай c жасмином",
-    "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 199,
     "descr": "",
     "editions": [
       {
         "uid": 121001,
         "price": 189,
-        "totalPrice": 189,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
-        "uid": 121002,
-        "price": 209,
-        "totalPrice": 209,
-        "weight": "1"
+        "uid": 120102,
+        "price": 219,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Tea/green tea.jpg",
@@ -1030,71 +999,192 @@
   },
   {
     "uid": 1211,
-    "title": "Молочный улун",
+    "title": "Зелёный чай c жасмином",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 199,
     "descr": "",
     "editions": [
       {
         "uid": 121101,
         "price": 189,
-        "totalPrice": 189,
-        "weight": "0.5"
+        "weight": "0.5 л."
       },
       {
         "uid": 121102,
         "price": 209,
-        "totalPrice": 209,
-        "weight": "1"
+        "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/black tea.jpg",
+    "gallery": "/Tea/green tea.jpg",
+    "category": "tea"
+  },
+  {
+    "uid": 1212,
+    "title": "Молочный улун",
+    "portion": 0,
+    "price": 259,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121201,
+        "price": 259,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 121202,
+        "totalPrice": 299,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1213,
+    "title": "Иван-чай",
+    "portion": 0,
+    "price": 259,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121301,
+        "price": 259,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 121302,
+        "totalPrice": 299,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1214,
+    "title": "Пуэр/Вишневый пуэр",
+    "portion": 0,
+    "price": 259,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121401,
+        "price": 259,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 121402,
+        "totalPrice": 299,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1215,
+    "title": "Ройбуш",
+    "portion": 0,
+    "price": 259,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 121501,
+        "price": 259,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 121502,
+        "totalPrice": 299,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1290,
+    "title": "Чабрец",
+    "portion": 0,
+    "price": 19,
+    "descr": "",
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1291,
+    "title": "Мята",
+    "portion": 0,
+    "price": 19,
+    "descr": "",
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1292,
+    "title": "Лимон",
+    "portion": 0,
+    "price": 19,
+    "descr": "",
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1293,
+    "title": "Мёд",
+    "portion": 0,
+    "price": 29,
+    "descr": "",
+    "gallery": "",
+    "category": "tea"
+  },
+  {
+    "uid": 1294,
+    "title": "Имбирь",
+    "portion": 0,
+    "price": 29,
+    "descr": "",
+    "gallery": "",
     "category": "tea"
   },
   {
     "uid": 1300,
-    "title": "Классический лимонад",
+    "title": "Пряная малина",
     "portion": 0,
-    "price": 189,
+    "price": 229,
     "totalPrice": 189,
     "descr": "",
     "editions": [
       {
         "uid": 130001,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.4"
+        "price": 229,
+        "weight": "0.4 л"
       },
       {
         "uid": 130002,
-        "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "price": 399,
+        "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Classic.jpg",
+    "gallery": "",
     "category": "lemonade"
   },
   {
     "uid": 1301,
     "title": "Ягодный лимонад",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "descr": "",
     "editions": [
       {
         "uid": 130101,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.4"
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
         "uid": 130102,
-        "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "price": 399,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Lemonade/Berry.jpg",
@@ -1104,21 +1194,18 @@
     "uid": 1302,
     "title": "Лимонад мандарин-эстрагон",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "descr": "",
     "editions": [
       {
         "uid": 130201,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.4"
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
         "uid": 130202,
-        "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "price": 399,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Lemonade/Mandarin tarragon.jpg",
@@ -1128,21 +1215,18 @@
     "uid": 1303,
     "title": "Лимонад смородина-лаванда",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "descr": "",
     "editions": [
       {
         "uid": 130301,
-        "price": 189,
-        "totalPrice": 189,
-        "weight": "0.4"
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
         "uid": 130302,
-        "price": 299,
-        "totalPrice": 299,
-        "weight": "1"
+        "price": 399,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Lemonade/Currant lavender.jpg",
@@ -1152,20 +1236,19 @@
     "uid": 1304,
     "title": "Лимонад апероль",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "descr": "",
 
     "editions": [
       {
-        "uid": 8201,
-        "price": "189",
-        "weight": "0.4"
+        "uid": 130401,
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
-        "uid": 8202,
-        "price": "299",
-        "weight": "1"
+        "uid": 130402,
+        "price": 399,
+        "weight": "1 л."
       }
     ],
     "gallery": "/Lemonade/Aperol.jpg",
@@ -1173,68 +1256,114 @@
   },
   {
     "uid": 1305,
-    "title": "Лимонад грейпфрут-карамель",
+    "title": "Ананас-лемонграсс",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "descr": "",
-
     "editions": [
       {
-        "uid": 8301,
-        "price": "189",
-        "weight": "0.4"
+        "uid": 130501,
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
-        "uid": 8302,
-        "price": "299",
-        "weight": "1"
+        "uid": 130502,
+        "price": 399,
+        "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Grapefruit caramel.jpg",
+    "gallery": "",
     "category": "lemonade"
   },
   {
     "uid": 1306,
-    "title": "Лимонад NUA",
+    "title": "Ежевика-гранат",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 229,
     "editions": [
       {
-        "uid": 8401,
-        "price": "189",
-        "weight": "0.4"
+        "uid": 130601,
+        "price": 229,
+        "weight": "0.4 л."
       },
       {
-        "uid": 8402,
-        "price": "299",
-        "weight": "1"
+        "uid": 130602,
+        "price": 399,
+        "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Nua.jpg",
+    "gallery": "",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1307,
+    "title": "Мохито классический",
+    "portion": 0,
+    "price": 229,
+    "editions": [
+      {
+        "uid": 130701,
+        "price": 229,
+        "weight": "0.4 л."
+      },
+      {
+        "uid": 130702,
+        "price": 399,
+        "weight": "1 л."
+      }
+    ],
+    "gallery": "",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1308,
+    "title": "Коконат шейк",
+    "portion": 0,
+    "price": 229,
+    "editions": [
+      {
+        "uid": 130801,
+        "price": 229,
+        "weight": "0.4 л."
+      }
+    ],
+    "gallery": "/Lemonade/Coconut shake.jpg",
+    "category": "lemonade"
+  },
+  {
+    "uid": 1309,
+    "title": "Манго-дайкири",
+    "portion": 0,
+    "price": 229,
+    "editions": [
+      {
+        "uid": 130901,
+        "price": 229,
+        "weight": "0.4 л."
+      }
+    ],
+    "gallery": "/Lemonade/Mango.jpg",
     "category": "lemonade"
   },
   {
     "uid": 1400,
     "title": "Вода",
     "portion": 0,
-    "price": 89,
-    "totalPrice": 89,
+    "price": 109,
     "descr": "",
-    "weight": "0.5",
+    "weight": "0.5 л.",
     "editions": [
       {
-        "uid": 8501,
+        "uid": 140001,
         "subtitle": "Газированная вода",
-        "price": "89",
-        "weight": "0.5"
+        "price": 109,
+        "weight": "0.5 л."
       },
       {
-        "uid": 8502,
+        "uid": 140002,
         "subtitle": "Негазированная вода",
-        "price": "89",
-        "weight": "0.5"
+        "price": 109,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Drink/.jpg",
@@ -1245,38 +1374,36 @@
     "title": "Рычал-Су",
     "portion": 0,
     "price": 139,
-    "totalPrice": 139,
     "descr": "",
     "gallery": "/Drink/.jpg",
     "category": "drimk",
-    "weight": "0.5"
+    "weight": "0.5 л."
   },
   {
     "uid": 1402,
     "title": "Газированный напиток",
     "portion": 0,
-    "price": 109,
-    "totalPrice": 109,
+    "price": 119,
     "descr": "",
-    "weight": "0.5",
+    "weight": "0.5 л.",
     "editions": [
       {
-        "uid": 8701,
+        "uid": 140201,
         "subtitle": "Cola",
-        "price": "109",
-        "weight": "0.5"
+        "price": 119,
+        "weight": "0.5 л."
       },
       {
-        "uid": 8702,
+        "uid": 140202,
         "subtitle": "Fanta",
-        "price": "109",
-        "weight": "0.5"
+        "price": 119,
+        "weight": "0.5 л."
       },
       {
-        "uid": 8703,
+        "uid": 140203,
         "subtitle": "Sprite",
-        "price": "109",
-        "weight": "0.5"
+        "price": 119,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Drink/.jpg",
@@ -1286,18 +1413,16 @@
     "uid": 1403,
     "title": "Холодный чай",
     "portion": 0,
-    "price": 109,
-    "totalPrice": 109,
+    "price": 119,
     "descr": "",
     "gallery": "/Drink/.jpg",
-    "weight": "0.5"
+    "weight": "0.5 л."
   },
   {
     "uid": 1404,
     "title": "Натуральный сок",
     "portion": 0,
-    "price": 209,
-    "totalPrice": 209,
+    "price": 259,
     "descr": "",
     "weight": "",
     "editions": [{}],
@@ -1309,9 +1434,8 @@
     "title": "Свежевыжатый сок",
     "portion": 0,
     "price": 219,
-    "totalPrice": 219,
     "descr": "",
-    "weight": "0.25",
+    "weight": "0.25 л.",
     "editions": [{}],
     "gallery": "/Drink/.jpg",
     "category": "drimk"
@@ -1320,10 +1444,9 @@
     "uid": 1406,
     "title": "Лимонад натахтари",
     "portion": 0,
-    "price": 139,
-    "totalPrice": 139,
+    "price": 179,
     "descr": "",
-    "weight": "0.5",
+    "weight": "0.5 л.",
     "editions": [{}],
     "gallery": "/Drink/.jpg",
     "category": "drimk"
@@ -1332,10 +1455,9 @@
     "uid": 1407,
     "title": "Red Bull",
     "portion": 0,
-    "price": 189,
-    "totalPrice": 189,
+    "price": 209,
     "descr": "",
-    "weight": "0.25",
+    "weight": "0.25 л.",
     "gallery": "/Drink/.jpg",
     "category": "drimk"
   },
@@ -1343,10 +1465,29 @@
     "uid": 1408,
     "title": "Adrenalin Rush",
     "portion": 0,
-    "price": 139,
-    "totalPrice": 139,
+    "price": 159,
     "descr": "",
-    "weight": "0.25",
+    "weight": "0.25 л.",
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1409,
+    "title": "Боржоми стекло",
+    "portion": 0,
+    "price": 239,
+    "descr": "",
+    "weight": "0.5 л.",
+    "gallery": "/Drink/.jpg",
+    "category": "drimk"
+  },
+  {
+    "uid": 1410,
+    "title": "Глинтвейн с мёдом и фруктами",
+    "portion": 0,
+    "price": -259,
+    "descr": "",
+    "weight": "0.5 л.",
     "gallery": "/Drink/.jpg",
     "category": "drimk"
   },
@@ -1354,22 +1495,21 @@
     "uid": 1500,
     "title": "Пиво",
     "portion": 0,
-    "price": 169,
-    "totalPrice": 169,
+    "price": 179,
     "descr": "",
-    "weight": "0.5",
+    "weight": "0.5 л.",
     "editions": [
       {
-        "uid": 9401,
+        "uid": 150001,
         "subtitle": "Алкогольное",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9402,
+        "uid": 150002,
         "subtitle": "Безалкогольное",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Alcohol/.jpg",
@@ -1377,22 +1517,47 @@
   },
   {
     "uid": 1501,
-    "title": "Разливное пиво пшеничное",
+    "title": "Разливное пиво",
     "portion": 0,
-    "price": 129,
-    "totalPrice": 129,
-    "descr": "",
-    "weight": "0.33",
+    "price": 139,
+    "descr": "Разливное пиво - Белуга",
+    "weight": "0.33 л.",
     "editions": [
       {
-        "uid": 9501,
-        "price": "129",
-        "weight": "0.33"
+        "uid": 150101,
+        "title": "Светлое",
+        "price": 139,
+        "weight": "0.33 л."
       },
       {
-        "uid": 9502,
-        "price": "159",
-        "weight": "0.5"
+        "uid": 150102,
+        "title": "Светлое",
+        "price": 169,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 150103,
+        "title": "Пшеничное",
+        "price": 139,
+        "weight": "0.33 л."
+      },
+      {
+        "uid": 150104,
+        "title": "Пшеничное",
+        "price": 169,
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 150105,
+        "title": "Янтарное",
+        "price": 139,
+        "weight": "0.33 л."
+      },
+      {
+        "uid": 150106,
+        "title": "Пшеничное",
+        "price": 169,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Alcohol/.jpg",
@@ -1400,22 +1565,21 @@
   },
   {
     "uid": 1502,
-    "title": "Разливное пиво светлое",
+    "title": "Импортное пиво",
     "portion": 0,
-    "price": 129,
-    "totalPrice": 129,
+    "price": 289,
     "descr": "",
-    "weight": "0.33",
+    "weight": "0.3 л.",
     "editions": [
       {
-        "uid": 9601,
-        "price": "129",
-        "weight": "0.33"
+        "uid": 150201,
+        "price": 289,
+        "weight": "0.3 л."
       },
       {
-        "uid": 9602,
-        "price": "159",
-        "weight": "0.5"
+        "uid": 150202,
+        "price": 369,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Alcohol/.jpg",
@@ -1423,106 +1587,59 @@
   },
   {
     "uid": 1503,
-    "title": "Разливное пиво янтарное",
-    "portion": 0,
-    "price": 129,
-    "totalPrice": 129,
-    "descr": "",
-    "weight": "0.33",
-    "editions": [
-      {
-        "uid": 9701,
-        "price": "129",
-        "weight": "0.33"
-      },
-      {
-        "uid": 9702,
-        "price": "159",
-        "weight": "0.5"
-      }
-    ],
-    "gallery": "/Alcohol/.jpg",
-    "category": "alcohol"
-  },
-  {
-    "uid": 1504,
-    "title": "Импортное пиво",
-    "portion": 0,
-    "price": 279,
-    "totalPrice": 279,
-    "descr": "",
-    "weight": "0.3",
-    "editions": [
-      {
-        "uid": 9801,
-        "price": "279",
-        "weight": "0.3"
-      },
-      {
-        "uid": 9802,
-        "price": "359",
-        "weight": "0.5"
-      }
-    ],
-    "gallery": "/Alcohol/.jpg",
-    "category": "alcohol"
-  },
-  {
-    "uid": 1505,
     "title": "Сидр White Phoenix",
     "portion": 0,
-    "price": 169,
-    "totalPrice": 169,
+    "price": 179,
     "descr": "",
-    "weight": "0.5",
+    "weight": "0.5 л.",
     "editions": [
       {
-        "uid": 9901,
+        "uid": 150301,
         "subtitle": "Тёмная вишня",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9902,
+        "uid": 150302,
         "subtitle": "Кокос-цитрус",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9903,
+        "uid": 150303,
         "subtitle": "Виноград-мандарин",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9904,
+        "uid": 150304,
         "subtitle": "Гранат-малина",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9905,
+        "uid": 150305,
         "subtitle": "Дыня-мята",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9906,
+        "uid": 150306,
         "subtitle": "Манго-чили",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9907,
+        "uid": 150307,
         "subtitle": "Малина",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       },
       {
-        "uid": 9908,
+        "uid": 150308,
         "subtitle": "Красное яблоко",
-        "price": "169",
-        "weight": "0.5"
+        "price": 179,
+        "weight": "0.5 л."
       }
     ],
     "gallery": "/Alcohol/.jpg",
