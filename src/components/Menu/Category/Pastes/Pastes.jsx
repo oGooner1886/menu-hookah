@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import Context from "../../../Context/Context";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
-import style from "../../Menu/Menu.module.css";
+import style from "../../Menu.module.css";
+import Context from './../../../../Context/Context';
+import MenuItem from './../../MenuItem/MenuItem';
 
-const Poke = () => {
+const Pastes = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  let poke = products.filter((item) => item.uid >= 300 && item.uid < 399);
+  let pastes = products.filter((item) => item.uid >= 100 && item.uid < 199);
   return (
     <div className={style.wrapper}>
-      {poke.map((item) => (
+      {pastes.map((item) => (
         <MenuItem
           key={item.uid}
           item={item}
@@ -21,4 +21,4 @@ const Poke = () => {
   );
 };
 
-export default Poke;
+export default Pastes;

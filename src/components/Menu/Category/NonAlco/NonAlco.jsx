@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Context from "../../../Context/Context";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
-import style from "../../Menu/Menu.module.css";
+import style from "../../Menu.module.css";
+import Context from './../../../../Context/Context';
+import MenuItem from './../../MenuItem/MenuItem';
 
-const Smoothie = () => {
+const NonAlco = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
   let smoothie = products.filter((item) => item.uid >= 1000 && item.uid < 1099);
   return (
@@ -21,4 +21,4 @@ const Smoothie = () => {
   );
 };
 
-export default Smoothie;
+export default NonAlco;

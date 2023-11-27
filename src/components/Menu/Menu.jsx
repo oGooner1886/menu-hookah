@@ -2,41 +2,59 @@ import React, { useContext } from "react";
 import style from "./Menu.module.css";
 import Context from "../../Context/Context";
 import MenuItem from "./MenuItem/MenuItem";
+import Category from "./Category/Category";
+import { Route, Routes } from "react-router-dom";
+import Soup from "./Category/Soup/Soup";
+import HotDish from "./Category/HotDish/HotDish";
+import Poke from "./Category/Poke/Poke";
+import Snacks from "./Category/Snacks/Snacks";
+import Pastes from "./Category/Pastes/Pastes";
+import Lemonades from "./Category/Lemonades/Lemonades";
+import Tea from "./Category/Tea/Tea";
+import Coffee from "./Category/Coffee/Coffee";
+import Desserts from "./Category/Desserts/Desserts";
+import Milkshake from "./Category/Milkshake/Milkshake";
+import Smoothie from "./Category/Smoothie/Smoothie";
+import Salads from "./Category/Salads/Salads";
+
 const Menu = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  // let salads = products.filter(item => item.uid < 100)
-  // const editions = products.map((item)=>{
-    
-  //     return item.sauce
-    
-  // })
-  // console.log(editions);
-  
-  
-  
-  
+
   return (
     <div className={style.wrapper}>
-      
-      {/* {salads.map((item) => (
-        <MenuItem 
-        key={item.uid}
-        item={item}
-        portion={order[item.uid] || 0}
-        addToOrder={addToOrder}
-        removeFromOrder={removeFromOrder}/>
-      ))} */}
-      {products.map((item) => (
-        <MenuItem
-          key={item.uid}
-          item={item}
-          portion={order[item.uid] || 0}
-          addToOrder={addToOrder}
-          removeFromOrder={removeFromOrder}
-        />
-      )
-      
-      )}
+      <div>
+        <Category />
+        <Routes>
+          <Route path={"/salads"} element={<Salads />}></Route>
+          <Route path={"/soup"} element={<Soup />}></Route>
+          <Route path={"/HotDish"} element={<HotDish />}></Route>
+          <Route path={"/poke"} element={<Poke />}></Route>
+          <Route path={"/snacks"} element={<Snacks />}></Route>
+          <Route path={"/pastes"} element={<Pastes />}></Route>
+          <Route path={"/lemonades"} element={<Lemonades />}></Route>
+          <Route path={"/tea"} element={<Tea />}></Route>
+          <Route path={"/coffee"} element={<Coffee />}></Route>
+          <Route path={"/desserts"} element={<Desserts />}></Route>
+          <Route path={"/milkshake"} element={<Milkshake />}></Route>
+          <Route path={"/smoothie"} element={<Smoothie />}></Route>
+        </Routes>
+        <div className={style.item__wrapper}>
+          <Routes>
+            <Route
+              path={"/"}
+              element={products.map((item) => (
+                <MenuItem
+                  key={item.uid}
+                  item={item}
+                  portion={order[item.uid] || 0}
+                  addToOrder={addToOrder}
+                  removeFromOrder={removeFromOrder}
+                />
+              ))}
+            ></Route>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import Context from "../../../Context/Context";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
-import style from "../../Menu/Menu.module.css";
+import style from "../../Menu.module.css";
+import Context from './../../../../Context/Context';
+import MenuItem from './../../MenuItem/MenuItem';
 
-const Tea = () => {
+const Desserts = () => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  let tea = products.filter((item) => item.uid >= 1200 && item.uid < 1299);
+  let desserts = products.filter((item) => item.uid >= 700 && item.uid < 799);
   return (
     <div className={style.wrapper}>
-      {tea.map((item) => (
+      {desserts.map((item) => (
         <MenuItem
           key={item.uid}
           item={item}
@@ -21,4 +21,4 @@ const Tea = () => {
   );
 };
 
-export default Tea;
+export default Desserts;
