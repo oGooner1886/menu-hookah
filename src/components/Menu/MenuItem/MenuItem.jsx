@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../Menu.module.css";
-const MenuItem = ({ item, portion, addToOrder, removeFromOrder }) => {
+const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
   return (
     <div className={style.item}>
@@ -26,7 +26,8 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder }) => {
             <button
               className={style.desc__price_button}
               onClick={() => {
-                addToOrder(uid);
+                addToOrder(uid)
+                openModalForEdit(item, uid)
               }}
             >
               <span>+</span>

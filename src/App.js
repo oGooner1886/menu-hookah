@@ -9,19 +9,24 @@ import products from "./productsJSON.json";
 import Context from "./Context/Context";
 import OrderContainer from "./components/Header/Order/OrderContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import ModalMenu from "./components/Menu/ModalMenu/ModalMenu";
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const [order, setOrder] = useState({});
-
+  
+  
   const addToOrder = (uid) => {
     setOrder((prevOrder) => {
       const nextOrder = { ...prevOrder };
+      
+      
       if (nextOrder[uid]) {
         nextOrder[uid]++;
       } else {
         nextOrder[uid] = 1;
       }
+     
       return nextOrder;
     });
   };
@@ -66,7 +71,6 @@ function App() {
           <Route path={"/order"} element={<OrderContainer />}></Route>
         </Routes>
         <Modal active={modalActive} setActive={setModalActive} />
-
         {/* <Promo/> */}
       </div>
     </Context.Provider>
