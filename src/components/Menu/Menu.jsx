@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Menu.module.css";
 import Context from "../../Context/Context";
 import MenuItem from "./MenuItem/MenuItem";
@@ -21,18 +21,10 @@ import ModalMenu from "./ModalMenu/ModalMenu";
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  const openModalForEdit = (item, uid) => {
+  const openModalForEdit = (item) => {
     setModalMenuActive(() => {
-      //   for(let i = 0; i<products.length; i++){
-      //     if(products[uid] === uid){
-      //       if(products[i].editions){
-      //         setModalMenuActive(true)
-      //       }
-      //     }
-      // }
-      item.editions && setModalMenuActive(true);
+      (item.editions || item.sauce) && setModalMenuActive(true);
     });
-    console.log(item, uid);
   };
 
   return (
@@ -69,10 +61,10 @@ const Menu = () => {
               ))}
             ></Route>
           </Routes>
-          {/* {products.map((item) => {
-            item.editions && <ModalMenu active={modalMenuActive} setActive={setModalMenuActive}/> 
-          })} */}
-          <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} />
+            {products.map((item) => (
+              <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
+            ))}
+          {/* <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} products={products}/> */}
         </div>
       </div>
     </div>

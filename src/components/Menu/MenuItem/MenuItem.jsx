@@ -2,6 +2,7 @@ import React from "react";
 import style from "../Menu.module.css";
 const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
+  
   return (
     <div className={style.item}>
       <div className={style.desc}>
@@ -10,7 +11,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
           <p className={style.desc__title_prop}>{descr}</p>
         </div>
         <div className={style.desc__price}>
-          <p className={style.desc__price_num}>{price}₽</p>
+          <p className={style.desc__price_num}>{price} ₽</p>
           <div className={style.desc__price_addToCart}>
             <button
               className={style.desc__price_button}
