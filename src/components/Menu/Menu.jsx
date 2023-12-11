@@ -20,19 +20,29 @@ import ModalMenu from "./ModalMenu/ModalMenu";
 
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
+  const [items, setItems] = useState([])
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
   const openModalForEdit = (item) => {
     setModalMenuActive(() => {
       (item.editions || item.sauce) && setModalMenuActive(true);
     });
-  };
+    setItems(()=>{
+      if(item.editions == undefined){
+        //     // return Object.values(editions)
+        console.log('У этого товара нет дополнения');
+        
+      }else return item.editions
+      
+    })
 
+  };
+  
   return (
     <div className={style.wrapper}>
       <div>
         <Category />
         <Routes>
-          <Route path={"/salads"} element={<Salads />}></Route>
+          <Route path={"/salads"} element={<Salads openModalForEdit={openModalForEdit} />}></Route>
           <Route path={"/soup"} element={<Soup />}></Route>
           <Route path={"/HotDish"} element={<HotDish />}></Route>
           <Route path={"/poke"} element={<Poke />}></Route>
@@ -57,14 +67,15 @@ const Menu = () => {
                   addToOrder={addToOrder}
                   removeFromOrder={removeFromOrder}
                   openModalForEdit={openModalForEdit}
+                  
                 />
               ))}
             ></Route>
           </Routes>
-            {products.map((item) => (
+            {/* {products.map((item) => (
               <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
-            ))}
-          {/* <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} products={products}/> */}
+            ))} */}
+          <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} items={items}/>
         </div>
       </div>
     </div>

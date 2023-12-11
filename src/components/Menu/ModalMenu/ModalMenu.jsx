@@ -1,32 +1,44 @@
 import React, { useEffect } from "react";
 import style from "./ModalMenu.module.css";
+import ItemEditions from "./ItemEditions/ItemEditions";
 
-const ModalMenu = ({ active, setActive }) => {
+const ModalMenu = ({ active, setActive, items }) => {
+  // let item = []
+  let editions = () => {
+    if(items === undefined){
+      console.log('Опций нет');
+    } else {
+      // return item = items.map((el) => el)
+      return items?.map((el)=>{return el})
+    }
+  }
+      
+  editions()
+  // useEffect(()=>console.log(editions()))
+  
+  
   
   return (
     <div className={active ? style.modalActive : style.modal}>
       <div className={style.modal__block}>
-        <div className={style.modal__content}>
-          <div className={style.modal__content_title}>
-            <h2>TITLE</h2>
+          <div className={style.modal__block_title}>
+            <h2 className={style.modal_title}>TITLE</h2>
             <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        class="modifiers-view_closeIcon__3Ya-4"
+        className={style.modal_close}
       >
         <path d="M0 0h24v24H0V0z" fill="none"></path>
         <path d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7A.996.996 0 105.7 7.11L10.59 12 5.7 16.89a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"></path>
       </svg>
           </div>
           
-          <div className={style.modal__content_header}>
-            <h1>Рады приветствовать Вас в нашем заведении.</h1>
-            <h2>
-              Обращаем Ваше внимание, что в нашем заведении действуют правила.
-            </h2>
+          <div className={style.modal__content}>
+            <div>Выберите порцию</div>
+            <div className={style.modal__item}>{items !== undefined &&  items.map((item) => <ItemEditions key={item.uid} item={item}/>)}</div>
+            
           </div>
-          <div className={style.modal__content_main}>,ksdkadkaskdsakdk</div>
-        </div>
+          <div className={style.modal__content_main}></div>
       </div>
     </div>
   );

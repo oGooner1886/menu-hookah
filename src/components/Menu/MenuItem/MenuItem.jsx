@@ -28,7 +28,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
               className={style.desc__price_button}
               onClick={() => {
                 addToOrder(uid)
-                openModalForEdit(item, uid)
+                openModalForEdit(item)
               }}
             >
               <span>+</span>
