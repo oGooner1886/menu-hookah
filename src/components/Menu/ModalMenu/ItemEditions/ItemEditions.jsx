@@ -1,13 +1,17 @@
 import React from "react";
-import style from "./ItemEditions.module.css"
+import style from "./ItemEditions.module.css";
 
-const ItemEditions = ({ item }) => {
+const ItemEditions = ({ item, selectDiff }) => {
   const { uid, subtitle, price, weight, difference } = item;
 
   return (
     <div className={style.item__wrapper}>
-        <div className={style.item__option}>{subtitle}</div>
-      </div>
+      <button className={style.item__option} onClick={()=>selectDiff(difference)}>
+        <abbr title={weight}>{subtitle}</abbr>
+        { difference && 
+          <span> +{difference} ₽</span>}
+      </button>
+    </div>
   );
 };
 

@@ -20,21 +20,24 @@ import ModalMenu from "./ModalMenu/ModalMenu";
 
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
-  const [items, setItems] = useState([])
+  const [editions, setEditions] = useState([])
+  const [item, setItem] = useState({})
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
   const openModalForEdit = (item) => {
     setModalMenuActive(() => {
       (item.editions || item.sauce) && setModalMenuActive(true);
     });
-    setItems(()=>{
+    setEditions(()=>{
       if(item.editions == undefined){
         //     // return Object.values(editions)
         console.log('У этого товара нет дополнения');
-        
       }else return item.editions
-      
+ 
     })
-
+    setItem(()=>{
+      return item
+    })
+    
   };
   
   return (
@@ -75,7 +78,7 @@ const Menu = () => {
             {/* {products.map((item) => (
               <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
             ))} */}
-          <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} items={items}/>
+          <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} editions={editions} item={item}/>
         </div>
       </div>
     </div>
