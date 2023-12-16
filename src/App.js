@@ -14,13 +14,18 @@ import ModalMenu from "./components/Menu/ModalMenu/ModalMenu";
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const [order, setOrder] = useState({});
+  const [item, setItem] = useState({})
+  let priceEl = item.price
+  
+  let [priceItem, setPriceItem] = useState(priceEl || 0 )
+
+  useEffect(()=>console.log(item))
+  
   
   
   const addToOrder = (uid) => {
     setOrder((prevOrder) => {
       const nextOrder = { ...prevOrder };
-      
-      
       if (nextOrder[uid]) {
         nextOrder[uid]++;
       } else {
@@ -46,10 +51,11 @@ function App() {
 
   let amount = products.reduce((sum, prod) => {
     if (order[prod.uid]) {
-      return sum + prod.price * order[prod.uid];
+      return sum + (prod.price * order[prod.uid]) 
     }
     return sum;
   }, 0);
+  
 
   const valueContext = {
     products,
@@ -57,6 +63,11 @@ function App() {
     addToOrder,
     removeFromOrder,
     amount,
+    // test
+    setPriceItem,
+    priceItem,
+    item,
+    setItem
   };
 
   useEffect(() => {}, [order]);

@@ -20,32 +20,47 @@ import ModalMenu from "./ModalMenu/ModalMenu";
 
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
-  const [editions, setEditions] = useState([])
-  const [item, setItem] = useState({})
-  const { products, order, addToOrder, removeFromOrder } = useContext(Context);
+  const [editions, setEditions] = useState([]);
+  // const [item, setItem] = useState({})
+  const {
+    products,
+    order,
+    addToOrder,
+    removeFromOrder,
+    item,
+    setItem,
+    setPriceItem,
+    priceItem,
+  } = useContext(Context);
   const openModalForEdit = (item) => {
     setModalMenuActive(() => {
       (item.editions || item.sauce) && setModalMenuActive(true);
     });
-    setEditions(()=>{
-      if(item.editions == undefined){
+    setEditions(() => {
+      if (item.editions == undefined) {
         //     // return Object.values(editions)
-        console.log('У этого товара нет дополнения');
-      }else return item.editions
- 
-    })
-    setItem(()=>{
-      return item
-    })
-    
+        console.log("У этого товара нет дополнения");
+      } else return item.editions;
+    });
+    setItem(() => {
+      return item;
+    });
   };
-  
+  const closeModalForEdit = () => {
+    setModalMenuActive(() => {
+      setModalMenuActive(false);
+    });
+  };
+
   return (
     <div className={style.wrapper}>
       <div>
         <Category />
         <Routes>
-          <Route path={"/salads"} element={<Salads openModalForEdit={openModalForEdit} />}></Route>
+          <Route
+            path={"/salads"}
+            element={<Salads openModalForEdit={openModalForEdit} />}
+          ></Route>
           <Route path={"/soup"} element={<Soup />}></Route>
           <Route path={"/HotDish"} element={<HotDish />}></Route>
           <Route path={"/poke"} element={<Poke />}></Route>
@@ -70,15 +85,23 @@ const Menu = () => {
                   addToOrder={addToOrder}
                   removeFromOrder={removeFromOrder}
                   openModalForEdit={openModalForEdit}
-                  
                 />
               ))}
             ></Route>
           </Routes>
-            {/* {products.map((item) => (
+          {/* {products.map((item) => (
               <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
             ))} */}
-          <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} editions={editions} item={item}/>
+          <ModalMenu
+            active={modalMenuActive}
+            addToOrder={addToOrder}
+            setActive={setModalMenuActive}
+            editions={editions}
+            item={item}
+            closeModalForEdit={closeModalForEdit}
+            setPriceItem={setPriceItem}
+            priceItem={priceItem}
+          />
         </div>
       </div>
     </div>

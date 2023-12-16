@@ -43,7 +43,7 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
                   <p>{totalPrice}₽</p>
                 </div>
               </div>
-              {item.sauce ? (
+              {/* {item.sauce ? (
                 <select>
                   {sauce.map((el) => {
                     return <OrderSauceOption key={el.uid} el={el} />;
@@ -60,7 +60,7 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
                 </select>
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           </div>
         </div>

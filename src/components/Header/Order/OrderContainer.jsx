@@ -10,7 +10,7 @@ import AmountOrder from "./AmountOrder/AmountOrder";
 
 const OrderContainer = () => {
   const value = useContext(Context);
-  const { products, amount, order, addToOrder, removeFromOrder } = value;
+  const { products, amount, order, addToOrder, removeFromOrder, priceItem } = value;
   
   
   
@@ -25,8 +25,7 @@ const OrderContainer = () => {
       {products.map((product) => {
         if (order[product.uid]) {
           const portion = order[product.uid] || 0;
-          const totalPrice = portion * product.price;
-          console.log(order[product.uid]);
+          const totalPrice = portion * product.price
           
           return (
             <Order
@@ -36,7 +35,7 @@ const OrderContainer = () => {
               totalPrice={totalPrice}
               add={addToOrder}
               remove={removeFromOrder}
-              
+              priceItem={priceItem}
             />
           );
         }
