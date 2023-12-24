@@ -3,44 +3,47 @@ import style from "./ModalMenu.module.css";
 import ItemEditions from "./ItemEditions/ItemEditions";
 
 const ModalMenu = ({
-  active,
-  setActive,
-  editions,
+  // active,
+  // setActive,
+  // editions,
   item,
   closeModalForEdit,
   addToOrder,
-  priceItem,
-  setPriceItem,
+  // priceItem,
+  // setPriceItem,
 }) => {
-  const { uid } = item;
-  // let priceEl = item.price
+  const { uid, price } = item;
+  console.log(item);
+  
 
-  // let [priceItem, setPriceItem] = useState( 0 && priceEl )
+  const [selectedItem, setSelectedItem] = useState(null)
+
+
   let editionsTest = () => {
-    if (editions === undefined) {
+    if (item.editions === undefined) {
       console.log("Опций нет");
     } else {
       // return item = items.map((el) => el)
-      return editions?.map((el) => {
+      return item.editions?.map((el) => {
         return el;
       });
     }
   };
 
-  const selectDiff = (price) => {
-    setPriceItem(() => {
-      // return item.price + (difference || 0);
-      return price
-    });
-  };
-
+  // const selectDiff = (item) => {
+  //   setPriceItem(() => {
+  //     // return item.price + (difference || 0);
+  //     return item;
+  //   });
+  // };
+  
   editionsTest();
   // useEffect(() => {
 
   // },[])
 
   return (
-    <div className={active ? style.modalActive : style.modal}>
+    <div className={style.modalActive}>
       <div className={style.modal__block}>
         <div className={style.modal__block_title}>
           <h2 className={style.modal_title}>{item.title}</h2>
@@ -58,12 +61,14 @@ const ModalMenu = ({
         <div className={style.modal__content}>
           <div>Выберите опцию</div>
           <div className={style.modal__item}>
-            {editions !== undefined &&
-              editions.map((item) => (
+            {item.editions !== undefined &&
+              item.editions.map((item) => (
                 <ItemEditions
                   key={item.uid}
                   item={item}
-                  selectDiff={selectDiff}
+                  selectDiff={setSelectedItem}
+                  
+                  selectedItem={selectedItem}
                 />
               ))}
           </div>
@@ -71,14 +76,14 @@ const ModalMenu = ({
         <div className={style.modal__content_main}></div>
         <div className={style.modal__blockPrice}>
           <div className={style.modal__blockPrice_price}>
-            Итог: {priceItem}₽
+            Итог: {selectedItem ? selectedItem.price : price}₽
           </div>
 
           <button
             className={style.modal__blockPrice_btn}
             onClick={() => {
-              addToOrder(uid)
-              closeModalForEdit()
+              addToOrder(selectedItem.uid);
+              closeModalForEdit();
             }}
           >
             Добавить в заказ

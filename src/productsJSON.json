@@ -275,27 +275,27 @@
     ],
     "sauce": [
       {
-        "uid": 1,
+        "uid": 601001,
         "title": "Чесночный",
         "price": 59
       },
       {
-        "uid": 2,
+        "uid": 601002,
         "title": "Кисло-сладкий",
         "price": 59
       },
       {
-        "uid": 3,
+        "uid": 601003,
         "title": "Сырный",
         "price": 59
       },
       {
-        "uid": 4,
+        "uid": 601004,
         "title": "BBQ",
         "price": 59
       },
       {
-        "uid": 5,
+        "uid": 601005,
         "title": "1000 островов",
         "price": 59
       }
@@ -401,27 +401,27 @@
     "category": "snacks",
     "editions": [
       {
-        "uid": 1,
+        "uid": 60801,
         "subtitle": "Чесночный",
         "price": 59
       },
       {
-        "uid": 2,
+        "uid": 60802,
         "subtitle": "Кисло-сладкий",
         "price": 59
       },
       {
-        "uid": 3,
+        "uid": 60803,
         "subtitle": "Сырный",
         "price": 59
       },
       {
-        "uid": 4,
+        "uid": 60804,
         "subtitle": "BBQ",
         "price": 59
       },
       {
-        "uid": 5,
+        "uid": 60805,
         "subtitle": "1000 островов",
         "price": 59
       }

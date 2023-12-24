@@ -17,6 +17,7 @@ import Milkshake from "./Category/Milkshake/Milkshake";
 import Smoothie from "./Category/Smoothie/Smoothie";
 import Salads from "./Category/Salads/Salads";
 import ModalMenu from "./ModalMenu/ModalMenu";
+import { flushSync } from "react-dom";
 
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
@@ -32,24 +33,29 @@ const Menu = () => {
     setPriceItem,
     priceItem,
   } = useContext(Context);
-  const openModalForEdit = (item) => {
-    setModalMenuActive(() => {
-      (item.editions || item.sauce) && setModalMenuActive(true);
-    });
-    setEditions(() => {
-      if (item.editions == undefined) {
-        //     // return Object.values(editions)
-        console.log("У этого товара нет дополнения");
-      } else return item.editions;
-    });
-    setItem(() => {
-      return item;
-    });
-  };
+  // const openModalForEdit = (item) => {
+  //   flushSync(() => {
+  //     setModalMenuActive(() => {
+  //       (item.editions || item.sauce) && setModalMenuActive(true);
+  //     });
+  //     setItem(() => {
+  //       return item;
+  //     });
+  //   });
+
+  //   // setEditions(() => {
+  //   //   if (item.editions == undefined) {
+  //   //    console.log("У этого товара нет дополнения");
+  //   //   } else return item.editions;
+  //   // });
+
+  //   // return item.editions
+  // };
   const closeModalForEdit = () => {
-    setModalMenuActive(() => {
-      setModalMenuActive(false);
-    });
+    setItem(null)
+    // setModalMenuActive(() => {
+    //   setModalMenuActive(false);
+    // });
   };
 
   return (
@@ -59,7 +65,7 @@ const Menu = () => {
         <Routes>
           <Route
             path={"/salads"}
-            element={<Salads openModalForEdit={openModalForEdit} />}
+            element={<Salads openModalForEdit={setItem} />}
           ></Route>
           <Route path={"/soup"} element={<Soup />}></Route>
           <Route path={"/HotDish"} element={<HotDish />}></Route>
@@ -84,7 +90,7 @@ const Menu = () => {
                   portion={order[item.uid] || 0}
                   addToOrder={addToOrder}
                   removeFromOrder={removeFromOrder}
-                  openModalForEdit={openModalForEdit}
+                  openModalForEdit={setItem}
                 />
               ))}
             ></Route>
@@ -92,7 +98,19 @@ const Menu = () => {
           {/* {products.map((item) => (
               <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
             ))} */}
-          <ModalMenu
+          {item && (
+            <ModalMenu
+              // active={modalMenuActive}
+              addToOrder={addToOrder}
+              // setActive={setModalMenuActive}
+              // editions={editions}
+              item={item}
+              closeModalForEdit={closeModalForEdit}
+              // setPriceItem={setPriceItem}
+              // priceItem={priceItem}
+            />
+          )}
+          {/* <ModalMenu
             active={modalMenuActive}
             addToOrder={addToOrder}
             setActive={setModalMenuActive}
@@ -101,7 +119,7 @@ const Menu = () => {
             closeModalForEdit={closeModalForEdit}
             setPriceItem={setPriceItem}
             priceItem={priceItem}
-          />
+          /> */}
         </div>
       </div>
     </div>

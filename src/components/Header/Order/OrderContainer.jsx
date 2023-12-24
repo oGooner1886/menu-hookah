@@ -23,6 +23,27 @@ const OrderContainer = () => {
       {orderSize === 0 ? <EmptyOrder /> : <OrderTitle />}
 
       {products.map((product) => {
+        if (product.editions){
+          return product.editions.map((el) => {
+            if (order[el.uid]) {
+              const portion = order[el.uid] || 0;
+              const totalPrice = portion * el.price
+              
+              return (
+                <Order
+                  key={el.uid}
+                  item={el}
+                  portion={portion}
+                  totalPrice={totalPrice}
+                  add={addToOrder}
+                  remove={removeFromOrder}
+                  priceItem={priceItem}
+                />
+              );
+            }
+            
+          })
+        }
         if (order[product.uid]) {
           const portion = order[product.uid] || 0;
           const totalPrice = portion * product.price
@@ -39,6 +60,7 @@ const OrderContainer = () => {
             />
           );
         }
+        
 
         return null;
       })}

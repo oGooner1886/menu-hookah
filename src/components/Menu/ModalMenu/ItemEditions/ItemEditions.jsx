@@ -9,7 +9,7 @@ const ItemEditions = ({ item, selectDiff }) => {
       <button
         className={style.item__option}
         // onClick={() => selectDiff(difference)}
-        onClick={() => selectDiff(price)}
+        onClick={() => selectDiff(item)}
       >
         <abbr title={weight}>{subtitle}</abbr>
         {difference && <span> +{difference} ₽</span>}
