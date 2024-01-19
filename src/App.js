@@ -14,23 +14,24 @@ import ModalMenu from "./components/Menu/ModalMenu/ModalMenu";
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const [order, setOrder] = useState({});
-  const [item, setItem] = useState(null)
-  
+  const [item, setItem] = useState(null);
 
-  useEffect(()=>console.log(item))
-  
-  
-  
+  // useEffect(() => console.log(item));
+
   const addToOrder = (uid) => {
+    console.log(uid);
     setOrder((prevOrder) => {
       const nextOrder = { ...prevOrder };
       if (nextOrder[uid]) {
         nextOrder[uid]++;
+        
+        
       } else {
         nextOrder[uid] = 1;
       }
-     console.log(nextOrder);
-     
+      console.log(nextOrder);
+      
+
       return nextOrder;
     });
   };
@@ -50,24 +51,20 @@ function App() {
 
   let amount = products.reduce((sum, prod) => {
     let startEditions = 0;
-    if(prod.editions){
-      startEditions = prod.editions.reduce((sum, edit)=>{
-        
+    if (prod.editions) {
+      startEditions = prod.editions.reduce((sum, edit) => {
         if (order[edit.uid]) {
-          
-          
-          return sum + (edit.price * order[edit.uid]) 
+          return sum + edit.price * order[edit.uid];
         }
         return sum;
-      }, 0)
+      }, 0);
     }
     if (order[prod.uid]) {
-      return sum + startEditions + (prod.price * order[prod.uid]) 
+      return sum + startEditions + prod.price * order[prod.uid];
     }
-    
+
     return sum + startEditions;
   }, 0);
-  
 
   const valueContext = {
     products,
@@ -76,9 +73,9 @@ function App() {
     removeFromOrder,
     amount,
     // test
-    
+
     item,
-    setItem
+    setItem,
   };
 
   useEffect(() => {}, [order]);

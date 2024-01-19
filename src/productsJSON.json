@@ -261,15 +261,19 @@
     [
       {
         "uid": 60101,
-        "subtitle": "Маленькая",
+        "title": "Картофель фри",
+        "subtitle": "Маленькая порция",
         "price": 149,
+        "gallery": "/Snack/French fries.jpg",
         "weight": "150 гр."
       },
       {
         "uid": 60102,
-        "subtitle": "Большая",
+        "title": "Картофель фри",
+        "subtitle": "Большая порция",
         "difference": 50,
         "price": 199,
+        "gallery": "/Snack/French fries.jpg",
         "weight": "250 гр."
       }
     ],
@@ -324,13 +328,15 @@
         "uid": 60301,
         "subtitle": "Маленькая",
         "price": 219,
+        "gallery": "/Snack/Chicken nuggets.jpg",
         "weight": "150 гр."
       },
       {
         "uid": 60302,
         "subtitle": "Большая",
-        "difference": "+ 100 р.",
+        "difference": "100",
         "price": 319,
+        "gallery": "/Snack/Chicken nuggets.jpg",
         "weight": "300 гр."
       }
     ],
@@ -403,25 +409,30 @@
       {
         "uid": 60801,
         "subtitle": "Чесночный",
+        "gallery": "/Snack/sauce.jpg",
         "price": 59
       },
       {
         "uid": 60802,
+        "gallery": "/Snack/sauce.jpg",
         "subtitle": "Кисло-сладкий",
         "price": 59
       },
       {
         "uid": 60803,
+        "gallery": "/Snack/sauce.jpg",
         "subtitle": "Сырный",
         "price": 59
       },
       {
         "uid": 60804,
+        "gallery": "/Snack/sauce.jpg",
         "subtitle": "BBQ",
         "price": 59
       },
       {
         "uid": 60805,
+        "gallery": "/Snack/sauce.jpg",
         "subtitle": "1000 островов",
         "price": 59
       }
@@ -731,7 +742,7 @@
       {
         "uid": 110202,
         "subtitle": "Большой",
-        "difference": "+ 50 р.",
+        "difference": "50 р.",
         "price": 209,
         "weight": ""
       }
@@ -804,7 +815,7 @@
       {
         "uid": 120002,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -828,7 +839,7 @@
       {
         "uid": 120102,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -852,7 +863,7 @@
       {
         "uid": 120202,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -877,7 +888,7 @@
       {
         "uid": 120302,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -902,7 +913,7 @@
       {
         "uid": 120402,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -926,7 +937,7 @@
       {
         "uid": 120502,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -950,7 +961,7 @@
       {
         "uid": 120602,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -974,7 +985,7 @@
       {
         "uid": 120702,
         "subtitle": "Большой",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -998,7 +1009,7 @@
       {
         "uid": 120802,
         "subtitle": "Большой",
-        "difference": "+ 20 р.",
+        "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
       }
@@ -1022,7 +1033,7 @@
       {
         "uid": 120902,
         "subtitle": "Большой",
-        "difference": "+ 20 р.",
+        "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
       }
@@ -1046,7 +1057,7 @@
       {
         "uid": 120102,
         "subtitle": "Большой",
-        "difference": "+ 20 р.",
+        "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
       }
@@ -1070,7 +1081,7 @@
       {
         "uid": 121102,
         "subtitle": "Большой",
-        "difference": "+ 20 р.",
+        "difference": "20 р.",
         "price": 209,
         "weight": "1 л."
       }
@@ -1094,7 +1105,7 @@
       {
         "uid": 121202,
         "subtitle": "Большой",
-        "difference": "+ 40 р.",
+        "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -1118,7 +1129,7 @@
       {
         "uid": 121302,
         "subtitle": "Большой",
-        "difference": "+ 40 р.",
+        "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -1142,7 +1153,7 @@
       {
         "uid": 121402,
         "subtitle": "Большой",
-        "difference": "+ 40 р.",
+        "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -1166,7 +1177,7 @@
       {
         "uid": 121502,
         "subtitle": "Большой",
-        "difference": "+ 40 р.",
+        "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
       }
@@ -1235,7 +1246,7 @@
       {
         "uid": 130002,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1259,7 +1270,7 @@
       {
         "uid": 130102,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1283,7 +1294,7 @@
       {
         "uid": 130202,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1307,7 +1318,7 @@
       {
         "uid": 130302,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1332,7 +1343,7 @@
       {
         "uid": 130402,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1356,7 +1367,7 @@
       {
         "uid": 130502,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1379,7 +1390,7 @@
       {
         "uid": 130602,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1402,7 +1413,7 @@
       {
         "uid": 130702,
         "subtitle": "Графин",
-        "difference": "+ 170 р.",
+        "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
       }
@@ -1629,7 +1640,7 @@
       {
         "uid": 150102,
         "title": "Светлое",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
       },
@@ -1642,7 +1653,7 @@
       {
         "uid": 150104,
         "title": "Пшеничное",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
       },
@@ -1655,7 +1666,7 @@
       {
         "uid": 150106,
         "title": "Пшеничное",
-        "difference": "+ 30 р.",
+        "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
       }
@@ -1678,7 +1689,7 @@
       },
       {
         "uid": 150202,
-        "difference": "+ 80 р.",
+        "difference": "80 р.",
         "price": 369,
         "weight": "0.5 л."
       }

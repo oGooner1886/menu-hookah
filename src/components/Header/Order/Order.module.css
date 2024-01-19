@@ -73,6 +73,11 @@
     line-height: 22px;
     padding-bottom: 10px;
 }
+.order__item_subtitle{
+    font-size: 15px;
+    padding-bottom: 7px;
+    
+}
 .order__item_options{
     line-height: 1.15;
     touch-action: manipulation;

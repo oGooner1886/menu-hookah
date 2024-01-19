@@ -3,9 +3,11 @@ import OrderEditionsOption from "./OrderEditionsOption";
 import OrderSauceOption from "./OrderSauceOption";
 
 const Order = ({ item, add, remove, totalPrice, portion }) => {
-  const { title, gallery, uid } = item;
-  const sauce = item.sauce;
-  const editions = item.editions
+  const { title, gallery, uid, subtitle, weight } = item;
+  // const sauce = item.sauce;
+  // const editions = item.editions
+ 
+  
 
   return (
     <div className={styles.order}>
@@ -21,6 +23,7 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
             </div>
             <div className={styles.order__item_info}>
               <h2 className={styles.order__item_title}>{title}</h2>
+              <h3 className={styles.order__item_subtitle}>{subtitle} - {weight}</h3>
               <div className={styles.order__item_options}>
                 <div className={styles.order__counter}>
                   <button

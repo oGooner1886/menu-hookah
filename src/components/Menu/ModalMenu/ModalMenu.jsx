@@ -13,11 +13,9 @@ const ModalMenu = ({
   // setPriceItem,
 }) => {
   const { uid, price } = item;
-  console.log(item);
-  
 
-  const [selectedItem, setSelectedItem] = useState(null)
-
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [active, setActive] = useState(false);
 
   let editionsTest = () => {
     if (item.editions === undefined) {
@@ -36,11 +34,11 @@ const ModalMenu = ({
   //     return item;
   //   });
   // };
-  
-  editionsTest();
-  // useEffect(() => {
 
-  // },[])
+  editionsTest();
+  useEffect(() => {
+    console.log(item.uid);
+  }, []);
 
   return (
     <div className={style.modalActive}>
@@ -67,7 +65,8 @@ const ModalMenu = ({
                   key={item.uid}
                   item={item}
                   selectDiff={setSelectedItem}
-                  
+                  active={active}
+                  setActive={setActive}
                   selectedItem={selectedItem}
                 />
               ))}
@@ -78,16 +77,24 @@ const ModalMenu = ({
           <div className={style.modal__blockPrice_price}>
             Итог: {selectedItem ? selectedItem.price : price}₽
           </div>
-
-          <button
-            className={style.modal__blockPrice_btn}
-            onClick={() => {
-              addToOrder(selectedItem.uid);
-              closeModalForEdit();
-            }}
-          >
+          {selectedItem === null ? (
+            <button
+            className={style.modal__blockPrice_inActive}
+            >
             Добавить в заказ
           </button>
+          ) : (
+            <button
+              className={style.modal__blockPrice_btn}
+              onClick={() => {
+                addToOrder(selectedItem.uid);
+                // addToOrder(item.uid)
+                closeModalForEdit();
+              }}
+            >
+              Добавить в заказ
+            </button>
+          )}
         </div>
       </div>
     </div>
