@@ -18,6 +18,8 @@ import Smoothie from "./Category/Smoothie/Smoothie";
 import Salads from "./Category/Salads/Salads";
 import ModalMenu from "./ModalMenu/ModalMenu";
 import { flushSync } from "react-dom";
+import NonAlco from "./Category/NonAlco/NonAlco";
+import Alco from "./Category/Alco/Alco";
 
 const Menu = () => {
   const [modalMenuActive, setModalMenuActive] = useState(false);
@@ -34,14 +36,16 @@ const Menu = () => {
     priceItem,
   } = useContext(Context);
   // const openModalForEdit = (item) => {
-  //   flushSync(() => {
-  //     setModalMenuActive(() => {
-  //       (item.editions || item.sauce) && setModalMenuActive(true);
-  //     });
-  //     setItem(() => {
-  //       return item;
-  //     });
+  // flushSync(() => {
+  //   setModalMenuActive(() => {
+  //     (item.editions || item.sauce) && setModalMenuActive(true);
   //   });
+  // setItem(() => {
+  //   return item;
+  // });
+  // setItem(item)
+  // })
+  // }
 
   //   // setEditions(() => {
   //   //   if (item.editions == undefined) {
@@ -52,7 +56,7 @@ const Menu = () => {
   //   // return item.editions
   // };
   const closeModalForEdit = () => {
-    setItem(null)
+    setItem(null);
     // setModalMenuActive(() => {
     //   setModalMenuActive(false);
     // });
@@ -67,17 +71,58 @@ const Menu = () => {
             path={"/salads"}
             element={<Salads openModalForEdit={setItem} />}
           ></Route>
-          <Route path={"/soup"} element={<Soup />}></Route>
-          <Route path={"/HotDish"} element={<HotDish />}></Route>
-          <Route path={"/poke"} element={<Poke />}></Route>
-          <Route path={"/snacks"} element={<Snacks />}></Route>
-          <Route path={"/pastes"} element={<Pastes />}></Route>
-          <Route path={"/lemonades"} element={<Lemonades />}></Route>
-          <Route path={"/tea"} element={<Tea />}></Route>
-          <Route path={"/coffee"} element={<Coffee />}></Route>
-          <Route path={"/desserts"} element={<Desserts />}></Route>
-          <Route path={"/milkshake"} element={<Milkshake />}></Route>
-          <Route path={"/smoothie"} element={<Smoothie />}></Route>
+          <Route
+            path={"/soup"}
+            element={<Soup openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/HotDish"}
+            element={<HotDish openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/poke"}
+            element={<Poke openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/snacks"}
+            element={<Snacks openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/pastes"}
+            element={<Pastes openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/lemonades"}
+            element={<Lemonades openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/tea"}
+            element={<Tea openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/coffee"}
+            element={<Coffee openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/desserts"}
+            element={<Desserts openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/milkshake"}
+            element={<Milkshake openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/smoothie"}
+            element={<Smoothie openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/nonalco"}
+            element={<NonAlco openModalForEdit={setItem} />}
+          ></Route>
+          <Route
+            path={"/alco"}
+            element={<Alco openModalForEdit={setItem} />}
+          ></Route>
         </Routes>
         <div className={style.item__wrapper}>
           <Routes>

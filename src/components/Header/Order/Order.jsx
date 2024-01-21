@@ -23,7 +23,7 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
             </div>
             <div className={styles.order__item_info}>
               <h2 className={styles.order__item_title}>{title}</h2>
-              <h3 className={styles.order__item_subtitle}>{subtitle} - {weight}</h3>
+              <h3 className={styles.order__item_subtitle}>{subtitle}  {weight}</h3>
               <div className={styles.order__item_options}>
                 <div className={styles.order__counter}>
                   <button

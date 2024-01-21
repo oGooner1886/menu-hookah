@@ -1593,7 +1593,7 @@
     "uid": 1410,
     "title": "Глинтвейн с мёдом и фруктами",
     "portion": 0,
-    "price": -259,
+    "price": 259,
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/Drink/.jpg",
@@ -1633,13 +1633,13 @@
     "editions": [
       {
         "uid": 150101,
-        "title": "Светлое",
+        "subtitle": "Светлое",
         "price": 139,
         "weight": "0.33 л."
       },
       {
         "uid": 150102,
-        "title": "Светлое",
+        "subtitle": "Светлое",
         "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."

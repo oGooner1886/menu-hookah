@@ -3,7 +3,7 @@ import style from "../../Menu.module.css";
 import Context from './../../../../Context/Context';
 import MenuItem from './../../MenuItem/MenuItem';
 
-const Poke = () => {
+const Poke = ({openModalForEdit}) => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
   let poke = products.filter((item) => item.uid >= 300 && item.uid < 399);
   return (
@@ -15,6 +15,7 @@ const Poke = () => {
           portion={order[item.uid] || 0}
           addToOrder={addToOrder}
           removeFromOrder={removeFromOrder}
+          openModalForEdit={openModalForEdit}
         />
       ))}
     </div>

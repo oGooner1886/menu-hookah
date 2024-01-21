@@ -81,7 +81,7 @@ const ModalMenu = ({
             <button
             className={style.modal__blockPrice_inActive}
             >
-            Добавить в заказ
+            Выберите одну из опций
           </button>
           ) : (
             <button

@@ -16,7 +16,7 @@ function App() {
   const [order, setOrder] = useState({});
   const [item, setItem] = useState(null);
 
-  // useEffect(() => console.log(item));
+  useEffect(() => console.log(item));
 
   const addToOrder = (uid) => {
     console.log(uid);

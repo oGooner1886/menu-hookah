@@ -3,7 +3,7 @@ import style from "../../Menu.module.css";
 import Context from './../../../../Context/Context';
 import MenuItem from './../../MenuItem/MenuItem';
 
-const Coffee = () => {
+const Coffee = ({openModalForEdit}) => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
   let coffee = products.filter((item) => item.uid >= 1100 && item.uid < 1199);
   return (
@@ -15,6 +15,7 @@ const Coffee = () => {
           portion={order[item.uid] || 0}
           addToOrder={addToOrder}
           removeFromOrder={removeFromOrder}
+          openModalForEdit={openModalForEdit}
         />
       ))}
     </div>

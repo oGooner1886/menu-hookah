@@ -2,6 +2,7 @@ import React from "react";
 import style from "../Menu.module.css";
 const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
+  console.log();
   
   return (
     <div className={style.item}>
