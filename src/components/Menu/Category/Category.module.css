@@ -1,7 +1,7 @@
 .wrapper{
     position: sticky;
     background-color: rgb(255, 255, 255);
-    min-width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     z-index: 101;
     
@@ -16,8 +16,25 @@
     flex-wrap: wrap;
     background-color: rgb(255, 255, 255);
     justify-content: center;
+    max-width: 1200px;
 }
-
+@media screen and (max-width: 1220px) {
+    .category{
+        padding: 0 40px;
+        
+    }
+    
+}
+@media screen and (max-width: 640px) {
+    .category{
+        justify-content: flex-start;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow: auto;
+        padding: 0 35px 0 0;
+    }
+    
+}
 .category__item_btn {
     background-color: transparent;
 }

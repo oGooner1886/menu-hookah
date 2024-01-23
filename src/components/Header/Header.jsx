@@ -10,7 +10,7 @@ const Header = ({amount}) => {
         <img className={style.header__logo} src={logo} alt="" />
       </div>
       <nav className={style.header__nav}>
-        <div className={style.header__nav_item}>
+        {/* <div className={style.header__nav_item}>
           <NavLink
             to={"/"}
             className={({ isActive }) =>
@@ -19,7 +19,7 @@ const Header = ({amount}) => {
           >
             Home
           </NavLink>
-        </div>
+        </div> */}
         <div className={style.header__nav_item}>
           <NavLink
             to={"/menu"}
@@ -30,7 +30,7 @@ const Header = ({amount}) => {
             Меню
           </NavLink>
         </div>
-        <div className={style.header__nav_item}>
+        {/* <div className={style.header__nav_item}>
           <NavLink
             to={"/"}
             className={({ isActive }) =>
@@ -59,7 +59,7 @@ const Header = ({amount}) => {
           >
             О нас
           </NavLink>
-        </div>
+        </div> */}
         <div className={style.header__nav_item}>
           <div className={style.header_infoBlock}>
             <NavLink to={"/order"} className={style.header_cartLink}>
