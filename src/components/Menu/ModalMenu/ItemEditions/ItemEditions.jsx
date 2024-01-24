@@ -15,7 +15,7 @@ const ItemEditions = ({ item, selectDiff, active, setActive }) => {
           setActive(true)
         }}
       >
-        <abbr title={weight}>{subtitle}</abbr>
+        <div title={weight}>{subtitle}{weight}</div>
         {difference && <span> +{difference} ₽</span>}
       </button>
     </div>

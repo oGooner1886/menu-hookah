@@ -12,7 +12,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import ModalMenu from "./components/Menu/ModalMenu/ModalMenu";
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, setModalActive] = useState(true);
   const [order, setOrder] = useState({});
   const [item, setItem] = useState(null);
 

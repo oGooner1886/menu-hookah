@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     transform: scale(0);
-    
+    transition: all .2s;
 }
 
 .modalActive{
@@ -23,7 +23,8 @@
     align-items: center;
     justify-content: center;
     transform: scale(1);
-    z-index: 1000
+    z-index: 1000;
+    
 }
 
 .modal__block{
@@ -114,4 +115,12 @@
   }
 .modal__agree_btn{
     margin-top: 15px;
+}
+@media screen and (max-width: 1024px) {
+  .modal__block{
+    max-width: 95%;
+    max-height: 98%;
+    
+    
+}
 }

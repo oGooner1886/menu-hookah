@@ -125,3 +125,10 @@
     margin-left: 16px;
     letter-spacing: .4px;
 }
+
+@media screen and (max-width: 1024px) {
+    .order{
+        padding: 0 20px 0 20px;
+    }
+   
+}

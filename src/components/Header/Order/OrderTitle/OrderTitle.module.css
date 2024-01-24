@@ -44,3 +44,9 @@
     margin: 20px 0;
     font-weight: 400;
 }
+@media screen and (max-width: 1024px) {
+    .blockTitle{
+        padding: 120px 20px 0 20px;
+    }
+   
+}

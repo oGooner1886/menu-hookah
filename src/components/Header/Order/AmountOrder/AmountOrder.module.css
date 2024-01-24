@@ -3,3 +3,9 @@
     font-weight: 400;
     margin-top: 20px;
 }
+@media screen and (max-width: 1024px) {
+    .amount{
+        padding: 0 20px 0 20px;
+    }
+   
+}

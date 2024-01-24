@@ -262,7 +262,7 @@
       {
         "uid": 60101,
         "title": "Картофель фри",
-        "subtitle": "Маленькая порция",
+        "subtitle": "Маленькая порция - ",
         "price": 149,
         "gallery": "/Snack/French fries.jpg",
         "weight": "150 гр."
@@ -270,7 +270,7 @@
       {
         "uid": 60102,
         "title": "Картофель фри",
-        "subtitle": "Большая порция",
+        "subtitle": "Большая порция - ",
         "difference": 50,
         "price": 199,
         "gallery": "/Snack/French fries.jpg",
@@ -326,14 +326,14 @@
     "editions": [
       {
         "uid": 60301,
-        "subtitle": "Маленькая",
+        "subtitle": "Маленькая порция - ",
         "price": 219,
         "gallery": "/Snack/Chicken nuggets.jpg",
         "weight": "150 гр."
       },
       {
         "uid": 60302,
-        "subtitle": "Большая",
+        "subtitle": "Большая порция - ",
         "difference": "100",
         "price": 319,
         "gallery": "/Snack/Chicken nuggets.jpg",
@@ -808,13 +808,13 @@
     "editions": [
       {
         "uid": 120001,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120002,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -832,13 +832,13 @@
     "editions": [
       {
         "uid": 120101,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120102,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -856,13 +856,13 @@
     "editions": [
       {
         "uid": 120201,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120202,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -880,14 +880,14 @@
     "editions": [
       {
         "uid": 120301,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "totalPrice": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120302,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -906,13 +906,13 @@
     "editions": [
       {
         "uid": 120401,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120402,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -930,13 +930,13 @@
     "editions": [
       {
         "uid": 120501,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120502,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -954,13 +954,13 @@
     "editions": [
       {
         "uid": 120601,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120602,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -978,13 +978,13 @@
     "editions": [
       {
         "uid": 120701,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 120702,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 299,
         "weight": "1 л."
@@ -1002,13 +1002,13 @@
     "editions": [
       {
         "uid": 120801,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 199,
         "weight": "0.5 л."
       },
       {
         "uid": 120802,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
@@ -1026,13 +1026,13 @@
     "editions": [
       {
         "uid": 120901,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 199,
         "weight": "0.5 л."
       },
       {
         "uid": 120902,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
@@ -1050,13 +1050,13 @@
     "editions": [
       {
         "uid": 121001,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 199,
         "weight": "0.5 л."
       },
       {
         "uid": 120102,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "20 р.",
         "price": 219,
         "weight": "1 л."
@@ -1074,13 +1074,13 @@
     "editions": [
       {
         "uid": 121101,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 199,
         "weight": "0.5 л."
       },
       {
         "uid": 121102,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "20 р.",
         "price": 209,
         "weight": "1 л."
@@ -1098,13 +1098,13 @@
     "editions": [
       {
         "uid": 121201,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 259,
         "weight": "0.5 л."
       },
       {
         "uid": 121202,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
@@ -1122,13 +1122,13 @@
     "editions": [
       {
         "uid": 121301,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 259,
         "weight": "0.5 л."
       },
       {
         "uid": 121302,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
@@ -1146,13 +1146,13 @@
     "editions": [
       {
         "uid": 121401,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 259,
         "weight": "0.5 л."
       },
       {
         "uid": 121402,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
@@ -1170,13 +1170,13 @@
     "editions": [
       {
         "uid": 121501,
-        "subtitle": "Маленький",
+        "subtitle": "Маленький - ",
         "price": 259,
         "weight": "0.5 л."
       },
       {
         "uid": 121502,
-        "subtitle": "Большой",
+        "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
         "weight": "1 л."
@@ -1239,13 +1239,13 @@
     "editions": [
       {
         "uid": 130001,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л"
       },
       {
         "uid": 130002,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1263,13 +1263,13 @@
     "editions": [
       {
         "uid": 130101,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130102,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1287,13 +1287,13 @@
     "editions": [
       {
         "uid": 130201,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130202,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1311,13 +1311,13 @@
     "editions": [
       {
         "uid": 130301,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130302,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1336,13 +1336,13 @@
     "editions": [
       {
         "uid": 130401,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130402,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1360,13 +1360,13 @@
     "editions": [
       {
         "uid": 130501,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130502,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1383,13 +1383,13 @@
     "editions": [
       {
         "uid": 130601,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130602,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1406,13 +1406,13 @@
     "editions": [
       {
         "uid": 130701,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       },
       {
         "uid": 130702,
-        "subtitle": "Графин",
+        "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 399,
         "weight": "1 л."
@@ -1429,7 +1429,7 @@
     "editions": [
       {
         "uid": 130801,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       }
@@ -1445,7 +1445,7 @@
     "editions": [
       {
         "uid": 130901,
-        "subtitle": "Стакан",
+        "subtitle": "Стакан - ",
         "price": 229,
         "weight": "0.4 л."
       }
@@ -1609,13 +1609,13 @@
     "editions": [
       {
         "uid": 150001,
-        "subtitle": "Алкогольное",
+        "subtitle": "Алкогольное - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150002,
-        "subtitle": "Безалкогольное",
+        "subtitle": "Безалкогольное - ",
         "price": 179,
         "weight": "0.5 л."
       }
@@ -1633,39 +1633,39 @@
     "editions": [
       {
         "uid": 150101,
-        "subtitle": "Светлое",
+        "subtitle": "Светлое - ",
         "price": 139,
         "weight": "0.33 л."
       },
       {
         "uid": 150102,
-        "subtitle": "Светлое",
+        "subtitle": "Светлое - ",
         "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
       },
       {
         "uid": 150103,
-        "title": "Пшеничное",
+        "subtitle": "Пшеничное - ",
         "price": 139,
         "weight": "0.33 л."
       },
       {
         "uid": 150104,
-        "title": "Пшеничное",
+        "subtitle": "Пшеничное - ",
         "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
       },
       {
         "uid": 150105,
-        "title": "Янтарное",
+        "subtitle": "Янтарное - ",
         "price": 139,
         "weight": "0.33 л."
       },
       {
         "uid": 150106,
-        "title": "Пшеничное",
+        "subtitle": "Пшеничное - ",
         "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."
@@ -1707,49 +1707,49 @@
     "editions": [
       {
         "uid": 150301,
-        "subtitle": "Тёмная вишня",
+        "subtitle": "Тёмная вишня - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150302,
-        "subtitle": "Кокос-цитрус",
+        "subtitle": "Кокос-цитрус - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150303,
-        "subtitle": "Виноград-мандарин",
+        "subtitle": "Виноград-мандарин - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150304,
-        "subtitle": "Гранат-малина",
+        "subtitle": "Гранат-малина - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150305,
-        "subtitle": "Дыня-мята",
+        "subtitle": "Дыня-мята - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150306,
-        "subtitle": "Манго-чили",
+        "subtitle": "Манго-чили - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150307,
-        "subtitle": "Малина",
+        "subtitle": "Малина - ",
         "price": 179,
         "weight": "0.5 л."
       },
       {
         "uid": 150308,
-        "subtitle": "Красное яблоко",
+        "subtitle": "Красное яблоко - ",
         "price": 179,
         "weight": "0.5 л."
       }
