@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logoNua.jpg";
+import logo from "../../assets/images/gusto lounge logo-1.png";
 import style from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 

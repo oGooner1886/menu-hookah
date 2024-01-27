@@ -1,126 +1,173 @@
-.modal{
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0);
-    transition: all .2s;
+.modal {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all .2s;
 }
 
-.modalActive{
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(1);
-    z-index: 1000;
-    
+.modalActive {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  z-index: 1000;
+
 }
 
-.modal__block{
-    padding: 20px;
-    border-radius: 12px;
-    background-color: #fff;
-    
-    
-}
-.modal__content{
-    max-width: 1100px;
-}
-.modal__content_header{
-    margin-bottom: 20px;
-}
-.modal__content_header h1{
-    font-weight: 800;
-    text-align: center;
-    font-size: 24px;
-}
-.modal__content_header h2{
-    padding-top: 10px;
-    font-weight: 800;
-    text-align: center;
-    font-size: 18px;
+.modal__block {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  
+
 }
 
-.modal__content_main{
-    text-align: center;
+.modal__content {
+  max-width: 1100px;
 }
+
+.modal__content_header {
+  margin-bottom: 20px;
+}
+
+.modal__content_header h1 {
+  font-weight: 800;
+  text-align: center;
+  font-size: 24px;
+}
+
+.modal__content_header h2 {
+  padding-top: 10px;
+  font-weight: 800;
+  text-align: center;
+  font-size: 18px;
+}
+
+.modal__content_main {
+  text-align: center;
+}
+
 .modal__content_main p {
-    padding-bottom: 10px;
-    font-size: 16px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  line-height: 20px;
 }
+
+.modal__content_main_hb {
+  color: rgb(255, 0, 0);
+  font-weight: 700;
+
+}
+
 /* button */
 
-.modal__agree{
-    padding-top: 15px;
-    text-align: center;
-    max-width: 700px;
-    display: block;
-    margin: 0 auto;
-    
+.modal__agree {
+  padding-top: 15px;
+  text-align: center;
+  max-width: 700px;
+  display: block;
+  margin: 0 auto;
+
 }
+
 .modal__agree button {
-    border-radius: 4px;
-    background-color: #5ca1e1;
-    border: none;
-    color: #fff;
-    text-align: center;
-    font-size: 32px;
-    padding: 16px;
-    width: 220px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 36px;
-    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-  }
-  
-  .modal__agree button{
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .modal__agree button:after {
-    content: '»';
-    position: absolute;
-    opacity: 0;  
-    top: 14px;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .modal__agree button:hover{
-    padding-right: 24px;
-    padding-left:8px;
-  }
-  
-  .modal__agree button:hover:after {
-    opacity: 1;
-    right: 10px;
-  }
-  .modal__agree div{
-    margin-top: 15px;
-    font-size: 24px;
-  }
-.modal__agree_btn{
-    margin-top: 15px;
+  border-radius: 4px;
+  background-color: #5ca1e1;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 36px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
 }
+
+.modal__agree button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.modal__agree button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.modal__agree button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.modal__agree div {
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+.modal__agree_btn {
+  margin-top: 15px;
+}
+
 @media screen and (max-width: 1024px) {
-  .modal__block{
+  .modal__block {
     max-width: 95%;
-    max-height: 98%;
-    
-    
+    max-height: 95%;
+  }
 }
+
+@media screen and (max-width: 600px) {
+  .modal__block {
+    padding: 5px;
+  }
+
+  .modal__content_main p {
+    font-size: 14px;
+    line-height: 15px;
+  }
+
+  .modal__content_header {
+    margin-bottom: 10px;
+  }
+
+  .modal__content_header h1 {
+    font-size: 20px;
+  }
+
+  .modal__content_header h2 {
+    font-size: 14px;
+  }
+
+  .modal__agree {
+
+    padding-top: 0;
+  }
+
+  .modal__agree div {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  .modal__agree button {
+    font-size: 24px;
+    margin: 16px;
+  }
 }

@@ -28,6 +28,10 @@
     margin-right: auto; */
     margin-top: 20px;
     margin-bottom: 40px;
+    /* background-color:#000;
+    border-radius: 8px; */
+    
+
 }
 
 .header__nav {
@@ -57,21 +61,6 @@
     text-decoration: none;
     color: #000000;
 }
-
-/* .header__nav_cart {
-    margin-top: 2px;
-    width: 18px;
-    height: 18px;
-    color: #000000;
-}
-
-.header__nav_cart:hover {
-    color: #dc3d3d;
-}
-
-.header__nav_item .header__nav_active .header__nav_cart {
-    color: #dc3d3d;
-} */
 
 /* корзина - кнопка */
 .header_infoBlock {
