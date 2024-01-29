@@ -5,7 +5,8 @@ import MenuItem from './../../MenuItem/MenuItem';
 
 const Desserts = ({openModalForEdit}) => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  let desserts = products.filter((item) => item.uid >= 700 && item.uid < 799);
+  let desserts = products.filter((item) => item.uid >= 700 && item.uid < 899);
+ 
   return (
     <div className={style.wrapper}>
       {desserts.map((item) => (

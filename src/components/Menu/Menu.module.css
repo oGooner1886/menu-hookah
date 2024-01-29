@@ -1,9 +1,3 @@
-@media screen and (max-width: 1220px) {
-    .wrapper {
-        padding: 0 30px;
-    }
-}
-
 .wrapper {
     max-width: 1200px;
     display: flex;
@@ -11,14 +5,10 @@
     justify-content: space-between;
     position: relative;
     top: 100px;
-
+    padding-bottom: 100px;
 }
 
-@media screen and (max-width: 1220px) {
-    .wrapper {
-        padding: 0 30px;
-    }
-}
+
 
 .category__menu {
     padding-bottom: 150px;
@@ -233,6 +223,12 @@
 
 }
 
+@media screen and (max-width: 1220px) {
+    .wrapper {
+        padding: 0 30px;
+    }
+}
+
 @media screen and (max-width: 875px) {
     .item__wrapper {
         padding: 120px 0;
@@ -255,7 +251,7 @@
 
 @media screen and (max-width: 640px) {
     .item__wrapper {
-        padding: 60px 0;
+        padding: 100px 0;
         margin: 0;
 
     }

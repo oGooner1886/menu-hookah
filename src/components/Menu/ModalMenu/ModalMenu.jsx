@@ -36,9 +36,7 @@ const ModalMenu = ({
   // };
 
   editionsTest();
-  useEffect(() => {
-    console.log(item.uid);
-  }, []);
+
 
   return (
     <div className={style.modalActive}>

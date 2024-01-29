@@ -558,25 +558,25 @@
     "editions": [
       {
         "uid": 80001,
-        "subtitle": "Сливочный",
+        "subtitle": "Сливочный - ",
         "price": 69,
         "weight": "50 гр."
       },
       {
         "uid": 80002,
-        "subtitle": "Шоколадный",
+        "subtitle": "Шоколадный - ",
         "price": 69,
         "weight": "50 гр."
       },
       {
         "uid": 80003,
-        "subtitle": "Клубничный",
+        "subtitle": "Клубничный - ",
         "price": 69,
         "weight": "50 гр."
       },
       {
         "uid": 80004,
-        "subtitle": "Фисташковый",
+        "subtitle": "Фисташковый - ",
         "price": 69,
         "weight": "50 гр."
       }
@@ -1665,7 +1665,7 @@
       },
       {
         "uid": 150106,
-        "subtitle": "Пшеничное - ",
+        "subtitle": "Янтарное - ",
         "difference": "30 р.",
         "price": 169,
         "weight": "0.5 л."

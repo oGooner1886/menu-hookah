@@ -19,7 +19,7 @@ const OrderContainer = () => {
   useEffect(() => {}, [order]);
 
   return (
-    <div>
+    <div className={styles.container}>
       {orderSize === 0 ? <EmptyOrder /> : <OrderTitle />}
 
       {products.map((product) => {

@@ -1,7 +1,4 @@
-.item__wrapper{
-    
-}
-.item__option{
+.item__option {
     border-radius: 18px;
     border: 1px solid #000;
     font-weight: 400;
@@ -9,9 +6,9 @@
     font-size: 15px;
     padding: 8px 16px 6px;
     margin-right: 6px;
-    
 }
-.item__option:focus{
+
+.item__option:focus {
     background-color: rgb(0, 0, 0);
     color: white;
     transition: all .25s linear;
