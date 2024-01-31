@@ -17,49 +17,15 @@ import Milkshake from "./Category/Milkshake/Milkshake";
 import Smoothie from "./Category/Smoothie/Smoothie";
 import Salads from "./Category/Salads/Salads";
 import ModalMenu from "./ModalMenu/ModalMenu";
-import { flushSync } from "react-dom";
 import NonAlco from "./Category/NonAlco/NonAlco";
 import Alco from "./Category/Alco/Alco";
 
 const Menu = () => {
-  const [modalMenuActive, setModalMenuActive] = useState(false);
-  const [editions, setEditions] = useState([]);
-  // const [item, setItem] = useState({})
-  const {
-    products,
-    order,
-    addToOrder,
-    removeFromOrder,
-    item,
-    setItem,
-    setPriceItem,
-    priceItem,
-  } = useContext(Context);
-  // const openModalForEdit = (item) => {
-  // flushSync(() => {
-  //   setModalMenuActive(() => {
-  //     (item.editions || item.sauce) && setModalMenuActive(true);
-  //   });
-  // setItem(() => {
-  //   return item;
-  // });
-  // setItem(item)
-  // })
-  // }
+  const { products, order, addToOrder, removeFromOrder, item, setItem } =
+    useContext(Context);
 
-  //   // setEditions(() => {
-  //   //   if (item.editions == undefined) {
-  //   //    console.log("У этого товара нет дополнения");
-  //   //   } else return item.editions;
-  //   // });
-
-  //   // return item.editions
-  // };
   const closeModalForEdit = () => {
     setItem(null);
-    // setModalMenuActive(() => {
-    //   setModalMenuActive(false);
-    // });
   };
 
   return (
@@ -140,31 +106,13 @@ const Menu = () => {
               ))}
             ></Route>
           </Routes>
-          {/* {products.map((item) => (
-              <ModalMenu active={modalMenuActive} setActive={setModalMenuActive} item={item} key={item.uid}/> 
-            ))} */}
           {item && (
             <ModalMenu
-              // active={modalMenuActive}
               addToOrder={addToOrder}
-              // setActive={setModalMenuActive}
-              // editions={editions}
               item={item}
               closeModalForEdit={closeModalForEdit}
-              // setPriceItem={setPriceItem}
-              // priceItem={priceItem}
             />
           )}
-          {/* <ModalMenu
-            active={modalMenuActive}
-            addToOrder={addToOrder}
-            setActive={setModalMenuActive}
-            editions={editions}
-            item={item}
-            closeModalForEdit={closeModalForEdit}
-            setPriceItem={setPriceItem}
-            priceItem={priceItem}
-          /> */}
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@ import products from "./productsJSON.json";
 import Context from "./Context/Context";
 import OrderContainer from "./components/Header/Order/OrderContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import ModalMenu from "./components/Menu/ModalMenu/ModalMenu";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -25,13 +24,10 @@ function App() {
       const nextOrder = { ...prevOrder };
       if (nextOrder[uid]) {
         nextOrder[uid]++;
-        
-        
       } else {
         nextOrder[uid] = 1;
       }
       console.log(nextOrder);
-      
 
       return nextOrder;
     });
@@ -89,9 +85,9 @@ function App() {
           <Route path={"/home"} element={<Home />}></Route>
           <Route path={"/menu/*"} element={<Menu />}></Route>
           <Route path={"/order"} element={<OrderContainer />}></Route>
-          </Routes>
+        </Routes>
         <Modal active={modalActive} setActive={setModalActive} />
-        <Footer/>
+        <Footer />
         {/* <Promo/> */}
       </div>
     </Context.Provider>

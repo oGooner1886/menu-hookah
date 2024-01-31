@@ -72,6 +72,10 @@
   font-weight: 700;
 
 }
+.modal__content_main_price{
+  color: #2a00c0;
+  font-weight: 700;
+}
 
 /* button */
 
@@ -101,10 +105,9 @@
 
 .modal__agree button:after {
   content: '»';
-  position: absolute;
+  position: relative;
   opacity: 0;
-  top: 14px;
-  right: -20px;
+  left: 10px;
   transition: 0.5s;
 }
 
