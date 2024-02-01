@@ -13,7 +13,39 @@
     1.3.21
 
 ### React
-[React](http://react.dev/)
+[React](http://react.dev/) В терминале вашей IDE, вызовите команду инсталляции пакета CRA.
+
+    $npm i create-react-app
+
+## Установка
+  Клонирование репозитория.
+
+    $ git clone oGooner1886/menu-hookah
+  
+  Переход в директорию menu-hookah
+  
+    $ cd menu-hookah
+
+  Установка необходимых пакетов
+  
+    $ npm install
+
+## Запуск проекта
+
+    $ npm start 
+    //or
+    $ npm run start
+
+## Обновление проекта
+Использование некоторых пакетов может измениться, поэтому вам следует периодически `npm prune` и `npm install`.
+    
+    $ git pull
+    $ npm prune
+    $ npm install
+
+Чтобы запустить эти 3 команды, вы можете просто вызвать
+
+    $ npm run pull
 
 ## О проекте
 //дополнить
