@@ -85,10 +85,13 @@ function App() {
           <Route path={"/home"} element={<Home />}></Route>
           <Route path={"/menu/*"} element={<Menu />}></Route>
           <Route path={"/order"} element={<OrderContainer />}></Route>
+          <Route path={""} element={<Promo/>}></Route>
         </Routes>
+        
         <Modal active={modalActive} setActive={setModalActive} />
+        
         <Footer />
-        {/* <Promo/> */}
+        
       </div>
     </Context.Provider>
   );

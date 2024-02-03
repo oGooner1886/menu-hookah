@@ -1,3 +1,15 @@
+.promo{
+    padding-top: 130px;
+    display: block;
+}
+.layer{
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    /* letter-spacing: 14px; */
+}
 .video{
-    width: 100%;
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
 }

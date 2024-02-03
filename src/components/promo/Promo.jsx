@@ -4,7 +4,10 @@ import video from '../../assets/videos/promo1.MP4'
 
 const Promo = () => {
   return (
-    <div>
+    <div className={style.promo}>
+      <div className={style.layer}>
+        Страница в разработке
+      </div>
       <video className={style.video} loop muted autoPlay preload='auto' >
         <source src={video} type='video/mp4'/>
         {/* <source src='../../assets/videos/promo1.webm' type='video/webm'/> */}
