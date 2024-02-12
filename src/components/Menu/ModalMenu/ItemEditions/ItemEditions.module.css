@@ -12,5 +12,6 @@
     background-color: rgb(0, 0, 0);
     color: white;
     transition: all .25s linear;
-    outline: -webkit-focus-ring-color auto 1px;
+    -webkit-tap-highlight-color: rgb(0, 0, 0);
+    -webkit-text-fill-color: #ffffff;
 }
