@@ -1,5 +1,5 @@
 # GustoLounge
-[Your Link Here] (https://gustolounge.ru/menu)
+[Gusto Lounge] (https://gustolounge.ru/menu)
 
 ## Необходимые условия
 Для разработки вам понадобится Node.js и React.js, установленный в вашей IDE.
