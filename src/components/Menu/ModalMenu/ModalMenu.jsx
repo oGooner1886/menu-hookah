@@ -3,14 +3,9 @@ import style from "./ModalMenu.module.css";
 import ItemEditions from "./ItemEditions/ItemEditions";
 
 const ModalMenu = ({
-  // active,
-  // setActive,
-  // editions,
   item,
   closeModalForEdit,
   addToOrder,
-  // priceItem,
-  // setPriceItem,
 }) => {
   const { uid, price } = item;
 
@@ -21,22 +16,13 @@ const ModalMenu = ({
     if (item.editions === undefined) {
       console.log("Опций нет");
     } else {
-      // return item = items.map((el) => el)
       return item.editions?.map((el) => {
         return el;
       });
     }
   };
 
-  // const selectDiff = (item) => {
-  //   setPriceItem(() => {
-  //     // return item.price + (difference || 0);
-  //     return item;
-  //   });
-  // };
-
   editionsTest();
-
 
   return (
     <div className={style.modalActive}>

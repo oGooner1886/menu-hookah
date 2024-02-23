@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./AmountOrder.module.css"
+import React from 'react';
+import styles from './AmountOrder.module.css';
 
-const AmountOrder = ({amount}) => {
+const AmountOrder = ({ amount }) => {
   return (
     <div className={styles.amount}>
-      <p>Итого: { 0 || amount} ₽</p>
+      <p>Итого: {0 || amount} ₽</p>
     </div>
   );
 };

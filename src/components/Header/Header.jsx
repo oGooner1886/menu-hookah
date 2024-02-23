@@ -1,9 +1,9 @@
-import React from "react";
-import logo from "../../assets/images/gusto lounge logo-1.png";
-import style from "./Header.module.css";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import logo from '../../assets/images/gusto lounge logo-1.png';
+import style from './Header.module.css';
+import { NavLink } from 'react-router-dom';
 
-const Header = ({amount}) => {
+const Header = ({ amount }) => {
   return (
     <header className={style.header}>
       <div>
@@ -22,10 +22,8 @@ const Header = ({amount}) => {
         </div> */}
         <div className={style.header__nav_item}>
           <NavLink
-            to={"/menu"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
+            to={'/menu'}
+            className={({ isActive }) => (isActive ? style.header__nav_active : style.header__nav_item)}
           >
             Меню
           </NavLink>
@@ -62,7 +60,7 @@ const Header = ({amount}) => {
         </div> */}
         <div className={style.header__nav_item}>
           <div className={style.header_infoBlock}>
-            <NavLink to={"/order"} className={style.header_cartLink}>
+            <NavLink to={'/order'} className={style.header_cartLink}>
               <div className={style.header_cartWrapper} title="Корзина">
                 Заказ / {amount} ₽
               </div>

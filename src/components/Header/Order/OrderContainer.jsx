@@ -1,34 +1,27 @@
-import React, { useContext, useEffect } from "react";
-import styles from "./Order.module.css";
-import Context from "../../../Context/Context";
-import Order from "./Order";
-import OrderTitle from "./OrderTitle/OrderTitle";
-import EmptyOrder from "./EmptyOrder/EmptyOrder";
-import AmountOrder from "./AmountOrder/AmountOrder";
-
-
+import React, { useContext } from 'react';
+import styles from './Order.module.css';
+import Context from '../../../Context/Context';
+import Order from './Order';
+import OrderTitle from './OrderTitle/OrderTitle';
+import EmptyOrder from './EmptyOrder/EmptyOrder';
+import AmountOrder from './AmountOrder/AmountOrder';
 
 const OrderContainer = () => {
   const value = useContext(Context);
   const { products, amount, order, addToOrder, removeFromOrder, priceItem } = value;
-  
-  
-  
   const orderSize = Object.keys(order).length;
-
-  useEffect(() => {}, [order]);
 
   return (
     <div className={styles.container}>
       {orderSize === 0 ? <EmptyOrder /> : <OrderTitle />}
 
       {products.map((product) => {
-        if (product.editions){
+        if (product.editions) {
           return product.editions.map((el) => {
             if (order[el.uid]) {
               const portion = order[el.uid] || 0;
-              const totalPrice = portion * el.price
-              
+              const totalPrice = portion * el.price;
+
               return (
                 <Order
                   key={el.uid}
@@ -41,13 +34,12 @@ const OrderContainer = () => {
                 />
               );
             }
-            
-          })
+          });
         }
         if (order[product.uid]) {
           const portion = order[product.uid] || 0;
-          const totalPrice = portion * product.price
-          
+          const totalPrice = portion * product.price;
+
           return (
             <Order
               key={product.uid}
@@ -60,7 +52,6 @@ const OrderContainer = () => {
             />
           );
         }
-        
 
         return null;
       })}
