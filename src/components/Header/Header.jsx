@@ -20,14 +20,14 @@ const Header = ({ amount }) => {
             Home
           </NavLink>
         </div> */}
-        <div className={style.header__nav_item}>
+        {/* <div className={style.header__nav_item}>
           <NavLink
-            to={'/menu'}
+            to={'/gusto/menu'}
             className={({ isActive }) => (isActive ? style.header__nav_active : style.header__nav_item)}
           >
             Меню
           </NavLink>
-        </div>
+        </div> */}
         {/* <div className={style.header__nav_item}>
           <NavLink
             to={"/"}
