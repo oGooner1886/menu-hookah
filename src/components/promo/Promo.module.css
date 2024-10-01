@@ -83,8 +83,17 @@
 .card__gusto .logo__a {
   background-image: url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=600&q=80');
   display: grid;
-    align-items: center;
-    justify-items: center;
+  align-items: center;
+  justify-items: center;
+}
+.card__gusto .logo__b {
+  background-image: url('https://images.unsplash.com/photo-1477093782505-e10aaeb27c6d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* https://images.unsplash.com/photo-1477093782505-e10aaeb27c6d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  /* https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  /* https://images.unsplash.com/photo-1528758054211-22aa4c5300db?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 .card__gusto .card__gusto_cover .card__gusto_price {

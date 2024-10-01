@@ -7,7 +7,9 @@ const Header = ({ amount }) => {
   return (
     <header className={style.header}>
       <div>
-        <img className={style.header__logo} src={logo} alt="" />
+        <NavLink to={'/'}>
+          <img className={style.header__logo} src={logo} alt="" />
+        </NavLink>
       </div>
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
