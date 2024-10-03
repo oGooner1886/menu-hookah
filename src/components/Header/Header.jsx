@@ -62,7 +62,7 @@ const Header = ({ amount }) => {
         </div> */}
         <div className={style.header__nav_item}>
           <div className={style.header_infoBlock}>
-            <NavLink to={'/order'} className={style.header_cartLink}>
+            <NavLink to={'/gusto/order'} className={style.header_cartLink}>
               <div className={style.header_cartWrapper} title="Корзина">
                 Заказ / {amount} ₽
               </div>

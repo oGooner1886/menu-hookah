@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import style from "../../Menu.module.css";
+import React, { useContext } from 'react';
+import style from '../../Menu.module.css';
 import Context from './../../../../Context/Context';
 import MenuItem from './../../MenuItem/MenuItem';
 
-const Salads = ({openModalForEdit}) => {
+const Salads = ({ openModalForEdit }) => {
   const { products, order, addToOrder, removeFromOrder } = useContext(Context);
-  let salads = products.filter((item) => item.uid < 100);
-  
+  const salads = products.filter((item) => item.uid < 100);
+
   return (
     <div className={style.wrapper}>
       {salads.map((item) => (

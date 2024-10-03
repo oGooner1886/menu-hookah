@@ -74,7 +74,7 @@ function App() {
         <Routes>
           <Route path={'/home'} element={<Home />}></Route>
           <Route path={'/gusto/menu/*'} element={<Menu />}></Route>
-          <Route path={'/order'} element={<OrderContainer />}></Route>
+          <Route path={'gusto/order'} element={<OrderContainer />}></Route>
           <Route path={''} element={<Promo />} />
         </Routes>
         <Modal active={modalActive} setActive={setModalActive} />

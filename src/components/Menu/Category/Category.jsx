@@ -7,7 +7,7 @@ const Category = () => {
     <div className={style.wrapper}>
       <div className={style.category}>
         <NavLink
-          to={'/menu/salads'}
+          to={'./salads'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -15,7 +15,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/soup'}
+          to={'./soup'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -23,7 +23,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/hotDish'}
+          to={'./hotDish'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -31,7 +31,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/poke'}
+          to={'./poke'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -39,7 +39,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/snacks'}
+          to={'./snacks'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -47,7 +47,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/pastes'}
+          to={'./pastes'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -55,7 +55,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/lemonades'}
+          to={'./lemonades'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -63,7 +63,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/tea'}
+          to={'./tea'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -71,7 +71,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/coffee'}
+          to={'./coffee'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -79,7 +79,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/desserts'}
+          to={'./desserts'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -87,7 +87,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/milkshake'}
+          to={'./milkshake'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -95,7 +95,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/smoothie'}
+          to={'./smoothie'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -103,7 +103,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/nonalco'}
+          to={'./nonalco'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
@@ -111,7 +111,7 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'/menu/alco'}
+          to={'./alco'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
