@@ -10,9 +10,13 @@ import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import Promo from './components/promo/Promo';
 import products from './productsJSON.json';
+import products_aroma from './productsJSON_aroma.json';
 
 function App() {
   const [modalActive, setModalActive] = useState(true);
+
+  const [switchMenuMode, setSwitchMenuMode] = useState(true);
+
   const [order, setOrder] = useState({});
   const [item, setItem] = useState(null);
   const addToOrder = (uid) => {
@@ -25,6 +29,12 @@ function App() {
       }
       return nextOrder;
     });
+  };
+  const switchMenuOnAroma = () => {
+    setSwitchMenuMode(false);
+  };
+  const switchMenuOnGusto = () => {
+    setSwitchMenuMode(true);
   };
 
   const removeFromOrder = (uid) => {
@@ -59,12 +69,17 @@ function App() {
 
   const valueContext = {
     products,
+    products_aroma,
     order,
     addToOrder,
     removeFromOrder,
     amount,
     item,
     setItem,
+    switchMenuMode,
+    setSwitchMenuMode,
+    switchMenuOnAroma,
+    switchMenuOnGusto,
   };
 
   return (
@@ -73,7 +88,8 @@ function App() {
         <HeaderContainer />
         <Routes>
           <Route path={'/home'} element={<Home />}></Route>
-          <Route path={'/menu/*'} element={<Menu />}></Route>
+          <Route path={'/gusto/menu/*'} element={<Menu />}></Route>
+          <Route path={'/aroma/menu/*'} element={<Menu />}></Route>
           <Route path={'/order'} element={<OrderContainer />}></Route>
           <Route path={''} element={<Promo />} />
         </Routes>

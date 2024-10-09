@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 const Header = ({ amount }) => {
   return (
     <header className={style.header}>
-      <div>
+      <NavLink to={'/'}>
         <img className={style.header__logo} src={logo} alt="" />
-      </div>
+      </NavLink>
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
           <NavLink

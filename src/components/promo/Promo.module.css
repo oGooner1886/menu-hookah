@@ -1,15 +1,155 @@
-.promo{
-    padding-top: 130px;
-    display: block;
+.promo {
+  padding-top: 130px;
+  padding-bottom: 250px;
+  display: block;
 }
-.layer{
-    text-align: center;
-    padding: 10px;
-    font-size: 24px;
-    /* letter-spacing: 14px; */
+.layer {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 24px;
+  /* letter-spacing: 14px; */
 }
-.video{
-    display: grid;
-    width: 50%;
-    margin: 0 auto;
+.video {
+  display: grid;
+  width: 50%;
+  margin: 0 auto;
+}
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.card__gusto {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin: 10px 0;
+  transition: ease all 2.3s;
+  perspective: 1200px;
+}
+.card__gusto:hover .card__gusto_cover {
+  transform: rotateX(0deg) rotateY(-180deg);
+}
+.card__gusto:hover .card__gusto_cover:before {
+  transform: translateZ(30px);
+}
+.card__gusto:hover .card__gusto_cover:after {
+  background-color: black;
+}
+.card__gusto:hover .card__gusto_cover .card__gusto_price {
+  transform: translateZ(60px);
+}
+.card__gusto:hover .card__gusto_cover a {
+  transform: translateZ(-60px) rotatey(-180deg);
+}
+.card__gusto .card__gusto_cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.card__gusto .card__gusto_cover:before {
+  content: '';
+  position: absolute;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  transition: ease all 2.3s;
+  transform-style: preserve-3d;
+  transform: translateZ(0px);
+}
+.card__gusto .card__gusto_cover:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  transition: ease all 1.3s;
+  background: rgba(0, 0, 0, 0.4);
+}
+.card__gusto .logo__a {
+  background-image: url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=600&q=80');
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.card__gusto .logo__b {
+  background-image: url('https://images.unsplash.com/photo-1477093782505-e10aaeb27c6d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* https://images.unsplash.com/photo-1477093782505-e10aaeb27c6d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  /* https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  /* https://images.unsplash.com/photo-1528758054211-22aa4c5300db?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.card__gusto .card__gusto_cover .card__gusto_price {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  z-index: 4;
+}
+.card__gusto .card__gusto_back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #0b0f08;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  transform: translateZ(-1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__gusto .card__gusto_back a {
+  transform-style: preserve-3d;
+  transition:
+    ease transform 2.3s,
+    ease background 0.5s;
+  transform: translateZ(-1px) rotatey(-180deg);
+  background: transparent;
+  border: 1px solid white;
+  font-weight: 200;
+  font-size: 1.3em;
+  color: white;
+  padding: 14px 32px;
+  outline: none;
+  text-decoration: none;
+}
+.card__gusto .card__gusto_back a:hover {
+  background-color: white;
+  color: #0b0f08;
+}
+
+.card__gusto_logo {
+  height: 70px;
+  width: 70px;
+  display: block;
+  /* margin-left: auto;
+      margin-right: auto; */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  /* background-color:#000;
+      border-radius: 8px; */
+}
+.card__aroma {
+}
+.cards_vertical {
+  border-left: 4px solid black;
+  height: 200px;
+  /* position: absolute; */
+  /* left: 50%; */
 }

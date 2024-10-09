@@ -21,7 +21,8 @@ import NonAlco from './Category/NonAlco/NonAlco';
 import Alco from './Category/Alco/Alco';
 
 const Menu = () => {
-  const { products, order, addToOrder, removeFromOrder, item, setItem } = useContext(Context);
+  const { products, products_aroma, order, addToOrder, removeFromOrder, item, setItem, switchMenuMode } =
+    useContext(Context);
 
   const closeModalForEdit = () => {
     setItem(null);
@@ -51,16 +52,29 @@ const Menu = () => {
           <Routes>
             <Route
               path={'/'}
-              element={products.map((item) => (
-                <MenuItem
-                  key={item.uid}
-                  item={item}
-                  portion={order[item.uid] || 0}
-                  addToOrder={addToOrder}
-                  removeFromOrder={removeFromOrder}
-                  openModalForEdit={setItem}
-                />
-              ))}
+              element={
+                switchMenuMode === true
+                  ? products.map((item) => (
+                      <MenuItem
+                        key={item.uid}
+                        item={item}
+                        portion={order[item.uid] || 0}
+                        addToOrder={addToOrder}
+                        removeFromOrder={removeFromOrder}
+                        openModalForEdit={setItem}
+                      />
+                    ))
+                  : products_aroma.map((item) => (
+                      <MenuItem
+                        key={item.uid}
+                        item={item}
+                        portion={order[item.uid] || 0}
+                        addToOrder={addToOrder}
+                        removeFromOrder={removeFromOrder}
+                        openModalForEdit={setItem}
+                      />
+                    ))
+              }
             ></Route>
           </Routes>
           {item && (

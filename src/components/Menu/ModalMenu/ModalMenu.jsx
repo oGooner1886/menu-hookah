@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
-import style from "./ModalMenu.module.css";
-import ItemEditions from "./ItemEditions/ItemEditions";
+import React, { useState } from 'react';
+import style from './ModalMenu.module.css';
+import ItemEditions from './ItemEditions/ItemEditions';
 
-const ModalMenu = ({
-  item,
-  closeModalForEdit,
-  addToOrder,
-}) => {
-  const { uid, price } = item;
+const ModalMenu = ({ item, closeModalForEdit, addToOrder }) => {
+  const { price } = item;
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [active, setActive] = useState(false);
 
-  let editionsTest = () => {
+  const editionsTest = () => {
     if (item.editions === undefined) {
-      console.log("Опций нет");
+      console.log('Опций нет');
     } else {
       return item.editions?.map((el) => {
         return el;
@@ -58,15 +54,9 @@ const ModalMenu = ({
         </div>
         <div className={style.modal__content_main}></div>
         <div className={style.modal__blockPrice}>
-          <div className={style.modal__blockPrice_price}>
-            Итог: {selectedItem ? selectedItem.price : price}₽
-          </div>
+          <div className={style.modal__blockPrice_price}>Итог: {selectedItem ? selectedItem.price : price}₽</div>
           {selectedItem === null ? (
-            <button
-            className={style.modal__blockPrice_inActive}
-            >
-            Выберите одну из опций
-          </button>
+            <button className={style.modal__blockPrice_inActive}>Выберите одну из опций</button>
           ) : (
             <button
               className={style.modal__blockPrice_btn}
