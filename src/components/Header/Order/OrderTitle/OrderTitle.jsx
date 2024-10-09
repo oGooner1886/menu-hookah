@@ -7,7 +7,7 @@ const OrderTitle = () => {
   return (
     <div className={style.blockTitle}>
       <div className={style.empty}>
-        <NavLink to={'/menu'} className={style.empty__link}>
+        <NavLink to={'/'} className={style.empty__link}>
           <span className={style.link__backArrow}>
             <BsArrowLeft />
             <p className={style.link__description}>К меню</p>

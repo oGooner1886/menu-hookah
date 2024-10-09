@@ -1,9 +1,8 @@
-import React from "react";
-import style from "../Menu.module.css";
+import React from 'react';
+import style from '../Menu.module.css';
 const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
-  console.log();
-  
+
   return (
     <div className={style.item}>
       <div className={style.desc}>
@@ -28,11 +27,9 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
             <button
               className={style.desc__price_button}
               onClick={() => {
-                if(item.editions){
-                  openModalForEdit(item)
-                }
-                
-                else addToOrder(uid)
+                if (item.editions) {
+                  openModalForEdit(item);
+                } else addToOrder(uid);
               }}
             >
               <span>+</span>
@@ -41,7 +38,11 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
         </div>
       </div>
       <div className={style.images}>
+<<<<<<< HEAD
         <img src={"../../images/menu" + gallery} alt="" />
+=======
+        <img src={'../../images/menu' + gallery} alt="" />
+>>>>>>> a45413ac9f1528c4b72ec4f3556c9d5ee4f709b6
       </div>
     </div>
   );
