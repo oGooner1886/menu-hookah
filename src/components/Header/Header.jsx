@@ -9,11 +9,6 @@ const Header = ({ amount }) => {
       <NavLink to={'/'}>
         <img className={style.header__logo} src={logo} alt="" />
       </NavLink>
-      <div>
-        <NavLink to={'/'}>
-          <img className={style.header__logo} src={logo} alt="" />
-        </NavLink>
-      </div>
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
           <NavLink
@@ -65,7 +60,7 @@ const Header = ({ amount }) => {
         </div> */}
         <div className={style.header__nav_item}>
           <div className={style.header_infoBlock}>
-            <NavLink to={'/gusto/order'} className={style.header_cartLink}>
+            <NavLink to={'/order'} className={style.header_cartLink}>
               <div className={style.header_cartWrapper} title="Корзина">
                 Заказ / {amount} ₽
               </div>

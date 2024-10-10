@@ -139,19 +139,11 @@
   width: 70px;
   display: block;
   /* margin-left: auto;
-<<<<<<< HEAD
       margin-right: auto; */
   margin-top: 20px;
   margin-bottom: 40px;
   /* background-color:#000;
       border-radius: 8px; */
-=======
-    margin-right: auto; */
-  margin-top: 20px;
-  margin-bottom: 40px;
-  /* background-color:#000;
-    border-radius: 8px; */
->>>>>>> a45413ac9f1528c4b72ec4f3556c9d5ee4f709b6
 }
 .card__aroma {
 }

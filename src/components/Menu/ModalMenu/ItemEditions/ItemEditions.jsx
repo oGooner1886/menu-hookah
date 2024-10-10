@@ -1,5 +1,5 @@
-import React from "react";
-import style from "./ItemEditions.module.css";
+import React from 'react';
+import style from './ItemEditions.module.css';
 
 const ItemEditions = ({ item, selectDiff, setActive }) => {
   const { subtitle, weight } = item;

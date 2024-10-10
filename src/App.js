@@ -88,7 +88,8 @@ function App() {
         <HeaderContainer />
         <Routes>
           <Route path={'/home'} element={<Home />}></Route>
-          <Route path={'/menu/*'} element={<Menu />}></Route>
+          <Route path={'/gusto/menu/*'} element={<Menu />}></Route>
+          <Route path={'/aroma/menu/*'} element={<Menu />}></Route>
           <Route path={'/order'} element={<OrderContainer />}></Route>
           <Route path={''} element={<Promo />} />
         </Routes>

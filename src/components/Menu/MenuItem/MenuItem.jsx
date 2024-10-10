@@ -38,11 +38,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
         </div>
       </div>
       <div className={style.images}>
-<<<<<<< HEAD
-        <img src={"../../images/menu" + gallery} alt="" />
-=======
         <img src={'../../images/menu' + gallery} alt="" />
->>>>>>> a45413ac9f1528c4b72ec4f3556c9d5ee4f709b6
       </div>
     </div>
   );
