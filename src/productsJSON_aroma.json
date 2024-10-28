@@ -106,26 +106,7 @@
     "gallery": "/../menuAroma/Pasta/.jpg",
     "category": "pasta"
   },
-  {
-    "uid": 300,
-    "title": "Поке с лососем",
-    "portion": 0,
-    "price": 429,
-    "totalPrice": 429,
-    "descr": "Блюдо гавайсĸой ĸухни, нарезанный ĸубиĸами лосось(соль перец), отварной рис, огурец, авоĸадо, водоросли чуĸа, листия нори, чипсы фунчозы (рисовая лапша во фритюре) , дольĸа лимона и ореховый соус",
-    "gallery": "/../menuAroma/Poke/.jpg",
-    "category": "poke"
-  },
-  {
-    "uid": 301,
-    "title": "Поке с креветками",
-    "portion": 0,
-    "price": 429,
-    "totalPrice": 429,
-    "descr": "Блюдо гавайсĸой ĸухни, креветки обжаренные в соусе 'сладкий чили', отварной рис, огурец, авоĸадо, водоросли чуĸа, листия нори, чипсы фунчозы (рисовая лапша во фритюре) , дольĸа лимона и ореховый соус",
-    "gallery": "/../menuAroma/Poke/.jpg",
-    "category": "poke"
-  },
+
   {
     "uid": 400,
     "title": "Бефстроганов с картофельным пюре",
@@ -137,7 +118,7 @@
   },
   {
     "uid": 401,
-    "title": "Куриный стейк",
+    "title": "Куриный стейк с картофельным пюре",
     "portion": 0,
     "price": 469,
     "descr": "Куриный стейк, фри или пюре, соус цезарь",
@@ -146,6 +127,15 @@
   },
   {
     "uid": 402,
+    "title": "Куриный стейк с картофелем фри",
+    "portion": 0,
+    "price": 469,
+    "descr": "Куриный стейк, фри или пюре, соус цезарь",
+    "gallery": "/../menuAroma/Hot dish/Chicken steak with .jpg",
+    "category": "hotDish"
+  },
+  {
+    "uid": 403,
     "title": "Ризотто с морепродуктами",
     "portion": 0,
     "price": 519,
@@ -233,7 +223,7 @@
     "title": "Мидии запечённые под сыром",
     "portion": 0,
     "price": 429,
-    "descr": "Сыр чечил, ĸолбасĸи для гриля(ĸуриные), наггетсы ĸуриные, ĸартофель черри, гренĸи, сырные шариĸи , 2 соуса на выбор",
+    "descr": "",
     "gallery": "/../menuAroma/Snack/.jpg",
     "category": "snacks"
   },
@@ -242,7 +232,7 @@
     "title": "Бри запечённый с грушей и мёдом",
     "portion": 0,
     "price": 449,
-    "descr": "Сыр чечил, ĸолбасĸи для гриля(ĸуриные), наггетсы ĸуриные, ĸартофель черри, гренĸи, сырные шариĸи , 2 соуса на выбор",
+    "descr": "",
     "gallery": "/../menuAroma/Snack/.jpg",
     "category": "snacks"
   },
@@ -251,7 +241,7 @@
     "title": "Бри запечённый с черри и розмарином",
     "portion": 0,
     "price": 419,
-    "descr": "Сыр чечил, ĸолбасĸи для гриля(ĸуриные), наггетсы ĸуриные, ĸартофель черри, гренĸи, сырные шариĸи , 2 соуса на выбор",
+    "descr": "",
     "gallery": "/../menuAroma/Snack/Brie baked with cherry and rosemary.jpg",
     "category": "snacks"
   },
@@ -260,7 +250,7 @@
     "title": "Оливки/маслины",
     "portion": 0,
     "price": 209,
-    "descr": "Сыр чечил, ĸолбасĸи для гриля(ĸуриные), наггетсы ĸуриные, ĸартофель черри, гренĸи, сырные шариĸи , 2 соуса на выбор",
+    "descr": "",
     "gallery": "/../menuAroma/Snack/Olive .jpg",
     "category": "snacks"
   },
@@ -1282,7 +1272,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/вода.jpg",
     "category": "drimk"
   },
   {
@@ -1291,7 +1281,7 @@
     "portion": 0,
     "price": 189,
     "descr": "",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/рычал.jpg",
     "category": "drimk",
     "weight": "0.5 л."
   },
@@ -1302,7 +1292,7 @@
     "price": 289,
     "descr": "",
     "weight": "0.5 л.",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/боржоми.jpg",
     "category": "drimk"
   },
   {
@@ -1324,7 +1314,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "editions": [{}],
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/натахтари.jpg",
     "category": "drimk"
   },
   {
@@ -1334,7 +1324,7 @@
     "price": 219,
     "descr": "",
     "weight": "0.25 л.",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/red bull.jpg",
     "category": "drimk"
   },
   {
@@ -1344,7 +1334,7 @@
     "price": 189,
     "descr": "",
     "weight": "0.25 л.",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/adrenaline.jpg",
     "category": "drimk"
   },
   {
@@ -1510,7 +1500,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/../menuAroma/Alco/white phoenix.jpg",
     "category": "alcohol"
   }
 ]

@@ -6,7 +6,7 @@ import MenuItem from './../../MenuItem/MenuItem';
 const Snacks = ({ openModalForEdit }) => {
   const { products, products_aroma, order, addToOrder, removeFromOrder, switchMenuMode } = useContext(Context);
   const snacks = products.filter((item) => (item.uid >= 200 && item.uid < 299) || (item.uid >= 600 && item.uid < 699));
-  const snacks_aroma = products_aroma.filter((item) => item.uid < 100);
+  const snacks_aroma = products_aroma.filter((item) => item.uid >= 600 && item.uid < 699);
   return (
     <div className={style.wrapper}>
       {switchMenuMode === true

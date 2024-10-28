@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './Category.module.css';
+import Context from '../../../Context/Context';
 
 const Category = () => {
+  const { switchMenuMode } = useContext(Context);
   return (
     <div className={style.wrapper}>
       <div className={style.category}>
@@ -30,14 +32,17 @@ const Category = () => {
             <h1>Горячее</h1>
           </button>
         </NavLink>
-        <NavLink
-          to={'./poke'}
-          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
-        >
-          <button className={style.category__item_btn}>
-            <h1>Поке</h1>
-          </button>
-        </NavLink>
+        {switchMenuMode === true ? (
+          <NavLink
+            to={'./poke'}
+            className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+          >
+            <button className={style.category__item_btn}>
+              <h1>Поке</h1>
+            </button>
+          </NavLink>
+        ) : null}
+
         <NavLink
           to={'./snacks'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
