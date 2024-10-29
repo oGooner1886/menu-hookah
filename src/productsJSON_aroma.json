@@ -12,7 +12,7 @@
     "title": "Салат с баклажанами и фетой",
     "price": 329,
     "descr": "Микс салата, баклажан в фритюре, помидор, фета, орех грецкий, чили сладкий, бальзамик, ароматное масло",
-    "gallery": "/../menuAroma/Salads/.jpg",
+    "gallery": "/../menuAroma/Salads/салат с баклажанами и феттой.jpg",
     "category": "salads"
   },
   {
@@ -48,7 +48,7 @@
     "portion": 0,
     "price": 379,
     "descr": "Руккола,черри,авокадо,пармезан,креветки (обжаренные на чесночном масле), лимон, ароматное масло",
-    "gallery": "/../menuAroma/Salads/.jpg",
+    "gallery": "/../menuAroma/Salads/Салат с креветками и рукколой.jpg",
     "category": "salads"
   },
 
@@ -94,7 +94,7 @@
     "portion": 0,
     "price": 419,
     "descr": "Баветте, креветки, лук красный, перец болгарский,фасоль стручковая,черри, грибы, чеснок, кунжутное масло, соевый, сладкий чили, терияки,кунжут",
-    "gallery": "/../menuAroma/Pasta/.jpg",
+    "gallery": "/../menuAroma/Pasta/ВОК с креветками.jpg",
     "category": "pasta"
   },
   {
@@ -103,7 +103,7 @@
     "portion": 0,
     "price": 369,
     "descr": "Тальятелле, дор блю, сыр творожный, сыр сливочный, пармезан, сливки",
-    "gallery": "/../menuAroma/Pasta/.jpg",
+    "gallery": "/../menuAroma/Pasta/Паста 4 сыра.jpg",
     "category": "pasta"
   },
 
@@ -113,7 +113,7 @@
     "portion": 0,
     "price": 499,
     "descr": "Говядина, лук репчатый,чеснок, масло сливочное, сметана ,сливки + картофельное пюре + огурец соленый.",
-    "gallery": "/../menuAroma/Hot dish/.jpg",
+    "gallery": "/../menuAroma/Hot dish/Beef Stroganoff with potato mash.jpg",
     "category": "hotDish"
   },
   {
@@ -131,7 +131,7 @@
     "portion": 0,
     "price": 469,
     "descr": "Куриный стейк, фри или пюре, соус цезарь",
-    "gallery": "/../menuAroma/Hot dish/Chicken steak with .jpg",
+    "gallery": "/../menuAroma/Hot dish/Chicken steak with French fries.jpg",
     "category": "hotDish"
   },
   {
@@ -140,10 +140,9 @@
     "portion": 0,
     "price": 519,
     "descr": "Рис, лук репчатый, чеснок, сливочное масло, кальмар, креветки, куркума, сыр творожный, сливки, пармезан",
-    "gallery": "/../menuAroma/Hot dish/.jpg",
+    "gallery": "/../menuAroma/Hot dish/ризотто.jpg",
     "category": "hotDish"
   },
-
   {
     "uid": 500,
     "title": "Суп куриный",
@@ -159,7 +158,7 @@
     "portion": 0,
     "price": 259,
     "descr": "Лук репчатый,морковь, чеснок, картофель, сыр сливочный, сливки, пармезан.",
-    "gallery": "/../menuAroma/Soup/.jpg",
+    "gallery": "/../menuAroma/Soup/крем суп сырный.jpg",
     "category": "soup"
   },
   {
@@ -168,7 +167,16 @@
     "portion": 0,
     "price": 299,
     "descr": "Бульон Рамен(соевый,чеснок,имбирь,бульон) , лапша яичная,курица,вакаме, яйцо, кунжут, лук зеленый.",
-    "gallery": "/../menuAroma/Soup/.jpg",
+    "gallery": "/../menuAroma/Soup/Рамен.jpg",
+    "category": "soup"
+  },
+  {
+    "uid": 503,
+    "title": "Сливочный суп с морепродуктами",
+    "portion": 0,
+    "price": 399,
+    "descr": "Креветки, кальмары, черри, лук порей, сливки",
+    "gallery": "/../menuAroma/Soup/Сливочный суп с морепродуктами.jpg",
     "category": "soup"
   },
   {
@@ -177,7 +185,7 @@
     "portion": 0,
     "price": 339,
     "descr": "Креветки обжариваются в панцире с чесноĸом и соевом соусе и ĸусочĸом лимона, подается с дольĸой лимона и сладĸим чили",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/Брускетта с ростбифом.jpg",
     "category": "snacks"
   },
   {
@@ -187,7 +195,17 @@
     "price": 379,
     "descr": "",
     "weight": "",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/Брускетта с лососем.jpg",
+    "category": "snacks"
+  },
+  {
+    "uid": 614,
+    "title": "Чиабата с курицей",
+    "portion": 0,
+    "price": 259,
+    "descr": "Курица, гауда, корнишоны, помидоры, соус цезарь, лист салата",
+    "weight": "",
+    "gallery": "/../menuAroma/Snack/Чиабата с курицей.jpg",
     "category": "snacks"
   },
   {
@@ -205,7 +223,7 @@
     "portion": 0,
     "price": 389,
     "descr": "Сыр моцарелла, майонез, яйца, панировочные сухари",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/Сырная тарелка.jpg",
     "category": "snacks"
   },
   {
@@ -224,7 +242,7 @@
     "portion": 0,
     "price": 429,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/Мидии.jpg",
     "category": "snacks"
   },
   {
@@ -233,7 +251,7 @@
     "portion": 0,
     "price": 449,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/Бри с грушей.jpg",
     "category": "snacks"
   },
   {
@@ -391,7 +409,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/.jpg",
+    "gallery": "/../menuAroma/Snack/хлеб.jpg",
     "category": "snacks"
   },
 
@@ -411,15 +429,6 @@
     "price": 319,
     "descr": "",
     "gallery": "/../menuAroma/Desserts/Lemon cheesecake.jpg",
-    "category": "desserts"
-  },
-  {
-    "uid": 702,
-    "title": "Смородиновый чизкейк",
-    "portion": 0,
-    "price": 249,
-    "descr": "",
-    "gallery": "/../menuAroma/Desserts/.jpg",
     "category": "desserts"
   },
   {
@@ -508,7 +517,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Ice cream/.jpg",
+    "gallery": "/../menuAroma/Ice cream/маршмеллоу.jpg",
     "category": "iceCream"
   },
   {
@@ -602,7 +611,7 @@
     "price": 139,
     "descr": "",
     "weight": "60 мл.",
-    "gallery": "/../menuAroma/Coffee/.jpg",
+    "gallery": "/../menuAroma/Coffee/двойной эспрессо.jpg",
     "category": "coffee"
   },
   {
@@ -701,7 +710,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/Ягодный.jpg",
     "category": "tea"
   },
   {
@@ -725,7 +734,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/цитрусовый.jpg",
     "category": "tea"
   },
 
@@ -774,7 +783,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/малина розмарин.jpg",
     "category": "tea"
   },
   {
@@ -798,7 +807,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/клубника базилик.jpg",
     "category": "tea"
   },
   {
@@ -822,7 +831,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/вишня корица.jpg",
     "category": "tea"
   },
 
@@ -895,7 +904,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/зеленый чай.jpg",
     "category": "tea"
   },
   {
@@ -943,7 +952,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/пуэр.jpg",
     "category": "tea"
   },
 
@@ -953,7 +962,7 @@
     "portion": 0,
     "price": 19,
     "descr": "",
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/чабрец.jpg",
     "category": "tea"
   },
   {
@@ -962,7 +971,7 @@
     "portion": 0,
     "price": 19,
     "descr": "",
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/Мята.jpg",
     "category": "tea"
   },
   {
@@ -971,7 +980,7 @@
     "portion": 0,
     "price": 19,
     "descr": "",
-    "gallery": "/../menuAroma/Tea/.jpg",
+    "gallery": "/../menuAroma/Tea/лимон.jpg",
     "category": "tea"
   },
   {
@@ -1014,7 +1023,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Lemonade/.jpg",
+    "gallery": "/../menuAroma/Lemonade/черника-лаванда.jpg",
     "category": "lemonade"
   },
   {
@@ -1086,7 +1095,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Lemonade/.jpg",
+    "gallery": "/../menuAroma/Lemonade/Лимонад ежевика гранат.jpg",
     "category": "lemonade"
   },
   {
@@ -1179,7 +1188,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Lemonade/.jpg",
+    "gallery": "/../menuAroma/Lemonade/Ананас клюква.jpg",
     "category": "lemonade"
   },
   {
@@ -1261,13 +1270,13 @@
     "editions": [
       {
         "uid": 140001,
-        "subtitle": "Газированная вода",
+        "subtitle": "Газированная вода - ",
         "price": 129,
         "weight": "0.5 л."
       },
       {
         "uid": 140002,
-        "subtitle": "Негазированная вода",
+        "subtitle": "Негазированная вода - ",
         "price": 129,
         "weight": "0.5 л."
       }
@@ -1338,7 +1347,7 @@
     "category": "drimk"
   },
   {
-    "uid": 1405,
+    "uid": 1407,
     "title": "Свежевыжатый сок",
     "portion": 0,
     "price": 229,
@@ -1346,19 +1355,19 @@
     "weight": "0.3 л.",
     "editions": [
       {
-        "uid": 140501,
+        "uid": 140701,
         "subtitle": "Апельсиновый - ",
         "price": 229,
         "weight": "0.3 л."
       },
       {
-        "uid": 140502,
+        "uid": 140702,
         "subtitle": "Грейпфрутовый - ",
         "price": 229,
         "weight": "0.3 л."
       },
       {
-        "uid": 140503,
+        "uid": 140703,
         "subtitle": "Лимонный - ",
         "price": 229,
         "weight": "0.3 л."
@@ -1389,7 +1398,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/../menuAroma/Alco/kozel.jpg",
     "category": "alcohol"
   },
   {
@@ -1397,44 +1406,18 @@
     "title": "Разливное пиво",
     "portion": 0,
     "price": 159,
-    "descr": "Разливное пиво - Белуга",
+    "descr": "Разливное пиво",
     "weight": "0.33 л.",
     "editions": [
       {
         "uid": 150101,
-        "subtitle": "Светлое - ",
+        "subtitle": "",
         "price": 159,
         "weight": "0.33 л."
       },
       {
         "uid": 150102,
-        "subtitle": "Светлое - ",
-        "difference": "40 р.",
-        "price": 199,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150103,
-        "subtitle": "Пшеничное - ",
-        "price": 159,
-        "weight": "0.33 л."
-      },
-      {
-        "uid": 150104,
-        "subtitle": "Пшеничное - ",
-        "difference": "40 р.",
-        "price": 199,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150105,
-        "subtitle": "Янтарное - ",
-        "price": 159,
-        "weight": "0.33 л."
-      },
-      {
-        "uid": 150106,
-        "subtitle": "Янтарное - ",
+        "subtitle": "",
         "difference": "40 р.",
         "price": 199,
         "weight": "0.5 л."
@@ -1447,60 +1430,20 @@
     "uid": 1503,
     "title": "Сидр White Phoenix",
     "portion": 0,
-    "price": 209,
+    "price": 249,
     "descr": "",
     "weight": "0.5 л.",
-    "editions": [
-      {
-        "uid": 150301,
-        "subtitle": "Тёмная вишня - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150302,
-        "subtitle": "Кокос-цитрус - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150303,
-        "subtitle": "Виноград-мандарин - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150304,
-        "subtitle": "Гранат-малина - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150305,
-        "subtitle": "Дыня-мята - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150306,
-        "subtitle": "Манго-чили - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150307,
-        "subtitle": "Малина - ",
-        "price": 209,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150308,
-        "subtitle": "Красное яблоко - ",
-        "price": 209,
-        "weight": "0.5 л."
-      }
-    ],
     "gallery": "/../menuAroma/Alco/white phoenix.jpg",
+    "category": "alcohol"
+  },
+  {
+    "uid": 1504,
+    "title": "Импортное пиво",
+    "portion": 0,
+    "price": 389,
+    "descr": "",
+    "weight": "0.5 л.",
+    "gallery": "/../menuAroma/Alco/schneider weisse.jpg",
     "category": "alcohol"
   }
 ]

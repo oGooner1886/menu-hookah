@@ -11,6 +11,7 @@ import Modal from './components/Modal/Modal';
 import Promo from './components/promo/Promo';
 import products from './productsJSON.json';
 import products_aroma from './productsJSON_aroma.json';
+import { ScrollToTop } from './components/Scroll/ScrollToTop';
 
 function App() {
   const [modalActive, setModalActive] = useState(true);
@@ -86,6 +87,7 @@ function App() {
     <Context.Provider value={valueContext}>
       <div className="App">
         <HeaderContainer />
+        <ScrollToTop />
         <Routes>
           <Route path={'/home'} element={<Home />}></Route>
           <Route path={'/gusto/menu/*'} element={<Menu />}></Route>

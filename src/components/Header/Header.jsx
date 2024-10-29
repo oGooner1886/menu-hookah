@@ -4,11 +4,32 @@ import style from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = ({ amount }) => {
+  const answer = () => {
+    const ans = confirm('Очистить корзину?');
+    if (ans === true) {
+      console.log('bla');
+    }
+  };
+
   return (
     <header className={style.header}>
-      <NavLink to={'/'}>
-        <img className={style.header__logo} src={logo} alt="" />
-      </NavLink>
+      {amount === 0 ? (
+        <NavLink to={'/'}>
+          <img className={style.header__logo} src={logo} alt="" />
+        </NavLink>
+      ) : (
+        <NavLink
+          to={'#'}
+          title="Очистите корзину"
+          onClick={() => {
+            alert('Для перехода в главное меню очистите корзину');
+            answer();
+          }}
+        >
+          <img className={style.header__logo} src={logo} alt="" />
+        </NavLink>
+      )}
+
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
           <NavLink

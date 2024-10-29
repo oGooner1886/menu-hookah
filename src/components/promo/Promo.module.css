@@ -153,3 +153,11 @@
   /* position: absolute; */
   /* left: 50%; */
 }
+
+@media screen and (max-width: 530px){
+  .cards{
+    flex-direction: column;
+    margin: 0 10px;
+  }
+  
+}

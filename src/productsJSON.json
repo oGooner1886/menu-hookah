@@ -1607,39 +1607,13 @@
     "editions": [
       {
         "uid": 150101,
-        "subtitle": "Светлое - ",
+        "subtitle": "",
         "price": 159,
         "weight": "0.33 л."
       },
       {
         "uid": 150102,
-        "subtitle": "Светлое - ",
-        "difference": "40 р.",
-        "price": 199,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150103,
-        "subtitle": "Пшеничное - ",
-        "price": 159,
-        "weight": "0.33 л."
-      },
-      {
-        "uid": 150104,
-        "subtitle": "Пшеничное - ",
-        "difference": "40 р.",
-        "price": 199,
-        "weight": "0.5 л."
-      },
-      {
-        "uid": 150105,
-        "subtitle": "Янтарное - ",
-        "price": 159,
-        "weight": "0.33 л."
-      },
-      {
-        "uid": 150106,
-        "subtitle": "Янтарное - ",
+        "subtitle": "",
         "difference": "40 р.",
         "price": 199,
         "weight": "0.5 л."
