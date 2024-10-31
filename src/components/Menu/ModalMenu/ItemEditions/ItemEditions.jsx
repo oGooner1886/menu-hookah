@@ -3,7 +3,6 @@ import style from './ItemEditions.module.css';
 
 const ItemEditions = ({ item, selectDiff, setActive }) => {
   const { subtitle, weight } = item;
-
   return (
     <div className={style.item__wrapper}>
       <button

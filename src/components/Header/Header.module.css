@@ -9,7 +9,9 @@
   width: 100%;
   margin: 0 auto;
 }
-
+.header a {
+  cursor: pointer;
+}
 .header__logo {
   height: 70px;
   width: 70px;

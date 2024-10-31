@@ -1,13 +1,20 @@
 import React from 'react';
 import logo from '../../assets/images/gusto lounge logo-1.png';
 import style from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-const Header = ({ amount }) => {
-  const answer = () => {
-    const ans = confirm('Очистить корзину?');
-    if (ans === true) {
-      console.log('bla');
+const Header = ({ amount, deleteOrder }) => {
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate('/');
+  };
+
+  const confirmX = () => {
+    alert('Для перехода в главное меню очистите корзину');
+    const result = confirm('Очистить корзину?');
+    if (result === true) {
+      deleteOrder();
+      goHome();
     }
   };
 
@@ -18,16 +25,13 @@ const Header = ({ amount }) => {
           <img className={style.header__logo} src={logo} alt="" />
         </NavLink>
       ) : (
-        <NavLink
-          to={'#'}
-          title="Очистите корзину"
+        <a
           onClick={() => {
-            alert('Для перехода в главное меню очистите корзину');
-            answer();
+            confirmX();
           }}
         >
           <img className={style.header__logo} src={logo} alt="" />
-        </NavLink>
+        </a>
       )}
 
       <nav className={style.header__nav}>
