@@ -48,6 +48,7 @@ const ModalMenu = ({ item, closeModalForEdit, addToOrder }) => {
                   active={active}
                   setActive={setActive}
                   selectedItem={selectedItem}
+                  addToOrder={addToOrder}
                 />
               ))}
           </div>

@@ -4,8 +4,8 @@
     max-width: 1200px;
     margin: 0 auto;
     z-index: 101;
-    
-    
+
+
 }
 .category {
     position: fixed;
@@ -24,7 +24,7 @@
     background-color: transparent;
 }
 
-.category__item h1 {
+.category__item {
     line-height: 1.15;
     background-color: transparent;
     font-size: 14px;

@@ -18,7 +18,7 @@ const Promo = () => {
               <img className={style.card__gusto_logo} src={logo} alt="" />
             </span>
             <div className={style.card__gusto_back}>
-              <NavLink to={'/gusto/menu'} onClick={() => switchMenuOnGusto(false)}>
+              <NavLink to={'/gusto/menu'} onClick={() => switchMenuOnGusto()}>
                 Перейти к меню
               </NavLink>
             </div>
@@ -30,7 +30,7 @@ const Promo = () => {
               <img className={style.card__gusto_logo} src={logo_aroma} alt="" />
             </span>
             <div className={style.card__gusto_back}>
-              <NavLink to={'/aroma/menu'} onClick={() => switchMenuOnAroma(false)}>
+              <NavLink to={'/aroma/menu'} onClick={() => switchMenuOnAroma()}>
                 Перейти к меню
               </NavLink>
             </div>

@@ -12,14 +12,18 @@ import Promo from './components/promo/Promo';
 import products from './productsJSON.json';
 import products_aroma from './productsJSON_aroma.json';
 import { ScrollToTop } from './components/Scroll/ScrollToTop';
+import { editionsMaping } from './utils/consts';
 
 function App() {
   const [modalActive, setModalActive] = useState(true);
 
-  const [switchMenuMode, setSwitchMenuMode] = useState(true);
+  const [switchMenuMode, setSwitchMenuMode] = useState(JSON.parse(sessionStorage.getItem('menuMode')));
 
   const [order, setOrder] = useState({});
   const [item, setItem] = useState(null);
+
+  const [lastAddedItemId, setLastAddedItemId] = useState(null);
+
   const addToOrder = (uid) => {
     setOrder((prevOrder) => {
       const nextOrder = { ...prevOrder };
@@ -30,25 +34,40 @@ function App() {
       }
       return nextOrder;
     });
+    setLastAddedItemId(uid);
   };
+
   const switchMenuOnAroma = () => {
-    setSwitchMenuMode(false);
+    setSwitchMenuMode('Aroma');
+    sessionStorage.setItem('menuMode', JSON.stringify('Aroma'));
   };
   const switchMenuOnGusto = () => {
-    setSwitchMenuMode(true);
+    setSwitchMenuMode('Gusto');
+    sessionStorage.setItem('menuMode', JSON.stringify('Gusto'));
   };
 
   const removeFromOrder = (uid) => {
     setOrder((prevOrder) => {
       const nextOrder = { ...prevOrder };
+
       if (nextOrder[uid]) {
         nextOrder[uid]--;
         if (nextOrder[uid] === 0) {
           delete nextOrder[uid];
         }
+      } else {
+        if (nextOrder[lastAddedItemId]) {
+          nextOrder[lastAddedItemId]--;
+        } else if (nextOrder[editionsMaping[lastAddedItemId]]) {
+          nextOrder[editionsMaping[lastAddedItemId]]--;
+        }
       }
       return nextOrder;
     });
+  };
+
+  const deleteOrder = () => {
+    setOrder({});
   };
 
   const amount = products.reduce((sum, prod) => {
@@ -81,6 +100,7 @@ function App() {
     setSwitchMenuMode,
     switchMenuOnAroma,
     switchMenuOnGusto,
+    deleteOrder,
   };
 
   return (

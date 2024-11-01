@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../Menu.module.css';
 const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
-  const { title, descr, price, gallery, uid } = item;
+  const { title, descr, price, gallery, uid, editions } = item;
 
   return (
     <div className={style.item}>
@@ -27,7 +27,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
             <button
               className={style.desc__price_button}
               onClick={() => {
-                if (item.editions) {
+                if (editions) {
                   openModalForEdit(item);
                 } else addToOrder(uid);
               }}
