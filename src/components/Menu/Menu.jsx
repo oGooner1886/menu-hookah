@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import style from './Menu.module.css';
 import Context from '../../Context/Context';
 import MenuItem from './MenuItem/MenuItem';
@@ -6,22 +6,21 @@ import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
 
 const Menu = () => {
-  const { products, products_aroma, order, addToOrder, removeFromOrder, item, setItem, switchMenuMode } =
+  const { placeProducts, order, addToOrder, removeFromOrder, item, setItem, categoryUse, setCategoryUse } =
     useContext(Context);
 
   const closeModalForEdit = () => {
     setItem(null);
   };
 
-  const [categoryUse, setCategoryUse] = useState(null);
-  const placeProducts = switchMenuMode === 'Gusto' ? products : products_aroma;
-  const categories = categoryUse ? placeProducts.filter((item) => item.category === categoryUse) : placeProducts;
+  const items = categoryUse ? placeProducts.filter((item) => item.category === categoryUse) : placeProducts;
+
   return (
     <div className={style.wrapper}>
       <div>
         <Category setCategoryUse={setCategoryUse} categoryUse={categoryUse} />
         <div className={style.item__wrapper}>
-          {categories.map((item) => {
+          {items.map((item) => {
             let portion;
             if (item.editions) {
               portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);

@@ -23,6 +23,7 @@ function App() {
   const [item, setItem] = useState(null);
 
   const [lastAddedItemId, setLastAddedItemId] = useState(null);
+  const [categoryUse, setCategoryUse] = useState(null);
 
   const addToOrder = (uid) => {
     setOrder((prevOrder) => {
@@ -69,8 +70,9 @@ function App() {
   const deleteOrder = () => {
     setOrder({});
   };
+  const placeProducts = switchMenuMode === 'Gusto' ? products : products_aroma;
 
-  const amount = products.reduce((sum, prod) => {
+  const amount = placeProducts.reduce((sum, prod) => {
     let startEditions = 0;
     if (prod.editions) {
       startEditions = prod.editions.reduce((sum, edit) => {
@@ -88,8 +90,7 @@ function App() {
   }, 0);
 
   const valueContext = {
-    products,
-    products_aroma,
+    placeProducts,
     order,
     addToOrder,
     removeFromOrder,
@@ -101,6 +102,8 @@ function App() {
     switchMenuOnAroma,
     switchMenuOnGusto,
     deleteOrder,
+    categoryUse,
+    setCategoryUse,
   };
 
   return (

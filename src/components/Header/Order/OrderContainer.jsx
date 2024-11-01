@@ -8,96 +8,31 @@ import AmountOrder from './AmountOrder/AmountOrder';
 
 const OrderContainer = () => {
   const value = useContext(Context);
-  const { products, products_aroma, amount, order, addToOrder, removeFromOrder, priceItem, switchMenuMode } = value;
-  const orderSize = Object.keys(order).length;
+  const { placeProducts, amount, order, addToOrder, removeFromOrder, priceItem } = value;
+  const orderPositionsIds = Object.keys(order);
 
   return (
     <div className={styles.container}>
-      {orderSize === 0 ? <EmptyOrder /> : <OrderTitle />}
+      {orderPositionsIds.length === 0 ? <EmptyOrder /> : <OrderTitle />}
+      {orderPositionsIds.map((position) => {
+        const item = placeProducts.find((el) => el.uid === Number(position));
+        const portion = order[position];
+        const totalPrice = portion * item.price;
 
-      {switchMenuMode === true
-        ? products.map((product) => {
-            if (product.editions) {
-              return product.editions.map((el) => {
-                if (order[el.uid]) {
-                  const portion = order[el.uid] || 0;
-                  const totalPrice = portion * el.price;
+        return (
+          <Order
+            key={item.uid}
+            item={item}
+            portion={portion}
+            totalPrice={totalPrice}
+            add={addToOrder}
+            remove={removeFromOrder}
+            priceItem={priceItem}
+          />
+        );
+      })}
 
-                  return (
-                    <Order
-                      key={el.uid}
-                      item={el}
-                      portion={portion}
-                      totalPrice={totalPrice}
-                      add={addToOrder}
-                      remove={removeFromOrder}
-                      priceItem={priceItem}
-                    />
-                  );
-                }
-              });
-            }
-            if (order[product.uid]) {
-              const portion = order[product.uid] || 0;
-              const totalPrice = portion * product.price;
-
-              return (
-                <Order
-                  key={product.uid}
-                  item={product}
-                  portion={portion}
-                  totalPrice={totalPrice}
-                  add={addToOrder}
-                  remove={removeFromOrder}
-                  priceItem={priceItem}
-                />
-              );
-            }
-
-            return null;
-          })
-        : products_aroma.map((product) => {
-            if (product.editions) {
-              return product.editions.map((el) => {
-                if (order[el.uid]) {
-                  const portion = order[el.uid] || 0;
-                  const totalPrice = portion * el.price;
-
-                  return (
-                    <Order
-                      key={el.uid}
-                      item={el}
-                      portion={portion}
-                      totalPrice={totalPrice}
-                      add={addToOrder}
-                      remove={removeFromOrder}
-                      priceItem={priceItem}
-                    />
-                  );
-                }
-              });
-            }
-            if (order[product.uid]) {
-              const portion = order[product.uid] || 0;
-              const totalPrice = portion * product.price;
-
-              return (
-                <Order
-                  key={product.uid}
-                  item={product}
-                  portion={portion}
-                  totalPrice={totalPrice}
-                  add={addToOrder}
-                  remove={removeFromOrder}
-                  priceItem={priceItem}
-                />
-              );
-            }
-
-            return null;
-          })}
-
-      {orderSize > 0 && <AmountOrder amount={amount} />}
+      {orderPositionsIds > 0 && <AmountOrder amount={amount} />}
     </div>
   );
 };
