@@ -15,7 +15,12 @@ const OrderContainer = () => {
     <div className={styles.container}>
       {orderPositionsIds.length === 0 ? <EmptyOrder /> : <OrderTitle />}
       {orderPositionsIds.map((position) => {
-        const item = placeProducts.find((el) => el.uid === Number(position));
+        const item = placeProducts.find((el) => {
+          const editionsExist = Boolean(el.editions);
+          return editionsExist
+            ? el.editions.some((edition) => edition.uid === Number(position))
+            : el.uid === Number(position);
+        });
         const portion = order[position];
         const totalPrice = portion * item.price;
 
