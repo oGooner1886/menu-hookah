@@ -4,8 +4,8 @@ import Header from './Header';
 
 const HeaderContainer = () => {
   const value = useContext(Context);
-  const { amount } = value;
-  return <Header amount={amount} />;
+  const { amount, deleteOrder } = value;
+  return <Header amount={amount} deleteOrder={deleteOrder} />;
 };
 
 export default HeaderContainer;
