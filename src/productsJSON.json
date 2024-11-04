@@ -597,24 +597,28 @@
         "uid": 80001,
         "subtitle": "Сливочный - ",
         "price": 89,
+        "gallery": "/Ice cream/Ice cream ball.jpg",
         "weight": "50 гр."
       },
       {
         "uid": 80002,
         "subtitle": "Шоколадный - ",
         "price": 89,
+        "gallery": "/Ice cream/Ice cream ball.jpg",
         "weight": "50 гр."
       },
       {
         "uid": 80003,
         "subtitle": "Клубничный - ",
         "price": 89,
+        "gallery": "/Ice cream/Ice cream ball.jpg",
         "weight": "50 гр."
       },
       {
         "uid": 80004,
         "subtitle": "Фисташковый - ",
         "price": 89,
+        "gallery": "/Ice cream/Ice cream ball.jpg",
         "weight": "50 гр."
       }
     ],
@@ -811,6 +815,7 @@
         "uid": 110201,
         "subtitle": "Маленький",
         "price": 189,
+        "gallery": "/Coffee/Cappuchino.jpg",
         "weight": "200 мл."
       },
       {
@@ -818,6 +823,7 @@
         "subtitle": "Большой",
         "difference": "50 р.",
         "price": 249,
+        "gallery": "/Coffee/Cappuchino.jpg",
         "weight": "300 мл."
       }
     ],
@@ -884,6 +890,7 @@
         "uid": 120001,
         "subtitle": "Маленький - ",
         "price": 319,
+        "gallery": "/Tea/berry tea.jpg",
         "weight": "0.5 л."
       },
       {
@@ -891,6 +898,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 359,
+        "gallery": "/Tea/berry tea.jpg",
         "weight": "1 л."
       }
     ],
@@ -908,6 +916,7 @@
         "uid": 120101,
         "subtitle": "Маленький - ",
         "price": 319,
+        "gallery": "/Tea/Sea buckthorn.jpg",
         "weight": "0.5 л."
       },
       {
@@ -915,6 +924,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 359,
+        "gallery": "/Tea/Sea buckthorn.jpg",
         "weight": "1 л."
       }
     ],
@@ -933,6 +943,7 @@
         "subtitle": "Маленький - ",
         "price": 319,
         "totalPrice": 319,
+        "gallery": "/Tea/grapefruit, blackberry.jpg",
         "weight": "0.5 л."
       },
       {
@@ -940,6 +951,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 359,
+        "gallery": "/Tea/grapefruit, blackberry.jpg",
         "weight": "1 л."
       }
     ],
@@ -958,6 +970,7 @@
         "uid": 120401,
         "subtitle": "Маленький - ",
         "price": 319,
+        "gallery": "/Tea/strawberry tea.jpg",
         "weight": "0.5 л."
       },
       {
@@ -965,6 +978,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 359,
+        "gallery": "/Tea/strawberry tea.jpg",
         "weight": "1 л."
       }
     ],
@@ -982,6 +996,7 @@
         "uid": 120501,
         "subtitle": "Маленький - ",
         "price": 319,
+        "gallery": "/Tea/Cherry.jpg",
         "weight": "0.5 л."
       },
       {
@@ -989,6 +1004,7 @@
         "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 359,
+        "gallery": "/Tea/Cherry.jpg",
         "weight": "1 л."
       }
     ],
@@ -1054,6 +1070,7 @@
         "uid": 120801,
         "subtitle": "Маленький - ",
         "price": 239,
+        "gallery": "/Tea/black tea.jpg",
         "weight": "0.5 л."
       },
       {
@@ -1061,6 +1078,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 279,
+        "gallery": "/Tea/black tea.jpg",
         "weight": "1 л."
       }
     ],
@@ -1078,6 +1096,7 @@
         "uid": 120901,
         "subtitle": "Маленький - ",
         "price": 239,
+        "gallery": "/Tea/bergamot.jpg",
         "weight": "0.5 л."
       },
       {
@@ -1085,6 +1104,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 279,
+        "gallery": "/Tea/bergamot.jpg",
         "weight": "1 л."
       }
     ],
@@ -1102,6 +1122,7 @@
         "uid": 121001,
         "subtitle": "Маленький - ",
         "price": 239,
+        "gallery": "/Tea/green tea.jpg",
         "weight": "0.5 л."
       },
       {
@@ -1109,6 +1130,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 279,
+        "gallery": "/Tea/green tea.jpg",
         "weight": "1 л."
       }
     ],
@@ -1126,6 +1148,7 @@
         "uid": 121101,
         "subtitle": "Маленький - ",
         "price": 239,
+        "gallery": "/Tea/green tea.jpg",
         "weight": "0.5 л."
       },
       {
@@ -1133,6 +1156,7 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 279,
+        "gallery": "/Tea/green tea.jpg",
         "weight": "1 л."
       }
     ],
@@ -1315,6 +1339,7 @@
         "uid": 130101,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/Berry.jpg",
         "weight": "0.4 л."
       },
       {
@@ -1322,6 +1347,7 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/Berry.jpg",
         "weight": "1 л."
       }
     ],
@@ -1339,6 +1365,7 @@
         "uid": 130201,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/Mandarin tarragon.jpg",
         "weight": "0.4 л."
       },
       {
@@ -1346,6 +1373,7 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/Mandarin tarragon.jpg",
         "weight": "1 л."
       }
     ],
@@ -1363,6 +1391,7 @@
         "uid": 130301,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/Currant lavender.jpg",
         "weight": "0.4 л."
       },
       {
@@ -1370,6 +1399,7 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/Currant lavender.jpg",
         "weight": "1 л."
       }
     ],

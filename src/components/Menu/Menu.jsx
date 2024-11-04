@@ -61,7 +61,7 @@ const Menu = () => {
                       } else {
                         portion = order[item.uid];
                       }
-                      
+
                       return (
                         <MenuItem
                           key={item.uid}
@@ -73,16 +73,24 @@ const Menu = () => {
                         />
                       );
                     })
-                  : products_aroma.map((item) => (
-                      <MenuItem
-                        key={item.uid}
-                        item={item}
-                        portion={order[item.uid] || 0}
-                        addToOrder={addToOrder}
-                        removeFromOrder={removeFromOrder}
-                        openModalForEdit={setItem}
-                      />
-                    ))
+                  : products_aroma.map((item) => {
+                      let portion;
+                      if (item.editions) {
+                        portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);
+                      } else {
+                        portion = order[item.uid];
+                      }
+                      return (
+                        <MenuItem
+                          key={item.uid}
+                          item={item}
+                          portion={portion || 0}
+                          addToOrder={addToOrder}
+                          removeFromOrder={removeFromOrder}
+                          openModalForEdit={setItem}
+                        />
+                      );
+                    })
               }
             ></Route>
           </Routes>

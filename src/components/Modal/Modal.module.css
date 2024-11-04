@@ -60,6 +60,13 @@
   text-align: center;
 }
 
+.modal__content_list li{
+  font-size: 16px;
+  list-style-type: disc;
+  margin-left: 15px;
+  line-height: 20px;
+}
+
 .modal__content_main p {
   padding-bottom: 10px;
   font-size: 16px;
@@ -143,9 +150,15 @@
   }
 
   .modal__content_main p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 15px;
   }
+  .modal__content_list li{
+  font-size: 14px;
+  /* list-style-type: disc; */
+  margin-left: 30px;
+  line-height: 16px;
+}
 
   .modal__content_header {
     margin-bottom: 10px;

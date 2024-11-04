@@ -62,7 +62,6 @@ const OrderContainer = () => {
                 if (order[el.uid]) {
                   const portion = order[el.uid] || 0;
                   const totalPrice = portion * el.price;
-
                   return (
                     <Order
                       key={el.uid}

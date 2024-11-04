@@ -12,7 +12,7 @@ import Promo from './components/promo/Promo';
 import products from './productsJSON.json';
 import products_aroma from './productsJSON_aroma.json';
 import { ScrollToTop } from './components/Scroll/ScrollToTop';
-import { editionsMaping } from './utils/consts';
+// import { editionsMaping } from './utils/consts';
 
 function App() {
   const [modalActive, setModalActive] = useState(true);
@@ -51,18 +51,9 @@ function App() {
       const nextOrder = { ...prevOrder };
 
       if (nextOrder[uid]) {
-        console.log(nextOrder);
-
         nextOrder[uid]--;
         if (nextOrder[uid] === 0) {
-          console.log(nextOrder);
           delete nextOrder[uid];
-        }
-      } else {
-        if (nextOrder[lastAddedItemId]) {
-          nextOrder[lastAddedItemId]--;
-        } else if (nextOrder[editionsMaping[lastAddedItemId]]) {
-          nextOrder[editionsMaping[lastAddedItemId]]--;
         }
       }
       return nextOrder;
@@ -73,22 +64,40 @@ function App() {
     setOrder({});
   };
 
-  const amount = products.reduce((sum, prod) => {
-    let startEditions = 0;
-    if (prod.editions) {
-      startEditions = prod.editions.reduce((sum, edit) => {
-        if (order[edit.uid]) {
-          return sum + edit.price * order[edit.uid];
-        }
-        return sum;
-      }, 0);
-    }
-    if (order[prod.uid]) {
-      return sum + startEditions + prod.price * order[prod.uid];
-    }
+  const amount =
+    switchMenuMode === true
+      ? products.reduce((sum, prod) => {
+          let startEditions = 0;
+          if (prod.editions) {
+            startEditions = prod.editions.reduce((sum, edit) => {
+              if (order[edit.uid]) {
+                return sum + edit.price * order[edit.uid];
+              }
+              return sum;
+            }, 0);
+          }
+          if (order[prod.uid]) {
+            return sum + startEditions + prod.price * order[prod.uid];
+          }
 
-    return sum + startEditions;
-  }, 0);
+          return sum + startEditions;
+        }, 0)
+      : products_aroma.reduce((sum, prod) => {
+          let startEditions = 0;
+          if (prod.editions) {
+            startEditions = prod.editions.reduce((sum, edit) => {
+              if (order[edit.uid]) {
+                return sum + edit.price * order[edit.uid];
+              }
+              return sum;
+            }, 0);
+          }
+          if (order[prod.uid]) {
+            return sum + startEditions + prod.price * order[prod.uid];
+          }
+
+          return sum + startEditions;
+        }, 0);
 
   const valueContext = {
     products,
@@ -104,6 +113,7 @@ function App() {
     switchMenuOnAroma,
     switchMenuOnGusto,
     deleteOrder,
+    lastAddedItemId,
   };
 
   return (

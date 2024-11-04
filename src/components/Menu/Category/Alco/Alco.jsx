@@ -11,26 +11,42 @@ const Alco = ({ openModalForEdit }) => {
   return (
     <div className={style.wrapper}>
       {switchMenuMode === true
-        ? alco.map((item) => (
-            <MenuItem
-              key={item.uid}
-              item={item}
-              portion={order[item.uid] || 0}
-              addToOrder={addToOrder}
-              removeFromOrder={removeFromOrder}
-              openModalForEdit={openModalForEdit}
-            />
-          ))
-        : alco_aroma.map((item) => (
-            <MenuItem
-              key={item.uid}
-              item={item}
-              portion={order[item.uid] || 0}
-              addToOrder={addToOrder}
-              removeFromOrder={removeFromOrder}
-              openModalForEdit={openModalForEdit}
-            />
-          ))}
+        ? alco.map((item) => {
+            let portion;
+            if (item.editions) {
+              portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);
+            } else {
+              portion = order[item.uid];
+            }
+            return (
+              <MenuItem
+                key={item.uid}
+                item={item}
+                portion={portion || 0}
+                addToOrder={addToOrder}
+                removeFromOrder={removeFromOrder}
+                openModalForEdit={openModalForEdit}
+              />
+            );
+          })
+        : alco_aroma.map((item) => {
+            let portion;
+            if (item.editions) {
+              portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);
+            } else {
+              portion = order[item.uid];
+            }
+            return (
+              <MenuItem
+                key={item.uid}
+                item={item}
+                portion={portion || 0}
+                addToOrder={addToOrder}
+                removeFromOrder={removeFromOrder}
+                openModalForEdit={openModalForEdit}
+              />
+            );
+          })}
     </div>
   );
 };
