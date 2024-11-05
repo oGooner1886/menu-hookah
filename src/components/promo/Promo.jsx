@@ -14,7 +14,6 @@ const Promo = () => {
         <div className={style.card__gusto}>
           <div className={`${style.card__gusto_cover}  ${style.logo__a}`}>
             <span className={style.card__gusto_price}>
-              79h
               <img className={style.card__gusto_logo} src={logo} alt="" />
             </span>
             <div className={style.card__gusto_back}>
