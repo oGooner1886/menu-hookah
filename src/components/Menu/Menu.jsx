@@ -19,6 +19,7 @@ import Salads from './Category/Salads/Salads';
 import ModalMenu from './ModalMenu/ModalMenu';
 import NonAlco from './Category/NonAlco/NonAlco';
 import Alco from './Category/Alco/Alco';
+import Coctail from './Category/Coctail/Coctail';
 
 const Menu = () => {
   const { products, products_aroma, order, addToOrder, removeFromOrder, item, setItem, switchMenuMode } =
@@ -47,6 +48,7 @@ const Menu = () => {
           <Route path={'/smoothie'} element={<Smoothie openModalForEdit={setItem} />}></Route>
           <Route path={'/nonalco'} element={<NonAlco openModalForEdit={setItem} />}></Route>
           <Route path={'/alco'} element={<Alco openModalForEdit={setItem} />}></Route>
+          <Route path={'/coctail'} element={<Coctail openModalForEdit={setItem} />}></Route>
         </Routes>
         <div className={style.item__wrapper}>
           <Routes>

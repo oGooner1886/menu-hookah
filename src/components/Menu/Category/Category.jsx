@@ -123,6 +123,16 @@ const Category = () => {
             <h1>Напитки алкогольные</h1>
           </button>
         </NavLink>
+        {switchMenuMode === false ? (
+          <NavLink
+            to={'./coctail'}
+            className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+          >
+            <button className={style.category__item_btn}>
+              <h1>Коктейли</h1>
+            </button>
+          </NavLink>
+        ) : null}
       </div>
     </div>
   );

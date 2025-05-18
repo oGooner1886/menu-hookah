@@ -258,7 +258,7 @@
     "portion": 0,
     "price": 419,
     "descr": "",
-    "gallery": "/Hot dish/.jpg",
+    "gallery": "/Hot dish/колбаски с картофелем.webp",
     "category": "hotDish"
   },
   {
@@ -293,7 +293,7 @@
     "title": "Креветки темпура",
     "portion": 0,
     "price": 469,
-    "descr": "Креветки обжариваются в панцире с чесноĸом и соевом соусе и ĸусочĸом лимона, подается с зеленью под соусом васаби",
+    "descr": "",
     "gallery": "/Snack/Shrimp .jpg",
     "category": "snacks"
   },
@@ -493,13 +493,14 @@
     "gallery": "/Snack/Sriracha.jpg",
     "category": "snacks"
   },
+ 
   {
     "uid": 690,
     "title": "Тост",
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Snack/тост.webp",
     "category": "snacks"
   },
   {
@@ -508,7 +509,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Snack/хлеб.webp",
     "category": "snacks"
   },
 
@@ -667,7 +668,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/Ice cream/.jpg",
+    "gallery": "/Ice cream/банан.webp",
     "category": "iceCream"
   },
   {
@@ -676,7 +677,7 @@
     "portion": 0,
     "price": 289,
     "descr": "",
-    "gallery": "/Milkshake/.jpg",
+    "gallery": "/Milkshake/бананорео.webp",
     "category": "milkshake"
   },
   {
@@ -1032,7 +1033,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/мароканский.webp",
     "category": "tea"
   },
   {
@@ -1208,7 +1209,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/иванчай.webp",
     "category": "tea"
   },
   {
@@ -1256,7 +1257,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/ройбуш.webp",
     "category": "tea"
   },
   {
@@ -1274,9 +1275,10 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Tea/мята.webp",
     "category": "tea"
   },
+  
   {
     "uid": 1292,
     "title": "Лимон",
@@ -1301,7 +1303,7 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Tea/имбирь.webp",
     "category": "tea"
   },
   {
@@ -1497,7 +1499,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Drink/.jpg",
+    "gallery": "/Drink/вода.webp",
     "category": "drimk"
   },
   {
@@ -1537,8 +1539,8 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Drink/.jpg",
-    "category": "drimk"
+    "gallery": "/Drink/кола.webp",
+    "category": "drink"
   },
   {
     "uid": 1404,
@@ -1580,7 +1582,7 @@
     "price": 259,
     "descr": "",
     "weight": "0.25 л.",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/Drink/redbull.webp",
     "category": "drimk"
   },
   {
@@ -1672,7 +1674,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/Alco/импортпиво.webp",
     "category": "alcohol"
   },
   {
