@@ -1,5 +1,5 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-            const ContextOrderPrice = createContext()
+const ContextOrderPrice = createContext();
 
-export default ContextOrderPrice
+export default ContextOrderPrice;

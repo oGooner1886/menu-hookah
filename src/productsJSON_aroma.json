@@ -145,7 +145,7 @@
   },
   {
     "uid": 404,
-    "title": "Пангасиус с рисом",
+    "title": "Пангасиус в сладком чили с картофельным пюре",
     "portion": 0,
     "price": 549,
     "descr": "",
@@ -197,7 +197,7 @@
     "gallery": "/../menuAroma/Soup/Сливочный суп с морепродуктами.jpg",
     "category": "soup"
   },
-  
+
   {
     "uid": 614,
     "title": "Чиабата с курицей",
@@ -419,7 +419,6 @@
     "category": "snacks"
   },
 
-
   {
     "uid": 650,
     "title": "Соус",
@@ -484,9 +483,9 @@
     "uid": 700,
     "title": "Кокосовый чизкейк",
     "portion": 0,
-    "price": 439,
+    "price": 469,
     "descr": "",
-    "gallery": "/../menuAroma/Desserts/Coconut cheesecake.jpg",
+    "gallery": "/../menuAroma/Desserts/Coconut cheesecake.webp",
     "category": "desserts"
   },
   {
@@ -495,7 +494,7 @@
     "portion": 0,
     "price": 469,
     "descr": "",
-    "gallery": "/../menuAroma/Desserts/Lemon cheesecake.jpg",
+    "gallery": "/../menuAroma/Desserts/Lemon cheesecake.webp",
     "category": "desserts"
   },
   {
@@ -504,17 +503,35 @@
     "portion": 0,
     "price": 439,
     "descr": "",
-    "gallery": "/../menuAroma/Desserts/.jpg",
+    "gallery": "/../menuAroma/Desserts/рулет.webp",
     "category": "desserts"
   },
-  
+
   {
     "uid": 704,
     "title": "Медовик",
     "portion": 0,
     "price": 439,
     "descr": "",
-    "gallery": "/../menuAroma/Desserts/Медовик.jpg",
+    "gallery": "/../menuAroma/Desserts/медовик.webp",
+    "category": "desserts"
+  },
+  {
+    "uid": 705,
+    "title": "Брауни",
+    "portion": 0,
+    "price": 389,
+    "descr": "",
+    "gallery": "/../menuAroma/Desserts/брауни.webp",
+    "category": "desserts"
+  },
+  {
+    "uid": 706,
+    "title": "Ассорти орехов с медом",
+    "portion": 0,
+    "price": 549,
+    "descr": "",
+    "gallery": "/../menuAroma/Desserts/Ассорти.jpg",
     "category": "desserts"
   },
   {
@@ -1363,7 +1380,7 @@
     "price": 439,
     "descr": "",
     "weight": "1 л.",
-    "gallery": "/Drink/.jpg",
+    "gallery": "/../menuAroma/NonAlco/сок.webp",
     "category": "drimk"
   },
   {
@@ -1479,7 +1496,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/../menuAroma/Alco/kozel.jpg",
+    "gallery": "/../menuAroma/Alco/kozel.webp",
     "category": "alcohol"
   },
   {
@@ -1504,7 +1521,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/../menuAroma/Alco/Пиво.webp",
     "category": "alcohol"
   },
   {
@@ -1514,7 +1531,7 @@
     "price": 269,
     "descr": "",
     "weight": "0.5 л.",
-    "gallery": "/../menuAroma/Alco/white phoenix.jpg",
+    "gallery": "/../menuAroma/Alco/white phoenix.webp",
     "category": "alcohol"
   },
   {
@@ -1539,7 +1556,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/../menuAroma/Alco/schneider weisse.jpg",
+    "gallery": "/../menuAroma/Alco/schneider weisse.webp",
     "category": "alcohol"
   },
   {
@@ -1549,7 +1566,7 @@
     "price": 349,
     "descr": "Джин, сироп ежевика, сок лайма",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/Bramble.webp",
     "category": "coctail"
   },
   {
@@ -1559,7 +1576,7 @@
     "price": 349,
     "descr": "Водка, кофейный ликер, мороженое",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/EspressoMartini.webp",
     "category": "coctail"
   },
   {
@@ -1569,7 +1586,7 @@
     "price": 349,
     "descr": "Джин, мартини фиеро, сироп малина, лимонный сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/CloverClub.webp",
     "category": "coctail"
   },
   {
@@ -1579,7 +1596,7 @@
     "price": 349,
     "descr": "Амаретто, апельсиновый сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/AmarettoSour.webp",
     "category": "coctail"
   },
   {
@@ -1589,7 +1606,7 @@
     "price": 349,
     "descr": "Джин, лимонный сок, огурец",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/CucumberFizz.webp",
     "category": "coctail"
   },
   {
@@ -1599,7 +1616,7 @@
     "price": 349,
     "descr": "Текила, водка, ананасовый сок, сок грейпфрута, лимонный сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/Paloma.webp",
     "category": "coctail"
   },
   {
@@ -1609,7 +1626,7 @@
     "price": 349,
     "descr": "Водка на вишне, кофейный ликер, шоколадный сироп",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/BlackForest.webp",
     "category": "coctail"
   },
   {
@@ -1619,7 +1636,7 @@
     "price": 349,
     "descr": "Водка, сироп фисташки, апельсиновый сок, ананасовый сок, лимонный сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/SweetCitrus.webp",
     "category": "coctail"
   },
   {
@@ -1629,7 +1646,7 @@
     "price": 349,
     "descr": "Джин, мартини фиеро, трипл сек, вишневый сок, лимонный сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/CherryShock.webp",
     "category": "coctail"
   },
   {
@@ -1639,7 +1656,7 @@
     "price": 349,
     "descr": "Водка, клюквенный сок, трипл сек, сок лайма",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/Cosmopolitan.webp",
     "category": "coctail"
   },
   {
@@ -1649,7 +1666,7 @@
     "price": 399,
     "descr": "Виски, вино, лимонный сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/NewYorkSour.webp",
     "category": "coctail"
   },
   {
@@ -1659,7 +1676,7 @@
     "price": 399,
     "descr": "Апреоль, игристое, апельсиновый сок",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/AperolSpritz.webp",
     "category": "coctail"
   },
   {
@@ -1669,7 +1686,7 @@
     "price": 399,
     "descr": "Водка, игристое, сироп маракуйя, пюре маракуйя",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/PornStar.webp",
     "category": "coctail"
   },
   {
@@ -1679,7 +1696,7 @@
     "price": 399,
     "descr": "Джин, трипл сек, сироп вишни, сок ананаса, сок лайма",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/SingaporeSling.webp",
     "category": "coctail"
   },
   {
@@ -1689,7 +1706,7 @@
     "price": 399,
     "descr": "Текила, трипл сек, сироп клубника, сок лайма, клубника",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/StrawberryMargarita.webp",
     "category": "coctail"
   },
   {
@@ -1699,7 +1716,7 @@
     "price": 399,
     "descr": "Текила, древесные ноты пало санто со вкусом банана",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/Serenity.webp",
     "category": "coctail"
   },
   {
@@ -1709,8 +1726,7 @@
     "price": 399,
     "descr": "Мартини фиеро, текила, сок лайма, сироп клубника",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/.jpg",
+    "gallery": "/../menuAroma/Coctail/PinkCloud.webp",
     "category": "coctail"
   }
-
 ]
