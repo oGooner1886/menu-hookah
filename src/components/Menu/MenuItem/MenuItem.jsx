@@ -38,7 +38,7 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
         </div>
       </div>
       <div className={style.images}>
-        <img src={'../../images/menu' + gallery} alt="" />
+        <img src={'../../images/menu' + gallery} alt="title" loading="lazy" />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@
     max-width: 1200px;
     margin: 0 auto;
     z-index: 101;
-    
+    margin-bottom: 55px;
     
 }
 .category {
@@ -49,7 +49,7 @@
 }
 @media screen and (max-width: 1220px) {
     .category{
-        padding: 0 40px;
+        padding: 0 30px;
     }
 }
 

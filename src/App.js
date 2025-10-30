@@ -128,7 +128,7 @@ function App() {
           <Route path={'/order'} element={<OrderContainer />}></Route>
           <Route path={''} element={<Promo />} />
         </Routes>
-        <Modal active={modalActive} setActive={setModalActive} />
+        <Modal active={!modalActive} setActive={setModalActive} />
         <Footer />
       </div>
     </Context.Provider>
