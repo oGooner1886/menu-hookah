@@ -383,7 +383,7 @@
     "portion": 0,
     "price": 299,
     "descr": "",
-    "gallery": "/Snack/Pistachios.jpg",
+    "gallery": "/Snack/Pistachios.webp",
     "category": "snacks"
   },
   {
@@ -410,7 +410,7 @@
     "portion": 0,
     "price": 239,
     "descr": "",
-    "gallery": "/Snack/Chips.jpg",
+    "gallery": "/Snack/Chips.webp",
     "category": "snacks"
   },
   {
@@ -478,7 +478,7 @@
     "portion": 0,
     "price": 89,
     "descr": "",
-    "gallery": "/Snack/Sriracha.jpg",
+    "gallery": "/Snack/Sriracha.webp",
     "category": "snacks"
   },
 
@@ -511,7 +511,7 @@
     "category": "desserts"
   },
   {
-    "uid": 701,
+    "uid": 702,
     "title": "Чизкейк манго-маракуйя пп",
     "portion": 0,
     "price": 359,
@@ -520,7 +520,7 @@
     "category": "desserts"
   },
   {
-    "uid": 702,
+    "uid": 703,
     "title": "Медовик",
     "portion": 0,
     "price": 439,
@@ -529,7 +529,7 @@
     "category": "desserts"
   },
   {
-    "uid": 703,
+    "uid": 704,
     "title": "Брауни",
     "portion": 0,
     "price": 329,
@@ -538,7 +538,7 @@
     "category": "desserts"
   },
   {
-    "uid": 704,
+    "uid": 705,
     "title": "Лимонный тарт",
     "portion": 0,
     "price": 329,
@@ -547,12 +547,12 @@
     "category": "desserts"
   },
   {
-    "uid": 705,
+    "uid": 706,
     "title": "Меренговый рулет",
     "portion": 0,
     "price": 329,
     "descr": "Запеченая меренга с начинĸой из лесных ягод и ĸрем чизом",
-    "gallery": "/Desserts/Meringue roll.jpg",
+    "gallery": "/Desserts/Meringue roll.webp",
     "category": "desserts"
   },
 
@@ -610,7 +610,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/Ice cream/.jpg",
+    "gallery": "/Ice cream/grated nuts.webp",
     "category": "iceCream"
   },
   {
@@ -619,7 +619,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/Ice cream/.jpg",
+    "gallery": "/Ice cream/grated chocolate.webp",
     "category": "iceCream"
   },
   {
@@ -628,7 +628,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/Ice cream/.jpg",
+    "gallery": "/Ice cream/marshmallow.webp",
     "category": "iceCream"
   },
   {
@@ -646,7 +646,7 @@
     "portion": 0,
     "price": 289,
     "descr": "",
-    "gallery": "/Milkshake/Classic milkshake.jpg",
+    "gallery": "/Milkshake/classic.webp",
     "category": "milkshake"
   },
   {
@@ -655,7 +655,7 @@
     "portion": 0,
     "price": 289,
     "descr": "",
-    "gallery": "/Milkshake/бананорео.webp",
+    "gallery": "/Milkshake/oreo.webp",
     "category": "milkshake"
   },
   {
@@ -665,7 +665,7 @@
     "price": 289,
     "totalPrice": 289,
     "descr": "",
-    "gallery": "/Milkshake/Classic milkshake.jpg",
+    "gallery": "/Milkshake/oreo.webp",
     "category": "milkshake"
   },
   {
@@ -674,7 +674,7 @@
     "portion": 0,
     "price": 289,
     "descr": "",
-    "gallery": "/Smoothie/berry smoothie.jpg",
+    "gallery": "/Smoothie/berry smoothie.webp",
     "category": "smoothie"
   },
   {
@@ -730,7 +730,7 @@
     "price": 209,
     "descr": "",
     "weight": "180 мл.",
-    "gallery": "/Coffee/Americano.jpg",
+    "gallery": "/Coffee/americano.webp",
     "category": "coffee"
   },
   {
@@ -740,7 +740,7 @@
     "price": 209,
     "descr": "",
     "weight": "60 мл.",
-    "gallery": "/Coffee/",
+    "gallery": "/Coffee/espresso.webp",
     "category": "coffee"
   },
   {
@@ -755,7 +755,7 @@
         "uid": 110201,
         "subtitle": "Маленький",
         "price": 219,
-        "gallery": "/Coffee/Cappuchino.jpg",
+        "gallery": "/Coffee/capuccino.webp",
         "weight": "200 мл."
       },
       {
@@ -763,11 +763,11 @@
         "subtitle": "Большой",
         "difference": "40 р.",
         "price": 259,
-        "gallery": "/Coffee/Cappuchino.jpg",
+        "gallery": "/Coffee/capuccino.webp",
         "weight": "300 мл."
       }
     ],
-    "gallery": "/Coffee/Cappuchino.jpg",
+    "gallery": "/Coffee/capuccino.webp",
     "category": "coffee"
   },
   {
@@ -777,7 +777,7 @@
     "price": 269,
     "descr": "",
     "weight": "230 мл.",
-    "gallery": "/Coffee/Latte.jpg",
+    "gallery": "/Coffee/latte.webp",
     "category": "coffee"
   },
   {
@@ -787,7 +787,7 @@
     "price": 289,
     "descr": "",
     "weight": "350 мл.",
-    "gallery": "/Coffee/Ice latte.jpg",
+    "gallery": "/Coffee/ice latte.webp",
     "category": "coffee"
   },
   {
@@ -797,7 +797,7 @@
     "price": 289,
     "descr": "",
     "weight": "300",
-    "gallery": "/Coffee/Bumble.jpg",
+    "gallery": "/Coffee/bumble.webp",
     "category": "coffee"
   },
   {
@@ -807,7 +807,7 @@
     "price": 289,
     "descr": "",
     "weight": "230",
-    "gallery": "/Coffee/Raf.jpg",
+    "gallery": "/Coffee/raf.webp",
     "category": "coffee"
   },
   {
@@ -817,7 +817,7 @@
     "price": 259,
     "descr": "",
     "weight": "300",
-    "gallery": "/Coffee/Cocoa.jpg",
+    "gallery": "/Coffee/cocoa.webp",
     "category": "coffee"
   },
   {
@@ -831,7 +831,7 @@
         "uid": 120001,
         "subtitle": "Маленький - ",
         "price": 339,
-        "gallery": "/Tea/berry tea.jpg",
+        "gallery": "/Tea/berry tea.webp",
         "weight": "0.5 л."
       },
       {
@@ -839,11 +839,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
-        "gallery": "/Tea/berry tea.jpg",
+        "gallery": "/Tea/berry tea.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/1.jpg",
+    "gallery": "/Tea/berry tea.webp",
     "category": "tea"
   },
   {
@@ -857,7 +857,7 @@
         "uid": 120101,
         "subtitle": "Маленький - ",
         "price": 339,
-        "gallery": "/Tea/Sea buckthorn.jpg",
+        "gallery": "/Tea/sea-buckthorn.webp",
         "weight": "0.5 л."
       },
       {
@@ -865,11 +865,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
-        "gallery": "/Tea/Sea buckthorn.jpg",
+        "gallery": "/Tea/sea-buckthorn.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/Sea buckthorn.jpg",
+    "gallery": "/Tea/sea-buckthorn.webp",
     "category": "tea"
   },
   {
@@ -883,7 +883,7 @@
         "uid": 120301,
         "subtitle": "Маленький - ",
         "price": 339,
-        "gallery": "/Tea/grapefruit, blackberry.jpg",
+        "gallery": "/Tea/cherry grape.webp",
         "weight": "0.5 л."
       },
       {
@@ -891,11 +891,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
-        "gallery": "/Tea/grapefruit, blackberry.jpg",
+        "gallery": "/Tea/cherry grape.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/grapefruit, blackberry.jpg",
+    "gallery": "/Tea/cherry grape.webp",
     "category": "tea"
   },
   {
@@ -909,7 +909,7 @@
         "uid": 120401,
         "subtitle": "Маленький - ",
         "price": 339,
-        "gallery": "/Tea/strawberry tea.jpg",
+        "gallery": "/Tea/strawberry basil.webp",
         "weight": "0.5 л."
       },
       {
@@ -917,11 +917,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
-        "gallery": "/Tea/strawberry tea.jpg",
+        "gallery": "/Tea/strawberry basil.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/strawberry tea.jpg",
+    "gallery": "/Tea/strawberry basil.webp",
     "category": "tea"
   },
   {
@@ -935,7 +935,7 @@
         "uid": 120501,
         "subtitle": "Маленький - ",
         "price": 339,
-        "gallery": "/Tea/Cherry.jpg",
+        "gallery": "/Tea/Cherry.webp",
         "weight": "0.5 л."
       },
       {
@@ -943,11 +943,11 @@
         "subtitle": "Большой - ",
         "difference": "30 р.",
         "price": 379,
-        "gallery": "/Tea/Cherry.jpg",
+        "gallery": "/Tea/Cherry.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/Cherry.jpg",
+    "gallery": "/Tea/Cherry.webp",
     "category": "tea"
   },
   {
@@ -961,6 +961,7 @@
         "uid": 120601,
         "subtitle": "Маленький - ",
         "price": 339,
+        "gallery": "/Tea/marocco.webp",
         "weight": "0.5 л."
       },
       {
@@ -968,10 +969,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
+        "gallery": "/Tea/marocco.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/мароканский.webp",
+    "gallery": "/Tea/marocco.webp",
     "category": "tea"
   },
   {
@@ -985,6 +987,7 @@
         "uid": 120701,
         "subtitle": "Маленький - ",
         "price": 339,
+        "gallery": "/Tea/siberian tea.webp",
         "weight": "0.5 л."
       },
       {
@@ -992,10 +995,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 379,
+        "gallery": "/Tea/siberian tea.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/siberian tea.webp",
     "category": "tea"
   },
   {
@@ -1009,7 +1013,7 @@
         "uid": 120801,
         "subtitle": "Маленький - ",
         "price": 259,
-        "gallery": "/Tea/black tea.jpg",
+        "gallery": "/Tea/bergamot.webp",
         "weight": "0.5 л."
       },
       {
@@ -1017,11 +1021,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
-        "gallery": "/Tea/black tea.jpg",
+        "gallery": "/Tea/bergamot.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/black tea.jpg",
+    "gallery": "/Tea/bergamot.webp",
     "category": "tea"
   },
   {
@@ -1035,7 +1039,7 @@
         "uid": 120901,
         "subtitle": "Маленький - ",
         "price": 259,
-        "gallery": "/Tea/bergamot.jpg",
+        "gallery": "/Tea/bergamot.webp",
         "weight": "0.5 л."
       },
       {
@@ -1043,11 +1047,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
-        "gallery": "/Tea/bergamot.jpg",
+        "gallery": "/Tea/bergamot.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/bergamot.jpg",
+    "gallery": "/Tea/bergamot.webp",
     "category": "tea"
   },
   {
@@ -1061,7 +1065,7 @@
         "uid": 121001,
         "subtitle": "Маленький - ",
         "price": 259,
-        "gallery": "/Tea/green tea.jpg",
+        "gallery": "/Tea/green.webp",
         "weight": "0.5 л."
       },
       {
@@ -1069,11 +1073,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
-        "gallery": "/Tea/green tea.jpg",
+        "gallery": "/Tea/green.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/green tea.jpg",
+    "gallery": "/Tea/green.webp",
     "category": "tea"
   },
   {
@@ -1087,7 +1091,7 @@
         "uid": 121101,
         "subtitle": "Маленький - ",
         "price": 259,
-        "gallery": "/Tea/green tea.jpg",
+        "gallery": "/Tea/green.webp",
         "weight": "0.5 л."
       },
       {
@@ -1095,11 +1099,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 299,
-        "gallery": "/Tea/green tea.jpg",
+        "gallery": "/Tea/green.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/green tea.jpg",
+    "gallery": "/Tea/green.webp",
     "category": "tea"
   },
   {
@@ -1113,6 +1117,7 @@
         "uid": 121201,
         "subtitle": "Маленький - ",
         "price": 299,
+        "gallery": "/Tea/green.webp",
         "weight": "0.5 л."
       },
       {
@@ -1120,10 +1125,11 @@
         "subtitle": "Большой - ",
         "difference": "50 р.",
         "price": 349,
+        "gallery": "/Tea/Milk Oolong.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/Milk Oolong.webp",
     "category": "tea"
   },
   {
@@ -1137,6 +1143,7 @@
         "uid": 121301,
         "subtitle": "Маленький - ",
         "price": 299,
+        "gallery": "/Tea/siberian tea.webp",
         "weight": "0.5 л."
       },
       {
@@ -1144,10 +1151,11 @@
         "subtitle": "Большой - ",
         "difference": "50 р.",
         "price": 349,
+        "gallery": "/Tea/siberian tea.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/иванчай.webp",
+    "gallery": "/Tea/siberian tea.webp",
     "category": "tea"
   },
   {
@@ -1161,6 +1169,7 @@
         "uid": 121401,
         "subtitle": "Маленький - ",
         "price": 339,
+        "gallery": "/Tea/bergamot.webp",
         "weight": "0.5 л."
       },
       {
@@ -1168,10 +1177,11 @@
         "subtitle": "Большой - ",
         "difference": "50 р.",
         "price": 389,
+        "gallery": "/Tea/bergamot.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Tea/bergamot.webp",
     "category": "tea"
   },
   {
@@ -1185,6 +1195,7 @@
         "uid": 121501,
         "subtitle": "Маленький - ",
         "price": 319,
+        "gallery": "/Tea/Rooibos.webp",
         "weight": "0.5 л."
       },
       {
@@ -1192,10 +1203,11 @@
         "subtitle": "Большой - ",
         "difference": "40 р.",
         "price": 359,
+        "gallery": "/Tea/Rooibos.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Tea/ройбуш.webp",
+    "gallery": "/Tea/Rooibos.webp",
     "category": "tea"
   },
   {
@@ -1204,7 +1216,7 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Tea/thyme.webp",
     "category": "tea"
   },
   {
@@ -1213,7 +1225,7 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "/Tea/мята.webp",
+    "gallery": "/Tea/mint.webp",
     "category": "tea"
   },
 
@@ -1223,7 +1235,7 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "/Tea/1.jpg",
+    "gallery": "/Tea/lemon.webp",
     "category": "tea"
   },
   {
@@ -1232,7 +1244,7 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "",
+    "gallery": "/Tea/honey.webp",
     "category": "tea"
   },
   {
@@ -1241,10 +1253,9 @@
     "portion": 0,
     "price": 39,
     "descr": "",
-    "gallery": "/Tea/имбирь.webp",
+    "gallery": "/Tea/ginger.webp",
     "category": "tea"
   },
-
   {
     "uid": 1300,
     "title": "Мохито классический",
@@ -1255,6 +1266,7 @@
         "uid": 130001,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/mohito.webp",
         "weight": "0.4 л."
       },
       {
@@ -1262,10 +1274,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/mohito.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Lemonade/mohito.webp",
     "category": "lemonade"
   },
   {
@@ -1279,6 +1292,7 @@
         "uid": 130101,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/ananas lemon.webp",
         "weight": "0.4 л."
       },
       {
@@ -1286,10 +1300,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/ananas lemon.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Lemonade/ananas lemon.webp",
     "category": "lemonade"
   },
   {
@@ -1302,6 +1317,7 @@
         "uid": 130201,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/blackberry garnet.webp",
         "weight": "0.4 л."
       },
       {
@@ -1309,10 +1325,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/blackberry garnet.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Lemonade/blackberry garnet.webp",
     "category": "lemonade"
   },
   {
@@ -1326,6 +1343,7 @@
         "uid": 130301,
         "subtitle": "Стакан - ",
         "price": 279,
+        "gallery": "/Lemonade/spiced raspberries.webp",
         "weight": "0.4 л"
       },
       {
@@ -1333,10 +1351,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
+        "gallery": "/Lemonade/spiced raspberries.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "",
+    "gallery": "/Lemonade/spiced raspberries.webp",
     "category": "lemonade"
   },
   {
@@ -1350,7 +1369,7 @@
         "uid": 130401,
         "subtitle": "Стакан - ",
         "price": 279,
-        "gallery": "/Lemonade/Berry.jpg",
+        "gallery": "/Lemonade/berry lemonade.webp",
         "weight": "0.4 л."
       },
       {
@@ -1358,11 +1377,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
-        "gallery": "/Lemonade/Berry.jpg",
+        "gallery": "/Lemonade/berry lemonade.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Berry.jpg",
+    "gallery": "/Lemonade/berry lemonade.webp",
     "category": "lemonade"
   },
   {
@@ -1376,7 +1395,7 @@
         "uid": 130501,
         "subtitle": "Стакан - ",
         "price": 279,
-        "gallery": "/Lemonade/Currant lavender.jpg",
+        "gallery": "/Lemonade/currant-lavender.webp",
         "weight": "0.4 л."
       },
       {
@@ -1384,11 +1403,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
-        "gallery": "/Lemonade/Currant lavender.jpg",
+        "gallery": "/Lemonade/currant-lavender.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Currant lavender.jpg",
+    "gallery": "/Lemonade/currant-lavender.webp",
     "category": "lemonade"
   },
   {
@@ -1402,7 +1421,7 @@
         "uid": 130601,
         "subtitle": "Стакан - ",
         "price": 279,
-        "gallery": "/Lemonade/Mandarin tarragon.jpg",
+        "gallery": "/Lemonade/tangerine tarragon.webp",
         "weight": "0.4 л."
       },
       {
@@ -1410,11 +1429,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
-        "gallery": "/Lemonade/Mandarin tarragon.jpg",
+        "gallery": "/Lemonade/tangerine tarragon.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/Mandarin tarragon.jpg",
+    "gallery": "/Lemonade/tangerine tarragon.webp",
     "category": "lemonade"
   },
   {
@@ -1428,7 +1447,7 @@
         "uid": 130701,
         "subtitle": "Стакан - ",
         "price": 279,
-        "gallery": "/Lemonade/",
+        "gallery": "/Lemonade/mango citrus.webp",
         "weight": "0.4 л."
       },
       {
@@ -1436,11 +1455,11 @@
         "subtitle": "Графин - ",
         "difference": "170 р.",
         "price": 449,
-        "gallery": "/Lemonade/",
+        "gallery": "/Lemonade/mango citrus.webp",
         "weight": "1 л."
       }
     ],
-    "gallery": "/Lemonade/",
+    "gallery": "/Lemonade/mango citrus.webp",
     "category": "lemonade"
   },
 
@@ -1456,12 +1475,14 @@
         "uid": 140001,
         "subtitle": "Газированная вода",
         "price": 165,
+        "gallery": "/Drink/water.webp",
         "weight": "0.5 л."
       },
       {
         "uid": 140002,
         "subtitle": "Негазированная вода",
         "price": 165,
+        "gallery": "/Drink/water.webp",
         "weight": "0.5 л."
       }
     ],
@@ -1474,7 +1495,7 @@
     "portion": 0,
     "price": 235,
     "descr": "",
-    "gallery": "/Drink/рычал.webp",
+    "gallery": "/Drink/rychal.webp",
     "category": "drimk",
     "weight": "0.5 л."
   },
@@ -1490,12 +1511,14 @@
         "uid": 140201,
         "subtitle": "Газированный напиток",
         "price": 195,
+        "gallery": "/Drink/coke025.webp",
         "weight": "0.25 л."
       },
       {
         "uid": 140202,
         "subtitle": "Газированный напиток",
         "price": 205,
+        "gallery": "/Drink/coke.webp",
         "weight": "0.5 л."
       }
     ],
@@ -1519,7 +1542,7 @@
     "price": 315,
     "descr": "",
     "weight": "0.2 л.",
-    "gallery": "/Drink/Orange.webp",
+    "gallery": "/Drink/grape.webp",
     "category": "drimk"
   },
   {
@@ -1529,7 +1552,7 @@
     "price": 225,
     "descr": "",
     "weight": "0.5 л.",
-    "gallery": "/Drink/натахтари.webp",
+    "gallery": "/Drink/natahtari.webp",
     "category": "drimk"
   },
   {
@@ -1574,16 +1597,18 @@
         "uid": 150001,
         "subtitle": "Алкогольное - ",
         "price": 259,
+        "gallery": "/Alco/beer glass.webp",
         "weight": "0.5 л."
       },
       {
         "uid": 150002,
         "subtitle": "Безалкогольное - ",
         "price": 259,
+        "gallery": "/Alco/beer glass.webp",
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/Alco/beer glass.webp",
     "category": "alcohol"
   },
   {
@@ -1598,6 +1623,7 @@
         "uid": 150101,
         "subtitle": "",
         "price": 179,
+        "gallery": "/Alco/beer.webp",
         "weight": "0.33 л."
       },
       {
@@ -1605,10 +1631,11 @@
         "subtitle": "",
         "difference": "40 р.",
         "price": 229,
+        "gallery": "/Alco/beer.webp",
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/Alco/beer.webp",
     "category": "alcohol"
   },
   {
@@ -1622,16 +1649,18 @@
       {
         "uid": 150201,
         "price": 319,
+        "gallery": "/Alco/import.webp",
         "weight": "0.3 л."
       },
       {
         "uid": 150202,
         "difference": "80 р.",
         "price": 409,
+        "gallery": "/Alco/import.webp",
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alco/импортпиво.webp",
+    "gallery": "/Alco/import.webp",
     "category": "alcohol"
   },
   {
@@ -1691,7 +1720,7 @@
         "weight": "0.5 л."
       }
     ],
-    "gallery": "/Alcohol/.jpg",
+    "gallery": "/Alco/white phoenix.webp",
     "category": "alcohol"
   },
   {
@@ -1701,7 +1730,7 @@
     "price": 399,
     "descr": "Джин на пряностях и ягодах, мартини россо, кампари",
     "weight": "",
-    "gallery": "/Coctail/Bramble.webp",
+    "gallery": "/Coctail/negroni.webp",
     "category": "coctail"
   },
   {
@@ -1711,7 +1740,7 @@
     "price": 399,
     "descr": "Текила на вишне, трипл сек, фреш лайма, вишня, вишневый сироп",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/EspressoMartini.webp",
+    "gallery": "/Coctail/cherry margarita.webp",
     "category": "coctail"
   },
   {
@@ -1721,7 +1750,7 @@
     "price": 399,
     "descr": "Водка на клубнике, ликер адвокат",
     "weight": "",
-    "gallery": "/Coctail/1.jpg",
+    "gallery": "/Coctail/strawberry pie.webp",
     "category": "coctail"
   },
   {
@@ -1731,7 +1760,7 @@
     "price": 399,
     "descr": "Лимончелло, ликер адвокат",
     "weight": "",
-    "gallery": "/../menu/Coctail/2.jpg",
+    "gallery": "/Coctail/Lemon Pie.webp",
     "category": "coctail"
   },
   {
@@ -1741,7 +1770,7 @@
     "price": 399,
     "descr": "Джин на малине, кордиал смородины, сок лимона, содовая",
     "weight": "",
-    "gallery": "/../menu/Coctail/3.jpg",
+    "gallery": "/Coctail/Berry Long.webp",
     "category": "coctail"
   },
   {
@@ -1751,7 +1780,7 @@
     "price": 399,
     "descr": "Водка на лаванде, кордиал смородины, игристое",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/Paloma.webp",
+    "gallery": "/Coctail/black forest.webp",
     "category": "coctail"
   },
   {
@@ -1761,7 +1790,7 @@
     "price": 399,
     "descr": "Водка на соленой карамели, сироп соленой карамели, кофейный ликер, эспрессо",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/BlackForest.webp",
+    "gallery": "/Coctail/espresso martini.webp",
     "category": "coctail"
   },
   {
@@ -1771,7 +1800,7 @@
     "price": 399,
     "descr": "Джин на молочном улуне, кордиал юдзу-бамбук, фреш лайма",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/SweetCitrus.webp",
+    "gallery": "/Coctail/Kyoto Gimlet.webp",
     "category": "coctail"
   },
   {
@@ -1781,7 +1810,7 @@
     "price": 399,
     "descr": "Ром, кордиал кактус-ренет, сок ананаса, фреш лайма",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/CherryShock.webp",
+    "gallery": "/Coctail/Tropic punch.webp",
     "category": "coctail"
   },
   {
@@ -1791,7 +1820,7 @@
     "price": 399,
     "descr": "Виски, кордиал яблоко-корица, лимонный фреш, тоник",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/Cosmopolitan.webp",
+    "gallery": "/Coctail/Apple-spiced long.webp",
     "category": "coctail"
   },
   {
@@ -1801,7 +1830,7 @@
     "price": 399,
     "descr": "Джин на малине, фреш лайма, сахар, мята",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/NewYorkSour.webp",
+    "gallery": "/Coctail/Pink Southside.webp",
     "category": "coctail"
   },
   {
@@ -1811,7 +1840,7 @@
     "price": 399,
     "descr": "Виски, фреш лимона, сироп тимьяна",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/AperolSpritz.webp",
+    "gallery": "/Coctail/Thyme sour.webp",
     "category": "coctail"
   },
   {
@@ -1821,7 +1850,7 @@
     "price": 399,
     "descr": "Водка на клубнике, кордиал грейпфрута, сироп клубники, фреш лимона, содовая",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/PornStar.webp",
+    "gallery": "/Coctail/Strawberry grapefruit long.webp",
     "category": "coctail"
   },
   {
@@ -1831,7 +1860,7 @@
     "price": 399,
     "descr": "Лимончелло, игристое, ангостура, содовая",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/SingaporeSling.webp",
+    "gallery": "/Coctail/limonchello spritz.webp",
     "category": "coctail"
   },
   {
@@ -1841,7 +1870,7 @@
     "price": 399,
     "descr": "Водка, пюре маракуйя, ванильный сироп, игристое",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/StrawberryMargarita.webp",
+    "gallery": "/Coctail/pornstar.webp",
     "category": "coctail"
   },
   {
@@ -1851,7 +1880,7 @@
     "price": 399,
     "descr": "Ром, ликер персика, кордиал персик-молочный улун, фреш лимона",
     "weight": "",
-    "gallery": "/../menuAroma/Coctail/Serenity.webp",
+    "gallery": "/Coctail/Peach sour.webp",
     "category": "coctail"
   }
 ]

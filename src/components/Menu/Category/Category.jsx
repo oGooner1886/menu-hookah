@@ -8,30 +8,6 @@ const Category = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.category}>
-        <NavLink
-          to={'./salads'}
-          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
-        >
-          <button className={style.category__item_btn}>
-            <h1>Салаты</h1>
-          </button>
-        </NavLink>
-        <NavLink
-          to={'./soup'}
-          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
-        >
-          <button className={style.category__item_btn}>
-            <h1>Супы</h1>
-          </button>
-        </NavLink>
-        <NavLink
-          to={'./hotDish'}
-          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
-        >
-          <button className={style.category__item_btn}>
-            <h1>Горячее</h1>
-          </button>
-        </NavLink>
         {switchMenuMode === true ? (
           <NavLink
             to={'./poke'}
@@ -42,13 +18,12 @@ const Category = () => {
             </button>
           </NavLink>
         ) : null}
-
         <NavLink
-          to={'./snacks'}
+          to={'./salads'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
-            <h1>Закуски</h1>
+            <h1>Салаты</h1>
           </button>
         </NavLink>
         <NavLink
@@ -60,27 +35,27 @@ const Category = () => {
           </button>
         </NavLink>
         <NavLink
-          to={'./lemonades'}
+          to={'./snacks'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
-            <h1>Лимонады</h1>
+            <h1>Закуски</h1>
           </button>
         </NavLink>
         <NavLink
-          to={'./tea'}
+          to={'./hotDish'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
-            <h1>Чай</h1>
+            <h1>Горячее</h1>
           </button>
         </NavLink>
         <NavLink
-          to={'./coffee'}
+          to={'./soup'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
         >
           <button className={style.category__item_btn}>
-            <h1>Кофе</h1>
+            <h1>Супы</h1>
           </button>
         </NavLink>
         <NavLink
@@ -107,6 +82,31 @@ const Category = () => {
             <h1>Смузи</h1>
           </button>
         </NavLink>
+        <NavLink
+          to={'./coffee'}
+          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+        >
+          <button className={style.category__item_btn}>
+            <h1>Кофе</h1>
+          </button>
+        </NavLink>
+        <NavLink
+          to={'./tea'}
+          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+        >
+          <button className={style.category__item_btn}>
+            <h1>Чай</h1>
+          </button>
+        </NavLink>
+        <NavLink
+          to={'./lemonades'}
+          className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+        >
+          <button className={style.category__item_btn}>
+            <h1>Лимонады</h1>
+          </button>
+        </NavLink>
+
         <NavLink
           to={'./nonalco'}
           className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
