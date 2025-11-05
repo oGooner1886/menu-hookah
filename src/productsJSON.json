@@ -1621,15 +1621,30 @@
     "editions": [
       {
         "uid": 150101,
-        "subtitle": "",
+        "subtitle": "Светлое ",
+        "price": 179,
+        "gallery": "/Alco/beer.webp",
+        "weight": "0.33 л."
+      },
+
+      {
+        "uid": 150102,
+        "subtitle": "Светлое ",
+        "difference": "40 р.",
+        "price": 229,
+        "gallery": "/Alco/beer.webp",
+        "weight": "0.5 л."
+      },
+      {
+        "uid": 150103,
+        "subtitle": "Тёмное ",
         "price": 179,
         "gallery": "/Alco/beer.webp",
         "weight": "0.33 л."
       },
       {
-        "uid": 150102,
-        "subtitle": "",
-        "difference": "40 р.",
+        "uid": 150104,
+        "subtitle": "Тёмное ",
         "price": 229,
         "gallery": "/Alco/beer.webp",
         "weight": "0.5 л."

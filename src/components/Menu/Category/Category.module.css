@@ -1,64 +1,64 @@
-.wrapper{
-    position: sticky;
-    background-color: rgb(255, 255, 255);
-    max-width: 1200px;
-    margin: 0 auto;
-    z-index: 101;
-    margin-bottom: 55px;
-    
+.wrapper {
+  position: sticky;
+  background-color: rgb(255, 255, 255);
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 101;
+  margin-bottom: 55px;
 }
 .category {
-    position: fixed;
-    /* padding-top: 140px; */
-    line-height: 1.15;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    justify-content: center;
-    max-width: 1200px;
+  position: fixed;
+  /* padding-top: 140px; */
+  line-height: 1.15;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  max-width: 1200px;
 }
 
 .category__item_btn {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .category__item h1 {
-    line-height: 1.15;
-    background-color: transparent;
-    font-size: 14px;
-    padding: 5px 14px;
-    margin: 4px 8px 8px 2px;
-    border-radius: 16px;
-    text-decoration: none;
-    color: #000;
-    box-shadow: 0 0 2px 1px #d4d4d4;
+  line-height: 1.15;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 5px 14px;
+  margin: 4px 8px 8px 2px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #000;
+  box-shadow: 0 0 2px 1px #d4d4d4;
+  width: max-content;
 }
 
 .category__item_active {
-    line-height: 1.15;
-    background-color: transparent;
-    font-size: 14px;
-    padding: 5px 14px;
-    margin: 4px 8px 8px 2px;
-    border-radius: 16px;
-    text-decoration: none;
-    color: #000;
-    box-shadow: 0 0 0 2px #000;
+  line-height: 1.15;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 5px 14px;
+  margin: 4px 8px 8px 2px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #000;
+  box-shadow: 0 0 0 2px #000;
 }
 @media screen and (max-width: 1220px) {
-    .category{
-        padding: 0 30px;
-    }
+  .category {
+    padding: 0 30px;
+  }
 }
 
 @media screen and (max-width: 640px) {
-    .category{
-        justify-content: flex-start;
-        width: 100%;
-        flex-wrap: nowrap;
-        overflow: auto;
-        padding: 0 35px 0 0;
-    }
+  .category {
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding: 0 35px 0 0;
+  }
 }

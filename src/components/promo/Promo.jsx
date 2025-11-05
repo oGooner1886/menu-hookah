@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import style from './Promo.module.css';
 import logo from '../../assets/images/gusto lounge logo-1.png';
 import logo_aroma from '../../assets/images/aroma_logo-1.png';
+// import bg from '../../assets/images/307.jpg';
 import { NavLink } from 'react-router-dom';
 import Context from '../../Context/Context';
 
@@ -9,6 +10,12 @@ const Promo = () => {
   const { switchMenuOnAroma, switchMenuOnGusto } = useContext(Context);
   return (
     <div className={style.promo}>
+      {/* <main className={style.main}> */}
+        {/* <picture>
+          <source srcSet={bg} media="(min-width: 600px)" />
+          <img src={bg} alt="main-background" style={style.main__bg} />
+        </picture> */}
+      {/* </main> */}
       <div className={style.layer}>Выберите заведение</div>
       <div className={style.cards}>
         <div className={style.card__gusto}>

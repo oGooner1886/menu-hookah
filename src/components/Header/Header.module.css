@@ -1,5 +1,6 @@
 .header {
   background-color: rgb(255, 255, 255);
+  /* background-color: inherit; */
   display: flex;
   align-items: center;
   justify-content: space-between;

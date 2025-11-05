@@ -5,7 +5,7 @@ import Context from './Context/Context';
 import Footer from './components/Footer/Footer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import OrderContainer from './components/Header/Order/OrderContainer';
-import Home from './components/Home/Home';
+
 import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import Promo from './components/promo/Promo';
@@ -122,7 +122,6 @@ function App() {
         <HeaderContainer />
         <ScrollToTop />
         <Routes>
-          <Route path={'/home'} element={<Home />}></Route>
           <Route path={'/gusto/menu/*'} element={<Menu />}></Route>
           <Route path={'/aroma/menu/*'} element={<Menu />}></Route>
           <Route path={'/order'} element={<OrderContainer />}></Route>

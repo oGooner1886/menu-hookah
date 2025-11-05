@@ -1,38 +1,24 @@
-import React from 'react';
-import logo from '../../assets/images/favicon.png';
+import React, { useCallback } from 'react';
+// import logo from '../../assets/images/favicon.png';
 import style from './Header.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import Logo from './Logo/Logo';
 
 const Header = ({ amount, deleteOrder }) => {
   const navigate = useNavigate();
-  const goHome = () => {
-    navigate('/');
-  };
 
-  const confirmX = () => {
+  const confirmX = useCallback(() => {
     alert('Для перехода в главное меню очистите корзину');
     const result = confirm('Очистить корзину?');
     if (result === true) {
       deleteOrder();
-      goHome();
+      navigate('/');
     }
-  };
+  }, [deleteOrder, navigate]);
 
   return (
     <header className={style.header}>
-      {amount === 0 ? (
-        <NavLink to={'/'}>
-          <img className={style.header__logo} src={logo} alt="" />
-        </NavLink>
-      ) : (
-        <a
-          onClick={() => {
-            confirmX();
-          }}
-        >
-          <img className={style.header__logo} src={logo} alt="" />
-        </a>
-      )}
+      <Logo amount={amount} onConfirmX={confirmX} />
 
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
