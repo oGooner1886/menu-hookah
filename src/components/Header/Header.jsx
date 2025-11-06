@@ -8,17 +8,20 @@ const Header = ({ amount, deleteOrder }) => {
   const navigate = useNavigate();
 
   const confirmX = useCallback(() => {
-    alert('Для перехода в главное меню очистите корзину');
-    const result = confirm('Очистить корзину?');
-    if (result === true) {
-      deleteOrder();
-      navigate('/');
-    }
+    if (amount > 0) {
+      alert('Для перехода в главное меню очистите корзину');
+      const result = confirm('Очистить корзину?');
+      if (result) {
+        deleteOrder();
+        navigate('/');
+      }
+    } else navigate('/');
   }, [deleteOrder, navigate]);
+
 
   return (
     <header className={style.header}>
-      <Logo amount={amount} onConfirmX={confirmX} />
+      <Logo confirmX={confirmX} />
 
       <nav className={style.header__nav}>
         {/* <div className={style.header__nav_item}>
