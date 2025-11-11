@@ -55,15 +55,14 @@ const Menu = () => {
             <Route
               path={'/'}
               element={
-                switchMenuMode === true
-                  ? products.map((item) => {
+                switchMenuMode === false
+                  ? products_aroma.map((item) => {
                       let portion;
                       if (item.editions) {
                         portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);
                       } else {
                         portion = order[item.uid];
                       }
-
                       return (
                         <MenuItem
                           key={item.uid}
@@ -75,13 +74,14 @@ const Menu = () => {
                         />
                       );
                     })
-                  : products_aroma.map((item) => {
+                  : products.map((item) => {
                       let portion;
                       if (item.editions) {
                         portion = item.editions.map((el) => order[el.uid] || 0).reduce((sum, port) => sum + port, 0);
                       } else {
                         portion = order[item.uid];
                       }
+
                       return (
                         <MenuItem
                           key={item.uid}
