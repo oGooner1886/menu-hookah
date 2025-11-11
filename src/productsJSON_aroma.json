@@ -1351,7 +1351,7 @@
       }
     ],
     "gallery": "/../menuAroma/NonAlco/вода.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1401,
@@ -1360,7 +1360,7 @@
     "price": 219,
     "descr": "",
     "gallery": "/../menuAroma/NonAlco/рычал.webp",
-    "category": "drimk",
+    "category": "drink",
     "weight": "0.5 л."
   },
   {
@@ -1371,7 +1371,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/боржоми.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1403,
@@ -1381,7 +1381,7 @@
     "descr": "",
     "weight": "1 л.",
     "gallery": "/../menuAroma/NonAlco/сок.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1404,
@@ -1391,7 +1391,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/натахтари.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1405,
@@ -1401,7 +1401,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/red bull.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1406,
@@ -1411,7 +1411,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/adrenaline.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1408,
@@ -1437,7 +1437,7 @@
       }
     ],
     "gallery": "/../menuAroma/NonAlco/вода.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1407,
@@ -1470,7 +1470,7 @@
       }
     ],
     "gallery": "/../menuAroma/Fresh juice/Orange.webp",
-    "category": "drimk"
+    "category": "drink"
   },
 
   {
