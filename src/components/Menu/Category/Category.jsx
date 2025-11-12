@@ -145,6 +145,7 @@ import style from './Category.module.css';
 
 const CATEGORIES = {
   gusto: [
+    { to: '/gusto/menu', label: 'Полное меню' },
     { to: 'salads', label: 'Салаты' },
     { to: 'poke', label: 'Поке' },
     { to: 'pasta', label: 'Пасты' },

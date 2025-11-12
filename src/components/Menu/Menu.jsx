@@ -132,25 +132,7 @@ import ModalMenu from './ModalMenu/ModalMenu';
 
 const MemoizedMenuItem = React.memo(MenuItem);
 
-const CATEGORY_TITLES = {
-  salads: 'Салаты',
-  pasta: 'Пасты',
-  snacks: 'Закуски',
-  poke: 'Поке',
-  hotDish: 'Горячее',
-  soup: 'Супы',
-  desserts: 'Десерты',
-  iceCream: 'Мороженое',
-  milkshake: 'Молочные коктейли',
-  smoothie: 'Смузи',
-  coffee: 'Кофе',
-  tea: 'Чай',
-  lemonade: 'Лимонады',
-  drink: 'Напитки безалкогольные',
-  alcohol: 'Напитки алкогольные',
-  coctail: 'Коктейли',
-};
-
+//
 const Menu = () => {
   const { currentProducts, order, addToOrder, removeFromOrder, item, setItem } = useContext(Context);
   const { '*': currentCategory } = useParams(); // "salads", "poke", null
@@ -162,21 +144,21 @@ const Menu = () => {
       if (cat === 'lightSnacks') {
         cat = 'snacks';
       }
+
       if (!groups[cat]) groups[cat] = [];
       groups[cat].push(item);
     });
+
     return groups;
   }, [currentProducts]);
 
-  // Что показывать
-  const itemsToShow = currentCategory ? groupedItems[currentCategory] || [] : currentProducts;
+  const itemsToRender = currentCategory ? groupedItems[currentCategory] || [] : currentProducts;
 
   const renderedItems = useMemo(() => {
-    return itemsToShow.map((item) => {
+    return itemsToRender.map((item) => {
       const portion = item.editions
         ? item.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
         : order[item.uid] || 0;
-
       return (
         <MemoizedMenuItem
           key={item.uid}
@@ -188,15 +170,12 @@ const Menu = () => {
         />
       );
     });
-  }, [itemsToShow, order, addToOrder, removeFromOrder, setItem]);
-
-  const categoryTitle = currentCategory ? CATEGORY_TITLES[currentCategory] : null;
+  }, [itemsToRender, order, addToOrder, removeFromOrder, setItem]);
 
   return (
     <div className={style.wrapper}>
       <Category />
       <div className={style.item__wrapper}>
-        {categoryTitle && <h2 className={style.categoryTitle}>{categoryTitle}</h2>}
         {renderedItems.length > 0 ? renderedItems : <p>Товары не найдены</p>}
         {item && (
           <ModalMenu

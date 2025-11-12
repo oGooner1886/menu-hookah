@@ -157,7 +157,9 @@ function App() {
   const [lastAddedItemId, setLastAddedItemId] = useState(null);
   const [amount, setAmount] = useState(0);
   const location = useLocation();
+  
   const isAroma = location.pathname.startsWith('/aroma/menu');
+
   const currentProducts = useMemo(() => {
     return isAroma ? products_aroma : products;
   }, [isAroma, products, products_aroma]);
