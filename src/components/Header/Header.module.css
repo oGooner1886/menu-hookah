@@ -1,6 +1,5 @@
 .header {
-  background-color: rgb(255, 255, 255);
-  /* background-color: inherit; */
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +9,9 @@
   width: 100%;
   margin: 0 auto;
 }
+.header_black {
+  background-color: inherit;
+}
 .header a {
   cursor: pointer;
 }
@@ -17,12 +19,13 @@
   height: 70px;
   width: 70px;
   display: block;
-  /* margin-left: auto;
-    margin-right: auto; */
   margin-top: 20px;
   margin-bottom: 40px;
-  /* background-color:#000;
-    border-radius: 8px; */
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 .header__nav {
@@ -35,7 +38,6 @@
 
 .header__nav a:hover {
   color: #000000;
-  /* transition: .2s; */
 }
 
 .header__nav_item {
@@ -53,7 +55,6 @@
   color: #000000;
 }
 
-/* корзина - кнопка */
 .header_infoBlock {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -89,7 +90,6 @@
 
 @media screen and (max-width: 1220px) {
   .header {
-    /* max-width: 1200px; */
     padding: 0 60px;
     transition: 0.5s;
   }
@@ -97,7 +97,6 @@
 
 @media screen and (max-width: 530px) {
   .header {
-    /* max-width: 1200px; */
     padding: 0 25px;
     transition: 0.5s;
   }

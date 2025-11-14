@@ -164,6 +164,7 @@ const CATEGORIES = {
     { to: 'coctail', label: 'Коктейли' },
   ],
   aroma: [
+    { to: '/aroma/menu', label: 'Полное меню' },
     { to: 'salads', label: 'Салаты' },
     { to: 'pasta', label: 'Пасты' },
     { to: 'snacks', label: 'Закуски' },

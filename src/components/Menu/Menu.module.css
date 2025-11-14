@@ -6,6 +6,7 @@
   position: relative;
   top: 100px;
   padding-bottom: 100px;
+  
 }
 
 .category__menu {
@@ -166,7 +167,6 @@
 
 @media screen and (max-width: 875px) {
   .item__wrapper {
-    padding-top: 120px;
     margin: 0;
   }
 }
@@ -178,7 +178,6 @@
   }
 
   .item__wrapper {
-    padding-top: 120px;
     margin: 0;
   }
 }
@@ -202,11 +201,14 @@
     margin-bottom: 6%;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15);
   }
+  .item__wrapper {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 640px) {
   .item__wrapper {
-    padding-top: 120px;
-    margin: 0;
+    padding: 0;
+    
   }
 }
