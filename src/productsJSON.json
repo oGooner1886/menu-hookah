@@ -642,7 +642,7 @@
   },
   {
     "uid": 900,
-    "title": "Классический",
+    "title": "Милкшейк классический",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -651,7 +651,7 @@
   },
   {
     "uid": 901,
-    "title": "Банан-орео",
+    "title": "Милкшейк банан-орео",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -660,7 +660,7 @@
   },
   {
     "uid": 902,
-    "title": "Фисташковый",
+    "title": "Милкшейк фисташковый",
     "portion": 0,
     "price": 289,
     "totalPrice": 289,
@@ -670,7 +670,7 @@
   },
   {
     "uid": 1000,
-    "title": "Ягодный",
+    "title": "Смузи ягодный",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -679,7 +679,7 @@
   },
   {
     "uid": 1001,
-    "title": "Pinkman",
+    "title": "Смузи pinkman",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -688,7 +688,7 @@
   },
   {
     "uid": 1002,
-    "title": "Киви",
+    "title": "Смузи киви",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -697,7 +697,7 @@
   },
   {
     "uid": 1003,
-    "title": "Клубника-киви",
+    "title": "Смузи клубника-киви",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -707,7 +707,7 @@
 
   {
     "uid": 1004,
-    "title": "Банан-клубника",
+    "title": "Смузи банан-клубника",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -716,7 +716,7 @@
   },
   {
     "uid": 1005,
-    "title": "Вишня-базилик",
+    "title": "Смузи вишня-базилик",
     "portion": 0,
     "price": 289,
     "descr": "",
@@ -1487,7 +1487,7 @@
       }
     ],
     "gallery": "/Drink/water.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1401,
@@ -1496,12 +1496,12 @@
     "price": 235,
     "descr": "",
     "gallery": "/Drink/rychal.webp",
-    "category": "drimk",
+    "category": "drink",
     "weight": "0.5 л."
   },
   {
     "uid": 1402,
-    "title": "Газированный напиток",
+    "title": "Добрый кола",
     "portion": 0,
     "price": 195,
     "descr": "",
@@ -1509,14 +1509,14 @@
     "editions": [
       {
         "uid": 140201,
-        "subtitle": "Газированный напиток",
+        "subtitle": "Добрый кола",
         "price": 195,
         "gallery": "/Drink/coke025.webp",
         "weight": "0.25 л."
       },
       {
         "uid": 140202,
-        "subtitle": "Газированный напиток",
+        "subtitle": "Добрый кола",
         "price": 205,
         "gallery": "/Drink/coke.webp",
         "weight": "0.5 л."
@@ -1533,7 +1533,7 @@
     "descr": "",
     "weight": "1 л.",
     "gallery": "/Drink/juice.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1404,
@@ -1543,7 +1543,7 @@
     "descr": "",
     "weight": "0.2 л.",
     "gallery": "/Drink/grape.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1405,
@@ -1553,7 +1553,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/Drink/natahtari.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1406,
@@ -1563,7 +1563,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/Drink/red bull.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1407,
@@ -1573,7 +1573,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/Drink/adrenaline.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1408,
@@ -1583,7 +1583,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/Drink/borjomi.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1500,
@@ -1616,7 +1616,7 @@
     "title": "Разливное пиво",
     "portion": 0,
     "price": 179,
-    "descr": "Разливное пиво - Белуга",
+    "descr": "Разливное пиво",
     "weight": "0.33 л.",
     "editions": [
       {

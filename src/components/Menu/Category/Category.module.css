@@ -2,13 +2,11 @@
   position: sticky;
   background-color: rgb(255, 255, 255);
   max-width: 1200px;
-  margin: 0 auto;
   z-index: 101;
   margin-bottom: 55px;
 }
 .category {
   position: fixed;
-  /* padding-top: 140px; */
   line-height: 1.15;
   display: flex;
   flex-direction: row;
@@ -30,7 +28,6 @@
   padding: 5px 14px;
   margin: 4px 8px 8px 2px;
   border-radius: 16px;
-  text-decoration: none;
   color: #000;
   box-shadow: 0 0 2px 1px #d4d4d4;
   width: max-content;
@@ -43,9 +40,10 @@
   padding: 5px 14px;
   margin: 4px 8px 8px 2px;
   border-radius: 16px;
-  text-decoration: none;
   color: #000;
   box-shadow: 0 0 0 2px #000;
+  width: max-content;
+  white-space: nowrap;
 }
 @media screen and (max-width: 1220px) {
   .category {
@@ -59,6 +57,6 @@
     width: 100%;
     flex-wrap: nowrap;
     overflow: auto;
-    padding: 0 35px 0 0;
+    padding: 0 ;
   }
 }

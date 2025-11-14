@@ -620,7 +620,7 @@
   },
   {
     "uid": 900,
-    "title": "Классический",
+    "title": "Милкшейк классический",
     "portion": 0,
     "price": 269,
     "descr": "",
@@ -638,7 +638,7 @@
   },
   {
     "uid": 902,
-    "title": "Банановый",
+    "title": "Милкшейк банановый",
     "portion": 0,
     "price": 269,
     "descr": "",
@@ -647,7 +647,7 @@
   },
   {
     "uid": 903,
-    "title": "Шоколадный",
+    "title": "Милкшейк шоколадный",
     "portion": 0,
     "price": 269,
     "descr": "",
@@ -657,7 +657,7 @@
 
   {
     "uid": 1000,
-    "title": "Ягодный",
+    "title": "Смузи ягодный",
     "portion": 0,
     "price": 279,
     "descr": "",
@@ -666,7 +666,7 @@
   },
   {
     "uid": 1001,
-    "title": "Вишня-малина",
+    "title": "Смузи вишня-малина",
     "portion": 0,
     "price": 279,
     "descr": "",
@@ -675,7 +675,7 @@
   },
   {
     "uid": 1002,
-    "title": "Груша-яблоко",
+    "title": "Смузи груша-яблоко",
     "portion": 0,
     "price": 279,
     "descr": "",
@@ -1351,7 +1351,7 @@
       }
     ],
     "gallery": "/../menuAroma/NonAlco/вода.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1401,
@@ -1360,7 +1360,7 @@
     "price": 219,
     "descr": "",
     "gallery": "/../menuAroma/NonAlco/рычал.webp",
-    "category": "drimk",
+    "category": "drink",
     "weight": "0.5 л."
   },
   {
@@ -1371,7 +1371,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/боржоми.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1403,
@@ -1381,7 +1381,7 @@
     "descr": "",
     "weight": "1 л.",
     "gallery": "/../menuAroma/NonAlco/сок.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1404,
@@ -1391,7 +1391,7 @@
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/натахтари.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1405,
@@ -1401,7 +1401,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/red bull.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1406,
@@ -1411,7 +1411,7 @@
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/adrenaline.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1408,
@@ -1437,7 +1437,7 @@
       }
     ],
     "gallery": "/../menuAroma/NonAlco/вода.webp",
-    "category": "drimk"
+    "category": "drink"
   },
   {
     "uid": 1407,
@@ -1470,7 +1470,7 @@
       }
     ],
     "gallery": "/../menuAroma/Fresh juice/Orange.webp",
-    "category": "drimk"
+    "category": "drink"
   },
 
   {
@@ -1561,7 +1561,7 @@
   },
   {
     "uid": 1600,
-    "title": "Brable",
+    "title": "Bramble",
     "portion": 0,
     "price": 349,
     "descr": "Джин, сироп ежевика, сок лайма",

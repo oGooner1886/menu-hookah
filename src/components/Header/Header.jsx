@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 // import logo from '../../assets/images/favicon.png';
 import style from './Header.module.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo/Logo';
 
 const Header = ({ amount, deleteOrder }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const confirmX = useCallback(() => {
     if (amount > 0) {
@@ -17,10 +18,10 @@ const Header = ({ amount, deleteOrder }) => {
       }
     } else navigate('/');
   }, [deleteOrder, navigate]);
-
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className={style.header}>
+    <header className={`${style.header} ${isHomePage ? style.header_black : ''}`}>
       <Logo confirmX={confirmX} />
 
       <nav className={style.header__nav}>
@@ -72,15 +73,17 @@ const Header = ({ amount, deleteOrder }) => {
             О нас
           </NavLink>
         </div> */}
-        <div className={style.header__nav_item}>
-          <div className={style.header_infoBlock}>
-            <NavLink to={'/order'} className={style.header_cartLink}>
-              <div className={style.header_cartWrapper} title="Корзина">
-                Заказ / {amount} ₽
-              </div>
-            </NavLink>
+        {!isHomePage && (
+          <div className={style.header__nav_item}>
+            <div className={style.header_infoBlock}>
+              <NavLink to={'/order'} className={style.header_cartLink}>
+                <div className={style.header_cartWrapper} title="Корзина">
+                  Заказ / {amount} ₽
+                </div>
+              </NavLink>
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </header>
   );
