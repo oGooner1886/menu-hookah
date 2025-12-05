@@ -2,7 +2,7 @@
   {
     "uid": 1,
     "title": "Салат Греческий",
-    "price": 419,
+    "price": 449,
     "descr": "Микс салата, сухари, соус цезарь, курица, пармезан, черри",
     "gallery": "/../menuAroma/Salads/Greece.webp",
     "category": "salads"
@@ -10,7 +10,7 @@
   {
     "uid": 2,
     "title": "Салат с баклажанами и фетой",
-    "price": 419,
+    "price": 429,
     "descr": "Микс салата, баклажан в фритюре, помидор, фета, орех грецкий, чили сладкий, бальзамик, ароматное масло",
     "gallery": "/../menuAroma/Salads/салат с баклажанами и феттой.webp",
     "category": "salads"
@@ -19,7 +19,7 @@
     "uid": 4,
     "title": "Цезарь с креветками",
     "portion": 0,
-    "price": 519,
+    "price": 529,
     "descr": "Микс салата, сухари, соус цезарь, креветки, черри , пармезан",
     "gallery": "/../menuAroma/Salads/Caesar with shrimp.webp",
     "category": "salads"
@@ -28,7 +28,7 @@
     "uid": 5,
     "title": "Цезарь с курицей",
     "portion": 0,
-    "price": 429,
+    "price": 449,
     "descr": "Микс салата, сухари,соус цезарь, курица, пармезан,черри",
     "gallery": "/../menuAroma/Salads/Caesar with chicken.webp",
     "category": "salads"
@@ -39,7 +39,7 @@
     "portion": 0,
     "price": 549,
     "descr": "",
-    "gallery": "/../menuAroma/Salads/Салат с семгой.webp",
+    "gallery": "",
     "category": "salads"
   },
 
@@ -47,7 +47,7 @@
     "uid": 100,
     "title": "Паста Карбонара",
     "portion": 0,
-    "price": 449,
+    "price": 479,
     "descr": "Тальятелле, бекон, лук репчатый,чеснок, сливки, желток, пармезан",
     "gallery": "/../menuAroma/Pasta/Carbonara paste.webp",
     "category": "pasta"
@@ -56,7 +56,7 @@
     "uid": 101,
     "title": "Паста с курицей и грибами",
     "portion": 0,
-    "price": 449,
+    "price": 479,
     "descr": "Тальятелле , курица,грибы,лук репчатый, чеснок, сливки,песто, пармезан",
     "gallery": "/../menuAroma/Pasta/Pasta with chicken and mushrooms.webp",
     "category": "pasta"
@@ -74,7 +74,7 @@
     "uid": 103,
     "title": "WOK с курицей",
     "portion": 0,
-    "price": 449,
+    "price": 459,
     "descr": "Баветте, курица, грибы, перец болгарский, лук красный, фасоль стручковая, кунжутное масло,чеснок, черри, соевый, сладкий чили, терияки, кунжут",
     "gallery": "/../menuAroma/Pasta/Wok with chicken.webp",
     "category": "pasta"
@@ -92,7 +92,7 @@
     "uid": 105,
     "title": "Паста 4 сыра",
     "portion": 0,
-    "price": 449,
+    "price": 479,
     "descr": "Тальятелле, дор блю, сыр творожный, сыр сливочный, пармезан, сливки",
     "gallery": "/../menuAroma/Pasta/Паста 4 сыра.webp",
     "category": "pasta"
@@ -120,7 +120,7 @@
     "uid": 401,
     "title": "Куриный стейк с картофельным пюре",
     "portion": 0,
-    "price": 519,
+    "price": 549,
     "descr": "Куриный стейк, фри или пюре, соус цезарь",
     "gallery": "/../menuAroma/Hot dish/Chicken Steak with Potato puree.webp",
     "category": "hotDish"
@@ -129,7 +129,7 @@
     "uid": 402,
     "title": "Куриный стейк с картофелем фри",
     "portion": 0,
-    "price": 519,
+    "price": 549,
     "descr": "Куриный стейк, фри или пюре, соус цезарь",
     "gallery": "/../menuAroma/Hot dish/Chicken steak with French fries.webp",
     "category": "hotDish"
@@ -147,7 +147,7 @@
     "uid": 404,
     "title": "Пангасиус в сладком чили с картофельным пюре",
     "portion": 0,
-    "price": 549,
+    "price": 559,
     "descr": "",
     "gallery": "/../menuAroma/Hot dish/.webp",
     "category": "hotDish"
@@ -156,7 +156,7 @@
     "uid": 405,
     "title": "Курица по-азиатски",
     "portion": 0,
-    "price": 519,
+    "price": 529,
     "descr": "",
     "gallery": "/../menuAroma/Hot dish/Курица по-азиатски.webp",
     "category": "hotDish"
@@ -183,7 +183,7 @@
     "uid": 502,
     "title": "Рамен с курицей",
     "portion": 0,
-    "price": 399,
+    "price": 349,
     "descr": "Бульон Рамен(соевый,чеснок,имбирь,бульон) , лапша яичная,курица,вакаме, яйцо, кунжут, лук зеленый.",
     "gallery": "/../menuAroma/Soup/Рамен.webp",
     "category": "soup"
@@ -192,90 +192,52 @@
     "uid": 503,
     "title": "Сливочный суп с морепродуктами",
     "portion": 0,
-    "price": 439,
+    "price": 479,
     "descr": "Креветки, кальмары, черри, лук порей, сливки",
     "gallery": "/../menuAroma/Soup/Сливочный суп с морепродуктами.webp",
     "category": "soup"
   },
 
   {
-    "uid": 614,
+    "uid": 600,
     "title": "Чиабата с курицей",
     "portion": 0,
-    "price": 359,
+    "price": 379,
     "descr": "Курица, гауда, корнишоны, помидоры, соус цезарь, лист салата",
     "weight": "",
     "gallery": "/../menuAroma/Snack/Чиабата с курицей.webp",
     "category": "snacks"
   },
   {
-    "uid": 600,
-    "title": "Кесадилья по-мексикански",
-    "portion": 0,
-    "price": 359,
-    "descr": "",
-    "weight": "",
-    "gallery": "/../menuAroma/Snack/Кесадилья.webp",
-    "category": "snacks"
-  },
-  {
     "uid": 601,
-    "title": "Баклажаны пармеджано",
+    "title": "Чиабата с семгой",
     "portion": 0,
-    "price": 359,
+    "price": 449,
     "descr": "",
     "weight": "",
-    "gallery": "/../menuAroma/Snack/Баклажаны.webp",
+    "gallery": "/../menuAroma/Snack/Чиабата с курицей.webp",
     "category": "snacks"
   },
   {
     "uid": 602,
     "title": "Креветки темпура",
     "portion": 0,
-    "price": 499,
+    "price": 559,
     "descr": "Креветки обжариваются в панцире с чесноĸом и соевом соусе и ĸусочĸом лимона, подается с зеленью под соусом васаби",
     "gallery": "/../menuAroma/Snack/Shrimp tempura.webp",
     "category": "snacks"
   },
   {
     "uid": 603,
-    "title": "Сырная тарелка",
-    "portion": 0,
-    "price": 589,
-    "descr": "Сыр моцарелла, майонез, яйца, панировочные сухари",
-    "gallery": "/../menuAroma/Snack/Сырная тарелка.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 604,
-    "title": "Куриный паштет с вишнёвым конфитюром",
-    "portion": 0,
-    "price": 349,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Chicken Pate with a cherry Confection.webp",
-    "category": "snacks"
-  },
-
-  {
-    "uid": 605,
     "title": "Мидии запечённые под сыром",
     "portion": 0,
-    "price": 439,
+    "price": 459,
     "descr": "",
     "gallery": "/../menuAroma/Snack/Мидии.webp",
     "category": "snacks"
   },
   {
-    "uid": 606,
-    "title": "Бри запечённый с грушей и мёдом",
-    "portion": 0,
-    "price": 589,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Бри с грушей.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 607,
+    "uid": 604,
     "title": "Бри запечённый с черри и розмарином",
     "portion": 0,
     "price": 589,
@@ -284,124 +246,54 @@
     "category": "snacks"
   },
   {
-    "uid": 620,
-    "title": "Рататуй с хрустящим хлебом",
+    "uid": 605,
+    "title": "Бри запечённый с грушей и мёдом",
     "portion": 0,
-    "price": 329,
+    "price": 589,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/рататуй.webp",
+    "gallery": "/../menuAroma/Snack/Бри с грушей.webp",
     "category": "snacks"
   },
   {
-    "uid": 621,
-    "title": "Гравлакс",
+    "uid": 606,
+    "title": "Кесадилья по-мексикански",
     "portion": 0,
-    "price": 619,
+    "price": 379,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/Гравлакс.webp",
+    "weight": "",
+    "gallery": "/../menuAroma/Snack/Кесадилья.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 607,
+    "title": "Баклажаны пармеджано",
+    "portion": 0,
+    "price": 389,
+    "descr": "",
+    "weight": "",
+    "gallery": "/../menuAroma/Snack/Баклажаны.webp",
     "category": "snacks"
   },
   {
     "uid": 608,
-    "title": "Оливки/маслины",
+    "title": "Сырная тарелка",
     "portion": 0,
-    "price": 249,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Olive .webp",
+    "price": 589,
+    "descr": "Сыр моцарелла, майонез, яйца, панировочные сухари",
+    "gallery": "/../menuAroma/Snack/Сырная тарелка.webp",
     "category": "snacks"
   },
   {
     "uid": 609,
-    "title": "Картофель фри",
+    "title": "Куриный паштет с вишнёвым конфитюром",
     "portion": 0,
-    "price": 239,
+    "price": 359,
     "descr": "",
-    "editions": [
-      {
-        "uid": 60901,
-        "title": "Картофель фри",
-        "subtitle": "Маленькая порция - ",
-        "price": 239,
-        "gallery": "/../menuAroma/Snack/French fries.webp",
-        "weight": "150 гр."
-      },
-      {
-        "uid": 60902,
-        "title": "Картофель фри",
-        "subtitle": "Большая порция - ",
-        "difference": 50,
-        "price": 299,
-        "gallery": "/../menuAroma/Snack/French fries.webp",
-        "weight": "250 гр."
-      }
-    ],
-    "gallery": "/../menuAroma/Snack/French fries.webp",
+    "gallery": "/../menuAroma/Snack/Chicken Pate with a cherry Confection.webp",
     "category": "snacks"
   },
   {
     "uid": 610,
-    "title": "Куриные наггетсы",
-    "portion": 0,
-    "price": 279,
-    "descr": "",
-    "editions": [
-      {
-        "uid": 61001,
-        "subtitle": "Маленькая порция - ",
-        "price": 279,
-        "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
-        "weight": "150 гр."
-      },
-      {
-        "uid": 61002,
-        "subtitle": "Большая порция - ",
-        "difference": "100",
-        "price": 389,
-        "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
-        "weight": "300 гр."
-      }
-    ],
-    "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 611,
-    "title": "Гренки",
-    "portion": 0,
-    "price": 199,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Croutons.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 612,
-    "title": "Фисташки",
-    "portion": 0,
-    "price": 299,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Pistachios.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 613,
-    "title": "Солённый арахис",
-    "portion": 0,
-    "price": 169,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/Peanut.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 615,
-    "title": "Кольца кальмара",
-    "portion": 0,
-    "price": 349,
-    "descr": "",
-    "gallery": "/../menuAroma/Snack/кольца кальмара.webp",
-    "category": "snacks"
-  },
-  {
-    "uid": 616,
     "title": "Пивной сет",
     "portion": 0,
     "price": 599,
@@ -410,20 +302,100 @@
     "category": "snacks"
   },
   {
-    "uid": 617,
-    "title": "Чипсы",
+    "uid": 611,
+    "title": "Картофель фри",
+    "portion": 0,
+    "price": 249,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 601101,
+        "title": "Картофель фри",
+        "subtitle": "Маленькая порция - ",
+        "price": 249,
+        "gallery": "/../menuAroma/Snack/French fries.webp",
+        "weight": "150 гр."
+      },
+      {
+        "uid": 601102,
+        "title": "Картофель фри",
+        "subtitle": "Большая порция - ",
+        "difference": 50,
+        "price": 309,
+        "gallery": "/../menuAroma/Snack/French fries.webp",
+        "weight": "250 гр."
+      }
+    ],
+    "gallery": "/../menuAroma/Snack/French fries.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 612,
+    "title": "Куриные наггетсы",
+    "portion": 0,
+    "price": 299,
+    "descr": "",
+    "editions": [
+      {
+        "uid": 61201,
+        "subtitle": "Маленькая порция - ",
+        "price": 299,
+        "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
+        "weight": "150 гр."
+      },
+      {
+        "uid": 61202,
+        "subtitle": "Большая порция - ",
+        "difference": "100",
+        "price": 399,
+        "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
+        "weight": "300 гр."
+      }
+    ],
+    "gallery": "/../menuAroma/Snack/Chicken nuggets.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 613,
+    "title": "Гренки",
+    "portion": 0,
+    "price": 219,
+    "descr": "",
+    "gallery": "/../menuAroma/Snack/Croutons.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 614,
+    "title": "Фисташки",
+    "portion": 0,
+    "price": 329,
+    "descr": "",
+    "gallery": "/../menuAroma/Snack/Pistachios.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 615,
+    "title": "Солённый арахис",
     "portion": 0,
     "price": 189,
+    "descr": "",
+    "gallery": "/../menuAroma/Snack/Peanut.webp",
+    "category": "snacks"
+  },
+  {
+    "uid": 616,
+    "title": "Чипсы",
+    "portion": 0,
+    "price": 229,
     "descr": "",
     "gallery": "/../menuAroma/Snack/Chips.webp",
     "category": "snacks"
   },
-
   {
     "uid": 650,
     "title": "Соус",
     "portion": 0,
-    "price": 79,
+    "price": 89,
     "descr": "",
     "gallery": "/../menuAroma/Snack/sauce.webp",
     "category": "snacks",
@@ -432,31 +404,31 @@
         "uid": 65001,
         "subtitle": "Чесночный",
         "gallery": "/Snack/sauce.webp",
-        "price": 79
+        "price": 89
       },
       {
         "uid": 65002,
         "gallery": "/Snack/sauce.webp",
         "subtitle": "Кисло-сладкий",
-        "price": 79
+        "price": 89
       },
       {
         "uid": 65003,
         "gallery": "/Snack/sauce.webp",
         "subtitle": "Сырный",
-        "price": 79
+        "price": 89
       },
       {
         "uid": 65004,
         "gallery": "/Snack/sauce.webp",
         "subtitle": "BBQ",
-        "price": 79
+        "price": 89
       },
       {
         "uid": 65005,
         "gallery": "/Snack/sauce.webp",
         "subtitle": "1000 островов",
-        "price": 79
+        "price": 89
       }
     ]
   },
@@ -473,40 +445,47 @@
     "uid": 690,
     "title": "Хлеб",
     "portion": 0,
-    "price": 45,
+    "price": 59,
     "descr": "",
     "gallery": "/../menuAroma/Snack/хлеб.webp",
     "category": "snacks"
   },
-
   {
     "uid": 700,
+    "title": "Ассорти орехов с медом",
+    "portion": 0,
+    "price": 549,
+    "descr": "",
+    "gallery": "/../menuAroma/Desserts/Ассорти.webp",
+    "category": "desserts"
+  },
+  {
+    "uid": 701,
     "title": "Кокосовый чизкейк",
     "portion": 0,
-    "price": 469,
+    "price": 509,
     "descr": "",
     "gallery": "/../menuAroma/Desserts/Coconut cheesecake.webp",
     "category": "desserts"
   },
   {
-    "uid": 701,
+    "uid": 702,
     "title": "Лимонный чизкейк",
     "portion": 0,
-    "price": 469,
+    "price": 479,
     "descr": "",
     "gallery": "/../menuAroma/Desserts/Lemon cheesecake.webp",
     "category": "desserts"
   },
   {
-    "uid": 702,
+    "uid": 703,
     "title": "Меренговый рулет фисташка-малина",
     "portion": 0,
-    "price": 439,
+    "price": 509,
     "descr": "",
     "gallery": "/../menuAroma/Desserts/рулет.webp",
     "category": "desserts"
   },
-
   {
     "uid": 704,
     "title": "Медовик",
@@ -520,52 +499,43 @@
     "uid": 705,
     "title": "Брауни",
     "portion": 0,
-    "price": 389,
+    "price": 449,
     "descr": "",
     "gallery": "/../menuAroma/Desserts/брауни.webp",
-    "category": "desserts"
-  },
-  {
-    "uid": 706,
-    "title": "Ассорти орехов с медом",
-    "portion": 0,
-    "price": 549,
-    "descr": "",
-    "gallery": "/../menuAroma/Desserts/Ассорти.webp",
     "category": "desserts"
   },
   {
     "uid": 800,
     "title": "Шарик мороженого",
     "portion": 0,
-    "price": 89,
+    "price": 99,
     "descr": "",
     "editions": [
       {
         "uid": 80001,
         "subtitle": "Сливочный - ",
-        "price": 89,
+        "price": 99,
         "gallery": "/Ice cream/Ice cream ball.webp",
         "weight": "50 гр."
       },
       {
         "uid": 80002,
         "subtitle": "Шоколадный - ",
-        "price": 89,
+        "price": 99,
         "gallery": "/Ice cream/Ice cream ball.webp",
         "weight": "50 гр."
       },
       {
         "uid": 80003,
         "subtitle": "Клубничный - ",
-        "price": 89,
+        "price": 99,
         "gallery": "/Ice cream/Ice cream ball.webp",
         "weight": "50 гр."
       },
       {
         "uid": 80004,
         "subtitle": "Фисташковый - ",
-        "price": 89,
+        "price": 99,
         "gallery": "/Ice cream/Ice cream ball.webp",
         "weight": "50 гр."
       }
@@ -577,7 +547,7 @@
     "uid": 801,
     "title": "Мороженое комбо",
     "portion": 0,
-    "price": 269,
+    "price": 309,
     "descr": "3 шарика мороженого + сироп/топинг + наполнитель",
     "gallery": "/Ice cream/Combo.webp",
     "category": "iceCream"
@@ -622,16 +592,16 @@
     "uid": 900,
     "title": "Милкшейк классический",
     "portion": 0,
-    "price": 269,
+    "price": 319,
     "descr": "",
     "gallery": "/../menuAroma/Milkshake/Classic milkshake.webp",
     "category": "milkshake"
   },
   {
     "uid": 901,
-    "title": "Клубничный",
+    "title": "Милкшейк клубничный",
     "portion": 0,
-    "price": 269,
+    "price": 319,
     "descr": "",
     "gallery": "/../menuAroma/Milkshake/Strawberry milkshake.webp",
     "category": "milkshake"
@@ -640,7 +610,7 @@
     "uid": 902,
     "title": "Милкшейк банановый",
     "portion": 0,
-    "price": 269,
+    "price": 319,
     "descr": "",
     "gallery": "/../menuAroma/Milkshake/Banana milkshake.webp",
     "category": "milkshake"
@@ -649,7 +619,7 @@
     "uid": 903,
     "title": "Милкшейк шоколадный",
     "portion": 0,
-    "price": 269,
+    "price": 319,
     "descr": "",
     "gallery": "/../menuAroma/Milkshake/Chocolate milkshake.webp",
     "category": "milkshake"
@@ -659,7 +629,7 @@
     "uid": 1000,
     "title": "Смузи ягодный",
     "portion": 0,
-    "price": 279,
+    "price": 289,
     "descr": "",
     "gallery": "/../menuAroma/Smoothie/Berry smoothie.webp",
     "category": "smoothie"
@@ -668,7 +638,7 @@
     "uid": 1001,
     "title": "Смузи вишня-малина",
     "portion": 0,
-    "price": 279,
+    "price": 289,
     "descr": "",
     "gallery": "/../menuAroma/Smoothie/Cherry Raspberry Smoothie.webp",
     "category": "smoothie"
@@ -677,17 +647,16 @@
     "uid": 1002,
     "title": "Смузи груша-яблоко",
     "portion": 0,
-    "price": 279,
+    "price": 289,
     "descr": "",
     "gallery": "/../menuAroma/Smoothie/Smoothie Pear Apple.webp",
     "category": "smoothie"
   },
-
   {
     "uid": 1100,
     "title": "Американо",
     "portion": 0,
-    "price": 219,
+    "price": 229,
     "descr": "",
     "weight": "180 мл.",
     "gallery": "/../menuAroma/Coffee/Americano.webp",
@@ -697,7 +666,7 @@
     "uid": 1101,
     "title": "Двойной эспрессо",
     "portion": 0,
-    "price": 199,
+    "price": 209,
     "descr": "",
     "weight": "60 мл.",
     "gallery": "/../menuAroma/Coffee/двойной эспрессо.webp",
@@ -717,7 +686,7 @@
     "uid": 1103,
     "title": "Латте",
     "portion": 0,
-    "price": 239,
+    "price": 249,
     "descr": "",
     "weight": "250 мл.",
     "gallery": "/../menuAroma/Coffee/Latte.webp",
@@ -735,9 +704,9 @@
   },
   {
     "uid": 1105,
-    "title": "Бамбл",
+    "title": "Бамбл кофе",
     "portion": 0,
-    "price": 279,
+    "price": 289,
     "descr": "",
     "weight": "350 мл.",
     "gallery": "/../menuAroma/Coffee/Bumble.webp",
@@ -747,7 +716,7 @@
     "uid": 1106,
     "title": "Раф",
     "portion": 0,
-    "price": 279,
+    "price": 289,
     "descr": "",
     "weight": "250 мл.",
     "gallery": "/../menuAroma/Coffee/Raf.webp",
@@ -757,7 +726,7 @@
     "uid": 1107,
     "title": "Какао",
     "portion": 0,
-    "price": 239,
+    "price": 259,
     "descr": "",
     "weight": "250 мл.",
     "gallery": "/../menuAroma/Coffee/Cacao.webp",
@@ -923,13 +892,13 @@
     "uid": 1210,
     "title": "Чёрный чай",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 121001,
         "subtitle": "Маленький - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Tea/Black tea.webp",
         "weight": "0.5 л."
       },
@@ -937,7 +906,7 @@
         "uid": 121002,
         "subtitle": "Большой - ",
         "difference": "40 р.",
-        "price": 299,
+        "price": 319,
         "gallery": "/../menuAroma/Tea/Black tea.webp",
         "weight": "1 л."
       }
@@ -949,13 +918,13 @@
     "uid": 1211,
     "title": "Чёрный чай c бергамотом",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 121101,
         "subtitle": "Маленький - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Tea/Black tea.webp",
         "weight": "0.5 л."
       },
@@ -963,7 +932,7 @@
         "uid": 121102,
         "subtitle": "Большой - ",
         "difference": "40 р.",
-        "price": 299,
+        "price": 319,
         "gallery": "/../menuAroma/Tea/Black tea.webp",
         "weight": "1 л."
       }
@@ -975,13 +944,13 @@
     "uid": 1212,
     "title": "Зелёный чай",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 121201,
         "subtitle": "Маленький - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Tea/зеленый чай.webp",
         "weight": "0.5 л."
       },
@@ -989,7 +958,7 @@
         "uid": 121202,
         "subtitle": "Большой - ",
         "difference": "40 р.",
-        "price": 299,
+        "price": 319,
         "gallery": "/../menuAroma/Tea/зеленый чай.webp",
         "weight": "1 л."
       }
@@ -1001,13 +970,13 @@
     "uid": 1213,
     "title": "Молочный улун",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 121301,
         "subtitle": "Маленький - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Tea/Milk oolong.webp",
         "weight": "0.5 л."
       },
@@ -1015,7 +984,7 @@
         "uid": 121302,
         "subtitle": "Большой - ",
         "difference": "50 р.",
-        "price": 299,
+        "price": 319,
         "gallery": "/../menuAroma/Tea/Milk oolong.webp",
         "weight": "1 л."
       }
@@ -1054,7 +1023,7 @@
     "uid": 1290,
     "title": "Чабрец",
     "portion": 0,
-    "price": 29,
+    "price": 49,
     "descr": "",
     "gallery": "/../menuAroma/Tea/чабрец.webp",
     "category": "tea"
@@ -1063,7 +1032,7 @@
     "uid": 1291,
     "title": "Мята",
     "portion": 0,
-    "price": 29,
+    "price": 49,
     "descr": "",
     "gallery": "/../menuAroma/Tea/Мята.webp",
     "category": "tea"
@@ -1072,7 +1041,7 @@
     "uid": 1292,
     "title": "Лимон",
     "portion": 0,
-    "price": 29,
+    "price": 49,
     "descr": "",
     "gallery": "/../menuAroma/Tea/лимон.webp",
     "category": "tea"
@@ -1081,7 +1050,7 @@
     "uid": 1293,
     "title": "Мёд",
     "portion": 0,
-    "price": 39,
+    "price": 49,
     "descr": "",
     "gallery": "/../menuAroma/Tea/.webp",
     "category": "tea"
@@ -1090,23 +1059,22 @@
     "uid": 1294,
     "title": "Имбирь",
     "portion": 0,
-    "price": 39,
+    "price": 49,
     "descr": "",
     "gallery": "/../menuAroma/Tea/.webp",
     "category": "tea"
   },
-
   {
     "uid": 1300,
     "title": "Лимонад черника-лаванда",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 130001,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/черника-лаванда.webp",
         "weight": "0.4 л"
       },
@@ -1114,7 +1082,7 @@
         "uid": 130002,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/черника-лаванда.webp",
         "weight": "1 л."
       }
@@ -1126,13 +1094,13 @@
     "uid": 1301,
     "title": "Лимонад пало-санто-банан",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 130101,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Palo Santo Banana Lemonade.webp",
         "weight": "0.4 л."
       },
@@ -1140,7 +1108,7 @@
         "uid": 130102,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Palo Santo Banana Lemonade.webp",
         "weight": "1 л."
       }
@@ -1152,13 +1120,13 @@
     "uid": 1302,
     "title": "Лимонад ладан-кокос",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 130201,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Lemonade frankincense coconut.webp",
         "weight": "0.4 л."
       },
@@ -1166,7 +1134,7 @@
         "uid": 130202,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Lemonade frankincense coconut.webp",
         "weight": "1 л."
       }
@@ -1178,13 +1146,13 @@
     "uid": 1303,
     "title": "Лимонад ежевика-гранат",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "descr": "",
     "editions": [
       {
         "uid": 130301,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Лимонад ежевика гранат.webp",
         "weight": "0.4 л."
       },
@@ -1192,7 +1160,7 @@
         "uid": 130302,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Лимонад ежевика гранат.webp",
         "weight": "1 л."
       }
@@ -1205,12 +1173,12 @@
     "uid": 1306,
     "title": "Лимонад ягодный",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "editions": [
       {
         "uid": 130601,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Berry lemonade.webp",
         "weight": "0.4 л."
       },
@@ -1218,7 +1186,7 @@
         "uid": 130602,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Berry lemonade.webp",
         "weight": "1 л."
       }
@@ -1230,12 +1198,12 @@
     "uid": 1307,
     "title": "Лимонад киви-фейхоа",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "editions": [
       {
         "uid": 130701,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Kiwi feijoa lemonade.webp",
         "weight": "0.4 л."
       },
@@ -1243,7 +1211,7 @@
         "uid": 130702,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Kiwi feijoa lemonade.webp",
         "weight": "1 л."
       }
@@ -1255,12 +1223,12 @@
     "uid": 1308,
     "title": "Лимонад ананас-клюква",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "editions": [
       {
         "uid": 130801,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Ананас клюква.webp",
         "weight": "0.4 л."
       },
@@ -1268,7 +1236,7 @@
         "uid": 130802,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Ананас клюква.webp",
         "weight": "1 л."
       }
@@ -1280,12 +1248,12 @@
     "uid": 1309,
     "title": "Мохито классический",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "editions": [
       {
         "uid": 130901,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Mojito Lemonade.webp",
         "weight": "0.4 л."
       },
@@ -1293,7 +1261,7 @@
         "uid": 130902,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Mojito Lemonade.webp",
         "weight": "1 л."
       }
@@ -1305,12 +1273,12 @@
     "uid": 1310,
     "title": "Лимонад малина-розмарин",
     "portion": 0,
-    "price": 259,
+    "price": 279,
     "editions": [
       {
         "uid": 131001,
         "subtitle": "Стакан - ",
-        "price": 259,
+        "price": 279,
         "gallery": "/../menuAroma/Lemonade/Lemonade raspberry rosemary.webp",
         "weight": "0.4 л."
       },
@@ -1318,7 +1286,7 @@
         "uid": 131002,
         "subtitle": "Графин - ",
         "difference": "200 р.",
-        "price": 459,
+        "price": 479,
         "gallery": "/../menuAroma/Lemonade/Lemonade raspberry rosemary.webp",
         "weight": "1 л."
       }
@@ -1331,21 +1299,21 @@
     "uid": 1400,
     "title": "Вода",
     "portion": 0,
-    "price": 169,
+    "price": 189,
     "descr": "",
     "weight": "0.5 л.",
     "editions": [
       {
         "uid": 140001,
         "subtitle": "Газированная вода - ",
-        "price": 169,
+        "price": 189,
         "gallery": "/../menuAroma/NonAlco/вода.webp",
         "weight": "0.5 л."
       },
       {
         "uid": 140002,
         "subtitle": "Негазированная вода - ",
-        "price": 169,
+        "price": 189,
         "gallery": "/../menuAroma/NonAlco/вода.webp",
         "weight": "0.5 л."
       }
@@ -1357,7 +1325,7 @@
     "uid": 1401,
     "title": "Рычал-Су",
     "portion": 0,
-    "price": 219,
+    "price": 239,
     "descr": "",
     "gallery": "/../menuAroma/NonAlco/рычал.webp",
     "category": "drink",
@@ -1367,7 +1335,7 @@
     "uid": 1402,
     "title": "Боржоми стекло",
     "portion": 0,
-    "price": 289,
+    "price": 299,
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/боржоми.webp",
@@ -1377,7 +1345,7 @@
     "uid": 1403,
     "title": "Натуральный сок",
     "portion": 0,
-    "price": 439,
+    "price": 449,
     "descr": "",
     "weight": "1 л.",
     "gallery": "/../menuAroma/NonAlco/сок.webp",
@@ -1387,7 +1355,7 @@
     "uid": 1404,
     "title": "Лимонад натахтари",
     "portion": 0,
-    "price": 229,
+    "price": 259,
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/NonAlco/натахтари.webp",
@@ -1397,7 +1365,7 @@
     "uid": 1405,
     "title": "Red Bull",
     "portion": 0,
-    "price": 279,
+    "price": 299,
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/red bull.webp",
@@ -1407,7 +1375,7 @@
     "uid": 1406,
     "title": "Adrenalin Rush",
     "portion": 0,
-    "price": 199,
+    "price": 239,
     "descr": "",
     "weight": "0.25 л.",
     "gallery": "/../menuAroma/NonAlco/adrenaline.webp",
@@ -1417,21 +1385,21 @@
     "uid": 1408,
     "title": "Газированный напиток",
     "portion": 0,
-    "price": 129,
+    "price": 219,
     "descr": "",
     "weight": "0.25 л.",
     "editions": [
       {
         "uid": 140801,
         "subtitle": "Газированный напиток - ",
-        "price": 129,
+        "price": 219,
         "gallery": "/../menuAroma/NonAlco/вода.webp",
         "weight": "0.25 л."
       },
       {
         "uid": 140802,
         "subtitle": "Газированный напиток - ",
-        "price": 199,
+        "price": 239,
         "gallery": "/../menuAroma/NonAlco/вода.webp",
         "weight": "0.5 л."
       }
@@ -1443,7 +1411,7 @@
     "uid": 1407,
     "title": "Свежевыжатый сок",
     "portion": 0,
-    "price": 319,
+    "price": 349,
     "descr": "",
     "weight": "0.3 л.",
     "editions": [
@@ -1451,21 +1419,21 @@
         "uid": 140701,
         "subtitle": "Апельсиновый - ",
         "gallery": "/../menuAroma/Fresh juice/Orange.webp",
-        "price": 319,
+        "price": 349,
         "weight": "0.3 л."
       },
       {
         "uid": 140702,
         "subtitle": "Грейпфрутовый - ",
         "gallery": "/../menuAroma/Fresh juice/Грейпфрутовый.webp",
-        "price": 319,
+        "price": 349,
         "weight": "0.3 л."
       },
       {
         "uid": 140703,
         "subtitle": "Лимонный - ",
         "gallery": "/../menuAroma/Fresh juice/Лимонный.webp",
-        "price": 319,
+        "price": 349,
         "weight": "0.3 л."
       }
     ],
@@ -1477,7 +1445,7 @@
     "uid": 1500,
     "title": "Пиво",
     "portion": 0,
-    "price": 249,
+    "price": 269,
     "descr": "",
     "weight": "0.5 л.",
     "editions": [
@@ -1485,14 +1453,14 @@
         "uid": 150001,
         "subtitle": "Алкогольное - ",
         "gallery": "/../menuAroma/Alco/kozel.webp",
-        "price": 249,
+        "price": 269,
         "weight": "0.5 л."
       },
       {
         "uid": 150002,
         "subtitle": "Безалкогольное - ",
         "gallery": "/../menuAroma/Alco/kozel.webp",
-        "price": 249,
+        "price": 269,
         "weight": "0.5 л."
       }
     ],
@@ -1503,21 +1471,21 @@
     "uid": 1501,
     "title": "Разливное пиво",
     "portion": 0,
-    "price": 179,
+    "price": 219,
     "descr": "Разливное пиво",
     "weight": "0.33 л.",
     "editions": [
       {
         "uid": 150101,
         "subtitle": "",
-        "price": 179,
+        "price": 219,
         "weight": "0.33 л."
       },
       {
         "uid": 150102,
         "subtitle": "",
         "difference": "40 р.",
-        "price": 219,
+        "price": 259,
         "weight": "0.5 л."
       }
     ],
@@ -1528,7 +1496,7 @@
     "uid": 1503,
     "title": "Сидр White Phoenix",
     "portion": 0,
-    "price": 269,
+    "price": 309,
     "descr": "",
     "weight": "0.5 л.",
     "gallery": "/../menuAroma/Alco/white phoenix.webp",
@@ -1538,21 +1506,21 @@
     "uid": 1504,
     "title": "Импортное пиво",
     "portion": 0,
-    "price": 319,
+    "price": 339,
     "descr": "",
     "weight": "0.33 л.",
     "editions": [
       {
         "uid": 150401,
         "subtitle": "",
-        "price": 319,
+        "price": 339,
         "weight": "0.33 л."
       },
       {
         "uid": 150402,
         "subtitle": "",
         "difference": "40 р.",
-        "price": 389,
+        "price": 429,
         "weight": "0.5 л."
       }
     ],
@@ -1563,7 +1531,7 @@
     "uid": 1600,
     "title": "Bramble",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Джин, сироп ежевика, сок лайма",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/Bramble.webp",
@@ -1573,7 +1541,7 @@
     "uid": 1601,
     "title": "Espresso Martini",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Водка, кофейный ликер, мороженое",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/EspressoMartini.webp",
@@ -1583,7 +1551,7 @@
     "uid": 1602,
     "title": "Clover Club",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Джин, мартини фиеро, сироп малина, лимонный сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/CloverClub.webp",
@@ -1593,7 +1561,7 @@
     "uid": 1603,
     "title": "Amaretto Sour",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Амаретто, апельсиновый сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/AmarettoSour.webp",
@@ -1603,7 +1571,7 @@
     "uid": 1604,
     "title": "Cucumber Fizz",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Джин, лимонный сок, огурец",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/CucumberFizz.webp",
@@ -1613,7 +1581,7 @@
     "uid": 1605,
     "title": "Paloma",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Текила, водка, ананасовый сок, сок грейпфрута, лимонный сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/Paloma.webp",
@@ -1623,7 +1591,7 @@
     "uid": 1606,
     "title": "Black Forest",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Водка на вишне, кофейный ликер, шоколадный сироп",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/BlackForest.webp",
@@ -1633,7 +1601,7 @@
     "uid": 1607,
     "title": "Sweet Citrus",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Водка, сироп фисташки, апельсиновый сок, ананасовый сок, лимонный сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/SweetCitrus.webp",
@@ -1643,7 +1611,7 @@
     "uid": 1608,
     "title": "Cherry Shock",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Джин, мартини фиеро, трипл сек, вишневый сок, лимонный сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/CherryShock.webp",
@@ -1653,7 +1621,7 @@
     "uid": 1609,
     "title": "Cosmopolitan",
     "portion": 0,
-    "price": 349,
+    "price": 419,
     "descr": "Водка, клюквенный сок, трипл сек, сок лайма",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/Cosmopolitan.webp",
@@ -1663,7 +1631,7 @@
     "uid": 1610,
     "title": "New-York sour",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Виски, вино, лимонный сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/NewYorkSour.webp",
@@ -1673,7 +1641,7 @@
     "uid": 1611,
     "title": "Aperol Spritz",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Апреоль, игристое, апельсиновый сок",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/AperolSpritz.webp",
@@ -1683,7 +1651,7 @@
     "uid": 1612,
     "title": "Porn Star",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Водка, игристое, сироп маракуйя, пюре маракуйя",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/PornStar.webp",
@@ -1693,7 +1661,7 @@
     "uid": 1613,
     "title": "Singapore Sling",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Джин, трипл сек, сироп вишни, сок ананаса, сок лайма",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/SingaporeSling.webp",
@@ -1703,7 +1671,7 @@
     "uid": 1614,
     "title": "Strawberry Margarita",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Текила, трипл сек, сироп клубника, сок лайма, клубника",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/StrawberryMargarita.webp",
@@ -1713,7 +1681,7 @@
     "uid": 1615,
     "title": "Serenity",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Текила, древесные ноты пало санто со вкусом банана",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/Serenity.webp",
@@ -1723,7 +1691,7 @@
     "uid": 1616,
     "title": "Pink Cloud",
     "portion": 0,
-    "price": 399,
+    "price": 419,
     "descr": "Мартини фиеро, текила, сок лайма, сироп клубника",
     "weight": "",
     "gallery": "/../menuAroma/Coctail/PinkCloud.webp",
