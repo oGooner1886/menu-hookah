@@ -6,8 +6,6 @@ import MenuItem from './MenuItem/MenuItem';
 import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
 
-const MemoizedMenuItem = React.memo(MenuItem);
-
 //
 const Menu = () => {
   const { currentProducts, order, addToOrder, removeFromOrder, item, setItem } = useContext(Context);
@@ -36,7 +34,7 @@ const Menu = () => {
         ? item.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
         : order[item.uid] || 0;
       return (
-        <MemoizedMenuItem
+        <MenuItem
           key={item.uid}
           item={item}
           portion={portion}
@@ -50,7 +48,6 @@ const Menu = () => {
 
   return (
     <div className={style.wrapper}>
-      
       <Category />
       <div className={style.item__wrapper}>
         {renderedItems.length > 0 ? renderedItems : <p>Товары не найдены</p>}
