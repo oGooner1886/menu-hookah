@@ -3,7 +3,7 @@
     "uid": 1,
     "title": "Салат Греческий",
     "price": 449,
-    "descr": "Микс салата, сухари, соус цезарь, курица, пармезан, черри",
+    "descr": "Миĸс салата, помидор,огурец, перец болгарсĸий, луĸ ĸрасный, маслины/оливки,фета, ароматное масло,бальзамик",
     "gallery": "/../menuAroma/Salads/Greece.webp",
     "category": "salads"
   },
@@ -102,7 +102,7 @@
     "title": "Паста с морепродуктами",
     "portion": 0,
     "price": 579,
-    "descr": "",
+    "descr": "Барила №13, креветки, кальмары, лук порей, каперсы, соус томатный, творожный сыр, шрирача, соевый, пармезан",
     "gallery": "/../menuAroma/Pasta/Паста с морепродуктами.webp",
     "category": "pasta"
   },
@@ -112,7 +112,7 @@
     "title": "Бефстроганов с картофельным пюре",
     "portion": 0,
     "price": 589,
-    "descr": "Говядина, лук репчатый,чеснок, масло сливочное, сметана ,сливки + картофельное пюре + огурец соленый.",
+    "descr": "Говядина,грибы, луĸ репчатый,чесноĸ, масло сливочное, сметана ,сливĸи + ĸартофельное пюре + огурец соленый",
     "gallery": "/../menuAroma/Hot dish/Beef Stroganoff with potato mash.webp",
     "category": "hotDish"
   },
@@ -138,7 +138,7 @@
     "uid": 403,
     "title": "Ризотто с морепродуктами",
     "portion": 0,
-    "price": 639,
+    "price": 659,
     "descr": "Рис, лук репчатый, чеснок, сливочное масло, кальмар, креветки, куркума, сыр творожный, сливки, пармезан",
     "gallery": "/../menuAroma/Hot dish/ризотто.webp",
     "category": "hotDish"
@@ -148,8 +148,8 @@
     "title": "Пангасиус в сладком чили с картофельным пюре",
     "portion": 0,
     "price": 559,
-    "descr": "",
-    "gallery": "/../menuAroma/Hot dish/.webp",
+    "descr": "Филе пангасиуса(морская рыба), луĸ порей, сладĸий чили, черри , ĸартофельное пюре",
+    "gallery": "",
     "category": "hotDish"
   },
   {
@@ -157,7 +157,7 @@
     "title": "Курица по-азиатски",
     "portion": 0,
     "price": 529,
-    "descr": "",
+    "descr": "Рис, курица, лук порей, чесночное масло,имбирь, перец чили, болгарский перец, соевый, терияки, сладкий чили, кунжут, зеленый лук",
     "gallery": "/../menuAroma/Hot dish/Курица по-азиатски.webp",
     "category": "hotDish"
   },
@@ -165,7 +165,7 @@
     "uid": 500,
     "title": "Суп куриный",
     "portion": 0,
-    "price": 329,
+    "price": 349,
     "descr": "Наваристый ĸуриный бульон с лапшой, яйцом и ĸуриным филе, свежая зелень.",
     "gallery": "/../menuAroma/Soup/Soup with chicken.webp",
     "category": "soup"
@@ -176,7 +176,7 @@
     "portion": 0,
     "price": 349,
     "descr": "Лук репчатый,морковь, чеснок, картофель, сыр сливочный, сливки, пармезан.",
-    "gallery": "/../menuAroma/Soup/крем суп сырный.webp",
+    "gallery": "/../menuAroma/Soup/soup cheese.webp",
     "category": "soup"
   },
   {
@@ -193,7 +193,7 @@
     "title": "Сливочный суп с морепродуктами",
     "portion": 0,
     "price": 479,
-    "descr": "Креветки, кальмары, черри, лук порей, сливки",
+    "descr": "Креветĸи, ĸальмары, рис, черри, шрирача, сыр сливочный, сливĸи, луĸ порей, чесноĸ.",
     "gallery": "/../menuAroma/Soup/Сливочный суп с морепродуктами.webp",
     "category": "soup"
   },
@@ -203,7 +203,7 @@
     "title": "Чиабата с курицей",
     "portion": 0,
     "price": 379,
-    "descr": "Курица, гауда, корнишоны, помидоры, соус цезарь, лист салата",
+    "descr": "Чиабатта ½, соус цезарь, шрирача, микс салата, курица, помидор свежий, соленый огурец, сыр гауда.",
     "weight": "",
     "gallery": "/../menuAroma/Snack/Чиабата с курицей.webp",
     "category": "snacks"
@@ -213,7 +213,7 @@
     "title": "Чиабата с семгой",
     "portion": 0,
     "price": 449,
-    "descr": "",
+    "descr": "Чиабатта ½, творожный сыр, огурец, авокадо, семга с/с, микс салата.",
     "weight": "",
     "gallery": "/../menuAroma/Snack/Чиабата с курицей.webp",
     "category": "snacks"
@@ -223,7 +223,7 @@
     "title": "Креветки темпура",
     "portion": 0,
     "price": 559,
-    "descr": "Креветки обжариваются в панцире с чесноĸом и соевом соусе и ĸусочĸом лимона, подается с зеленью под соусом васаби",
+    "descr": "Очищенные креветки обжариваются в кляре и панировочных сухарях, подаются со сладким чили.",
     "gallery": "/../menuAroma/Snack/Shrimp tempura.webp",
     "category": "snacks"
   },
@@ -232,7 +232,7 @@
     "title": "Мидии запечённые под сыром",
     "portion": 0,
     "price": 459,
-    "descr": "",
+    "descr": "Мидии в полустворках, лук репчатый, чеснок, масло сливочное, сыр гауда, майонез, шрирача.",
     "gallery": "/../menuAroma/Snack/Мидии.webp",
     "category": "snacks"
   },
@@ -251,7 +251,7 @@
     "portion": 0,
     "price": 589,
     "descr": "",
-    "gallery": "/../menuAroma/Snack/Бри с грушей.webp",
+    "gallery": "/../menuAroma/Snack/Бри с грушей.webp",
     "category": "snacks"
   },
   {
@@ -259,7 +259,7 @@
     "title": "Кесадилья по-мексикански",
     "portion": 0,
     "price": 379,
-    "descr": "",
+    "descr": "Пшеничная тортилья, говяжий фарш(лук репчатый, перец чили, помидоры, томатная паста, сметана, чеснок, кинза), сыр моцарелла + лайм.",
     "weight": "",
     "gallery": "/../menuAroma/Snack/Кесадилья.webp",
     "category": "snacks"
@@ -269,7 +269,7 @@
     "title": "Баклажаны пармеджано",
     "portion": 0,
     "price": 389,
-    "descr": "",
+    "descr": "Помидор, баклажан, сыр моцарелла, соус томатный, пармезан, сухари панировочные.",
     "weight": "",
     "gallery": "/../menuAroma/Snack/Баклажаны.webp",
     "category": "snacks"
@@ -279,7 +279,7 @@
     "title": "Сырная тарелка",
     "portion": 0,
     "price": 589,
-    "descr": "Сыр моцарелла, майонез, яйца, панировочные сухари",
+    "descr": "Дор блю, пармезан, камамбер, гауда, виноград или груша, грецкий орех + мёд.",
     "gallery": "/../menuAroma/Snack/Сырная тарелка.webp",
     "category": "snacks"
   },
@@ -288,7 +288,7 @@
     "title": "Куриный паштет с вишнёвым конфитюром",
     "portion": 0,
     "price": 359,
-    "descr": "",
+    "descr": "Куриная печень, лук репчатый, морковь, масло сливочное, сливки, мускатный орех + вишневый конфитюр + 2 кусочка чиабатты",
     "gallery": "/../menuAroma/Snack/Chicken Pate with a cherry Confection.webp",
     "category": "snacks"
   },
@@ -297,7 +297,7 @@
     "title": "Пивной сет",
     "portion": 0,
     "price": 599,
-    "descr": "",
+    "descr": "Куриные колбаски, гренки, наггетсы, картофельные слайсы + 1 соус на выбор.",
     "gallery": "/../menuAroma/Snack/Пивной сет.webp",
     "category": "snacks"
   },
@@ -456,7 +456,7 @@
     "portion": 0,
     "price": 549,
     "descr": "",
-    "gallery": "/../menuAroma/Desserts/Ассорти.webp",
+    "gallery": "",
     "category": "desserts"
   },
   {
@@ -549,7 +549,7 @@
     "portion": 0,
     "price": 309,
     "descr": "3 шарика мороженого + сироп/топинг + наполнитель",
-    "gallery": "/Ice cream/Combo.webp",
+    "gallery": "/Ice cream/Ice cream ball.webp",
     "category": "iceCream"
   },
   {
@@ -558,7 +558,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Ice cream/.webp",
+    "gallery": "/Ice cream/grated nuts.webp",
     "category": "iceCream"
   },
   {
@@ -567,7 +567,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Ice cream/.webp",
+    "gallery": "/Ice cream/grated chocolate.webp",
     "category": "iceCream"
   },
   {
@@ -585,7 +585,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Ice cream/.webp",
+    "gallery": "/Ice cream/банан.webp",
     "category": "iceCream"
   },
   {
@@ -669,7 +669,7 @@
     "price": 209,
     "descr": "",
     "weight": "60 мл.",
-    "gallery": "/../menuAroma/Coffee/двойной эспрессо.webp",
+    "gallery": "/Coffee/espresso.webp",
     "category": "coffee"
   },
   {
@@ -806,7 +806,7 @@
         "weight": "1 л."
       }
     ],
-    "gallery": "/../menuAroma/Tea/.webp",
+    "gallery": "/Tea/sea-buckthorn.webp",
     "category": "tea"
   },
   {
@@ -1052,7 +1052,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Tea/.webp",
+    "gallery": "/Tea/honey.webp",
     "category": "tea"
   },
   {
@@ -1061,7 +1061,7 @@
     "portion": 0,
     "price": 49,
     "descr": "",
-    "gallery": "/../menuAroma/Tea/.webp",
+    "gallery": "/Tea/ginger.webp",
     "category": "tea"
   },
   {
