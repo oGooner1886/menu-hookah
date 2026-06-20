@@ -20,3 +20,7 @@ CMS разработан нa Strapi.
 
 
 цель - migrate to zustand, add cms, add iiqo api
+1. bff - strapi
+
+Реализовать:
+
