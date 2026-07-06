@@ -1,0 +1,25 @@
+services:
+  strapi:
+    build:
+      context: ./strapi
+      dockerfile: Dockerfile
+    container_name: menu-hookah-strapi
+    restart: unless-stopped
+    ports:
+      - '1337:1337'
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: ${APP_KEYS:-toBeModified1,toBeModified2}
+      API_TOKEN_SALT: ${API_TOKEN_SALT:-tobemodified}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-tobemodified}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT:-tobemodified}
+      JWT_SECRET: ${JWT_SECRET:-tobemodified}
+    volumes:
+      - strapi-data:/app/.tmp
+      - strapi-uploads:/app/public/uploads
+
+volumes:
+  strapi-data:
+  strapi-uploads:

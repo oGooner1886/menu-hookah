@@ -1,26 +1,32 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Menu.module.css';
-import Context from '../../Context/Context';
 import MenuItem from './MenuItem/MenuItem';
 import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
+import { useMenuStore, selectCurrentProducts } from '../../store/useMenuStore';
 
-//
 const Menu = () => {
-  const { currentProducts, order, addToOrder, removeFromOrder, item, setItem } = useContext(Context);
+  const currentProducts = useMenuStore(selectCurrentProducts);
+  const order = useMenuStore((state) => state.order);
+  const addToOrder = useMenuStore((state) => state.addToOrder);
+  const removeFromOrder = useMenuStore((state) => state.removeFromOrder);
+  const item = useMenuStore((state) => state.item);
+  const setItem = useMenuStore((state) => state.setItem);
+  const isLoading = useMenuStore((state) => state.isLoading);
+
   const { '*': currentCategory } = useParams();
 
   const groupedItems = useMemo(() => {
     const groups = {};
-    currentProducts.forEach((item) => {
-      let cat = item.category || 'other';
+    currentProducts.forEach((product) => {
+      let cat = product.category || 'other';
       if (cat === 'lightSnacks') {
         cat = 'snacks';
       }
 
       if (!groups[cat]) groups[cat] = [];
-      groups[cat].push(item);
+      groups[cat].push(product);
     });
 
     return groups;
@@ -29,14 +35,15 @@ const Menu = () => {
   const itemsToRender = currentCategory ? groupedItems[currentCategory] || [] : currentProducts;
 
   const renderedItems = useMemo(() => {
-    return itemsToRender.map((item) => {
-      const portion = item.editions
-        ? item.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
-        : order[item.uid] || 0;
+    return itemsToRender.map((product) => {
+      const portion = product.editions
+        ? product.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
+        : order[product.uid] || 0;
+
       return (
         <MenuItem
-          key={item.uid}
-          item={item}
+          key={product.uid}
+          item={product}
           portion={portion}
           addToOrder={addToOrder}
           removeFromOrder={removeFromOrder}
@@ -45,6 +52,10 @@ const Menu = () => {
       );
     });
   }, [itemsToRender, order, addToOrder, removeFromOrder, setItem]);
+
+  if (isLoading) {
+    return <div className={style.wrapper}>Загрузка меню...</div>;
+  }
 
   return (
     <div className={style.wrapper}>

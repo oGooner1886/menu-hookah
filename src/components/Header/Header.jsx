@@ -1,12 +1,14 @@
 import React, { useCallback } from 'react';
-// import logo from '../../assets/images/favicon.png';
 import style from './Header.module.css';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo/Logo';
+import { useMenuStore } from '../../store/useMenuStore';
 
-const Header = ({ amount, deleteOrder }) => {
+const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const amount = useMenuStore((state) => state.amount);
+  const deleteOrder = useMenuStore((state) => state.deleteOrder);
 
   const confirmX = useCallback(() => {
     if (amount > 0) {
@@ -17,7 +19,8 @@ const Header = ({ amount, deleteOrder }) => {
         navigate('/');
       }
     } else navigate('/');
-  }, [deleteOrder, navigate]);
+  }, [amount, deleteOrder, navigate]);
+
   const isHomePage = location.pathname === '/';
 
   return (
@@ -25,54 +28,6 @@ const Header = ({ amount, deleteOrder }) => {
       <Logo confirmX={confirmX} />
 
       <nav className={style.header__nav}>
-        {/* <div className={style.header__nav_item}>
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
-          >
-            Home
-          </NavLink>
-        </div> */}
-        {/* <div className={style.header__nav_item}>
-          <NavLink
-            to={'/gusto/menu'}
-            className={({ isActive }) => (isActive ? style.header__nav_active : style.header__nav_item)}
-          >
-            Меню
-          </NavLink>
-        </div> */}
-        {/* <div className={style.header__nav_item}>
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
-          >
-            Местоположение
-          </NavLink>
-        </div>
-        <div className={style.header__nav_item}>
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
-          >
-            Интерьер
-          </NavLink>
-        </div>
-        <div className={style.header__nav_item}>
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? style.header__nav_active : style.header__nav_item
-            }
-          >
-            О нас
-          </NavLink>
-        </div> */}
         {!isHomePage && (
           <div className={style.header__nav_item}>
             <div className={style.header_infoBlock}>

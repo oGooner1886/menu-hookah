@@ -1,33 +1,79 @@
-# GustoLounge
-[Gusto Lounge] (https://gustolounge.ru)
- /
+# Gusto Lounge — Menu Hookah
 
-## О проекте
-Данный коммерческий проект реализован для кальянной Gusto Lounge. Со временем функционал будет обновляться.
-На момент написания документации реализовано меню с использованием [![React][React.js]][React-url], вывод товаров, изменения количества, добавления в корзину.
-Реализован вывод дополнительных опций товаров в модальном окне.
-В ближайшее время планируется реализация возможности бронирования столиков, а также синхронизация товаров с БД, для передачи в кассовый аппарат.
-CMS разработан нa Strapi.
+Меню для кальянных **Gusto Lounge** и **Aroma** на React с CMS на Strapi.
 
-### Разработан с помощью
- [![React][React.js]][React-url]
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Архитектура
 
+```
+iiko Cloud API  ──(cron)──►  Strapi CMS  ──REST──►  React SPA (Zustand)
+```
 
+- **Frontend** — React 18, React Router, Zustand, CSS Modules
+- **CMS** — Strapi 5 (`/strapi`), Docker-ready
+- **Fallback** — если Strapi недоступен, меню загружается из локальных JSON
 
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
+## Быстрый старт
 
+### Frontend
 
-цель - migrate to zustand, add cms, add iiqo api
-1. bff - strapi
+```bash
+cp .env.example .env
+npm install
+npm start
+```
 
-Реализовать:
+Приложение: http://localhost:3000
 
-1. синхронизацию меню (iiqo -> strapi) - подумать над актуализации меню из iiqo cloud api, возможно через cron-задачу, которая будет раз в час дергать (запрашивать) актуальное меню и обновлять коллекции в БД. -> соответственно FE будет делать запрос только к strapi. ПОСУТИ strapi будет middleware...
-2. подумать над оплатой на сайте () -> отправка чека в iiko
+### Strapi (локально)
 
+```bash
+cd strapi
+npm install
+npm run develop
+```
 
-strapi упакую в докер.
+Админка: http://localhost:1337/admin — при первом запуске создайте учётную запись.
 
-подумай над переводом с контекста на zustand
+При первом старте Strapi автоматически:
+- создаёт коллекцию `Product`
+- импортирует меню из `strapi/seed/*.json`
+- открывает публичный доступ к `GET /api/products`
+
+### Strapi (Docker)
+
+```bash
+docker compose up --build
+```
+
+## Переменные окружения
+
+| Переменная | Описание | По умолчанию |
+|---|---|---|
+| `REACT_APP_STRAPI_URL` | URL Strapi API | `http://localhost:1337` |
+
+## Структура проекта
+
+```
+src/
+  store/useMenuStore.js    # Zustand: корзина, меню, филиал
+  services/api.js          # Strapi API + JSON fallback
+  components/              # UI-компоненты
+strapi/
+  src/api/product/         # Content-type Product
+  seed/                    # JSON для первичного импорта
+docker-compose.yml
+```
+
+## Состояние (Zustand)
+
+Глобальное состояние в `useMenuStore`:
+- `productsGusto`, `productsAroma` — каталоги
+- `order`, `amount` — корзина
+- `branch` — текущий филиал (`gusto` / `aroma`)
+- `loadProducts()` — загрузка из Strapi с fallback
+
+## Дальнейшие шаги
+
+1. Синхронизация меню iiko → Strapi (cron-задача)
+2. Онлайн-оплата → отправка чека в iiko
+3. Бронирование столиков
