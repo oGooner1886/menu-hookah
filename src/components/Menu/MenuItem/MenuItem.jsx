@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../Menu.module.css';
+import style from '../Menu.module.scss';
 import Placeholder from '../../../utils/Placeholder';
 const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import style from './Promo.module.css';
+import style from './Promo.module.scss';
 import logoGusto from '../../assets/images/gusto lounge logo-1.png';
 import logoAroma from '../../assets/images/aroma_logo-1.png';
-
 import bgHookah from '../../assets/images/307.jpg';
 
 const Promo = () => {
@@ -27,17 +26,17 @@ const Promo = () => {
     preloadImages().then(() => setLoading(false));
   }, []);
 
-  if(loading) {
+  if (loading) {
     return (
       <div className={style.preloader}>
         <div className={style.spinner}></div>
       </div>
-    )
+    );
   }
 
   return (
     <div className={style.promo}>
-      <div className={style.background} style={{ backgroundImage: `url(${bgHookah})` }} />
+      <div className={style.background} />
       <div className={style.overlay} />
       <div className={style.content}>
         <h1 className={style.title}>Выберите заведение</h1>

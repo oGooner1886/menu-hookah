@@ -14,6 +14,20 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+      rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+        ],
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',

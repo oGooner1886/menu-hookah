@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './ModalMenu.module.css';
+import style from './ModalMenu.module.scss';
 import ItemEditions from './ItemEditions/ItemEditions';
 
 const ModalMenu = ({ item, closeModalForEdit, addToOrder }) => {

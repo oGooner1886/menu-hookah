@@ -1,6 +1,6 @@
 // import React, { useContext } from 'react';
 // import { NavLink } from 'react-router-dom';
-// import style from './Category.module.css';
+// import style from './Category.module.scss';
 // import Context from '../../../Context/Context';
 
 // const Category = () => {
@@ -140,8 +140,9 @@
 // export default Category;
 
 import React, { memo } from 'react';
+import classNames from 'classnames';
 import { NavLink, useLocation } from 'react-router-dom';
-import style from './Category.module.css';
+import style from './Category.module.scss';
 
 const CATEGORIES = {
   gusto: [
@@ -194,7 +195,9 @@ const Category = memo(() => {
           <NavLink
             key={to}
             to={to}
-            className={({ isActive }) => (isActive ? style.category__item_active : style.category__item)}
+            className={({ isActive }) =>
+              classNames(style.category__item, isActive && style.category__item_active)
+            }
             end
           >
             <button className={style.category__item_btn}>

@@ -1,4 +1,4 @@
-import styles from './Order.module.css';
+import styles from './Order.module.scss';
 
 const Order = ({ item, add, remove, totalPrice, portion }) => {
   const { title, gallery, uid, subtitle, weight } = item;

@@ -1,9 +1,10 @@
 import React from 'react';
-import style from './Modal.module.css';
+import classNames from 'classnames';
+import style from './Modal.module.scss';
 
 const Modal = ({ active, setActive }) => {
   return (
-    <div className={active ? style.modalActive : style.modal}>
+    <div className={classNames(active ? style.modalActive : style.modal)}>
       <div className={style.modal__block}>
         <div className={style.modal__content}>
           <div className={style.modal__content_header}>

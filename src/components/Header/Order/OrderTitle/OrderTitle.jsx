@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './OrderTitle.module.css';
+import style from './OrderTitle.module.scss';
 import { BsArrowLeft } from 'react-icons/bs';
 import { NavLink, useNavigate } from 'react-router-dom';
 

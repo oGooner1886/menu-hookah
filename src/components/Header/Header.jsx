@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
+import classNames from 'classnames';
 // import logo from '../../assets/images/favicon.png';
-import style from './Header.module.css';
+import style from './Header.module.scss';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo/Logo';
 
@@ -21,7 +22,7 @@ const Header = ({ amount, deleteOrder }) => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className={`${style.header} ${isHomePage ? style.header_black : ''}`}>
+    <header className={classNames(style.header, isHomePage && style.header_black)}>
       <Logo confirmX={confirmX} />
 
       <nav className={style.header__nav}>

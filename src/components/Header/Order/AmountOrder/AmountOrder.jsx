@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AmountOrder.module.css';
+import styles from './AmountOrder.module.scss';
 
 const AmountOrder = ({ amount }) => {
   return (

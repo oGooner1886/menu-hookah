@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/images/favicon.png';
-import style from '../Header.module.css';
+import style from '../Header.module.scss';
 
 const Logo = ({ confirmX }) => {
   return (

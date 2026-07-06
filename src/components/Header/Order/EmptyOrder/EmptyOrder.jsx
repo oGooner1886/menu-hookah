@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './EmptyOrder.module.css';
+import style from './EmptyOrder.module.scss';
 import { NavLink } from 'react-router-dom';
 const EmptyOrder = () => {
   return (
