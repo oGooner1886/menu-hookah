@@ -19,6 +19,17 @@ CMS разработан нa Strapi.
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 
+2. Архитектура системы и потоки данных
+Взаимодействие компонентов системы организуется по трехзвенной схеме:
+Клиент (React) <-> Микро-прокси (Fastify) <-> iikoCloud API & Платежный шлюз.
+
+[ Браузер клиента ] --(запрос меню)--> [ Прокси-сервер ] --(API Ключ)--> [ iiko API ]
+[ (React + Zustand)] <-- (чистый JSON) -- [ Кэш 15 мин ] <--------------------/
+
+
+
+
+
 
 цель - migrate to zustand, add cms, add iiqo api
 1. bff - strapi
