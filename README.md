@@ -12,7 +12,7 @@ CMS разработан нa Strapi.
 ### Разработан с помощью 
  [![React][React.js]][React-url] 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>   
-
+ 
           
          
  
