@@ -1,28 +1,33 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Menu.module.css';
-import Context from '../../Context/Context';
+import { useStore, selectCurrentProducts, selectCurrentOrder } from '../../store/useStore';
 import MenuItem from './MenuItem/MenuItem';
 import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
 
 //
 const Menu = () => {
-  const { currentProducts, order, addToOrder, removeFromOrder, item, setItem } = useContext(Context);
   const { '*': currentCategory } = useParams();
+  const currentProducts = useStore(selectCurrentProducts);
+  const order = useStore(selectCurrentOrder);
+
+  const item = useStore((state) => state.item);
+  const setItem = useStore((state) => state.setItem);
+  const addToOrder = useStore((state) => state.addToOrder);
+  const removeFromOrder = useStore((state) => state.removeFromOrder);
 
   const groupedItems = useMemo(() => {
     const groups = {};
+    if (!currentProducts) return groups;
     currentProducts.forEach((item) => {
       let cat = item.category || 'other';
       if (cat === 'lightSnacks') {
         cat = 'snacks';
       }
-
       if (!groups[cat]) groups[cat] = [];
       groups[cat].push(item);
     });
-
     return groups;
   }, [currentProducts]);
 

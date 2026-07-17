@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
-import Context from '../../Context/Context';
+import React from 'react';
 import Header from './Header';
+import { useStore, selectCurrentAmount } from '../../store/useStore';
 
 const HeaderContainer = () => {
-  const value = useContext(Context);
-  const { amount, deleteOrder } = value;
+  const amount = useStore(selectCurrentAmount);
+  const deleteOrder = useStore((state) => state.deleteOrder);
+
   return <Header amount={amount} deleteOrder={deleteOrder} />;
 };
 

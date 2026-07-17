@@ -1,39 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './Promo.module.css';
 import logoGusto from '../../assets/images/gusto lounge logo-1.png';
 import logoAroma from '../../assets/images/aroma_logo-1.png';
-
-import bgHookah from '../../assets/images/307.jpg';
+import bgHookah from '../../assets/images/307.webp';
+import { BRANCHES, useStore } from '../../store/useStore';
 
 const Promo = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  const setBranch = useStore((state) => state.setBranch);
 
-  useEffect(() => {
-    const images = [logoGusto, logoAroma, bgHookah];
-    const preloadImages = () => {
-      return Promise.all(
-        images.map((src) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = src;
-            img.onload = resolve;
-            img.onerror = resolve;
-          });
-        }),
-      );
-    };
-    preloadImages().then(() => setLoading(false));
-  }, []);
-
-  if(loading) {
-    return (
-      <div className={style.preloader}>
-        <div className={style.spinner}></div>
-      </div>
-    )
-  }
+  const handleSelectBranch = (branchConst, route) => {
+    setBranch(branchConst);
+    navigate(route);
+  };
 
   return (
     <div className={style.promo}>
@@ -43,12 +23,12 @@ const Promo = () => {
         <h1 className={style.title}>Выберите заведение</h1>
 
         <div className={style.buttons}>
-          <button onClick={() => navigate('/gusto/menu')} className={style.btn}>
-            <img src={logoGusto} alt="Gusto" className={style.logo} />
+          <button onClick={() => handleSelectBranch(BRANCHES.GUSTO, './gusto/menu')} className={style.btn}>
+            <img src={logoGusto} alt="Gusto Lounge" className={style.logo} />
             <span>Gusto Lounge</span>
           </button>
 
-          <button onClick={() => navigate('/aroma/menu')} className={style.btn}>
+          <button onClick={() => handleSelectBranch(BRANCHES.AROMA, './aroma/menu')} className={style.btn}>
             <img src={logoAroma} alt="Aroma" className={style.logo} />
             <span>Aroma</span>
           </button>
