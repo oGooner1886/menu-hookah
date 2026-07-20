@@ -21,7 +21,7 @@
   background-color: transparent;
 }
 
-.category__item h2 {
+.category__item_text {
   line-height: 1.15;
   background-color: transparent;
   font-size: 14px;

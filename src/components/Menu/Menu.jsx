@@ -11,7 +11,6 @@ const Menu = () => {
   const { '*': currentCategory } = useParams();
   const currentProducts = useStore(selectCurrentProducts);
   const order = useStore(selectCurrentOrder);
-
   const item = useStore((state) => state.item);
   const setItem = useStore((state) => state.setItem);
   const addToOrder = useStore((state) => state.addToOrder);
@@ -31,31 +30,51 @@ const Menu = () => {
     return groups;
   }, [currentProducts]);
 
-  const itemsToRender = currentCategory ? groupedItems[currentCategory] || [] : currentProducts;
+  const renderedSections = useMemo(() => {
+    const categoriesToRender = currentCategory ? [currentCategory] : Object.keys(groupedItems);
 
-  const renderedItems = useMemo(() => {
-    return itemsToRender.map((item) => {
-      const portion = item.editions
-        ? item.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
-        : order[item.uid] || 0;
+    if (categoriesToRender.length === 0 || Object.keys(groupedItems).length === 0) {
+      return <p>Товары не найдены</p>;
+    }
+
+    return categoriesToRender.map((catKey) => {
+      const items = groupedItems[catKey];
+      if (!items || items.length === 0) return null;
+
       return (
-        <MenuItem
-          key={item.uid}
-          item={item}
-          portion={portion}
-          addToOrder={addToOrder}
-          removeFromOrder={removeFromOrder}
-          openModalForEdit={setItem}
-        />
+        <section key={catKey} id={catKey} className={style.categorySection} style={{ scrollMarginTop: '100px' }}>
+          {/* <h2 className={style.categoryTitle}>{catKey}</h2> */}
+
+          <div className={style.productsGrid}>
+            {items.map((item) => {
+              const portion = item.editions
+                ? item.editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0)
+                : order[item.uid] || 0;
+
+              return (
+                <MenuItem
+                  key={item.uid}
+                  item={item}
+                  portion={portion}
+                  addToOrder={addToOrder}
+                  removeFromOrder={removeFromOrder}
+                  openModalForEdit={setItem}
+                />
+              );
+            })}
+          </div>
+        </section>
       );
     });
-  }, [itemsToRender, order, addToOrder, removeFromOrder, setItem]);
+  }, [currentCategory, groupedItems, order, addToOrder, removeFromOrder, setItem]);
 
   return (
     <div className={style.wrapper}>
       <Category />
+
       <div className={style.item__wrapper}>
-        {renderedItems.length > 0 ? renderedItems : <p>Товары не найдены</p>}
+        {renderedSections}
+
         {item && (
           <ModalMenu
             item={item}

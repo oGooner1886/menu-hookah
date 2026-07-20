@@ -1,4 +1,4 @@
-import { BRANCHES } from '../store/useMenuStore';
+import { BRANCHES } from '../store/useStore';
 
 export const CATEGORIES_CONFIG = [
   { id: 'salads', label: 'Салаты', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
