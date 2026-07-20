@@ -24,6 +24,7 @@ module.exports = {
     'prefer-const': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/display-name' : 'off',
     'prettier/prettier': [
       'warn',
       {
