@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import style from './MenuItem.module.css';
-import Placeholder from '../../../utils/Placeholder';
+import Placeholder from '../../../mocks/Placeholder/Placeholder';
 const MenuItem = memo(({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
   const handleAddClick = () => {
@@ -44,7 +44,7 @@ const MenuItem = memo(({ item, portion, addToOrder, removeFromOrder, openModalFo
         </div>
       </div>
       <div className={style.images}>
-        {gallery ? <img src={'../../images/menu' + gallery} alt={title} loading="lazy" /> : <Placeholder />}
+        {gallery ? <img src={`/images/menu/${gallery}`} alt={title} loading="lazy" /> : <Placeholder />}
       </div>
     </div>
   );

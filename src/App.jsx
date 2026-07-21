@@ -7,7 +7,7 @@ import OrderContainer from './components/Header/Order/OrderContainer';
 import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import Promo from './components/promo/Promo';
-import { ScrollToTop } from './components/Scroll/ScrollToTop';
+import { ScrollToTop } from './utils/scrollToTop';
 import { useStore, BRANCHES } from './store/useStore';
 
 function App() {
