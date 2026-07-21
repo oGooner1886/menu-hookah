@@ -1,0 +1,11 @@
+.categorySection {
+  scroll-margin-top: 100px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.productsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}

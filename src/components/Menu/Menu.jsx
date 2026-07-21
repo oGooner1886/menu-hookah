@@ -26,6 +26,8 @@ const Menu = () => {
   }, [currentProducts]);
 
   const categoryKeys = Object.keys(groupedItems);
+ 
+  
 
   return (
     <div className={style.wrapper}>

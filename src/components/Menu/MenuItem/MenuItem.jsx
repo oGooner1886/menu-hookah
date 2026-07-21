@@ -1,9 +1,13 @@
-import React from 'react';
-import style from '../Menu.module.css';
+import React, { memo } from 'react';
+import style from './MenuItem.module.css';
 import Placeholder from '../../../utils/Placeholder';
-const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
+const MenuItem = memo(({ item, portion, addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid } = item;
-
+  const handleAddClick = () => {
+    if (item.editions) {
+      openModalForEdit(item);
+    } else addToOrder(uid);
+  };
   return (
     <div className={style.item}>
       <div className={style.desc}>
@@ -14,27 +18,28 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
         <div className={style.desc__price}>
           <p className={style.desc__price_num}>{price} ₽</p>
           <div className={style.desc__price_addToCart}>
-            <button
-              className={style.desc__price_button}
-              onClick={() => {
-                removeFromOrder(uid);
-              }}
-            >
-              <span>-</span>
-            </button>
-            <p className={style.desc__price_quantity}>
-              <span>{portion}</span>
-            </p>
-            <button
-              className={style.desc__price_button}
-              onClick={() => {
-                if (item.editions) {
-                  openModalForEdit(item);
-                } else addToOrder(uid);
-              }}
-            >
-              <span>+</span>
-            </button>
+            {!portion ? (
+              <button className={style.btn_add} onClick={handleAddClick}>
+                + Добавить
+              </button>
+            ) : (
+              <div className={style.counter_group}>
+                <button
+                  className={style.desc__price_button}
+                  onClick={() => {
+                    removeFromOrder(uid);
+                  }}
+                >
+                  <span>-</span>
+                </button>
+                <p className={style.desc__price_quantity}>
+                  <span>{portion}</span>
+                </p>
+                <button className={style.desc__price_button} onClick={handleAddClick}>
+                  <span>+</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -43,6 +48,6 @@ const MenuItem = ({ item, portion, addToOrder, removeFromOrder, openModalForEdit
       </div>
     </div>
   );
-};
+});
 
 export default MenuItem;

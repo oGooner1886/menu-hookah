@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import MenuItem from '../MenuItem/MenuItem';
-import style from '../Menu.module.css';
+import style from './MenuSection.module.css';
 
 const MenuSection = memo(({ categoryId, items, order, addToOrder, removeFromOrder, setItem }) => {
   if (!items || items.length === 0) return null;

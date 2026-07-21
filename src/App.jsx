@@ -7,7 +7,7 @@ import OrderContainer from './components/Header/Order/OrderContainer';
 import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
 import Promo from './components/promo/Promo';
-// import { ScrollToTop } from './components/Scroll/ScrollToTop';
+import { ScrollToTop } from './components/Scroll/ScrollToTop';
 import { useStore, BRANCHES } from './store/useStore';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <HeaderContainer />
       <Modal active={modalActive} setActive={setModalActive} />
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes>
         <Route path="/gusto/menu/*" element={<Menu />} />
         <Route path="/aroma/menu/*" element={<Menu />} />
