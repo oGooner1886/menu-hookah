@@ -4,6 +4,8 @@ import { useStore, selectCurrentProducts, selectCurrentOrder } from '../../store
 import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
 import MenuSection from './MenuSection/MenuSection';
+import { CATEGORIES_CONFIG } from './../../config/categories';
+import { useCategoryScroll } from '../../utils/useCategoryScroll';
 
 const Menu = () => {
   const currentProducts = useStore(selectCurrentProducts);
@@ -12,6 +14,7 @@ const Menu = () => {
   const setItem = useStore((state) => state.setItem);
   const addToOrder = useStore((state) => state.addToOrder);
   const removeFromOrder = useStore((state) => state.removeFromOrder);
+  const branch = useStore((state) => state.branch);
 
   const groupedItems = useMemo(() => {
     const groups = {};
@@ -26,12 +29,13 @@ const Menu = () => {
   }, [currentProducts]);
 
   const categoryKeys = Object.keys(groupedItems);
- 
-  
+  const activeCategories = CATEGORIES_CONFIG.filter((cat) => cat.branches.includes(branch));
+  const { activeId, scrollToCategory, registerSection } = useCategoryScroll(activeCategories);
 
   return (
     <div className={style.wrapper}>
-      <Category />
+      <Category activeId={activeId} scrollToCategory={scrollToCategory} registerSection={registerSection} />
+
       <div className={style.item__wrapper}>
         {categoryKeys.length > 0 ? (
           categoryKeys.map((catKey) => (
@@ -43,6 +47,7 @@ const Menu = () => {
               addToOrder={addToOrder}
               removeFromOrder={removeFromOrder}
               setItem={setItem}
+              sectionRef={registerSection(catKey)}
             />
           ))
         ) : (
