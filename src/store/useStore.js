@@ -34,7 +34,7 @@ export const useStore = create((set) => ({
     [BRANCHES.GUSTO]: gustoPrice,
     [BRANCHES.AROMA]: aromaPrice,
   },
-  branch: [BRANCHES.GUSTO],
+  branch: BRANCHES.GUSTO,
   item: null, // активны йтовар из модалки
   orders: {
     [BRANCHES.GUSTO]: {},

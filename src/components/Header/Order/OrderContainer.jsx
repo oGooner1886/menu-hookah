@@ -5,10 +5,13 @@ import EmptyOrder from './EmptyOrder/EmptyOrder';
 import AmountOrder from './AmountOrder/AmountOrder';
 import OrderItem from './Order';
 import { selectCurrentAmount, selectCurrentOrder, selectCurrentProducts, useStore } from '../../../store/useStore';
+import { useParams } from 'react-router-dom';
 
 const MemoizedOrderItem = React.memo(OrderItem);
 
 const OrderContainer = () => {
+  const { branch } = useParams();
+  const branchName = branch === 'aroma' ? 'Aroma' : 'Gusto Lounge';
   const currentProducts = useStore(selectCurrentProducts);
   const order = useStore(selectCurrentOrder);
   const amount = useStore(selectCurrentAmount);
@@ -19,20 +22,17 @@ const OrderContainer = () => {
   const orderEntries = Object.entries(order);
   const hasItems = orderEntries.length > 0;
 
-  // Рендерим ТОЛЬКО товары, которые в корзине
   const orderItems = orderEntries.map(([uid, portion]) => {
     const uidNum = Number(uid);
 
-    // Ищем в основных товарах
     let item = currentProducts.find((p) => p.uid === uidNum);
 
-    // Если не нашли — ищем в editions
     if (!item) {
       for (const prod of currentProducts) {
         if (prod.editions) {
           const edition = prod.editions.find((ed) => ed.uid === uidNum);
           if (edition) {
-            item = { ...edition, parentTitle: prod.title }; // добавляем название родителя
+            item = { ...edition, parentTitle: prod.title };
             break;
           }
         }
@@ -51,14 +51,17 @@ const OrderContainer = () => {
         totalPrice={totalPrice}
         add={() => addToOrder(uidNum)}
         remove={() => removeFromOrder(uidNum)}
-        // parentTitle={item.parentTitle} // если хочешь показывать "Картофель фри (Большая порция)"
       />
     );
   });
 
   return (
     <div className={styles.container}>
-      {hasItems ? <OrderTitle /> : <EmptyOrder />}
+      {hasItems ? (
+        <OrderTitle branchName={branchName} branch={branch} />
+      ) : (
+        <EmptyOrder branchName={branchName} branch={branch} />
+      )}
 
       {orderItems}
 

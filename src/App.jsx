@@ -6,24 +6,26 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import OrderContainer from './components/Header/Order/OrderContainer';
 import Menu from './components/Menu/Menu';
 import Modal from './components/Modal/Modal';
-import Promo from './components/promo/Promo';
+import Promo from './components/Promo/Promo';
 import { ScrollToTop } from './utils/scrollToTop';
 import { useStore, BRANCHES } from './store/useStore';
+import { Navigate } from 'react-router-dom';
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const location = useLocation();
-
-  const isAroma = location.pathname.startsWith('/aroma/menu');
   const setBranch = useStore((state) => state.setBranch);
 
   useEffect(() => {
-    if (isAroma) {
+    const pathBranch = location.pathname.split('/')[1];
+    console.log(pathBranch);
+
+    if (pathBranch === 'aroma') {
       setBranch(BRANCHES.AROMA);
-    } else {
+    } else if (pathBranch === 'gusto') {
       setBranch(BRANCHES.GUSTO);
     }
-  }, [isAroma, setBranch]);
+  }, [location.pathBranch, setBranch]);
 
   return (
     <div className="App">
@@ -31,9 +33,9 @@ function App() {
       <Modal active={modalActive} setActive={setModalActive} />
       <ScrollToTop />
       <Routes>
-        <Route path="/gusto/menu/*" element={<Menu />} />
-        <Route path="/aroma/menu/*" element={<Menu />} />
-        <Route path="/order" element={<OrderContainer />} />
+        <Route path="/:branch/menu/*" element={<Menu />} />
+        <Route path="/:branch/order" element={<OrderContainer />} />
+        <Route path="/order" element={<Navigate to={'/'} replace />} />
         <Route path="/" element={<Promo />} />
       </Routes>
       <Footer />

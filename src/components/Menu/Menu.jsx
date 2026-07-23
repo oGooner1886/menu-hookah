@@ -34,7 +34,12 @@ const Menu = () => {
 
   return (
     <div className={style.wrapper}>
-      <Category activeId={activeId} scrollToCategory={scrollToCategory} registerSection={registerSection} />
+      <Category
+        activeId={activeId}
+        scrollToCategory={scrollToCategory}
+        registerSection={registerSection}
+        activeCategories={activeCategories}
+      />
 
       <div className={style.item__wrapper}>
         {categoryKeys.length > 0 ? (
