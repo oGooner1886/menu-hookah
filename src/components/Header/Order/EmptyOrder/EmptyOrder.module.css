@@ -14,7 +14,7 @@
 .empty_button {
   border: 1px solid #000000;
   color: rgba(0, 0, 0, 0.95);
-  height: 40px;
+  
   opacity: 0.75;
   font-weight: 300;
   letter-spacing: 5px;
