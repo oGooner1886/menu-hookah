@@ -8,6 +8,7 @@ module.exports = {
     {
       env: {
         node: true,
+        es2021: true,
       },
       files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
@@ -24,7 +25,7 @@ module.exports = {
     'prefer-const': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/display-name' : 'off',
+    'react/display-name': 'off',
     'prettier/prettier': [
       'warn',
       {
