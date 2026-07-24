@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import products_gusto from '../data/productsJSON.json';
 import products_aroma from '../data/productsJSON_aroma.json';
+import { persist } from 'zustand/middleware';
 
 export const BRANCHES = {
   GUSTO: 'gusto',
@@ -27,64 +28,75 @@ const buildPriceMap = (products) => {
 const gustoPrice = buildPriceMap(gustoProducts);
 const aromaPrice = buildPriceMap(aromaProducts);
 
-export const useStore = create((set) => ({
-  productsGusto: gustoProducts,
-  productsAroma: aromaProducts,
-  priceMaps: {
-    [BRANCHES.GUSTO]: gustoPrice,
-    [BRANCHES.AROMA]: aromaPrice,
-  },
-  branch: BRANCHES.GUSTO,
-  item: null, // активны йтовар из модалки
-  orders: {
-    [BRANCHES.GUSTO]: {},
-    [BRANCHES.AROMA]: {},
-  },
-  setBranch: (branch) => set({ branch }),
-  setItem: (item) => set({ item }),
-
-  addToOrder: (uid) => {
-    set((state) => {
-      const currentBranch = state.branch;
-      const currentBranchOrder = state.orders[currentBranch];
-      return {
-        orders: {
-          ...state.orders,
-          [currentBranch]: {
-            ...currentBranchOrder,
-            [uid]: (currentBranchOrder[uid] || 0) + 1,
-          },
-        },
-      };
-    });
-  },
-  removeFromOrder: (uid) => {
-    set((state) => {
-      const currentBranch = state.branch;
-      const currentBranchOrder = state.orders[currentBranch];
-      const count = currentBranchOrder[uid];
-
-      if (!count || count <= 0) return {};
-
-      // eslint-disable-next-line no-unused-vars
-      const { [uid]: _, ...restItems } = currentBranchOrder;
-      return {
-        orders: {
-          ...state.orders,
-          [currentBranch]: count === 1 ? restItems : { ...currentBranchOrder, [uid]: count - 1 },
-        },
-      };
-    });
-  },
-  deleteOrder: () => {
-    set((state) => ({
-      orders: {
-        ...state.orders,
-        [state.branch]: {},
+export const useStore = create(
+  persist(
+    (set) => ({
+      productsGusto: gustoProducts,
+      productsAroma: aromaProducts,
+      priceMaps: {
+        [BRANCHES.GUSTO]: gustoPrice,
+        [BRANCHES.AROMA]: aromaPrice,
       },
-    }));
-  },
-}));
+      branch: BRANCHES.GUSTO,
+      item: null,
+      orders: {
+        [BRANCHES.GUSTO]: {},
+        [BRANCHES.AROMA]: {},
+      },
+      setBranch: (branch) => set({ branch }),
+      setItem: (item) => set({ item }),
+
+      addToOrder: (uid) => {
+        set((state) => {
+          const currentBranch = state.branch;
+          const currentBranchOrder = state.orders[currentBranch] || {};
+          return {
+            orders: {
+              ...state.orders,
+              [currentBranch]: {
+                ...currentBranchOrder,
+                [uid]: (currentBranchOrder[uid] || 0) + 1,
+              },
+            },
+          };
+        });
+      },
+      removeFromOrder: (uid) => {
+        set((state) => {
+          const currentBranch = state.branch;
+          const currentBranchOrder = state.orders[currentBranch] || {};
+          const count = currentBranchOrder[uid];
+
+          if (!count || count <= 0) return {};
+
+          // eslint-disable-next-line no-unused-vars
+          const { [uid]: _, ...restItems } = currentBranchOrder;
+          return {
+            orders: {
+              ...state.orders,
+              [currentBranch]: count === 1 ? restItems : { ...currentBranchOrder, [uid]: count - 1 },
+            },
+          };
+        });
+      },
+      deleteOrder: () => {
+        set((state) => ({
+          orders: {
+            ...state.orders,
+            [state.branch]: {},
+          },
+        }));
+      },
+    }),
+    {
+      name: 'restaraunt-cart-storage',
+      partialize: (state) => ({
+        orders: state.orders,
+        branch: state.branch,
+      }),
+    },
+  ),
+);
 
 export const selectCurrentProducts = (state) =>
   state.branch === BRANCHES.AROMA ? state.productsAroma : state.productsGusto;
