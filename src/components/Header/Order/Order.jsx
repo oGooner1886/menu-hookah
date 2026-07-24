@@ -9,7 +9,7 @@ const Order = ({ item, add, remove, totalPrice, portion }) => {
         <div className={styles.order__item_wrapper}>
           <div className={styles.order__item}>
             <div className={styles.order__item_photo}>
-              <img className={styles.order__item_img} src={'./images/menu' + gallery} alt="" />
+              <img className={styles.order__item_img} src={'/images/menu' + gallery} alt="" />
             </div>
             <div className={styles.order__item_info}>
               <h2 className={styles.order__item_title}>{title}</h2>

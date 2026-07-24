@@ -2,8 +2,8 @@ import { BRANCHES } from '../store/useStore';
 
 export const CATEGORIES_CONFIG = [
   { id: 'salads', label: 'Салаты', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
-  { id: 'poke', label: 'Поке', branches: [BRANCHES.GUSTO] },
   { id: 'pasta', label: 'Пасты', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
+  { id: 'poke', label: 'Поке', branches: [BRANCHES.GUSTO] },
   { id: 'snacks', label: 'Закуски', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
   { id: 'hotDish', label: 'Горячее', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
   { id: 'soup', label: 'Супы', branches: [BRANCHES.GUSTO, BRANCHES.AROMA] },
