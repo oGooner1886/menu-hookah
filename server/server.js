@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+
 const fastify = Fastify({
   logger: true,
   bodyLimit: 1048576,
@@ -37,4 +38,40 @@ const start = async () => {
   }
 };
 
-start();
+/**
+ * * Получение токена авторизации iiko
+ * * Токен кэшируется в памяти на 55 минут (айка выдает его на час)
+ */
+
+let iikoToken = { token: null, expiresAt: 0 };
+let menuCache = { data: null, expiresAt: 0 };
+
+async function getIikoToken() {
+  const now = Date.now();
+  if (iikoToken.token && now < iikoToken.expiresAt) {
+    return iikoToken.token;
+  }
+  const response = await fetch('https://api-ru.iiko.services/api/v2/access_token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      apiLogin: process.env.IIKO_API_KEY,
+      clientSecret: process.env.IIKO_CLIENT_SECRET_GUSTO,
+      appId: process.env.IIKO_APP_ID_GUSTO,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Ошибка получения токена iiko. Проверь значения body');
+  }
+  const data = await response.json();
+
+  iikoToken = {
+    token: data.token || data.access_token,
+    expiresAt: now + 55 * 60 * 1000,
+  };
+
+  fastify.log.info('Получен новый токен iikoCloud');
+  return iikoToken.token;
+}
+
