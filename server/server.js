@@ -10,7 +10,7 @@ const fastify = Fastify({
 await fastify.register(cors, {
   origin: process.env.FRONTEND_URL || '*',
   methods: ['GET', 'POST', 'OPTIONS'],
-});
+}); 
 
 fastify.get('/api/health', async (request, reply) => {
   const memoryUsage = process.memoryUsage();
