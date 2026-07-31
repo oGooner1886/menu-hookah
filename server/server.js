@@ -7,7 +7,7 @@ const fastify = Fastify({
   bodyLimit: 1048576,
 });
 
-
+ 
 
 await fastify.register(cors, {
   origin: process.env.FRONTEND_URL || '*',
