@@ -1,3 +1,4 @@
+
 import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
@@ -7,10 +8,12 @@ const fastify = Fastify({
   bodyLimit: 1048576,
 });
 
+ 
+
 await fastify.register(cors, {
   origin: process.env.FRONTEND_URL || '*',
   methods: ['GET', 'POST', 'OPTIONS'],
-});
+}); 
 
 
 

@@ -7,6 +7,7 @@ const Placeholder = () => {
       <img src={placeholder} alt="" />
     </div>
   );
+
 };
 
 export default Placeholder;

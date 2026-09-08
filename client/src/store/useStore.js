@@ -7,7 +7,6 @@ export const BRANCHES = {
   GUSTO: 'gusto',
   AROMA: 'aroma',
 };
-
 const gustoProducts = products_gusto || [];
 const aromaProducts = products_aroma || [];
 

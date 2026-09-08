@@ -14,7 +14,7 @@ x
  <p align="right">(<a href="#readme-top">back to top</a>)</p>   
  
           
-         
+          
  
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
@@ -51,3 +51,8 @@ strapi упакую в докер.
 
 
 переписать с strapi на fastify, не хватает ram (strapi хочет ~2gb)
+
+реализовать ручки для запроса меню, оплаты, открытии заказа со стола (в заведении), бронирование
+проверить модули в iiko
+
+ошибка с данными приходящими с айки, проверить что выдает постман, (ключ получаю, данные кривые, проверить модули в локальной айке)
