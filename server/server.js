@@ -12,19 +12,7 @@ await fastify.register(cors, {
   methods: ['GET', 'POST', 'OPTIONS'],
 });
 
-fastify.get('/api/health', async (request, reply) => {
-  const memoryUsage = process.memoryUsage();
 
-  return reply.send({
-    status: 'ok',
-    uptime: process.uptime(),
-    memory: {
-      rss: `${Math.round(memoryUsage.rss / 1024 / 1024)} MB`,
-      heapTotal: `${Math.round(memoryUsage.heapTotal / 1024 / 1024)} MB`,
-      heapUsed: `${Math.round(memoryUsage.heapUsed / 1024 / 1024)} MB`,
-    },
-  });
-});
 
 /**
  * * Получение токена авторизации iiko
@@ -77,27 +65,50 @@ async function fetchMenuFromIiko() {
   const token = await getIikoToken();
 
   const orgIds = [process.env.IIKO_ORGANIZATION_GUSTO_ID].filter(Boolean);
+
   if (orgIds.length === 0) {
     throw new Error('не указан id организации');
   }
   fastify.log.info(`Запрашиваем меню для организации: ${orgIds[0]}`);
 
-  const response = await fetch('https://api-ru.iiko.services/api/1/nomenclature', {
+  const listResponse = await fetch('https://api-ru.iiko.services/api/2/menu', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({}),
+  });
+  if (!listResponse.ok) {
+    const errorBody = await listResponse.text();
+    throw new Error(`Ошибка загрузки меню: ${listResponse.status} - ${errorBody}`);
+  }
+  const listData = await listResponse.json();
+  if (!listData.externalMenus || listData.externalMenus.length === 0) {
+    throw new Error('в iikoWeb не найдено ни одного внешнего меню.');
+  }
+  const externalMenuId = listData.externalMenus[0].id;
+
+  const menuName = listData.externalMenus[0].name;
+  fastify.log.info(`Загружаем меню: ${menuName} (id: ${externalMenuId})`);
+
+  const menuResponse = await fetch('https://api-ru.iiko.services/api/2/menu/by_id', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      organizationId: orgIds[0],
-      startRevision: 0,
+      externalMenuId: externalMenuId,
+      organizationIds: orgIds,
     }),
   });
-  if (!response.ok) {
-    const errorBody = await response.text();
-    throw new Error(`Ошибка загрузки меню: ${response.status} - ${errorBody}`);
+
+  if (!menuResponse.ok) {
+    const errorBody = await menuResponse.text();
+    throw new Error(`Ошибка загрузки меню по id: ${menuResponse.status} - ${errorBody}`);
   }
-  const data = await response.json();
+  const data = await menuResponse.json();
   menuCache = {
     data: data,
     expiresAt: now + 15 * 60 * 1000,
@@ -106,15 +117,6 @@ async function fetchMenuFromIiko() {
   return menuCache.data;
 }
 
-fastify.get('/api/menu', async (request, reply) => {
-  try {
-    const menu = await fetchMenuFromIiko();
-    return reply.send({ success: true, menu });
-  } catch (error) {
-    fastify.log.error(error);
-    return reply.status(500).send({ success: false, error: error.message });
-  }
-});
 
 const start = async () => {
   try {
