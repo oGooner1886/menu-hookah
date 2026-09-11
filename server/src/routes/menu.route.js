@@ -1,3 +1,4 @@
+import { fetchMenuFromIiko } from '../services/iiko.service.js';
 export default async function menuRoutes(fastify, options) {
   fastify.get('/api/menu', async (request, reply) => {
     try {
