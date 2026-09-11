@@ -12,11 +12,12 @@ const fastify = Fastify({
       options: {
         tranlateTime: 'HH:MM:ss Z',
         ignore: 'pid, hostname',
-        colorize: true
-      }
-    }
+        colorize: true,
+      },
+    },
   },
   bodyLimit: 1048576,
+  trustProxy: true,
 });
 
 await fastify.register(cors, {
