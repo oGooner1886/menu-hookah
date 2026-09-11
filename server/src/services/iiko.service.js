@@ -1,7 +1,7 @@
 let iikoToken = { token: null, expiresAt: 0 };
 let menuCache = { data: null, expiresAt: 0 };
 
-async function getIikoToken(logger) {
+export async function getIikoToken(logger) {
   const now = Date.now();
   if (iikoToken.token && now < iikoToken.expiresAt) {
     return iikoToken.token;
