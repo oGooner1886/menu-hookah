@@ -1,12 +1,21 @@
 import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-
 import healthRoutes from './src/routes/health.route.js';
 import menuRoutes from './src/routes/menu.route.js';
+import authRoutes from './src/routes/auth.route.js';
 
 const fastify = Fastify({
-  logger: true,
+  logger: {
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        tranlateTime: 'HH:MM:ss Z',
+        ignore: 'pid, hostname',
+        colorize: true
+      }
+    }
+  },
   bodyLimit: 1048576,
 });
 
@@ -17,6 +26,7 @@ await fastify.register(cors, {
 
 await fastify.register(healthRoutes);
 await fastify.register(menuRoutes);
+await fastify.register(authRoutes);
 
 const start = async () => {
   try {
