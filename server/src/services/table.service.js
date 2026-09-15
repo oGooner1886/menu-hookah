@@ -1,6 +1,6 @@
 //TODO сделать сервис для столов, представлять в виде квери параметра, добавить в кэш.
 //! ключ - номер стола, значение - объект { tableId: "uuid..." }
-
+import { getIikoToken } from './iiko.service.js';
 const tablesCache = new Map();
 
 //* id terminal
