@@ -27,7 +27,7 @@ export async function getIikoToken(logger) {
     expiresAt: now + 55 * 60 * 1000,
   };
 
-  logger.info('Получен новый токен iikoCloud');
+  logger.info('Polushen noviy token iikoCloud');
   return iikoToken.token;
 }
 

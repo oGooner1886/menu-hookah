@@ -4,6 +4,8 @@ import cors from '@fastify/cors';
 import healthRoutes from './src/routes/health.route.js';
 import menuRoutes from './src/routes/menu.route.js';
 import authRoutes from './src/routes/auth.route.js';
+import { loadTablesCache } from './src/services/table.service.js';
+import orderRoutes from './src/routes/order.route.js';
 
 const fastify = Fastify({
   logger: {
@@ -28,14 +30,16 @@ await fastify.register(cors, {
 await fastify.register(healthRoutes);
 await fastify.register(menuRoutes);
 await fastify.register(authRoutes);
+await fastify.register(orderRoutes);
 
 const start = async () => {
   try {
     const port = process.env.PORT || 3000;
+    await loadTablesCache(fastify.log);
     await fastify.listen({ port, host: '0.0.0.0' });
-    console.log(`Server запущен на http://localhost:${port}`);
-    console.log(`Проверить статус и память можно на -> http://localhost:${port}/api/health`);
-    console.log(`Проверить загрузку меню можно на -> http://localhost:${port}/api/menu`);
+    console.log(`Server zapushen na http://localhost:${port}`);
+    console.log(`Proverit' status i pamyat' mozhno na -> http://localhost:${port}/api/health`);
+    console.log(`Proverit' zagruzku menu moznho na -> http://localhost:${port}/api/menu`);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
