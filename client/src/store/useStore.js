@@ -1,6 +1,4 @@
 import { create } from 'zustand';
-import products_gusto from '../data/productsJSON.json';
-import products_aroma from '../data/productsJSON_aroma.json';
 import { persist } from 'zustand/middleware';
 
 export const BRANCHES = {
