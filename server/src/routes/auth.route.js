@@ -1,4 +1,4 @@
-import { sendSms, verifySms } from '../services/auth.service.js';
+import { sendSms, verifySms, loginWithYandex } from '../services/auth.service.js';
 import { checkRateLimit } from '../services/security.service.js';
 
 export default async function authRoutes(fastify, options) {
@@ -51,4 +51,21 @@ export default async function authRoutes(fastify, options) {
       return reply.status(500).send({ success: false, error: 'VNUTRENNYA OSHIBKA SERVERA' });
     }
   });
+
+  fastify.post('/api/auth/yandex/', async(request, reply) => {
+    try{
+      const {yandexToken} = request.body;
+      
+      if(!yandexToken) {
+        return reply.status(400).send({success: false, error: 'Ukazhite token Yandexa'})
+      }
+
+      const result = await loginWithYandex(yandexToken, request.log)
+
+      return reply.send({success: true, ...result})
+    } catch (error) {
+      request.log.error(error)
+      return reply.status(401).send({success: false, error: error.message})
+    }
+  })
 }

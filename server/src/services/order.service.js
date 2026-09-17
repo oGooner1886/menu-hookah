@@ -1,6 +1,8 @@
 import { getIikoToken, fetchMenuFromIiko } from './iiko.service.js';
 import { getTableInfo } from './table.service.js';
 
+
+
 async function getActiveOrderForTable(tableId, orgId, token, logger) {
   const response = await fetch('https://api-ru.iiko.services/api/1/order/by_table', {
     method: 'POST',

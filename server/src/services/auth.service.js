@@ -1,4 +1,6 @@
+import crypto from crypto;
 const smsStore = new Map();
+const sessionCache = new Map()
 
 const SMS_TTL = 3 * 60 * 1000;
 
@@ -12,7 +14,7 @@ setInterval(() => {
     }
   }
   if (deletedCount > 0) {
-    console.log(`[ОЧИСТКА ПАМЯТИ] UDALENO ${deletedCount} PROSROCHENNYH SMS-codov`);
+    console.log(`[OCHISTKA PAMYATI] UDALENO ${deletedCount} PROSROCHENNYH SMS-codov`);
   }
 }, 60 * 1000);
 
@@ -54,8 +56,64 @@ export async function verifySms(phone, code, logger) {
 
   logger.info(`[SMS SUCCESS] NOMER ${phone} USPESHNO PODTVERZHDEN.`);
 
+  const sessionToken = crypto.randomBytes(32).toString('hex')
+
+  sessionCache.set(sessionToken, {
+    phone: phone,
+    name: 'Guest',
+    authMethod: 'sms',
+    createdAt: Date.now()
+  })
+
   return {
     success: true,
-    token: `mock-jwt-token-for-${phone}`,
+    token: sessionToken,
+    user: { phone, name: 'Guest'}
   };
+}
+
+export async function loginWithYandex(yandexToken, logger){
+  logger.info('PROVERKA TOKENA CHEREZ YANDEX API')
+
+  const response = await fetch('https:/login.yandex.ru/info?format=json', {
+    method: 'GET',
+    headers: {
+      Authorization: `OAuth ${yandexToken}`
+    }
+  })
+
+  if(!response.ok){
+    throw new Error('Nedeistvitel`niy token yandexa')
+  }
+
+  const yandexUser = await response.json()
+  
+  const phone = yandexUser.default_phone ? yandexUser.default_phone.number : null;
+  const name = yandexUser.first_name || yandexUser.real_name || 'Guest';
+  const yandexId = yandexUser.id;
+
+  if(!phone){
+    throw new Error('V profile ne ukazan nomer telefona. On nuzhen dlya zakaza')
+  }
+
+  const sessionToken = crypto.randomBytes(32).toString('hex')
+
+  sessionCache.set(sessionToken, {
+    yandexId,
+    phone,
+    name,
+    authMethod: 'yandex',
+    createdAt: Date.now()
+  })
+
+  logger.info(`Uspeshnaya auth (yandex): ${name}, ${phone}`)
+
+  return {
+    token: sessionToken,
+    user: {name, phone}
+  }
+}
+
+export function getUserByToken(token){
+  return sessionCache.get(token) || null;
 }
