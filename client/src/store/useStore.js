@@ -1,13 +1,15 @@
 import { create } from 'zustand';
 import products_aroma from '../data/productsJSON_aroma.json';
+import products_gusto_legacy from '../data/productsJSON.json';
+import imageOverrides from '../data/imageOverrides.json';
 import { persist } from 'zustand/middleware';
+import { CATEGORIES_CONFIG } from '../config/categories';
+import { BRANCHES } from '../config/branches';
+
+// Реэкспорт BRANCHES — чтобы все остальные файлы продолжали импортировать из useStore
+export { BRANCHES } from '../config/branches';
 
 const API_URL = 'http://localhost:3000/api';
-
-export const BRANCHES = {
-  GUSTO: 'gusto',
-  AROMA: 'aroma',
-};
 
 const aromaProducts = products_aroma || [];
 
@@ -26,6 +28,40 @@ const buildPriceMap = (products) => {
 };
 
 const aromaPrice = buildPriceMap(aromaProducts);
+
+// Словарь: "салат греческий" → "/Salads/Greece.webp"
+// Строится из старого статичного JSON Gusto — те же блюда, те же названия
+const gustoNameToImage = {};
+products_gusto_legacy.forEach((p) => {
+  if (p.title && p.gallery) {
+    gustoNameToImage[p.title.toLowerCase().trim()] = p.gallery;
+  }
+  // Также обходим editions если есть
+  if (p.editions) {
+    p.editions.forEach((ed) => {
+      if (ed.title && ed.gallery) {
+        gustoNameToImage[ed.title.toLowerCase().trim()] = ed.gallery;
+      }
+    });
+  }
+});
+
+// Ручные переопределения (imageOverrides.json) — для имён которые не совпали автоматически
+// Ключи нормализуем так же — lowercase + trim
+const imageOverridesNormalized = {};
+Object.entries(imageOverrides).forEach(([name, path]) => {
+  if (!name.startsWith('_')) {
+    imageOverridesNormalized[name.toLowerCase().trim()] = path;
+  }
+});
+
+// Обратный словарь из iikoNames: "паста" → "pasta", "классические чаи" → "tea", ...
+const iikoCategoryNameToId = {};
+CATEGORIES_CONFIG.forEach((cat) => {
+  (cat.iikoNames || []).forEach((name) => {
+    iikoCategoryNameToId[name.toLowerCase().trim()] = cat.id;
+  });
+});
 
 export const useStore = create(
   persist(
@@ -64,7 +100,54 @@ export const useStore = create(
         try {
           const res = await fetch(`${API_URL}/menu`);
           const data = await res.json();
-          set({ productsGusto: data.categories || data });
+
+          if (!data.success || !Array.isArray(data.categories)) {
+            console.error('Неожиданный формат ответа меню:', data);
+            return;
+          }
+
+          // Маппим iiko-категории на наши id из CATEGORIES_CONFIG по названию
+          // Используем Map для дедупликации — один uid может встретиться в нескольких iiko-категориях
+          const seenUids = new Map();
+
+          data.categories.forEach((cat) => {
+            const ourCategoryId =
+              iikoCategoryNameToId[cat.name?.toLowerCase().trim()] ?? null;
+
+            if (!ourCategoryId) {
+              console.warn(`Категория iiko не найдена в CATEGORIES_CONFIG: "${cat.name}"`);
+              return;
+            }
+
+            (cat.items || []).forEach((item) => {
+              if (!seenUids.has(item.id)) {
+                // Ищем картинку: iiko → ручные переопределения → авто по названию из старого JSON
+                const nameKey = item.name?.toLowerCase().trim();
+                const imagePath =
+                  item.image ||
+                  imageOverridesNormalized[nameKey] ||
+                  gustoNameToImage[nameKey] ||
+                  null;
+
+                if (!imagePath) {
+                  console.warn(`[IMG] Нет картинки: "${item.name}" → добавь в imageOverrides.json`);
+                }
+
+                seenUids.set(item.id, {
+                  uid: item.id,
+                  title: item.name,
+                  price: item.price ?? 0,
+                  descr: item.description || '',
+                  gallery: imagePath,
+                  category: ourCategoryId,
+                });
+              }
+            });
+          });
+
+          const productsGusto = Array.from(seenUids.values());
+
+          set({ productsGusto });
         } catch (error) {
           console.error('Ошибка загрузки меню iiko:', error);
         } finally {
@@ -83,7 +166,7 @@ export const useStore = create(
 
       addToOrder: (uid) => {
         set((state) => {
-          const currentBranchOrder = state.orders[currentBranch] || {};
+          const currentBranchOrder = state.orders[state.branch] || {};
           return {
             orders: {
               ...state.orders,
@@ -98,7 +181,7 @@ export const useStore = create(
 
       removeFromOrder: (uid) => {
         set((state) => {
-          const currentBranchOrder = state.orders[currentBranch] || {};
+          const currentBranchOrder = state.orders[state.branch] || {};
           const count = currentBranchOrder[uid];
 
           if (!count || count <= 0) return {};
@@ -108,7 +191,7 @@ export const useStore = create(
           return {
             orders: {
               ...state.orders,
-              [currentBranch]: count === 1 ? restItems : { ...currentBranchOrder, [uid]: count - 1 },
+              [state.branch]: count === 1 ? restItems : { ...currentBranchOrder, [uid]: count - 1 },
             },
           };
         });
@@ -160,16 +243,14 @@ export const selectCurrentAmount = (state) => {
 
   if (currentBranch === BRANCHES.AROMA) {
     return Object.entries(order).reduce((total, [uid, count]) => {
-      const price = priceMap[uid] || 0;
+      const price = aromaPrice[uid] || 0;
       return total + price * count;
     }, 0);
   } else {
     const menu = state.productsGusto || [];
     const priceMap = {};
-    menu.forEach((category) => {
-      category.items?.forEach((product) => {
-        priceMap[product.id] = product.price || 0;
-      });
+    menu.forEach((product) => {
+      priceMap[product.uid] = product.price || 0;
     });
     return Object.entries(order).reduce((total, [uid, count]) => {
       const price = priceMap[uid] || 0;

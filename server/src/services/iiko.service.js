@@ -40,7 +40,7 @@ export async function fetchMenuFromIiko(logger) {
   }
   const token = await getIikoToken(logger);
 
-  const orgIds = process.env.IIKO_ORGANIZATION_GUSTO_ID;
+  const orgIds = (process.env.IIKO_ORGANIZATION_GUSTO_ID || '').trim();
 
   if (orgIds.length === 0) {
     throw new Error('не указан id организации');
