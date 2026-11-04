@@ -1,11 +1,37 @@
 .categorySection {
-  scroll-margin-top: 100px;
-  margin-bottom: 50px;
+  scroll-margin-top: 190px;
+  margin-bottom: 48px;
   width: 100%;
 }
+
+/* Заголовок категории */
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+/* Зелёный акцент у заголовка */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 48px;
+  height: 2px;
+  background-color: #2d6a4f;
+  border-radius: 2px;
+}
+
 .productsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
 }

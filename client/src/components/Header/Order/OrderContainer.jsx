@@ -23,14 +23,14 @@ const OrderContainer = () => {
   const hasItems = orderEntries.length > 0;
 
   const orderItems = orderEntries.map(([uid, portion]) => {
-    const uidNum = Number(uid);
-
-    let item = currentProducts.find((p) => p.uid === uidNum);
+    // uid в объекте order всегда строка (ключи объекта — строки)
+    // Сравниваем через String() чтобы работало и с UUID (iiko) и с числами (aroma)
+    let item = currentProducts.find((p) => String(p.uid) === uid);
 
     if (!item) {
       for (const prod of currentProducts) {
         if (prod.editions) {
-          const edition = prod.editions.find((ed) => ed.uid === uidNum);
+          const edition = prod.editions.find((ed) => String(ed.uid) === uid);
           if (edition) {
             item = { ...edition, parentTitle: prod.title };
             break;
@@ -49,8 +49,8 @@ const OrderContainer = () => {
         item={item}
         portion={portion}
         totalPrice={totalPrice}
-        add={() => addToOrder(uidNum)}
-        remove={() => removeFromOrder(uidNum)}
+        add={() => addToOrder(item.uid)}
+        remove={() => removeFromOrder(item.uid)}
       />
     );
   });

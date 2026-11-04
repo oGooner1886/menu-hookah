@@ -2,9 +2,10 @@ import React, { memo } from 'react';
 import MenuItem from '../MenuItem/MenuItem';
 import style from './MenuSection.module.css';
 
-const MenuSection = memo(({ categoryId, items, order, addToOrder, removeFromOrder, setItem, sectionRef }) => {
+const MenuSection = memo(({ categoryId, categoryLabel, items, order, addToOrder, removeFromOrder, setItem, sectionRef }) => {
   return (
-    <section id={categoryId} className={style.categorySection} ref={sectionRef} style={{ scrollMarginTop: '100px' }}>
+    <section id={categoryId} className={style.categorySection} ref={sectionRef}>
+      {categoryLabel && <h2 className={style.sectionTitle}>{categoryLabel}</h2>}
       <div className={style.productsGrid}>
         {items.map((item) => {
           const portion = item.editions
