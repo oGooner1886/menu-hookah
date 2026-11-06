@@ -17,16 +17,24 @@ export default defineConfig({
     },
   },
   build: {
-    target: 'es2015',
-    minify: 'esbuild',
     cssCodeSplit: true,
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-utils': ['zustand', 'hjson'],
-          'vendor-icons': ['react-icons'],
+        manualChunks(id) {
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom') ||
+            id.includes('node_modules/react-router-dom')
+          ) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/zustand') || id.includes('node_modules/hjson')) {
+            return 'vendor-utils';
+          }
+          if (id.includes('node_modules/react-icons')) {
+            return 'vendor-icons';
+          }
         },
       },
     },

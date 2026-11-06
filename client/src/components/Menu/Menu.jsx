@@ -21,7 +21,7 @@ const Menu = () => {
   const removeFromOrder = useStore((state) => state.removeFromOrder);
   const branch = useStore((state) => state.branch);
 
-  // Группируем продукты по category id
+  // Группируем продукты по category id и сортируем по алфавиту
   const groupedByCategory = useMemo(() => {
     const groups = {};
     if (!currentProducts) return groups;
@@ -30,6 +30,14 @@ const Menu = () => {
       if (!groups[cat]) groups[cat] = [];
       groups[cat].push(product);
     });
+
+    // Сортируем внутри каждой категории по алфавиту
+    Object.keys(groups).forEach((catId) => {
+      groups[catId].sort((a, b) =>
+        (a.title || '').localeCompare(b.title || '', 'ru', { sensitivity: 'base' }),
+      );
+    });
+
     return groups;
   }, [currentProducts]);
 
@@ -75,8 +83,9 @@ const Menu = () => {
           <ModalMenu
             item={item}
             closeModalForEdit={() => setItem(null)}
-            portion={order[item.uid] || 0}
+            order={order}
             addToOrder={addToOrder}
+            removeFromOrder={removeFromOrder}
           />
         )}
       </div>

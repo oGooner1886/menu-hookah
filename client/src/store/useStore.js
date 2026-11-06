@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import products_aroma from '../data/productsJSON_aroma.json';
 import products_gusto_legacy from '../data/productsJSON.json';
 import imageOverrides from '../data/imageOverrides.json';
+import titleOverrides from '../data/titleOverrides.json';
 import { persist } from 'zustand/middleware';
 import { CATEGORIES_CONFIG } from '../config/categories';
 import { BRANCHES } from '../config/branches';
@@ -52,6 +53,14 @@ const imageOverridesNormalized = {};
 Object.entries(imageOverrides).forEach(([name, path]) => {
   if (!name.startsWith('_')) {
     imageOverridesNormalized[name.toLowerCase().trim()] = path;
+  }
+});
+
+// Переопределения названий блюд (titleOverrides.json) — приводим названия из iiko к привычному виду
+const titleOverridesNormalized = {};
+Object.entries(titleOverrides).forEach(([name, displayTitle]) => {
+  if (!name.startsWith('_')) {
+    titleOverridesNormalized[name.toLowerCase().trim()] = displayTitle;
   }
 });
 
@@ -121,21 +130,27 @@ export const useStore = create(
 
             (cat.items || []).forEach((item) => {
               if (!seenUids.has(item.id)) {
+                const originalName = item.name || '';
+                const originalKey = originalName.toLowerCase().trim();
+                const displayTitle = titleOverridesNormalized[originalKey] || originalName;
+                const displayKey = displayTitle.toLowerCase().trim();
+
                 // Ищем картинку: iiko → ручные переопределения → авто по названию из старого JSON
-                const nameKey = item.name?.toLowerCase().trim();
                 const imagePath =
                   item.image ||
-                  imageOverridesNormalized[nameKey] ||
-                  gustoNameToImage[nameKey] ||
+                  imageOverridesNormalized[originalKey] ||
+                  imageOverridesNormalized[displayKey] ||
+                  gustoNameToImage[displayKey] ||
+                  gustoNameToImage[originalKey] ||
                   null;
 
                 if (!imagePath) {
-                  console.warn(`[IMG] Нет картинки: "${item.name}" → добавь в imageOverrides.json`);
+                  console.warn(`[IMG] Нет картинки: "${displayTitle}" (iiko: "${item.name}") → добавь в imageOverrides.json`);
                 }
 
                 seenUids.set(item.id, {
                   uid: item.id,
-                  title: item.name,
+                  title: displayTitle,
                   price: item.price ?? 0,
                   descr: item.description || '',
                   gallery: imagePath,
@@ -145,7 +160,10 @@ export const useStore = create(
             });
           });
 
-          const productsGusto = Array.from(seenUids.values());
+          // Сортируем меню по алфавиту
+          const productsGusto = Array.from(seenUids.values()).sort((a, b) =>
+            (a.title || '').localeCompare(b.title || '', 'ru', { sensitivity: 'base' })
+          );
 
           set({ productsGusto });
         } catch (error) {
