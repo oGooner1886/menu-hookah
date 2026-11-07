@@ -25,7 +25,7 @@ export const CATEGORIES_CONFIG = [
     id: 'snacks',
     label: 'Закуски',
     branches: [BRANCHES.GUSTO, BRANCHES.AROMA],
-    iikoNames: ['закуски'],
+    iikoNames: ['закуски', 'соусы'],
   },
   {
     id: 'hotDish',

@@ -64,6 +64,67 @@ Object.entries(titleOverrides).forEach(([name, displayTitle]) => {
   }
 });
 
+// Конфигурация группировки позиций для демонстрации заказчику:
+// 1. modal + bottom_sheet: Картофель фри (шторка снизу)
+// 2. modal + centered_modal: Соус на выбор (классическое окно по центру, как было раньше)
+// 3. inline_switch: Вишнёвый чай (переключатель 0.5 л / 1 л прямо в карточке без окон)
+const PRODUCT_EDITIONS_GROUPS = [
+  {
+    groupId: 'group-french-fries',
+    title: 'Картофель фри',
+    category: 'snacks',
+    gallery: '/Snack/French fries.webp',
+    descr: 'Хрустящий картофель фри с золотистой корочкой',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Картофель фри 150гр', subtitle: '150 г', weight: '150г' },
+      { iikoName: 'Картофель фри 250гр', subtitle: '250 г', weight: '250г' },
+    ],
+  },
+  {
+    groupId: 'group-sauce',
+    title: 'Соус на выбор',
+    category: 'snacks',
+    gallery: '/Snack/sauce.webp',
+    descr: 'Фирменные порционные соусы к закускам и блюдам',
+    uiType: 'modal',
+    modalType: 'centered_modal',
+    items: [
+      { iikoName: 'Сырный соус порция', subtitle: 'Сырный', weight: '' },
+      { iikoName: 'Чесночный соус порция', subtitle: 'Чесночный', weight: '' },
+      { iikoName: 'Барбекю соус порция', subtitle: 'Барбекю', weight: '' },
+      { iikoName: 'Кетчуп соус', subtitle: 'Кетчуп', weight: '' },
+      { iikoName: 'Кисло сладкий соус порция', subtitle: 'Кисло-сладкий', weight: '' },
+      { iikoName: 'Соус терияки порция', subtitle: 'Терияки', weight: '' },
+      { iikoName: '1000 островов соус', subtitle: '1000 островов', weight: '' },
+      { iikoName: 'Сладкий чили соус', subtitle: 'Сладкий чили', weight: '' },
+    ],
+  },
+  {
+    groupId: 'group-cherry-tea',
+    title: 'Вишнёвый чай',
+    category: 'tea',
+    gallery: '/Tea/Cherry.webp',
+    descr: 'Ароматный согревающий чай с вишней',
+    uiType: 'inline_switch',
+    items: [
+      { iikoName: 'Вишневый чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Вишневый чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+];
+
+const editionItemToGroupMap = new Map();
+PRODUCT_EDITIONS_GROUPS.forEach((grp) => {
+  grp.items.forEach((it) => {
+    editionItemToGroupMap.set(it.iikoName.toLowerCase().trim(), {
+      group: grp,
+      config: it,
+    });
+  });
+});
+
 // Обратный словарь из iikoNames: "паста" → "pasta", "классические чаи" → "tea", ...
 const iikoCategoryNameToId = {};
 CATEGORIES_CONFIG.forEach((cat) => {
@@ -94,6 +155,9 @@ export const useStore = create(
       productsGusto: [],
       productsAroma: aromaProducts,
       isLoadingMenu: false,
+      item: null,
+
+      setItem: (item) => set({ item }),
 
       setBranch: (branch) => {
         set({ branch });
@@ -118,6 +182,7 @@ export const useStore = create(
           // Маппим iiko-категории на наши id из CATEGORIES_CONFIG по названию
           // Используем Map для дедупликации — один uid может встретиться в нескольких iiko-категориях
           const seenUids = new Map();
+          const activeGroups = new Map();
 
           data.categories.forEach((cat) => {
             const ourCategoryId =
@@ -129,9 +194,41 @@ export const useStore = create(
             }
 
             (cat.items || []).forEach((item) => {
+              const originalName = item.name || '';
+              const originalKey = originalName.toLowerCase().trim();
+
+              // Проверяем, объединяется ли позиция в группу с выбором порции (Bottom Sheet)
+              if (editionItemToGroupMap.has(originalKey)) {
+                const { group, config } = editionItemToGroupMap.get(originalKey);
+                if (!activeGroups.has(group.groupId)) {
+                  activeGroups.set(group.groupId, {
+                    uid: group.groupId,
+                    title: group.title,
+                    descr: item.description || group.descr || '',
+                    gallery: group.gallery,
+                    category: group.category || ourCategoryId,
+                    price: item.price ?? 0,
+                    uiType: group.uiType || 'modal',
+                    modalType: group.modalType || 'bottom_sheet',
+                    editions: [],
+                  });
+                }
+                const grpObj = activeGroups.get(group.groupId);
+                grpObj.editions.push({
+                  uid: item.id,
+                  title: group.title,
+                  subtitle: config.subtitle,
+                  weight: config.weight,
+                  price: item.price ?? 0,
+                  gallery: group.gallery,
+                  descr: item.description || '',
+                });
+                // Минимальная цена для бейджа "от ... ₽"
+                grpObj.price = Math.min(...grpObj.editions.map((e) => e.price));
+                return;
+              }
+
               if (!seenUids.has(item.id)) {
-                const originalName = item.name || '';
-                const originalKey = originalName.toLowerCase().trim();
                 const displayTitle = titleOverridesNormalized[originalKey] || originalName;
                 const displayKey = displayTitle.toLowerCase().trim();
 
@@ -158,6 +255,12 @@ export const useStore = create(
                 });
               }
             });
+          });
+
+          // Добавляем объединенные группы в меню
+          activeGroups.forEach((grp) => {
+            grp.editions.sort((a, b) => a.price - b.price);
+            seenUids.set(grp.uid, grp);
           });
 
           // Сортируем меню по алфавиту
@@ -269,6 +372,11 @@ export const selectCurrentAmount = (state) => {
     const priceMap = {};
     menu.forEach((product) => {
       priceMap[product.uid] = product.price || 0;
+      if (product.editions) {
+        product.editions.forEach((ed) => {
+          priceMap[ed.uid] = ed.price || 0;
+        });
+      }
     });
     return Object.entries(order).reduce((total, [uid, count]) => {
       const price = priceMap[uid] || 0;

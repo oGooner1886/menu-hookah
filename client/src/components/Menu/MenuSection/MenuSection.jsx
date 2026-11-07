@@ -16,6 +16,7 @@ const MenuSection = memo(({ categoryId, categoryLabel, items, order, addToOrder,
               key={item.uid}
               item={item}
               portion={portion}
+              order={order}
               addToOrder={addToOrder}
               removeFromOrder={removeFromOrder}
               openModalForEdit={setItem}

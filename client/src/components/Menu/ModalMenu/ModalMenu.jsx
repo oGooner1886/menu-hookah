@@ -1,74 +1,181 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './ModalMenu.module.css';
-import ItemEditions from './ItemEditions/ItemEditions';
 
-const ModalMenu = ({ item, closeModalForEdit, addToOrder }) => {
-  const { price } = item;
+const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFromOrder }) => {
+  const { title, descr, gallery, editions = [], modalType } = item;
+  const isCentered = modalType === 'centered_modal';
 
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [active, setActive] = useState(false);
+  // По умолчанию выбираем первую опцию
+  const [selectedEdition, setSelectedEdition] = useState(editions[0] || null);
 
-  const editionsTest = () => {
-    if (item.editions === undefined) {
-      console.log('Опций нет');
-    } else {
-      return item.editions?.map((el) => {
-        return el;
-      });
-    }
-  };
+  // Закрытие по клавише Escape и блокировка скролла страницы
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeModalForEdit();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
 
-  editionsTest();
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [closeModalForEdit]);
+
+  if (!item) return null;
+
+  const currentUid = selectedEdition?.uid;
+  const currentQty = currentUid ? order[currentUid] || 0 : 0;
+  const totalEditionsInOrder = editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0);
 
   return (
-    <div className={style.modalActive}>
-      <div className={style.modal__block}>
-        <div className={style.modal__block_title}>
-          <h2 className={style.modal_title}>{item.title}</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className={style.modal_close}
-            onClick={() => closeModalForEdit()}
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7A.996.996 0 105.7 7.11L10.59 12 5.7 16.89a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"></path>
-          </svg>
+    <div
+      className={`${style.backdrop} ${isCentered ? style.backdropCentered : ''}`}
+      onClick={closeModalForEdit}
+    >
+      <div
+        className={isCentered ? style.centeredModal : style.bottomSheet}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Полоска-хваталка сверху (только для шторки) */}
+        {!isCentered && (
+          <div className={style.handleBarWrap}>
+            <div className={style.handleBar} />
+          </div>
+        )}
+
+        {/* Кнопка закрытия */}
+        <button
+          className={style.closeBtn}
+          onClick={closeModalForEdit}
+          aria-label="Закрыть"
+        >
+          ✕
+        </button>
+
+        {/* Картинка блюда */}
+        {gallery && (
+          <div className={isCentered ? style.imageWrapCentered : style.imageWrap}>
+            <img
+              src={`/images/menu/${gallery}`}
+              alt={title}
+              className={style.image}
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        {/* Заголовок и описание */}
+        <div className={style.header}>
+          <h2 className={style.title}>{title}</h2>
+          {descr && <p className={style.descr}>{descr}</p>}
         </div>
 
-        <div className={style.modal__content}>
-          <div>Выберите опцию</div>
-          <div className={style.modal__item}>
-            {item.editions !== undefined &&
-              item.editions.map((item) => (
-                <ItemEditions
-                  key={item.uid}
-                  item={item}
-                  selectDiff={setSelectedItem}
-                  active={active}
-                  setActive={setActive}
-                  selectedItem={selectedItem}
-                  addToOrder={addToOrder}
-                />
-              ))}
+        {/* Список опций */}
+        {editions.length > 0 && (
+          <div className={style.editionsSection}>
+            <div className={style.sectionLabel}>
+              {isCentered ? 'Выберите вкус:' : 'Выберите порцию:'}
+            </div>
+
+            {/* Классический вид: сетка круглых кнопок/пилюль (как было раньше) */}
+            {isCentered ? (
+              <div className={style.pillGrid}>
+                {editions.map((ed) => {
+                  const isSelected = selectedEdition?.uid === ed.uid;
+                  const qty = order[ed.uid] || 0;
+
+                  return (
+                    <button
+                      key={ed.uid}
+                      type="button"
+                      className={`${style.pillBtn} ${isSelected ? style.pillBtnActive : ''}`}
+                      onClick={() => setSelectedEdition(ed)}
+                    >
+                      <span>{ed.subtitle || ed.title}</span>
+                      {qty > 0 && (
+                        <span className={isSelected ? style.pillBadgeActive : style.pillBadge}>
+                          {qty}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ) : (
+              /* Вид шторки: аккуратный список строк с радио-кнопками */
+              <div className={style.editionsList}>
+                {editions.map((ed) => {
+                  const isSelected = selectedEdition?.uid === ed.uid;
+                  const qty = order[ed.uid] || 0;
+
+                  return (
+                    <div
+                      key={ed.uid}
+                      className={`${style.editionCard} ${isSelected ? style.editionCardSelected : ''}`}
+                      onClick={() => setSelectedEdition(ed)}
+                    >
+                      <div className={style.editionLeft}>
+                        <span className={style.editionName}>{ed.subtitle || ed.title}</span>
+                        {qty > 0 && (
+                          <span className={style.editionBadge}>{qty} в заказе</span>
+                        )}
+                      </div>
+
+                      <div className={style.editionRight}>
+                        <span className={style.editionPrice}>{ed.price} ₽</span>
+                        <div
+                          className={`${style.radio} ${isSelected ? style.radioSelected : ''}`}
+                        >
+                          {isSelected && <div className={style.radioInner} />}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        </div>
-        <div className={style.modal__content_main}></div>
-        <div className={style.modal__blockPrice}>
-          <div className={style.modal__blockPrice_price}>Итог: {selectedItem ? selectedItem.price : price}₽</div>
-          {selectedItem === null ? (
-            <button className={style.modal__blockPrice_inActive}>Выберите одну из опций</button>
-          ) : (
+        )}
+
+        {/* Нижняя панель действий */}
+        <div className={style.footer}>
+          {currentQty === 0 ? (
             <button
-              className={style.modal__blockPrice_btn}
+              className={style.btnPrimary}
               onClick={() => {
-                addToOrder(selectedItem.uid);
-                // addToOrder(item.uid)
+                if (currentUid && addToOrder) {
+                  addToOrder(currentUid);
+                }
                 closeModalForEdit();
               }}
             >
-              Добавить в заказ
+              Добавить {selectedEdition?.subtitle ? `«${selectedEdition.subtitle}»` : ''} • {selectedEdition?.price} ₽
             </button>
+          ) : (
+            <div className={style.counterFooter}>
+              <div className={style.counterBlock}>
+                <button
+                  className={style.counterBtn}
+                  onClick={() => removeFromOrder && removeFromOrder(currentUid)}
+                  aria-label="Уменьшить"
+                >
+                  −
+                </button>
+                <span className={style.counterQty}>{currentQty}</span>
+                <button
+                  className={style.counterBtn}
+                  onClick={() => addToOrder && addToOrder(currentUid)}
+                  aria-label="Увеличить"
+                >
+                  +
+                </button>
+              </div>
+
+              <button className={style.btnDone} onClick={closeModalForEdit}>
+                Готово {totalEditionsInOrder > 0 ? `(${totalEditionsInOrder})` : ''}
+              </button>
+            </div>
           )}
         </div>
       </div>
