@@ -214,6 +214,15 @@
   color: #ffffff;
 }
 
+.pillBtnStopped {
+  opacity: 0.45;
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through;
+  cursor: not-allowed !important;
+}
+
 .pillBadge {
   font-size: 11px;
   font-weight: 700;
@@ -260,6 +269,22 @@
 .editionCardSelected {
   border-color: #2d6a4f;
   background-color: #f2f8f5;
+}
+
+.editionCardStopped {
+  opacity: 0.55;
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  cursor: not-allowed !important;
+}
+
+.badgeStopped {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ef4444;
+  background-color: #fee2e2;
+  padding: 2px 8px;
+  border-radius: 8px;
 }
 
 .editionLeft {
@@ -347,6 +372,14 @@
 
 .btnPrimary:active {
   transform: scale(0.98);
+}
+
+.btnPrimaryDisabled {
+  background-color: #f1f5f9 !important;
+  color: #94a3b8 !important;
+  border: 1px solid #e2e8f0 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
 }
 
 /* Футер когда товар уже в корзине */

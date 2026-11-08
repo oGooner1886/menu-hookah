@@ -156,8 +156,31 @@ export const useStore = create(
       productsAroma: aromaProducts,
       isLoadingMenu: false,
       item: null,
+      stopList: [],
 
       setItem: (item) => set({ item }),
+
+      fetchStopList: async () => {
+        try {
+          const res = await fetch(`${API_URL}/menu/stop-list`);
+          const data = await res.json();
+          if (data.success && Array.isArray(data.stopList)) {
+            const newStopList = data.stopList;
+            const current = get().stopList || [];
+
+            // Обновляем состояние только если стоп-лист реально изменился
+            const isSame =
+              newStopList.length === current.length &&
+              newStopList.every((id) => current.includes(id));
+
+            if (!isSame) {
+              set({ stopList: newStopList });
+            }
+          }
+        } catch (error) {
+          console.error('Ошибка загрузки стоп-листа:', error);
+        }
+      },
 
       setBranch: (branch) => {
         set({ branch });
@@ -269,6 +292,9 @@ export const useStore = create(
           );
 
           set({ productsGusto });
+
+          // Параллельно подтягиваем свежий стоп-лист
+          get().fetchStopList();
         } catch (error) {
           console.error('Ошибка загрузки меню iiko:', error);
         } finally {
@@ -286,6 +312,12 @@ export const useStore = create(
       },
 
       addToOrder: (uid) => {
+        // Защита: нельзя добавить позицию из стоп-листа
+        if ((get().stopList || []).includes(String(uid))) {
+          console.warn(`[STOP-LIST] Товар ${uid} недоступен (в стоп-листе)`);
+          return;
+        }
+
         set((state) => {
           const currentBranchOrder = state.orders[state.branch] || {};
           return {
@@ -355,6 +387,8 @@ export const selectCurrentTotalItems = (state) => {
   const order = state.orders[state.branch] || {};
   return Object.values(order).reduce((sum, count) => sum + count, 0);
 };
+
+export const selectStopList = (state) => state.stopList || [];
 
 export const selectCurrentAmount = (state) => {
   const currentBranch = state.branch;

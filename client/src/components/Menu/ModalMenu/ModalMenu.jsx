@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import style from './ModalMenu.module.css';
 
-const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFromOrder }) => {
+const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOrder, removeFromOrder }) => {
   const { title, descr, gallery, editions = [], modalType } = item;
   const isCentered = modalType === 'centered_modal';
 
-  // По умолчанию выбираем первую опцию
-  const [selectedEdition, setSelectedEdition] = useState(editions[0] || null);
+  // По умолчанию выбираем первую доступную опцию (не в стоп-листе)
+  const availableEditions = editions.filter((ed) => !stopList.includes(String(ed.uid)));
+  const [selectedEdition, setSelectedEdition] = useState(
+    availableEditions[0] || editions[0] || null
+  );
 
   // Закрытие по клавише Escape и блокировка скролла страницы
   useEffect(() => {
@@ -25,6 +28,7 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFrom
   if (!item) return null;
 
   const currentUid = selectedEdition?.uid;
+  const isCurrentStopped = currentUid ? stopList.includes(String(currentUid)) : false;
   const currentQty = currentUid ? order[currentUid] || 0 : 0;
   const totalEditionsInOrder = editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0);
 
@@ -83,21 +87,26 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFrom
               <div className={style.pillGrid}>
                 {editions.map((ed) => {
                   const isSelected = selectedEdition?.uid === ed.uid;
+                  const isStopped = stopList.includes(String(ed.uid));
                   const qty = order[ed.uid] || 0;
 
                   return (
                     <button
                       key={ed.uid}
                       type="button"
-                      className={`${style.pillBtn} ${isSelected ? style.pillBtnActive : ''}`}
-                      onClick={() => setSelectedEdition(ed)}
+                      className={`${style.pillBtn} ${isSelected ? style.pillBtnActive : ''} ${isStopped ? style.pillBtnStopped : ''}`}
+                      onClick={() => !isStopped && setSelectedEdition(ed)}
+                      disabled={isStopped}
+                      title={isStopped ? 'Закончился' : ''}
                     >
                       <span>{ed.subtitle || ed.title}</span>
-                      {qty > 0 && (
+                      {isStopped ? (
+                        <span className={style.badgeStopped}>✕</span>
+                      ) : qty > 0 ? (
                         <span className={isSelected ? style.pillBadgeActive : style.pillBadge}>
                           {qty}
                         </span>
-                      )}
+                      ) : null}
                     </button>
                   );
                 })}
@@ -107,28 +116,34 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFrom
               <div className={style.editionsList}>
                 {editions.map((ed) => {
                   const isSelected = selectedEdition?.uid === ed.uid;
+                  const isStopped = stopList.includes(String(ed.uid));
                   const qty = order[ed.uid] || 0;
 
                   return (
                     <div
                       key={ed.uid}
-                      className={`${style.editionCard} ${isSelected ? style.editionCardSelected : ''}`}
-                      onClick={() => setSelectedEdition(ed)}
+                      className={`${style.editionCard} ${isSelected ? style.editionCardSelected : ''} ${isStopped ? style.editionCardStopped : ''}`}
+                      onClick={() => !isStopped && setSelectedEdition(ed)}
+                      style={{ cursor: isStopped ? 'not-allowed' : 'pointer' }}
                     >
                       <div className={style.editionLeft}>
                         <span className={style.editionName}>{ed.subtitle || ed.title}</span>
-                        {qty > 0 && (
+                        {isStopped ? (
+                          <span className={style.badgeStopped}>Закончилось</span>
+                        ) : qty > 0 ? (
                           <span className={style.editionBadge}>{qty} в заказе</span>
-                        )}
+                        ) : null}
                       </div>
 
                       <div className={style.editionRight}>
                         <span className={style.editionPrice}>{ed.price} ₽</span>
-                        <div
-                          className={`${style.radio} ${isSelected ? style.radioSelected : ''}`}
-                        >
-                          {isSelected && <div className={style.radioInner} />}
-                        </div>
+                        {!isStopped && (
+                          <div
+                            className={`${style.radio} ${isSelected ? style.radioSelected : ''}`}
+                          >
+                            {isSelected && <div className={style.radioInner} />}
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
@@ -140,7 +155,11 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, addToOrder, removeFrom
 
         {/* Нижняя панель действий */}
         <div className={style.footer}>
-          {currentQty === 0 ? (
+          {isCurrentStopped ? (
+            <button className={`${style.btnPrimary} ${style.btnPrimaryDisabled}`} disabled>
+              {selectedEdition?.subtitle ? `«${selectedEdition.subtitle}» закончился` : 'Закончилось'}
+            </button>
+          ) : currentQty === 0 ? (
             <button
               className={style.btnPrimary}
               onClick={() => {

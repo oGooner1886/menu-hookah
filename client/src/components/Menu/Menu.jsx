@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import style from './Menu.module.css';
 import {
   useStore,
   selectCurrentProducts,
   selectCurrentOrder,
+  selectStopList,
   BRANCHES,
 } from '../../store/useStore';
 import Category from './Category/Category';
@@ -20,6 +21,32 @@ const Menu = () => {
   const addToOrder = useStore((state) => state.addToOrder);
   const removeFromOrder = useStore((state) => state.removeFromOrder);
   const branch = useStore((state) => state.branch);
+  const stopList = useStore(selectStopList);
+  const fetchStopList = useStore((state) => state.fetchStopList);
+
+  // Периодический легкий опрос стоп-листа раз в 45 сек + при возврате на вкладку
+  useEffect(() => {
+    fetchStopList();
+
+    const interval = setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        fetchStopList();
+      }
+    }, 45000);
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        fetchStopList();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, [fetchStopList]);
 
   // Группируем продукты по category id и сортируем по алфавиту
   const groupedByCategory = useMemo(() => {
@@ -69,6 +96,7 @@ const Menu = () => {
               categoryLabel={cat.label}
               items={groupedByCategory[cat.id]}
               order={order}
+              stopList={stopList}
               addToOrder={addToOrder}
               removeFromOrder={removeFromOrder}
               setItem={setItem}
@@ -84,6 +112,7 @@ const Menu = () => {
             item={item}
             closeModalForEdit={() => setItem(null)}
             order={order}
+            stopList={stopList}
             addToOrder={addToOrder}
             removeFromOrder={removeFromOrder}
           />

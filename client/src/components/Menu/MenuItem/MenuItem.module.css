@@ -15,13 +15,51 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .item {
+  .item:not(.itemStopped) {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .item:hover {
+  .item:not(.itemStopped):hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
   }
+}
+
+/* Карточка блюда в стоп-листе */
+.itemStopped {
+  opacity: 0.55;
+  background-color: #fafafa;
+}
+
+.itemStopped .images img {
+  filter: grayscale(0.85);
+}
+
+.itemStopped .desc__price_num {
+  color: #888;
+}
+
+/* Бейдж / кнопка "Закончилось" */
+.btnStopped {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: not-allowed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.2px;
+  user-select: none;
+}
+
+.segmentBtnStopped {
+  opacity: 0.45;
+  text-decoration: line-through;
+  cursor: not-allowed !important;
 }
 
 .desc {

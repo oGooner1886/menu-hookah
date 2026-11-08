@@ -2,20 +2,35 @@ import React, { memo, useState } from 'react';
 import style from './MenuItem.module.css';
 import Placeholder from '../../../mocks/Placeholder/Placeholder';
 
-const MenuItem = memo(({ item, portion, order = {}, addToOrder, removeFromOrder, openModalForEdit }) => {
+const MenuItem = memo(({ item, portion, order = {}, stopList = [], addToOrder, removeFromOrder, openModalForEdit }) => {
   const { title, descr, price, gallery, uid, editions, uiType } = item;
   const hasEditions = Boolean(editions && editions.length > 0);
   const isInlineSwitch = uiType === 'inline_switch' && hasEditions;
+
+  // Проверка стоп-листа
+  const isSingleStopped = !hasEditions && stopList.includes(String(uid));
+  const availableEditions = hasEditions
+    ? editions.filter((ed) => !stopList.includes(String(ed.uid)))
+    : [];
+  const isEntireItemStopped = hasEditions && availableEditions.length === 0;
+  const isCardDisabled = isSingleStopped || isEntireItemStopped;
 
   // Для переключателя прямо в карточке
   const [selectedIdx, setSelectedIdx] = useState(0);
   const activeEdition = hasEditions ? editions[selectedIdx] || editions[0] : null;
   const activeEditionQty = activeEdition ? order[activeEdition.uid] || 0 : 0;
+  const isActiveEditionStopped = activeEdition
+    ? stopList.includes(String(activeEdition.uid))
+    : false;
 
   const handleAddClick = (e) => {
     e.stopPropagation();
+    if (isCardDisabled) return;
+
     if (isInlineSwitch) {
-      if (activeEdition) addToOrder(activeEdition.uid);
+      if (activeEdition && !isActiveEditionStopped) {
+        addToOrder(activeEdition.uid);
+      }
     } else if (hasEditions) {
       if (typeof openModalForEdit === 'function') openModalForEdit(item);
     } else {
@@ -35,6 +50,7 @@ const MenuItem = memo(({ item, portion, order = {}, addToOrder, removeFromOrder,
   };
 
   const handleCardClick = () => {
+    if (isCardDisabled) return;
     if (!isInlineSwitch && hasEditions && typeof openModalForEdit === 'function') {
       openModalForEdit(item);
     }
@@ -52,9 +68,15 @@ const MenuItem = memo(({ item, portion, order = {}, addToOrder, removeFromOrder,
 
   return (
     <div
-      className={style.item}
+      className={`${style.item} ${isCardDisabled ? style.itemStopped : ''}`}
       onClick={handleCardClick}
-      style={{ cursor: !isInlineSwitch && hasEditions ? 'pointer' : 'default' }}
+      style={{
+        cursor: isCardDisabled
+          ? 'not-allowed'
+          : !isInlineSwitch && hasEditions
+          ? 'pointer'
+          : 'default',
+      }}
     >
       <div className={style.desc}>
         <div className={style.desc__prop}>
@@ -65,26 +87,34 @@ const MenuItem = memo(({ item, portion, order = {}, addToOrder, removeFromOrder,
         {/* Переключатель прямо в карточке (Inline Segments) */}
         {isInlineSwitch && (
           <div className={style.inlineSegments}>
-            {editions.map((ed, idx) => (
-              <button
-                key={ed.uid}
-                type="button"
-                className={`${style.segmentBtn} ${idx === selectedIdx ? style.segmentBtnActive : ''}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedIdx(idx);
-                }}
-              >
-                {ed.subtitle || ed.title}
-              </button>
-            ))}
+            {editions.map((ed, idx) => {
+              const isEdStopped = stopList.includes(String(ed.uid));
+              return (
+                <button
+                  key={ed.uid}
+                  type="button"
+                  className={`${style.segmentBtn} ${idx === selectedIdx ? style.segmentBtnActive : ''} ${isEdStopped ? style.segmentBtnStopped : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedIdx(idx);
+                  }}
+                  title={isEdStopped ? 'Закончился' : ''}
+                >
+                  {ed.subtitle || ed.title}
+                </button>
+              );
+            })}
           </div>
         )}
 
         <div className={style.desc__price}>
           <p className={style.desc__price_num}>{displayPrice} ₽</p>
           <div className={style.desc__price_addToCart}>
-            {!currentPortion ? (
+            {isCardDisabled ? (
+              <span className={style.btnStopped}>Закончилось</span>
+            ) : isInlineSwitch && isActiveEditionStopped ? (
+              <span className={style.btnStopped}>Закончился</span>
+            ) : !currentPortion ? (
               <button className={style.btn_add} onClick={handleAddClick}>
                 {!isInlineSwitch && hasEditions ? 'Выбрать' : '+ Добавить'}
               </button>

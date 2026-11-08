@@ -16,11 +16,12 @@ export default async function menuRoutes(fastify, options) {
 
   fastify.get('/api/menu/stop-list', async (request, reply) => {
     try {
-      const stopListIds = await fetchStopListFromIiko(request.log)
-      return reply.send({ success: true, stopList: stopListIds })
+      const stopListIds = await fetchStopListFromIiko(request.log);
+      reply.header('Cache-Control', 'public, max-age=30, stale-while-revalidate=30');
+      return reply.send({ success: true, stopList: stopListIds });
     } catch (error) {
-      request.log.error(error)
-      return reply.status(500).send({ success: false, error: 'Ne udalos` poluchit` stop-list' })
+      request.log.error(error);
+      return reply.status(500).send({ success: false, error: 'Ne udalos` poluchit` stop-list' });
     }
-  })
+  });
 }

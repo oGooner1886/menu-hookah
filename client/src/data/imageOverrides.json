@@ -1,22 +1,19 @@
 {
   "_comment": "Ручной маппинг: название блюда в iiko (точно как в API) → путь к картинке в /images/menu/",
-
   "Салат семга и креветками": "/Salads/wSalmonShrimp.webp",
   "Греческий": "/Salads/Greece.webp",
   "Салат с говядиной": "/Salads/withBeef.webp",
+  "Салат с креветками и персиками": "/Salads/Shrimp_peach.webp",
   "Цезарь с креветками": "/Salads/Caesarwshrimp.webp",
   "Цезарь с курицей": "/Salads/Caesarw chicken.webp",
-
   "Карбонара": "/Pasta/Carbonara.webp",
   "Паста с курицей и грибами": "/Pasta/wchickenmushrooms.webp",
   "WOK с курицей": "/Pasta/wokchicken.webp",
   "WOK с креветками": "/Pasta/wokshrimp.webp",
   "Паста с креветками": "/Pasta/wShrimp.webp",
-
   "Крем суп грибной": "/Soup/Mushroom cream soup.webp",
   "Суп кукурузный с креветками": "/Soup/corn.webp",
   "Суп куриный": "/Soup/Chicken soup.webp",
-
   "Хлеб": "/Snack/хлеб.webp",
   "Креветки темпура": "/Snack/sshrimpFries.webp",
   "Картофель фри 150гр": "/Snack/French fries.webp",
@@ -33,24 +30,20 @@
   "Ролл с креветкой": "/Light snacks/shrimp.webp",
   "Ролл с курицей": "/Light snacks/chicken.webp",
   "Бейгл с говядиной": "/Light snacks/beef.webp",
-
   "Поке с креветками": "/Poke/pokeWshrimp.webp",
   "Поке с лососем": "/Poke/pokeWsalmon.webp",
-
   "Банановый милкшейк": "/Milkshake/classic.webp",
   "Клубничный милкшейк": "/Milkshake/oreo.webp",
   "Шоколадный милкшейк": "/Milkshake/oreo.webp",
   "Фисташковый милкшейк": "/Milkshake/oreo.webp",
   "Банан-Орео милкшейк": "/Milkshake/oreo.webp",
   "Классический милкшейк": "/Milkshake/classic.webp",
-
   "Клубника-Киви смузи": "/Smoothie/berry smoothie.webp",
   "Банан-Клубника смузи": "/Smoothie/berry smoothie.webp",
   "Вишня-базилик смузи": "/Smoothie/berry smoothie.webp",
   "Пинкман": "/Smoothie/berry smoothie.webp",
   "Киви смузи": "/Smoothie/kiwi smoothie.webp",
   "Ягодный смузи": "/Smoothie/berry smoothie.webp",
-
   "Латте": "/Coffee/latte.webp",
   "Айс Латте": "/Coffee/ice latte.webp",
   "Двойной эспрессо": "/Coffee/espresso.webp",
@@ -60,7 +53,6 @@
   "Капучино": "/Coffee/capuccino.webp",
   "Американо": "/Coffee/americano.webp",
   "Раф-кофе": "/Coffee/raf.webp",
-
   "Берри Лонг": "/Coctail/Berry Long.webp",
   "Пич Сауэр": "/Coctail/Peach sour.webp",
   "Секретное признание": "/Coctail/Lemon Pie.webp",
@@ -77,12 +69,10 @@
   "Яблочный Штрудель": "/Coctail/Apple-spiced long.webp",
   "Пинк Саутсайд": "/Coctail/Pink Southside.webp",
   "Иностранец": "/Coctail/Kyoto Gimlet.webp",
-
   "Пиво разливное 0,5л": "/Alco/beer.webp",
   "Пиво алко/безалко 0,5": "/Alco/beer.webp",
   "Пиво разливное 0,33л": "/Alco/beer glass.webp",
   "Пиво импорт 0,33": "/Alco/import.webp",
-
   "Тертый шоколад": "/Ice cream/grated chocolate.webp",
   "Банан": "/Ice cream/банан.webp",
   "Тертый орех": "/Ice cream/grated nuts.webp",
@@ -91,7 +81,6 @@
   "Шоколадное мороженое": "/Ice cream/grated chocolate.webp",
   "Клубничное мороженое": "/Ice cream/Ice cream ball.webp",
   "Фисташковое мороженое": "/Ice cream/Ice cream ball.webp",
-
   "Ассорти орехов с мёдом": "/Desserts/nutsNhoney.webp",
   "Брауни": "/Desserts/Brownie.webp",
   "Медовик": "/Desserts/medovik.webp",
@@ -99,11 +88,9 @@
   "Чизкейк ПП манго-маракуйя": "/Desserts/Mango passion fruit cheesecake.webp",
   "Меренговый рулет": "/Desserts/Meringue roll.webp",
   "Чизкейк Орео": "/Desserts/Brownie.webp",
-
   "Картофель Бейби с мясом и грибами": "/Hot dish/Potatoes with meat and mushrooms.webp",
   "Куриный стейк": "/Hot dish/Chicken steak.webp",
   "Блюдо от шеф-повара": "/Hot dish/Food from chief.webp",
-
   "Вода ": "/Drink/water.webp",
   "Рычал-Су": "/Drink/rychal.webp",
   "Кока-кола 0.33 стекло": "/Drink/coke.webp",
@@ -117,7 +104,6 @@
   "Фреш Апельсин 0,25л": "/Drink/juice.webp",
   "Фреш Яблоко  0,25л": "/Drink/juice.webp",
   "Фреш  Грейпфрутовый 0,25л": "/Drink/grape.webp",
-
   "Ягодный лимонад 1л": "/Lemonade/berry lemonade.webp",
   "Ягодный лимонад 0,4л": "/Lemonade/berry lemonade.webp",
   "Лимонад Грейпфрут Карамель 1л": "/Lemonade/mango citrus.webp",
@@ -136,7 +122,6 @@
   "Лимонад Цитрус-Манго 1л": "/Lemonade/mango citrus.webp",
   "Ананас-лемонграсс 0,4 л": "/Lemonade/ananas lemon.webp",
   "Ананас-лемонграсс 1 л": "/Lemonade/ananas lemon.webp",
-
   "Зеленый с жасмином 0,5л": "/Tea/green.webp",
   "Зеленый с жасмином 1л": "/Tea/green.webp",
   "Зеленый чай 0,5л": "/Tea/green.webp",
