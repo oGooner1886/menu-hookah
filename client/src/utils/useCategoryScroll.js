@@ -2,19 +2,26 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useCategoryScroll = (activeCategories = []) => {
   const sectionsRefs = useRef({});
+  const callbackRefs = useRef({});
   const [activeId, setActiveId] = useState(activeCategories[0]?.id || '');
 
   // Флаг: идёт ручной скролл — Observer не должен перезаписывать activeId
   const isManualScrolling = useRef(false);
   const scrollTimer = useRef(null);
 
+  // Стабильные ссылки на callback-ref для каждой категории (чтобы MenuSection не ререндерился)
   const registerSection = useCallback(
-    (id) => (el) => {
-      if (el) {
-        sectionsRefs.current[id] = el;
-      } else {
-        delete sectionsRefs.current[id];
+    (id) => {
+      if (!callbackRefs.current[id]) {
+        callbackRefs.current[id] = (el) => {
+          if (el) {
+            sectionsRefs.current[id] = el;
+          } else {
+            delete sectionsRefs.current[id];
+          }
+        };
       }
+      return callbackRefs.current[id];
     },
     [],
   );
@@ -55,15 +62,22 @@ export const useCategoryScroll = (activeCategories = []) => {
       threshold: 0,
     };
 
+    let rafId = null;
+
     const observer = new IntersectionObserver((entries) => {
       // Не перебиваем ручной скролл
       if (isManualScrolling.current) return;
 
-      entries.forEach((entry) => {
+      // Ищем пересекающуюся категорию
+      for (const entry of entries) {
         if (entry.isIntersecting) {
-          setActiveId(entry.target.id);
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            setActiveId(entry.target.id);
+          });
+          break;
         }
-      });
+      }
     }, observerOptions);
 
     activeCategories.forEach((cat) => {
@@ -71,7 +85,10 @@ export const useCategoryScroll = (activeCategories = []) => {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      observer.disconnect();
+    };
   }, [activeCategories]);
 
   // Очищаем таймер при размонтировании

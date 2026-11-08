@@ -2,6 +2,8 @@
   scroll-margin-top: 190px;
   margin-bottom: 48px;
   width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
 }
 
 /* Заголовок категории */
