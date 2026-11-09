@@ -6,6 +6,7 @@ import menuRoutes from './src/routes/menu.route.js';
 import authRoutes from './src/routes/auth.route.js';
 import { loadTablesCache } from './src/services/table.service.js';
 import orderRoutes from './src/routes/order.route.js';
+import tableRoutes from './src/routes/table.route.js';
 
 const fastify = Fastify({
   logger: {
@@ -42,6 +43,7 @@ await fastify.register(healthRoutes);
 await fastify.register(menuRoutes);
 await fastify.register(authRoutes);
 await fastify.register(orderRoutes);
+await fastify.register(tableRoutes);
 
 const start = async () => {
   try {
