@@ -3,10 +3,11 @@ import style from './Header.module.css';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo/Logo';
 
-const Header = ({ amount, deleteOrder, currentBranch }) => {
+const Header = ({ amount, deleteOrder, currentBranch, tableNumber }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const isBookingPage = location.pathname.includes('/booking');
 
   const confirmX = useCallback(() => {
     if (amount > 0) {
@@ -17,6 +18,8 @@ const Header = ({ amount, deleteOrder, currentBranch }) => {
       }
     } else navigate('/');
   }, [amount, deleteOrder, navigate]);
+
+  if (isBookingPage) return null;
 
   return (
     <header className={`${style.header} ${isHomePage ? style.header_black : ''}`}>
@@ -74,6 +77,12 @@ const Header = ({ amount, deleteOrder, currentBranch }) => {
         {!isHomePage && currentBranch && (
           <div className={style.header__nav_item}>
             <div className={style.header_infoBlock}>
+              {tableNumber && (
+                <div className={style.header_tableBadge}>
+                  Стол {tableNumber}
+                </div>
+              )}
+
               <NavLink to={`/${currentBranch}/order`} className={style.header_cartLink}>
                 <div className={style.header_cartWrapper} title="Корзина">
                   Заказ / {amount} ₽

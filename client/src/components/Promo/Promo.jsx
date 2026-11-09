@@ -22,16 +22,60 @@ const Promo = () => {
       <div className={style.content}>
         <h1 className={style.title}>Выберите заведение</h1>
 
-        <div className={style.buttons}>
-          <button onClick={() => handleSelectBranch(BRANCHES.GUSTO, './gusto/menu')} className={style.btn}>
-            <img src={logoGusto} alt="Gusto Lounge" className={style.logo} />
-            <span>Gusto Lounge</span>
-          </button>
+        <div className={style.cardsGrid}>
+          {/* Gusto Lounge Card */}
+          <div className={style.card}>
+            <div className={style.cardHeader}>
+              <img src={logoGusto} alt="Gusto Lounge" className={style.logo} />
+              <div className={style.cardTitleWrap}>
+                <h2 className={style.cardTitle}>Gusto Lounge</h2>
+                <span className={style.cardSubtitle}>Лаунж-бар • Кухня • Кальяны</span>
+              </div>
+            </div>
+            <div className={style.cardActions}>
+              <button
+                type="button"
+                onClick={() => handleSelectBranch(BRANCHES.GUSTO, '/gusto/menu')}
+                className={style.btnAction}
+              >
+                <span>Меню</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleSelectBranch(BRANCHES.GUSTO, '/gusto/booking')}
+                className={`${style.btnAction} ${style.btnActionPrimary}`}
+              >
+                <span>Забронировать</span>
+              </button>
+            </div>
+          </div>
 
-          <button onClick={() => handleSelectBranch(BRANCHES.AROMA, './aroma/menu')} className={style.btn}>
-            <img src={logoAroma} alt="Aroma" className={style.logo} />
-            <span>Aroma</span>
-          </button>
+          {/* Aroma Card */}
+          <div className={style.card}>
+            <div className={style.cardHeader}>
+              <img src={logoAroma} alt="Aroma" className={style.logo} />
+              <div className={style.cardTitleWrap}>
+                <h2 className={style.cardTitle}>Aroma</h2>
+                <span className={style.cardSubtitle}>Кальянный клуб • Бар</span>
+              </div>
+            </div>
+            <div className={style.cardActions}>
+              <button
+                type="button"
+                onClick={() => handleSelectBranch(BRANCHES.AROMA, '/aroma/menu')}
+                className={style.btnAction}
+              >
+                <span>Меню</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleSelectBranch(BRANCHES.AROMA, '/aroma/booking')}
+                className={`${style.btnAction} ${style.btnActionPrimary}`}
+              >
+                <span>Забронировать</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

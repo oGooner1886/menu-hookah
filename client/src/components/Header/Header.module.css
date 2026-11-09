@@ -64,6 +64,21 @@
   align-items: center;
   position: relative;
   top: -8px;
+  gap: 10px;
+}
+
+.header_tableBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #f0fdf4;
+  color: #13978c;
+  border: 1px solid rgba(19, 151, 140, 0.3);
+  user-select: none;
+  white-space: nowrap;
 }
 
 .header_cartLink {
@@ -97,7 +112,18 @@
 
 @media screen and (max-width: 530px) {
   .header {
-    padding: 0 25px;
+    padding: 0 16px;
     transition: 0.5s;
+  }
+  .header_infoBlock {
+    gap: 6px;
+  }
+  .header_tableBadge {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+  .header_cartWrapper {
+    padding: 7px 12px;
+    font-size: 13px;
   }
 }
