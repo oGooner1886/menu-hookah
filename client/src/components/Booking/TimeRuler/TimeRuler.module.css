@@ -1,0 +1,199 @@
+.container {
+  background: #181818;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Центральный индикатор времени */
+.centerTimeIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeLabel {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Выбор даты */
+.dateWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dateBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.dateBtn:hover {
+  border-bottom-color: #10b981;
+  color: #10b981;
+}
+
+.dateArrow {
+  font-size: 11px;
+  color: #888;
+}
+
+/* Окно линейки с фиксированным центром (Restoplace style) */
+.rulerViewport {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  background: #141414;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  border: 1px solid #282828;
+}
+
+/* Фиксированный центральный пин-указатель */
+.fixedCenterPin {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.pinDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.pinNeedle {
+  width: 2px;
+  height: 32px;
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+}
+
+/* Подвижная лента-линейка (скроллится и драгается) */
+.scrollTape {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  touch-action: pan-x;
+  padding-left: calc(50% - 8px);
+  padding-right: calc(50% - 8px);
+  display: flex;
+  align-items: flex-start;
+}
+
+.scrollTape:active {
+  cursor: grabbing;
+}
+
+.scrollTape::-webkit-scrollbar {
+  display: none;
+}
+
+.tapeTrack {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.tickItem {
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.tickLine {
+  width: 1px;
+  background: #444;
+  transition: all 0.1s;
+}
+
+.tickSmall .tickLine {
+  height: 8px;
+  opacity: 0.5;
+}
+
+.tickHalf .tickLine {
+  height: 14px;
+  background: #666;
+  opacity: 0.8;
+}
+
+.tickHour .tickLine {
+  height: 20px;
+  width: 1.5px;
+  background: #888;
+}
+
+.hourLabel {
+  position: absolute;
+  top: 24px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #777;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px 12px;
+  }
+  .title {
+    font-size: 13px;
+  }
+  .timeLabel {
+    font-size: 13px;
+    padding: 3px 8px;
+  }
+  .dateBtn {
+    font-size: 13px;
+  }
+}
