@@ -1,0 +1,158 @@
+.backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 16px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.calendarCard {
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monthTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.navBtn {
+  background: #282828;
+  border: 1px solid #3a3a3a;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: #383838;
+  border-color: #555;
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.weekHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weekDay {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.weekEnd {
+  color: #f43f5e;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.emptyCell {
+  height: 38px;
+}
+
+.dayBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #ddd;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.dayBtn:hover:not(:disabled) {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.dayToday {
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.daySelected {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);
+}
+
+.dayPast {
+  opacity: 0.25;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.closeBtn {
+  background: #282828;
+  border: 1px solid #383838;
+  color: #aaa;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.closeBtn:hover {
+  background: #333;
+  color: #fff;
+}
+
