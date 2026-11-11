@@ -54,12 +54,13 @@
   box-shadow: 0 0 6px #10b981;
 }
 
-/* Окно карты */
+/* Окно карты (область заведения) */
 .mapViewport {
   position: relative;
   width: 100%;
-  height: 480px;
-  background: #141414;
+  height: 520px;
+  background: #141416;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -115,17 +116,19 @@
   color: #fff;
 }
 
-/* SVG область со скейлом */
+/* Внутреннее пространство заведения (заполняет viewport) */
 .svgScrollArea {
-  min-width: 650px;
-  width: 90%;
-  padding: 20px;
-  transition: transform 0.2s ease-out;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
 }
 
 .svgMap {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }
 
@@ -146,5 +149,25 @@
 }
 
 .tableSelectedGlow {
-  filter: drop-shadow(0 0 10px #06b6d4) brightness(1.2);
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.9));
+}
+
+@keyframes pulseSelected {
+  0% {
+    stroke-opacity: 0.9;
+    stroke-width: 1.8px;
+  }
+  50% {
+    stroke-opacity: 0.35;
+    stroke-width: 2.8px;
+  }
+  100% {
+    stroke-opacity: 0.9;
+    stroke-width: 1.8px;
+  }
+}
+
+.pulseRing {
+  animation: pulseSelected 1.6s infinite ease-in-out;
+  pointer-events: none;
 }

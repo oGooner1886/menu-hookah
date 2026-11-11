@@ -15,10 +15,11 @@ const FloorMap = ({
 
   const viewportRef = useRef(null);
   const dragStartRef = useRef({ x: 0, y: 0, startPanX: 0, startPanY: 0 });
-  const dragDistanceRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const hasMovedRef = useRef(false);
   const touchDistRef = useRef(null);
 
-  // Сброс позиции и зума при переключении зала
+  // Сброс позиции и масштаба при переключении зала
   useEffect(() => {
     setPan({ x: 0, y: 0 });
     setZoomLevel(1);
@@ -33,7 +34,7 @@ const FloorMap = ({
       e.preventDefault();
       const zoomDelta = e.deltaY < 0 ? 0.12 : -0.12;
       setZoomLevel((prev) => {
-        const next = Math.min(2.6, Math.max(0.6, prev + zoomDelta));
+        const next = Math.min(2.8, Math.max(0.6, prev + zoomDelta));
         return Number(next.toFixed(2));
       });
     };
@@ -44,70 +45,77 @@ const FloorMap = ({
     };
   }, []);
 
-  const handleZoomIn = () => setZoomLevel((z) => Math.min(2.6, Number((z + 0.2).toFixed(2))));
+  // Глобальное отслеживание перемещения мыши (Drag & Pan)
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDraggingRef.current) return;
+      const dx = e.clientX - dragStartRef.current.x;
+      const dy = e.clientY - dragStartRef.current.y;
+
+      if (!hasMovedRef.current && Math.hypot(dx, dy) > 4) {
+        hasMovedRef.current = true;
+        setIsDragging(true);
+      }
+
+      if (hasMovedRef.current) {
+        setPan({
+          x: Math.round(dragStartRef.current.startPanX + dx),
+          y: Math.round(dragStartRef.current.startPanY + dy),
+        });
+      }
+    };
+
+    const handleMouseUp = () => {
+      if (isDraggingRef.current) {
+        isDraggingRef.current = false;
+        setIsDragging(false);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
+  const handleZoomIn = () => setZoomLevel((z) => Math.min(2.8, Number((z + 0.2).toFixed(2))));
   const handleZoomOut = () => setZoomLevel((z) => Math.max(0.6, Number((z - 0.2).toFixed(2))));
   const handleResetZoom = () => {
     setZoomLevel(1);
     setPan({ x: 0, y: 0 });
   };
 
-  // ==========================================
-  // ПЕРЕМЕЩЕНИЕ КАРТЫ МЫШКОЙ (PAN & DRAG)
-  // ==========================================
-  const handlePointerDown = (e) => {
-    // Игнорируем клики по кнопкам зума
+  // Начало перетаскивания мышью
+  const handleMouseDown = (e) => {
+    if (e.button !== 0) return;
     if (e.target.closest('button')) return;
 
-    setIsDragging(true);
-    dragDistanceRef.current = 0;
+    isDraggingRef.current = true;
+    hasMovedRef.current = false;
     dragStartRef.current = {
       x: e.clientX,
       y: e.clientY,
       startPanX: pan.x,
       startPanY: pan.y,
     };
-
-    try {
-      e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {
-      // Игнорируем, если не поддерживается
-    }
   };
 
-  const handlePointerMove = (e) => {
-    if (!isDragging) return;
-    const dx = e.clientX - dragStartRef.current.x;
-    const dy = e.clientY - dragStartRef.current.y;
-    dragDistanceRef.current = Math.hypot(dx, dy);
-
-    setPan({
-      x: Math.round(dragStartRef.current.startPanX + dx),
-      y: Math.round(dragStartRef.current.startPanY + dy),
-    });
-  };
-
-  const handlePointerUp = (e) => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    try {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {
-      // Игнорируем
-    }
-  };
-
-  // Клик по свободной зоне карты снимает выбор стола
-  const handleViewportClick = () => {
-    // Если пользователь перемещал карту (drag > 5px), не сбрасываем стол
-    if (dragDistanceRef.current > 5) return;
-    onSelectTable(null);
-  };
-
-  // ==========================================
-  // PINCH-TO-ZOOM ДЛЯ СЕНСОРНЫХ ЭКРАНОВ
-  // ==========================================
+  // Сенсорное управление на мобильных (Touch pan & Pinch zoom)
   const handleTouchStart = (e) => {
-    if (e.touches.length === 2) {
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      isDraggingRef.current = true;
+      hasMovedRef.current = false;
+      dragStartRef.current = {
+        x: touch.clientX,
+        y: touch.clientY,
+        startPanX: pan.x,
+        startPanY: pan.y,
+      };
+    } else if (e.touches.length === 2) {
+      isDraggingRef.current = false;
       touchDistRef.current = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
@@ -116,26 +124,49 @@ const FloorMap = ({
   };
 
   const handleTouchMove = (e) => {
-    if (e.touches.length === 2 && touchDistRef.current) {
+    if (e.touches.length === 1 && isDraggingRef.current) {
+      const touch = e.touches[0];
+      const dx = touch.clientX - dragStartRef.current.x;
+      const dy = touch.clientY - dragStartRef.current.y;
+
+      if (!hasMovedRef.current && Math.hypot(dx, dy) > 4) {
+        hasMovedRef.current = true;
+        setIsDragging(true);
+      }
+
+      if (hasMovedRef.current) {
+        setPan({
+          x: Math.round(dragStartRef.current.startPanX + dx),
+          y: Math.round(dragStartRef.current.startPanY + dy),
+        });
+      }
+    } else if (e.touches.length === 2 && touchDistRef.current) {
       const d = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
       const ratio = d / touchDistRef.current;
       if (Math.abs(1 - ratio) > 0.02) {
-        setZoomLevel((prev) => {
-          const next = Math.min(2.6, Math.max(0.6, prev * ratio));
-          return Number(next.toFixed(2));
-        });
+        setZoomLevel((prev) => Math.min(2.8, Math.max(0.6, Number((prev * ratio).toFixed(2)))));
         touchDistRef.current = d;
       }
     }
   };
 
-  const handleTouchEnd = (e) => {
-    if (e.touches.length < 2) {
-      touchDistRef.current = null;
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    touchDistRef.current = null;
+  };
+
+  // Клик по свободному месту в зале (снимает выбор со стола)
+  const handleBackgroundClick = () => {
+    // Если пользователь перемещал карту, игнорируем клик
+    if (hasMovedRef.current) {
+      hasMovedRef.current = false;
+      return;
     }
+    onSelectTable(null);
   };
 
   // Подсчет свободных столов в каждом зале
@@ -192,18 +223,15 @@ const FloorMap = ({
         </button>
       </div>
 
-      {/* Окно карты со зумом, захватом и перемещением мышкой */}
+      {/* Окно карты: навигация внутри залов */}
       <div
         ref={viewportRef}
         className={`${styles.mapViewport} ${isDragging ? styles.mapViewportDragging : ''}`}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
+        onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onClick={handleViewportClick}
+        onClick={handleBackgroundClick}
       >
         {/* Кнопки масштабирования справа (Restoplace style) */}
         <div className={styles.zoomControls}>
@@ -218,7 +246,7 @@ const FloorMap = ({
           </button>
         </div>
 
-        {/* SVG схема залов с GPU трансформом перемещения и масштабирования */}
+        {/* Пространство заведения с GPU трансформацией перемещения */}
         <div
           className={styles.svgScrollArea}
           style={{
@@ -232,11 +260,14 @@ const FloorMap = ({
             className={styles.svgMap}
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Пол и стены заведения */}
-            <rect x="15" y="15" width="605" height="175" rx="10" fill="#202020" stroke="#333" strokeWidth="2" />
+            {/* Внешний фон зала */}
+            <rect x="-100" y="-100" width="850" height="400" fill="#141416" />
+
+            {/* Пол и стены заведения Gusto Lounge */}
+            <rect x="15" y="15" width="605" height="175" rx="8" fill="#1e1e22" stroke="#37373f" strokeWidth="2" />
 
             {/* Разделитель залов (Зеленый / Второй) */}
-            <line x1="405" y1="15" x2="405" y2="190" stroke="#444" strokeWidth="2" strokeDasharray="5 4" />
+            <line x1="405" y1="15" x2="405" y2="190" stroke="#4b4b54" strokeWidth="1.5" strokeDasharray="5 4" />
             <text x="210" y="24" fill="#888" fontSize="8" fontWeight="700" textAnchor="middle" letterSpacing="1">
               ЗЕЛЁНЫЙ ЗАЛ
             </text>
@@ -245,13 +276,13 @@ const FloorMap = ({
             </text>
 
             {/* Барная стойка */}
-            <rect x="160" y="72" width="68" height="42" rx="4" fill="#2a2a2a" stroke="#444" strokeWidth="1" />
+            <rect x="160" y="72" width="68" height="42" rx="4" fill="#292930" stroke="#444450" strokeWidth="1" />
             <text x="194" y="96" fill="#888" fontSize="8" fontWeight="600" textAnchor="middle">
               БАР
             </text>
 
             {/* Овальный подиум */}
-            <ellipse cx="305" cy="100" rx="36" ry="26" fill="#272727" stroke="#3d3d3d" strokeWidth="1.5" />
+            <ellipse cx="305" cy="100" rx="36" ry="26" fill="#25252c" stroke="#3c3c46" strokeWidth="1.5" />
             <text x="305" y="103" fill="#666" fontSize="7" fontWeight="600" textAnchor="middle">
               ПОДИУМ
             </text>
@@ -267,23 +298,29 @@ const FloorMap = ({
               const isOccupied = occupiedTableNumbers.includes(String(t.number));
               const isSelected = selectedTable && String(selectedTable.number) === String(t.number);
 
-              // Цвета Restoplace: Зеленый = свободен, Малиновый = занят, Голубой = выбран
-              let mainColor = '#10b981'; // Green (свободен)
+              // Цвета Restoplace: Зеленый = свободен, Малиновый = занят, Голубой/Циан = активный/выбранный
+              let mainColor = '#10b981'; // Green
               let strokeColor = '#059669';
+              let sofaColor = '#10b981';
               let textColor = '#ffffff';
 
               if (isOccupied) {
-                mainColor = '#e11d48'; // Crimson / Red (занят)
+                mainColor = '#e11d48'; // Crimson / Red
                 strokeColor = '#be123c';
+                sofaColor = '#e11d48';
               } else if (isSelected) {
-                mainColor = '#06b6d4'; // Cyan (выбран)
+                mainColor = '#06b6d4'; // Яркий Cyan для активного стола
                 strokeColor = '#ffffff';
+                sofaColor = '#38bdf8';
               }
 
               const handleTableClick = (e) => {
                 e.stopPropagation();
-                // Если пользователь перемещал схему за стол (drag > 5px), не выбираем стол
-                if (dragDistanceRef.current > 5) return;
+                // Если пользователь перемещал схему за стол (drag), не выбираем стол
+                if (hasMovedRef.current) {
+                  hasMovedRef.current = false;
+                  return;
+                }
                 if (isOccupied) return;
                 onSelectTable(t);
               };
@@ -297,11 +334,25 @@ const FloorMap = ({
                     onClick={handleTableClick}
                     className={`${styles.tableGroup} ${isOccupied ? styles.tableOccupied : styles.tableAvailable} ${isSelected ? styles.tableSelectedGlow : ''}`}
                   >
-                    {/* Кресла вокруг круглого стола (Restoplace style) */}
-                    <circle cx={t.cx} cy={t.cy - t.r - 3} r="3" fill={mainColor} opacity="0.8" />
-                    <circle cx={t.cx} cy={t.cy + t.r + 3} r="3" fill={mainColor} opacity="0.8" />
-                    <circle cx={t.cx - t.r - 3} cy={t.cy} r="3" fill={mainColor} opacity="0.8" />
-                    <circle cx={t.cx + t.r + 3} cy={t.cy} r="3" fill={mainColor} opacity="0.8" />
+                    {/* Анимированный контур подсветки активного стола */}
+                    {isSelected && (
+                      <circle
+                        cx={t.cx}
+                        cy={t.cy}
+                        r={t.r + 3.5}
+                        fill="none"
+                        stroke="#06b6d4"
+                        strokeWidth="2"
+                        strokeDasharray="4 2"
+                        className={styles.pulseRing}
+                      />
+                    )}
+
+                    {/* Кресла вокруг круглого стола */}
+                    <circle cx={t.cx} cy={t.cy - t.r - 3} r="3" fill={sofaColor} opacity="0.85" />
+                    <circle cx={t.cx} cy={t.cy + t.r + 3} r="3" fill={sofaColor} opacity="0.85" />
+                    <circle cx={t.cx - t.r - 3} cy={t.cy} r="3" fill={sofaColor} opacity="0.85" />
+                    <circle cx={t.cx + t.r + 3} cy={t.cy} r="3" fill={sofaColor} opacity="0.85" />
 
                     {/* Столешница */}
                     <circle
@@ -310,7 +361,7 @@ const FloorMap = ({
                       r={t.r}
                       fill={mainColor}
                       stroke={strokeColor}
-                      strokeWidth="1.5"
+                      strokeWidth={isSelected ? '2' : '1.5'}
                     />
                     <text
                       x={t.cx}
@@ -332,6 +383,22 @@ const FloorMap = ({
                   onClick={handleTableClick}
                   className={`${styles.tableGroup} ${isOccupied ? styles.tableOccupied : styles.tableAvailable} ${isSelected ? styles.tableSelectedGlow : ''}`}
                 >
+                  {/* Анимированный контур подсветки активного стола */}
+                  {isSelected && (
+                    <rect
+                      x={t.x - 2.5}
+                      y={t.y - 2.5}
+                      width={t.w + 5}
+                      height={t.h + 5}
+                      rx="5"
+                      fill="none"
+                      stroke="#06b6d4"
+                      strokeWidth="2"
+                      strokeDasharray="4 2"
+                      className={styles.pulseRing}
+                    />
+                  )}
+
                   {/* Диванчики сверху и снизу (Restoplace style) */}
                   <rect
                     x={t.x + 2}
@@ -339,8 +406,8 @@ const FloorMap = ({
                     width={t.w - 4}
                     height="2.5"
                     rx="1"
-                    fill={mainColor}
-                    opacity="0.8"
+                    fill={sofaColor}
+                    opacity="0.85"
                   />
                   <rect
                     x={t.x + 2}
@@ -348,8 +415,8 @@ const FloorMap = ({
                     width={t.w - 4}
                     height="2.5"
                     rx="1"
-                    fill={mainColor}
-                    opacity="0.8"
+                    fill={sofaColor}
+                    opacity="0.85"
                   />
 
                   {/* Основной стол */}
@@ -361,7 +428,7 @@ const FloorMap = ({
                     rx="3"
                     fill={mainColor}
                     stroke={strokeColor}
-                    strokeWidth="1.5"
+                    strokeWidth={isSelected ? '2' : '1.5'}
                   />
                   <text
                     x={t.x + t.w / 2}
