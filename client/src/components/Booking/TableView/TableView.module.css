@@ -1,0 +1,145 @@
+.container {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 520px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.cardAvailable {
+  cursor: pointer;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.cardAvailable:hover {
+  border-color: #10b981;
+  background: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+}
+
+.cardSelected {
+  background: rgba(19, 151, 140, 0.15) !important;
+  border-color: #13978c !important;
+  box-shadow: 0 0 16px rgba(19, 151, 140, 0.4);
+}
+
+.cardOccupied {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #333;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tableNameWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tableNumberBadge {
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tableName {
+  color: #fff;
+  font-size: 15px;
+}
+
+.badgeAvailable {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badgeOccupied {
+  background: rgba(225, 29, 72, 0.15);
+  color: #e11d48;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hallName {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.3;
+}
+
+.capacity {
+  font-size: 12px;
+  color: #999;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.depositLabel {
+  font-size: 12px;
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+.selectBtnText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.cardSelected .selectBtnText {
+  color: #13978c;
+}
+

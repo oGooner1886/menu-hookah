@@ -1,0 +1,147 @@
+.container {
+  background: #161616;
+  border: 1px solid rgba(19, 151, 140, 0.4);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.emptyContainer {
+  background: #161616;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.emptyText {
+  color: #777;
+  font-size: 14px;
+}
+
+.topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.titleWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tableTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sectionBadge {
+  background: rgba(19, 151, 140, 0.15);
+  color: #13978c;
+  border: 1px solid rgba(19, 151, 140, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tagsRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #222;
+  border: 1px solid #333;
+  color: #aaa;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.description {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.depositBox {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-align: right;
+}
+
+.depositAmount {
+  font-size: 16px;
+  font-weight: 700;
+  color: #22d3ee;
+}
+
+.depositNote {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.proceedBtn {
+  background: #13978c;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(19, 151, 140, 0.4);
+}
+
+.proceedBtn:hover {
+  background: #10857b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(19, 151, 140, 0.6);
+}
+
+@media (max-width: 600px) {
+  .depositBox {
+    width: 100%;
+    text-align: left;
+  }
+}
+
