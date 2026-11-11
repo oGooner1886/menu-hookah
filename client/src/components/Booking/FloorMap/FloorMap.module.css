@@ -1,0 +1,150 @@
+.mapContainer {
+  background: #141414;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Переключатель залов (Restoplace style) */
+.hallSwitcher {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+  flex-wrap: wrap;
+}
+
+.hallPill {
+  background: #252525;
+  border: 1px solid #383838;
+  color: #ccc;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.hallPill:hover {
+  background: #2f2f2f;
+  color: #fff;
+}
+
+.hallPillActive {
+  background: #333333;
+  border-color: #10b981;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hallDotGreen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+/* Окно карты */
+.mapViewport {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #141414;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.mapViewportDragging {
+  cursor: grabbing;
+}
+
+/* Кнопки зума справа (Restoplace style) */
+.zoomControls {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.zoomBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 600;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.zoomBtn:last-child {
+  border-bottom: none;
+  font-size: 18px;
+}
+
+.zoomBtn:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* SVG область со скейлом */
+.svgScrollArea {
+  min-width: 650px;
+  width: 90%;
+  padding: 20px;
+  transition: transform 0.2s ease-out;
+}
+
+.svgMap {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Столы в стиле Restoplace */
+.tableGroup {
+  cursor: pointer;
+  transition: filter 0.15s ease;
+  user-select: none;
+}
+
+.tableAvailable:hover {
+  filter: brightness(1.25);
+}
+
+.tableOccupied {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.tableSelectedGlow {
+  filter: drop-shadow(0 0 10px #06b6d4) brightness(1.2);
+}
