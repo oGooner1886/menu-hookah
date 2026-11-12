@@ -1,0 +1,269 @@
+.page {
+  min-height: 100vh;
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 20px 12px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.widgetBox {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 940px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Хедер Restoplace */
+.header {
+  background: #1c1c1c;
+  border-bottom: 1px solid #282828;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.venueInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.venueTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.venueAddress {
+  font-size: 11px;
+  color: #888;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.phoneLink:hover {
+  color: #10b981;
+}
+
+.phoneIcon {
+  font-size: 14px;
+}
+
+.closeBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #aaa;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* 2. Основная рабочая область */
+.mainArea {
+  position: relative;
+  background: #141414;
+}
+
+/* 3. Нижний бар управления */
+.bottomBar {
+  background: #1c1c1c;
+  border-top: 1px solid #282828;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Переключатель: СПИСОК / СХЕМА */
+.viewToggleGroup {
+  display: flex;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.viewToggleBtn {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.viewToggleBtn:hover {
+  color: #fff;
+}
+
+.viewToggleBtnActive {
+  background: #383838;
+  color: #fff;
+}
+
+/* Легенда точек */
+.bottomLegend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: #888;
+}
+
+.legendDotItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotGreen {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.dotRed {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e11d48;
+}
+
+/* Кнопки действий справа */
+.actionWrap {
+  display: flex;
+  align-items: center;
+}
+
+.bookActiveBtn {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.bookActiveBtn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.depositBadge {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.waitlistBtn {
+  background: #2a2a2a;
+  color: #aaa;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.waitlistBtn:hover {
+  background: #333;
+  color: #fff;
+}
+
+@media (max-width: 650px) {
+  .page {
+    padding: 0;
+  }
+  .widgetBox {
+    border-radius: 0;
+    border: none;
+  }
+  .phoneNumber {
+    display: none;
+  }
+  .bottomBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .viewToggleGroup {
+    width: 100%;
+  }
+  .viewToggleBtn {
+    flex: 1;
+    text-align: center;
+  }
+  .actionWrap {
+    width: 100%;
+  }
+  .bookActiveBtn, .waitlistBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

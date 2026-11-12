@@ -2,6 +2,47 @@
   height: 100%;
   padding-bottom: 50px;
 }
+
+.tableBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tableBannerWarning {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.tableBannerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.tableBannerLabel {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.tableBannerNumber {
+  color: #13978c;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.tableBannerWarningText {
+  font-size: 14px;
+  color: #b45309;
+  font-weight: 500;
+}
 .order {
   line-height: 1.15;
   margin-top: 0;

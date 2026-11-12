@@ -145,7 +145,7 @@ export const useStore = create(
 
       setAuth: (token, user) => set({ sessionToken: token, user }),
       logout: () => set({ sessionToken: null, user: null }),
-      setTableNumber: (num) => set({ tableNumber: num }),
+      setTableNumber: (num) => set({ tableNumber: num ? String(num).trim() : null }),
 
       //* ============================================================
       //!  MENU + филиалы

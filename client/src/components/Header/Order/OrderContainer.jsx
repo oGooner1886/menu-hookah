@@ -18,6 +18,7 @@ const OrderContainer = () => {
   const addToOrder = useStore((state) => state.addToOrder);
   const removeFromOrder = useStore((state) => state.removeFromOrder);
   const deleteOrder = useStore((state) => state.deleteOrder);
+  const tableNumber = useStore((state) => state.tableNumber);
 
   const orderEntries = Object.entries(order);
   const hasItems = orderEntries.length > 0;
@@ -61,6 +62,21 @@ const OrderContainer = () => {
         <OrderTitle branchName={branchName} branch={branch} />
       ) : (
         <EmptyOrder branchName={branchName} branch={branch} />
+      )}
+
+      {hasItems && (
+        <div className={`${styles.tableBanner} ${!tableNumber ? styles.tableBannerWarning : ''}`}>
+          {tableNumber ? (
+            <div className={styles.tableBannerInfo}>
+              <span className={styles.tableBannerLabel}>Стол для подачи:</span>
+              <span className={styles.tableBannerNumber}>№{tableNumber}</span>
+            </div>
+          ) : (
+            <div className={styles.tableBannerWarningText}>
+              Отсканируйте QR-код на вашем столе для оформления заказа
+            </div>
+          )}
+        </div>
       )}
 
       {orderItems}
