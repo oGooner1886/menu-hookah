@@ -26,10 +26,11 @@ const Booking = () => {
   const [occupiedTableNumbers, setOccupiedTableNumbers] = useState([]);
   const [isLoadingWorkload, setIsLoadingWorkload] = useState(false);
 
-  // Загружаем реальную занятость столов из iikoCloud через наш бэкенд
+  // Загружаем реальную занятость столов из iikoCloud через наш бэкенд (с debounce 200ms)
   useEffect(() => {
     let isCancelled = false;
-    const fetchWorkload = async () => {
+
+    const timer = setTimeout(async () => {
       setIsLoadingWorkload(true);
       try {
         const res = await fetch(
@@ -44,11 +45,11 @@ const Booking = () => {
       } finally {
         if (!isCancelled) setIsLoadingWorkload(false);
       }
-    };
+    }, 200);
 
-    fetchWorkload();
     return () => {
       isCancelled = true;
+      clearTimeout(timer);
     };
   }, [selectedDate, selectedTime]);
 

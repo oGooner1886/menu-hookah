@@ -5,6 +5,9 @@ const tablesCache = new Map();
 const tableIdToNumber = new Map();
 let sectionIds = [];
 
+// Кэш броней по датам для защиты от лимитов iikoCloud (TTL: 30 секунд)
+const workloadDayCache = new Map();
+
 //* id terminal
 let mainTerminalGroupId = null;
 
@@ -104,67 +107,83 @@ export function isTableValid(tableNumber) {
  * Получение занятых столов из iikoCloud на выбранную дату и время
  */
 export async function getTablesWorkload(date, time, logger) {
-  const token = await getIikoToken(logger);
-
-  if (sectionIds.length === 0) {
-    await loadTablesCache(logger);
-  }
-
   const queryDate = date || new Date().toISOString().slice(0, 10);
-  const dateFrom = `${queryDate} 00:00:00.000`;
-  const dateTo = `${queryDate} 23:59:59.000`;
+  const now = Date.now();
 
-  try {
-    const response = await fetch('https://api-ru.iiko.services/api/1/reserve/restaurant_sections_workload', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        restaurantSectionIds: sectionIds,
-        dateFrom,
-        dateTo,
-      }),
-    });
+  let reserves = null;
 
-    if (!response.ok) {
-      const errText = await response.text();
-      logger.warn(`[iiko workload] Warning ${response.status}: ${errText}`);
-      return { occupiedTables: [] };
+  // 1. Проверяем кэш броней за этот день (снижает нагрузку на iiko в 100+ раз)
+  const cached = workloadDayCache.get(queryDate);
+  if (cached && now < cached.expiresAt) {
+    reserves = cached.reserves;
+  } else {
+    // 2. Если кэш истек или пуст — запрашиваем iikoCloud
+    const token = await getIikoToken(logger);
+
+    if (sectionIds.length === 0) {
+      await loadTablesCache(logger);
     }
 
-    const data = await response.json();
-    const reserves = data.reserves || [];
+    const dateFrom = `${queryDate} 00:00:00.000`;
+    const dateTo = `${queryDate} 23:59:59.000`;
 
-    // Преобразуем выбранное время в timestamp
-    const [targetH, targetM] = (time || '18:00').split(':').map(Number);
-    const targetDate = new Date(`${queryDate}T${String(targetH).padStart(2, '0')}:${String(targetM).padStart(2, '0')}:00`);
-    const targetTimeMs = targetDate.getTime();
+    try {
+      const response = await fetch('https://api-ru.iiko.services/api/1/reserve/restaurant_sections_workload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          restaurantSectionIds: sectionIds,
+          dateFrom,
+          dateTo,
+        }),
+      });
 
-    const occupiedNumbers = new Set();
-
-    reserves.forEach((r) => {
-      if (r.status === 'Cancelled' || r.status === 'Deleted') return;
-
-      const startTime = new Date(r.estimatedStartTime.replace(' ', 'T')).getTime();
-      const durationMs = (r.durationInMinutes || 120) * 60 * 1000;
-      const endTime = startTime + durationMs;
-
-      // Если выбранное время попадает в интервал брони стола
-      if (targetTimeMs >= startTime && targetTimeMs < endTime) {
-        (r.tableIds || []).forEach((id) => {
-          const num = tableIdToNumber.get(id);
-          if (num) occupiedNumbers.add(String(num));
+      if (!response.ok) {
+        const errText = await response.text();
+        logger.warn(`[iiko workload] Warning ${response.status}: ${errText}`);
+        // В случае превышения лимита iiko (429) используем последний известный кэш
+        reserves = cached ? cached.reserves : [];
+      } else {
+        const data = await response.json();
+        reserves = data.reserves || [];
+        workloadDayCache.set(queryDate, {
+          reserves,
+          expiresAt: now + 30 * 1000, // 30 секунд кэш
         });
       }
-    });
-
-    return { occupiedTables: Array.from(occupiedNumbers) };
-  } catch (error) {
-    logger.error(`[iiko workload error] ${error.message}`);
-    return { occupiedTables: [] };
+    } catch (error) {
+      logger.error(`[iiko workload error] ${error.message}`);
+      reserves = cached ? cached.reserves : [];
+    }
   }
+
+  // 3. Фильтрация броней по выбранному времени в памяти (мгновенно)
+  const [targetH, targetM] = (time || '18:00').split(':').map(Number);
+  const targetDate = new Date(`${queryDate}T${String(targetH).padStart(2, '0')}:${String(targetM).padStart(2, '0')}:00`);
+  const targetTimeMs = targetDate.getTime();
+
+  const occupiedNumbers = new Set();
+
+  (reserves || []).forEach((r) => {
+    if (r.status === 'Cancelled' || r.status === 'Deleted') return;
+
+    const startTime = new Date(r.estimatedStartTime.replace(' ', 'T')).getTime();
+    const durationMs = (r.durationInMinutes || 120) * 60 * 1000;
+    const endTime = startTime + durationMs;
+
+    // Если выбранное время попадает в интервал брони стола
+    if (targetTimeMs >= startTime && targetTimeMs < endTime) {
+      (r.tableIds || []).forEach((id) => {
+        const num = tableIdToNumber.get(id);
+        if (num) occupiedNumbers.add(String(num));
+      });
+    }
+  });
+
+  return { occupiedTables: Array.from(occupiedNumbers) };
 }
 
 /**
@@ -211,6 +230,7 @@ export async function createTableReservation(reserveData, logger) {
   }
 
   const result = await response.json();
+  workloadDayCache.delete(date); // Сбрасываем кэш, чтобы новая бронь сразу отобразилась
   logger.info(`[iiko reserve success] ID: ${result.reserveInfo?.id || 'ok'}`);
   return result;
 }
