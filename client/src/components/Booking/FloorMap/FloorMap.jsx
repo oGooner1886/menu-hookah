@@ -8,6 +8,7 @@ const FloorMap = ({
   activeHall,
   setActiveHall,
   occupiedTableNumbers = [],
+  liveOccupiedTables = [],
 }) => {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });

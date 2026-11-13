@@ -8,6 +8,10 @@ let sectionIds = [];
 // Кэш броней по датам для защиты от лимитов iikoCloud (TTL: 30 секунд)
 const workloadDayCache = new Map();
 
+// Живая занятость столов в зале (открытые счета / заказы официантов с кассы или вебхуков)
+// key: tableNumber (String), value: { orderId, orderNumber, status, sum, updatedAt }
+const liveOccupiedTables = new Map();
+
 //* id terminal
 let mainTerminalGroupId = null;
 
@@ -183,7 +187,128 @@ export async function getTablesWorkload(date, time, logger) {
     }
   });
 
-  return { occupiedTables: Array.from(occupiedNumbers) };
+  // 4. Добавляем живую занятость столов с кассы (если запрос на сегодня)
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const liveNumbers = [];
+
+  if (queryDate === todayIso) {
+    for (const [occupiedNum, details] of liveOccupiedTables.entries()) {
+      occupiedNumbers.add(String(occupiedNum));
+      liveNumbers.push({
+        tableNumber: String(occupiedNum),
+        ...details,
+      });
+    }
+  }
+
+  return {
+    occupiedTables: Array.from(occupiedNumbers),
+    liveOccupiedTables: liveNumbers,
+  };
+}
+
+/**
+ * Управление живым статусом стола (открыт/закрыт счёт)
+ */
+export function setTableLiveStatus(tableNumber, isOccupied, details = {}) {
+  const numStr = String(tableNumber);
+  if (isOccupied) {
+    liveOccupiedTables.set(numStr, {
+      ...details,
+      updatedAt: Date.now(),
+    });
+  } else {
+    liveOccupiedTables.delete(numStr);
+  }
+}
+
+export function getLiveOccupiedTablesList() {
+  const result = [];
+  for (const [num, details] of liveOccupiedTables.entries()) {
+    result.push({ tableNumber: num, ...details });
+  }
+  return result;
+}
+
+/**
+ * Обработчик входящих Webhook событий от iikoCloud (TableOrderUpdate, ReserveUpdate)
+ */
+export function handleIikoWebhookEvent(payload, logger) {
+  const { eventType, eventInfo } = payload || {};
+  logger?.info?.(`[iiko Webhook] Received event: ${eventType}`);
+
+  if (eventType === 'TableOrderUpdate' && eventInfo?.order) {
+    const order = eventInfo.order;
+    const tableIds = order.tableIds || [];
+    const isClosedOrDeleted =
+      order.status === 'Closed' || order.status === 'Deleted' || !!order.whenClosed;
+
+    tableIds.forEach((tId) => {
+      const num = tableIdToNumber.get(tId);
+      if (num) {
+        if (isClosedOrDeleted) {
+          liveOccupiedTables.delete(String(num));
+          logger?.info?.(
+            `[iiko Webhook] Table №${num} is now FREE (Order #${order.number} status: ${order.status})`
+          );
+        } else {
+          liveOccupiedTables.set(String(num), {
+            orderId: eventInfo.id || order.id,
+            orderNumber: order.number,
+            status: order.status,
+            sum: order.sum || 0,
+            waiter: order.waiter?.name || 'Официант',
+            updatedAt: Date.now(),
+          });
+          logger?.info?.(
+            `[iiko Webhook] Table №${num} is now OCCUPIED (Order #${order.number} status: ${order.status})`
+          );
+        }
+      }
+    });
+  } else if (eventType === 'ReserveUpdate') {
+    workloadDayCache.clear();
+    logger?.info?.('[iiko Webhook] Reserve updated, cache cleared');
+  }
+}
+
+/**
+ * Регистрация URL вебхука в iikoCloud
+ */
+export async function registerIikoWebhookUri(webHooksUri, logger) {
+  const token = await getIikoToken(logger);
+  const cleanOrgId = (process.env.IIKO_ORGANIZATION_GUSTO_ID || '').trim();
+
+  const response = await fetch('https://api-ru.iiko.services/api/1/webhooks/update_settings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      organizationId: cleanOrgId,
+      webHooksUri,
+      webHooksFilter: {
+        tableOrderFilter: {
+          orderStatuses: ['New', 'Bill', 'Closed', 'Deleted'],
+          errors: true,
+        },
+        reserveFilter: {
+          updates: true,
+          errors: true,
+        },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Ошибка регистрации вебхука в iiko: ${errText}`);
+  }
+
+  const result = await response.json();
+  logger?.info?.(`[iiko Webhook registered] ${webHooksUri}`);
+  return result;
 }
 
 /**

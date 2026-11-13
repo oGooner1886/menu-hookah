@@ -3,7 +3,7 @@ import { getTableInfo } from './table.service.js';
 
 
 
-async function getActiveOrderForTable(tableId, orgId, token, logger) {
+export async function getActiveOrderForTable(tableId, orgId, token, logger) {
   const response = await fetch('https://api-ru.iiko.services/api/1/order/by_table', {
     method: 'POST',
     headers: {
@@ -50,7 +50,7 @@ export async function createDineInOrder(orderData, logger) {
 
   const token = await getIikoToken(logger);
 
-  const activeOrder = await getActiveOrderForTable(tableInfo.tableId, cleanOrgId);
+  const activeOrder = await getActiveOrderForTable(tableInfo.tableId, cleanOrgId, token, logger);
   if (activeOrder) {
     logger.info(`Na stole ${tableNumber} naiden otkritiy zakaz (${activeOrder.id}). Delaem dozakaz!`);
 

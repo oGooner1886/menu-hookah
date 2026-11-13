@@ -6,8 +6,12 @@ const TableView = ({
   selectedTable,
   onSelectTable,
   occupiedTableNumbers = [],
+  liveOccupiedTables = [],
   activeHall,
 }) => {
+  // Номера столов, где сейчас сидят гости
+  const liveNumbers = liveOccupiedTables.map((item) => String(item.tableNumber));
+
   // Фильтрация по залу
   const filteredTables = GUSTO_TABLES.filter((t) => {
     if (activeHall === 'green') return t.sectionName === 'Зеленый';
@@ -20,6 +24,7 @@ const TableView = ({
       <div className={styles.grid}>
         {filteredTables.map((t) => {
           const isOccupied = occupiedTableNumbers.includes(String(t.number));
+          const isLive = liveNumbers.includes(String(t.number));
           const isSelected = selectedTable && String(selectedTable.number) === String(t.number);
 
           return (
@@ -41,7 +46,9 @@ const TableView = ({
                 </div>
 
                 {isOccupied ? (
-                  <span className={styles.badgeOccupied}>Занят</span>
+                  <span className={styles.badgeOccupied}>
+                    {isLive ? 'В заведении' : 'Занят'}
+                  </span>
                 ) : (
                   <span className={styles.badgeAvailable}>Свободен</span>
                 )}

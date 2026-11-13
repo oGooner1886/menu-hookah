@@ -4,6 +4,10 @@ import {
   isTableValid,
   getTablesWorkload,
   createTableReservation,
+  setTableLiveStatus,
+  getLiveOccupiedTablesList,
+  handleIikoWebhookEvent,
+  registerIikoWebhookUri,
 } from '../services/table.service.js';
 
 export default async function tableRoutes(fastify, options) {
@@ -25,6 +29,60 @@ export default async function tableRoutes(fastify, options) {
     } catch (error) {
       request.log.error(error);
       return reply.status(500).send({ success: false, error: error.message, occupiedTables: [] });
+    }
+  });
+
+  // Управление живым статусом стола (для тестирования или ручного переключения персоналом)
+  fastify.post('/api/tables/live-status', async (request, reply) => {
+    try {
+      const { tableNumber, isOccupied, details } = request.body || {};
+      if (!tableNumber) {
+        return reply.status(400).send({ success: false, error: 'Укажите tableNumber' });
+      }
+      setTableLiveStatus(tableNumber, !!isOccupied, details || {});
+      request.log.info(`[LiveStatus] Table №${tableNumber} isOccupied=${!!isOccupied}`);
+      return reply.send({
+        success: true,
+        tableNumber,
+        isOccupied: !!isOccupied,
+        liveOccupied: getLiveOccupiedTablesList(),
+      });
+    } catch (error) {
+      request.log.error(error);
+      return reply.status(500).send({ success: false, error: error.message });
+    }
+  });
+
+  fastify.get('/api/tables/live-occupied', async (request, reply) => {
+    return reply.send({
+      success: true,
+      liveOccupied: getLiveOccupiedTablesList(),
+    });
+  });
+
+  // Официальный эндпоинт Webhook для iikoCloud
+  fastify.post('/api/iiko/webhook', async (request, reply) => {
+    try {
+      handleIikoWebhookEvent(request.body, request.log);
+      return reply.send({ status: 'ok' });
+    } catch (error) {
+      request.log.error(`[Webhook error] ${error.message}`);
+      return reply.status(200).send({ status: 'error_handled' });
+    }
+  });
+
+  // Регистрация URL вебхука в iikoCloud
+  fastify.post('/api/iiko/webhook/register', async (request, reply) => {
+    try {
+      const { webHooksUri } = request.body || {};
+      if (!webHooksUri) {
+        return reply.status(400).send({ success: false, error: 'Укажите webHooksUri' });
+      }
+      const result = await registerIikoWebhookUri(webHooksUri, request.log);
+      return reply.send({ success: true, result });
+    } catch (error) {
+      request.log.error(error);
+      return reply.status(500).send({ success: false, error: error.message });
     }
   });
 

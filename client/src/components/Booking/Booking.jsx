@@ -24,6 +24,7 @@ const Booking = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [viewMode, setViewMode] = useState('map'); // 'map' | 'list'
   const [occupiedTableNumbers, setOccupiedTableNumbers] = useState([]);
+  const [liveOccupiedTables, setLiveOccupiedTables] = useState([]);
   const [isLoadingWorkload, setIsLoadingWorkload] = useState(false);
 
   // Загружаем реальную занятость столов из iikoCloud через наш бэкенд (с debounce 200ms)
@@ -37,8 +38,13 @@ const Booking = () => {
           `${API_BASE_URL}/tables/workload?date=${selectedDate}&time=${selectedTime}`
         );
         const data = await res.json();
-        if (!isCancelled && data.success && Array.isArray(data.occupiedTables)) {
-          setOccupiedTableNumbers(data.occupiedTables);
+        if (!isCancelled && data.success) {
+          if (Array.isArray(data.occupiedTables)) {
+            setOccupiedTableNumbers(data.occupiedTables);
+          }
+          if (Array.isArray(data.liveOccupiedTables)) {
+            setLiveOccupiedTables(data.liveOccupiedTables);
+          }
         }
       } catch (err) {
         console.error('Ошибка загрузки занятости столов:', err);
@@ -138,12 +144,14 @@ const Booking = () => {
               activeHall={activeHall}
               setActiveHall={setActiveHall}
               occupiedTableNumbers={occupiedTableNumbers}
+              liveOccupiedTables={liveOccupiedTables}
             />
           ) : (
             <TableView
               selectedTable={selectedTable}
               onSelectTable={handleSelectTable}
               occupiedTableNumbers={occupiedTableNumbers}
+              liveOccupiedTables={liveOccupiedTables}
               activeHall={activeHall}
             />
           )}
