@@ -68,6 +68,24 @@ Object.entries(titleOverrides).forEach(([name, displayTitle]) => {
 // Все товары с модификациями (граммовки, вкусы, объёмы) открываются через единую шторку снизу (bottom_sheet)
 const PRODUCT_EDITIONS_GROUPS = [
   {
+    groupId: 'group-cappuccino',
+    title: 'Капучино',
+    category: 'coffee',
+    gallery: '/Coffee/capuccino.webp',
+    descr: 'Классический кофейный напиток с нежной шелковистой молочной пенкой',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Капучино', subtitle: 'Обычный', weight: '200 мл' },
+      { iikoName: 'Капучино 200мл', subtitle: 'Обычный', weight: '200 мл' },
+      { iikoName: 'Капучино 200 мл', subtitle: 'Обычный', weight: '200 мл' },
+      { iikoName: 'Большой капучино', subtitle: 'Большой', weight: '300 мл' },
+      { iikoName: 'Капучино большой', subtitle: 'Большой', weight: '300 мл' },
+      { iikoName: 'Капучино 300мл', subtitle: 'Большой', weight: '300 мл' },
+      { iikoName: 'Капучино 300 мл', subtitle: 'Большой', weight: '300 мл' },
+    ],
+  },
+  {
     groupId: 'group-french-fries',
     title: 'Картофель фри',
     category: 'snacks',
@@ -379,15 +397,17 @@ export const useStore = create(
                   });
                 }
                 const grpObj = activeGroups.get(group.groupId);
-                grpObj.editions.push({
-                  uid: item.id,
-                  title: group.title,
-                  subtitle: config.subtitle,
-                  weight: config.weight,
-                  price: item.price ?? 0,
-                  gallery: group.gallery,
-                  descr: item.description || '',
-                });
+                if (!grpObj.editions.some((e) => e.uid === item.id)) {
+                  grpObj.editions.push({
+                    uid: item.id,
+                    title: group.title,
+                    subtitle: config.subtitle,
+                    weight: config.weight,
+                    price: item.price ?? 0,
+                    gallery: group.gallery,
+                    descr: item.description || '',
+                  });
+                }
                 // Минимальная цена для бейджа "от ... ₽"
                 grpObj.price = Math.min(...grpObj.editions.map((e) => e.price));
                 return;
