@@ -118,6 +118,12 @@ const MenuItem = memo(({ item, portion, order = {}, stopList = [], addToOrder, r
               <button className={style.btn_add} onClick={handleAddClick}>
                 {!isInlineSwitch && hasEditions ? 'Выбрать' : '+ Добавить'}
               </button>
+            ) : hasEditions && !isInlineSwitch ? (
+              <button className={style.btn_selected} onClick={handleAddClick} title="Нажмите, чтобы изменить выбор">
+                <span className={style.btn_selected_check}>✓</span>
+                <span>{currentPortion}</span>
+                <span className={style.btn_selected_edit}>Изменить</span>
+              </button>
             ) : (
               <div className={style.counter_group}>
                 <button
@@ -144,7 +150,7 @@ const MenuItem = memo(({ item, portion, order = {}, stopList = [], addToOrder, r
       <div className={style.images}>
         {gallery ? (
           <img
-            src={`/images/menu/${gallery}`}
+            src={gallery.startsWith('/') ? `/images/menu${gallery}` : `/images/menu/${gallery}`}
             alt={title}
             loading="lazy"
             decoding="async"
