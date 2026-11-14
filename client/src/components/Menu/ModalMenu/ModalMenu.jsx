@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import style from './ModalMenu.module.css';
 
-const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOrder, removeFromOrder }) => {
-  const { title, descr, gallery, editions = [], modalType } = item;
-  const isCentered = modalType === 'centered_modal';
+const ModalMenu = ({
+  item,
+  closeModalForEdit,
+  order = {},
+  stopList = [],
+  addToOrder,
+  removeFromOrder,
+}) => {
+  const { title, descr, gallery, editions = [] } = item || {};
 
-  // По умолчанию выбираем первую доступную опцию (не в стоп-листе)
+  // Доступные опции (не в стоп-листе)
   const availableEditions = editions.filter((ed) => !stopList.includes(String(ed.uid)));
+
+  // Выбранная опция (по умолчанию первая доступная или первая из списка)
   const [selectedEdition, setSelectedEdition] = useState(
     availableEditions[0] || editions[0] || null
   );
 
-  // Закрытие по клавише Escape и блокировка скролла страницы
+  // Свайп / перетягивание вниз для быстрого закрытия на мобильных устройствах
+  const [dragY, setDragY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const touchStartY = useRef(0);
+  const touchCurrentY = useRef(0);
+
+  // Закрытие по клавише Escape и блокировка скролла фона
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') closeModalForEdit();
@@ -32,23 +46,76 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
   const currentQty = currentUid ? order[currentUid] || 0 : 0;
   const totalEditionsInOrder = editions.reduce((sum, ed) => sum + (order[ed.uid] || 0), 0);
 
+  // Обработка свайпа вниз
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchCurrentY.current = touchStartY.current;
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const currentY = e.touches[0].clientY;
+    touchCurrentY.current = currentY;
+    const delta = currentY - touchStartY.current;
+    if (delta > 0) {
+      setDragY(delta);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const delta = touchCurrentY.current - touchStartY.current;
+    if (delta > 85) {
+      closeModalForEdit();
+    }
+    setDragY(0);
+  };
+
+  // Контекстная метка секции в зависимости от позиций
+  const getSectionLabel = () => {
+    const lowerTitle = (title || '').toLowerCase();
+    if (
+      lowerTitle.includes('соус') ||
+      editions.some((e) => (e.subtitle || e.title || '').toLowerCase().includes('соус'))
+    ) {
+      return 'Выберите соус:';
+    }
+    if (editions.some((e) => /л|мл|г|гр/i.test(e.subtitle || e.weight || ''))) {
+      return 'Выберите объём / порцию:';
+    }
+    return 'Выберите вариант:';
+  };
+
+  // Корректный путь к изображению
+  const imageSrc = gallery
+    ? gallery.startsWith('/')
+      ? `/images/menu${gallery}`
+      : `/images/menu/${gallery}`
+    : null;
+
   return (
-    <div
-      className={`${style.backdrop} ${isCentered ? style.backdropCentered : ''}`}
-      onClick={closeModalForEdit}
-    >
+    <div className={style.backdrop} onClick={closeModalForEdit}>
       <div
-        className={isCentered ? style.centeredModal : style.bottomSheet}
+        className={style.bottomSheet}
+        style={{
+          transform: dragY > 0 ? `translateY(${dragY}px)` : undefined,
+          transition: isDragging ? 'none' : 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Полоска-хваталка сверху (только для шторки) */}
-        {!isCentered && (
-          <div className={style.handleBarWrap}>
-            <div className={style.handleBar} />
-          </div>
-        )}
+        {/* Верхняя панель со свайп-хватателем */}
+        <div
+          className={style.handleBarWrap}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className={style.handleBar} />
+        </div>
 
-        {/* Кнопка закрытия */}
+        {/* Кнопка закрытия ✕ */}
         <button
           className={style.closeBtn}
           onClick={closeModalForEdit}
@@ -57,62 +124,34 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
           ✕
         </button>
 
-        {/* Картинка блюда */}
-        {gallery && (
-          <div className={isCentered ? style.imageWrapCentered : style.imageWrap}>
-            <img
-              src={`/images/menu/${gallery}`}
-              alt={title}
-              className={style.image}
-              loading="lazy"
-            />
-          </div>
-        )}
-
-        {/* Заголовок и описание */}
-        <div className={style.header}>
-          <h2 className={style.title}>{title}</h2>
-          {descr && <p className={style.descr}>{descr}</p>}
-        </div>
-
-        {/* Список опций */}
-        {editions.length > 0 && (
-          <div className={style.editionsSection}>
-            <div className={style.sectionLabel}>
-              {isCentered ? 'Выберите вкус:' : 'Выберите порцию:'}
+        {/* Скроллируемая область контента */}
+        <div className={style.scrollContent}>
+          {/* Фотография блюда */}
+          {imageSrc && (
+            <div className={style.imageWrap}>
+              <img
+                src={imageSrc}
+                alt={title}
+                className={style.image}
+                loading="lazy"
+              />
             </div>
+          )}
 
-            {/* Классический вид: сетка круглых кнопок/пилюль (как было раньше) */}
-            {isCentered ? (
-              <div className={style.pillGrid}>
-                {editions.map((ed) => {
-                  const isSelected = selectedEdition?.uid === ed.uid;
-                  const isStopped = stopList.includes(String(ed.uid));
-                  const qty = order[ed.uid] || 0;
+          {/* Заголовок и описание */}
+          <div className={style.header}>
+            <h2 className={style.title}>{title}</h2>
+            {descr && <p className={style.descr}>{descr}</p>}
+          </div>
 
-                  return (
-                    <button
-                      key={ed.uid}
-                      type="button"
-                      className={`${style.pillBtn} ${isSelected ? style.pillBtnActive : ''} ${isStopped ? style.pillBtnStopped : ''}`}
-                      onClick={() => !isStopped && setSelectedEdition(ed)}
-                      disabled={isStopped}
-                      title={isStopped ? 'Закончился' : ''}
-                    >
-                      <span>{ed.subtitle || ed.title}</span>
-                      {isStopped ? (
-                        <span className={style.badgeStopped}>✕</span>
-                      ) : qty > 0 ? (
-                        <span className={isSelected ? style.pillBadgeActive : style.pillBadge}>
-                          {qty}
-                        </span>
-                      ) : null}
-                    </button>
-                  );
-                })}
+          {/* Список модификаторов / порций */}
+          {editions.length > 0 && (
+            <div className={style.editionsSection}>
+              <div className={style.sectionHeader}>
+                <span className={style.sectionLabel}>{getSectionLabel()}</span>
+                <span className={style.sectionBadge}>1 вариант</span>
               </div>
-            ) : (
-              /* Вид шторки: аккуратный список строк с радио-кнопками */
+
               <div className={style.editionsList}>
                 {editions.map((ed) => {
                   const isSelected = selectedEdition?.uid === ed.uid;
@@ -122,16 +161,28 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
                   return (
                     <div
                       key={ed.uid}
-                      className={`${style.editionCard} ${isSelected ? style.editionCardSelected : ''} ${isStopped ? style.editionCardStopped : ''}`}
+                      className={`${style.editionCard} ${
+                        isSelected ? style.editionCardSelected : ''
+                      } ${isStopped ? style.editionCardStopped : ''}`}
                       onClick={() => !isStopped && setSelectedEdition(ed)}
                       style={{ cursor: isStopped ? 'not-allowed' : 'pointer' }}
                     >
                       <div className={style.editionLeft}>
-                        <span className={style.editionName}>{ed.subtitle || ed.title}</span>
+                        <div className={style.editionTitleRow}>
+                          <span className={style.editionName}>
+                            {ed.subtitle || ed.title}
+                          </span>
+                          {ed.weight && ed.weight !== (ed.subtitle || ed.title) && (
+                            <span className={style.editionWeight}>{ed.weight}</span>
+                          )}
+                        </div>
+
                         {isStopped ? (
                           <span className={style.badgeStopped}>Закончилось</span>
                         ) : qty > 0 ? (
-                          <span className={style.editionBadge}>{qty} в заказе</span>
+                          <span className={style.editionBadge}>
+                            {qty} в заказе
+                          </span>
                         ) : null}
                       </div>
 
@@ -139,7 +190,9 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
                         <span className={style.editionPrice}>{ed.price} ₽</span>
                         {!isStopped && (
                           <div
-                            className={`${style.radio} ${isSelected ? style.radioSelected : ''}`}
+                            className={`${style.radio} ${
+                              isSelected ? style.radioSelected : ''
+                            }`}
                           >
                             {isSelected && <div className={style.radioInner} />}
                           </div>
@@ -149,11 +202,11 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
                   );
                 })}
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
 
-        {/* Нижняя панель действий */}
+        {/* Нижняя фиксированная панель действий */}
         <div className={style.footer}>
           {isCurrentStopped ? (
             <button className={`${style.btnPrimary} ${style.btnPrimaryDisabled}`} disabled>
@@ -166,7 +219,6 @@ const ModalMenu = ({ item, closeModalForEdit, order = {}, stopList = [], addToOr
                 if (currentUid && addToOrder) {
                   addToOrder(currentUid);
                 }
-                closeModalForEdit();
               }}
             >
               Добавить {selectedEdition?.subtitle ? `«${selectedEdition.subtitle}»` : ''} • {selectedEdition?.price} ₽

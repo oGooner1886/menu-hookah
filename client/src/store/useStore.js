@@ -64,10 +64,8 @@ Object.entries(titleOverrides).forEach(([name, displayTitle]) => {
   }
 });
 
-// Конфигурация группировки позиций для демонстрации заказчику:
-// 1. modal + bottom_sheet: Картофель фри (шторка снизу)
-// 2. modal + centered_modal: Соус на выбор (классическое окно по центру, как было раньше)
-// 3. inline_switch: Вишнёвый чай (переключатель 0.5 л / 1 л прямо в карточке без окон)
+// Конфигурация группировки позиций меню:
+// Все товары с модификациями (граммовки, вкусы, объёмы) открываются через единую шторку снизу (bottom_sheet)
 const PRODUCT_EDITIONS_GROUPS = [
   {
     groupId: 'group-french-fries',
@@ -89,7 +87,7 @@ const PRODUCT_EDITIONS_GROUPS = [
     gallery: '/Snack/sauce.webp',
     descr: 'Фирменные порционные соусы к закускам и блюдам',
     uiType: 'modal',
-    modalType: 'centered_modal',
+    modalType: 'bottom_sheet',
     items: [
       { iikoName: 'Сырный соус порция', subtitle: 'Сырный', weight: '' },
       { iikoName: 'Чесночный соус порция', subtitle: 'Чесночный', weight: '' },
@@ -107,10 +105,154 @@ const PRODUCT_EDITIONS_GROUPS = [
     category: 'tea',
     gallery: '/Tea/Cherry.webp',
     descr: 'Ароматный согревающий чай с вишней',
-    uiType: 'inline_switch',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
     items: [
       { iikoName: 'Вишневый чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
       { iikoName: 'Вишневый чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-berry-tea',
+    title: 'Ягодный чай',
+    category: 'tea',
+    gallery: '/Tea/berry tea.webp',
+    descr: 'Насыщенный чай со сбором лесных ягод',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Ягодный чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Ягодный чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-buckthorn-tea',
+    title: 'Облепиховый чай',
+    category: 'tea',
+    gallery: '/Tea/sea-buckthorn.webp',
+    descr: 'Согревающий витаминный чай с облепихой и пряностями',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Облепиховый чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Облепиховый чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-morocco-tea',
+    title: 'Марокканский чай',
+    category: 'tea',
+    gallery: '/Tea/marocco.webp',
+    descr: 'Традиционный пряный чай с мятой и цитрусовыми нотами',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Марокканский чай 0,5', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Марокканский чай 1 л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-green-tea',
+    title: 'Зелёный чай',
+    category: 'tea',
+    gallery: '/Tea/green.webp',
+    descr: 'Классический крупнолистовой зелёный чай',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Зеленый чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Зеленый чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-black-tea',
+    title: 'Чёрный чай',
+    category: 'tea',
+    gallery: '/Tea/lemon.webp',
+    descr: 'Благородный классический чёрный чай',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Черный чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Черный чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-ivan-tea',
+    title: 'Иван-чай',
+    category: 'tea',
+    gallery: '/Tea/siberian tea.webp',
+    descr: 'Традиционный русский травяной напиток',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Иван чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Иван чай 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-rooibos-tea',
+    title: 'Ройбуш',
+    category: 'tea',
+    gallery: '/Tea/Rooibos.webp',
+    descr: 'Африканский напиток с мягким сладковатым вкусом',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Ройбуш чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Ройбуш чай 1 л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-puer-tea',
+    title: 'Пуэр',
+    category: 'tea',
+    gallery: '/Tea/green.webp',
+    descr: 'Выдержанный китайский чай с глубоким древесным букетом',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Пуэр чай 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Пуэр чай 1 л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-bergamot-tea',
+    title: 'Чёрный чай с бергамотом',
+    category: 'tea',
+    gallery: '/Tea/lemon.webp',
+    descr: 'Эрл Грей с натуральным маслом бергамота',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Черный с бергамотом 0,5 л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Черный с бергамотом 1 л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-jasmine-tea',
+    title: 'Зелёный чай с жасмином',
+    category: 'tea',
+    gallery: '/Tea/green.webp',
+    descr: 'Нежный зелёный чай с лепестками жасмина',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Зеленый с жасмином 0,5л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Зеленый с жасмином 1л', subtitle: '1 л', weight: '1 л' },
+    ],
+  },
+  {
+    groupId: 'group-siberian-tea',
+    title: 'Сибирский чай',
+    category: 'tea',
+    gallery: '/Tea/siberian tea.webp',
+    descr: 'Таёжный сбор с дикорастущими сибирскими травами и ягодами',
+    uiType: 'modal',
+    modalType: 'bottom_sheet',
+    items: [
+      { iikoName: 'Сибирский 0,5 л', subtitle: '0.5 л', weight: '0.5 л' },
+      { iikoName: 'Сибирский 1 л', subtitle: '1 л', weight: '1 л' },
     ],
   },
 ];
