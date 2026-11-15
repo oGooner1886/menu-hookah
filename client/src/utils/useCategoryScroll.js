@@ -5,7 +5,7 @@ export const useCategoryScroll = (activeCategories = []) => {
   const callbackRefs = useRef({});
   const [activeId, setActiveId] = useState(activeCategories[0]?.id || '');
 
-  // Флаг: идёт ручной скролл — Observer не должен перезаписывать activeId
+  // Флаг: идёт программный скролл — не перебивать activeId
   const isManualScrolling = useRef(false);
   const scrollTimer = useRef(null);
 
@@ -27,10 +27,10 @@ export const useCategoryScroll = (activeCategories = []) => {
   );
 
   const scrollToCategory = useCallback((id) => {
-    // Сразу переключаем активный таб
+    // Сразу подсвечиваем нажатый таб
     setActiveId(id);
 
-    // Блокируем Observer пока скролл не завершится
+    // Блокируем авто-определение пока длится анимация плавного скролла
     isManualScrolling.current = true;
     clearTimeout(scrollTimer.current);
 
@@ -39,10 +39,20 @@ export const useCategoryScroll = (activeCategories = []) => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Разблокируем через ~800ms (smooth scroll обычно занимает ~500-700ms)
+    const handleScrollEnd = () => {
+      isManualScrolling.current = false;
+      window.removeEventListener('scrollend', handleScrollEnd);
+    };
+
+    if ('onscrollend' in window) {
+      window.addEventListener('scrollend', handleScrollEnd, { once: true });
+    }
+
+    // Резервный таймер (fallback для Safari/старых браузеров)
     scrollTimer.current = setTimeout(() => {
       isManualScrolling.current = false;
-    }, 800);
+      window.removeEventListener('scrollend', handleScrollEnd);
+    }, 1000);
   }, []);
 
   // Синхронизируем activeId при смене категорий (например после загрузки меню)
@@ -52,42 +62,68 @@ export const useCategoryScroll = (activeCategories = []) => {
     }
   }, [activeCategories, activeId]);
 
+  // Отслеживание текущей активной категории при обычном пользовательском скролле
   useEffect(() => {
     if (!activeCategories.length) return;
 
-    const observerOptions = {
-      root: null,
-      // Секция считается активной когда её верхний край входит в зону 0–30% сверху
-      rootMargin: '-10% 0px -70% 0px',
-      threshold: 0,
-    };
-
     let rafId = null;
 
-    const observer = new IntersectionObserver((entries) => {
-      // Не перебиваем ручной скролл
+    const updateActiveSection = () => {
       if (isManualScrolling.current) return;
 
-      // Ищем пересекающуюся категорию
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          if (rafId) cancelAnimationFrame(rafId);
-          rafId = requestAnimationFrame(() => {
-            setActiveId(entry.target.id);
-          });
+      // 1. Проверка на достижение самого низа страницы (чтобы последняя короткая категория тоже подсвечивалась)
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (windowHeight + scrollY >= docHeight - 50) {
+        const lastCat = activeCategories[activeCategories.length - 1];
+        if (lastCat) {
+          setActiveId(lastCat.id);
+          return;
+        }
+      }
+
+      // 2. Если пользователь в самом верху страницы
+      if (scrollY < 120) {
+        setActiveId(activeCategories[0]?.id || '');
+        return;
+      }
+
+      // 3. Ищем секцию, заголовок которой находится под панелью табов (100–180px от верха экрана)
+      // На мобилках табы ниже ~90px, на десктопе ~140px
+      const headerThreshold = window.innerWidth <= 640 ? 140 : 170;
+      let matchedId = null;
+
+      for (let i = 0; i < activeCategories.length; i++) {
+        const cat = activeCategories[i];
+        const el = sectionsRefs.current[cat.id];
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        // Секция пересекает зону под плавающими табами
+        if (rect.top <= headerThreshold && rect.bottom > headerThreshold - 50) {
+          matchedId = cat.id;
           break;
         }
       }
-    }, observerOptions);
 
-    activeCategories.forEach((cat) => {
-      const el = sectionsRefs.current[cat.id];
-      if (el) observer.observe(el);
-    });
+      if (matchedId) {
+        setActiveId(matchedId);
+      }
+    };
+
+    const handleScroll = () => {
+      if (isManualScrolling.current) return;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateActiveSection);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [activeCategories]);
 
