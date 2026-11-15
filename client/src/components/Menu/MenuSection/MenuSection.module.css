@@ -1,9 +1,14 @@
 .categorySection {
-  scroll-margin-top: 190px;
+  scroll-margin-top: 155px;
   margin-bottom: 48px;
   width: 100%;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 400px;
+}
+
+@media screen and (max-width: 640px) {
+  .categorySection {
+    scroll-margin-top: 125px;
+    margin-bottom: 36px;
+  }
 }
 
 /* Заголовок категории */
