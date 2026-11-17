@@ -1,0 +1,196 @@
+/* Базовая анимация плавного мерцания (Shimmer) */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 0%,
+    #e2e8f0 40%,
+    #cbd5e1 50%,
+    #e2e8f0 60%,
+    #f1f5f9 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite ease-in-out;
+}
+
+.skeletonWrapper {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 1. Скелетон горизонтальных табов категорий */
+.categoryTabsSkeleton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0 16px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.tabPill {
+  height: 36px;
+  width: 90px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.tabPillActive {
+  width: 105px;
+  background: linear-gradient(
+    90deg,
+    #d1fae5 0%,
+    #a7f3d0 40%,
+    #6ee7b7 50%,
+    #a7f3d0 60%,
+    #d1fae5 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite ease-in-out;
+}
+
+/* 2. Обёртка контента под табами */
+.itemWrapper {
+  width: 100%;
+  padding-top: 20px;
+}
+
+/* Заголовок категории со скелетоном */
+.sectionHeaderSkeleton {
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.titleBar {
+  width: 140px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+/* 3. Сетка карточек */
+.cardsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+/* Сама карточка скелетона (повторяет MenuItem) */
+.card {
+  width: 49%;
+  min-width: 290px;
+  min-height: 200px;
+  margin-bottom: 2%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+}
+
+/* Левая половина: текст и цена */
+.cardDesc {
+  min-width: 60%;
+  max-width: 60%;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cardTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardTitle {
+  width: 75%;
+  height: 18px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.cardLineLong {
+  width: 90%;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.cardLineShort {
+  width: 60%;
+  height: 12px;
+  border-radius: 4px;
+}
+
+/* Нижняя строка: цена + кнопка */
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+.cardPrice {
+  width: 65px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.cardBtn {
+  width: 85px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+/* Правая половина: картинка */
+.cardImage {
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 200px;
+}
+
+/* Адаптив под мобилки */
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .categoryTabsSkeleton {
+    justify-content: flex-start;
+    padding: 8px 12px 14px;
+    gap: 6px;
+  }
+
+  .cardDesc {
+    padding: 16px 14px 14px;
+  }
+
+  .card {
+    min-height: 160px;
+  }
+
+  .cardImage {
+    min-height: 160px;
+  }
+}
