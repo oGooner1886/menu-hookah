@@ -10,6 +10,7 @@ import {
 import Category from './Category/Category';
 import ModalMenu from './ModalMenu/ModalMenu';
 import MenuSection from './MenuSection/MenuSection';
+import MenuSkeleton from './MenuSkeleton/MenuSkeleton';
 import { CATEGORIES_CONFIG } from './../../config/categories';
 import { useCategoryScroll } from '../../utils/useCategoryScroll';
 
@@ -23,6 +24,15 @@ const Menu = () => {
   const branch = useStore((state) => state.branch);
   const stopList = useStore(selectStopList);
   const fetchStopList = useStore((state) => state.fetchStopList);
+  const isLoadingMenu = useStore((state) => state.isLoadingMenu);
+  const fetchMenu = useStore((state) => state.fetchMenu);
+
+  // Если меню для Gusto еще не загружено — запрашиваем
+  useEffect(() => {
+    if (branch === BRANCHES.GUSTO && (!currentProducts || currentProducts.length === 0)) {
+      fetchMenu();
+    }
+  }, [branch, currentProducts, fetchMenu]);
 
   // Периодический легкий опрос стоп-листа раз в 45 сек + при возврате на вкладку
   useEffect(() => {
@@ -79,45 +89,59 @@ const Menu = () => {
 
   const { activeId, scrollToCategory, registerSection } = useCategoryScroll(activeCategories);
 
+  const isInitialLoading =
+    isLoadingMenu || (branch === BRANCHES.GUSTO && (!currentProducts || currentProducts.length === 0));
+
   return (
     <div className={style.wrapper}>
-      <Category
-        activeId={activeId}
-        activeCategories={activeCategories}
-        onSelectCategory={scrollToCategory}
-      />
-
-      <div className={style.item__wrapper}>
-        {activeCategories.length > 0 ? (
-          activeCategories.map((cat) => (
-            <MenuSection
-              key={cat.id}
-              categoryId={cat.id}
-              categoryLabel={cat.label}
-              items={groupedByCategory[cat.id]}
-              order={order}
-              stopList={stopList}
-              addToOrder={addToOrder}
-              removeFromOrder={removeFromOrder}
-              setItem={setItem}
-              sectionRef={registerSection(cat.id)}
-            />
-          ))
-        ) : (
-          <p>Товары не найдены</p>
-        )}
-
-        {item && (
-          <ModalMenu
-            item={item}
-            closeModalForEdit={() => setItem(null)}
-            order={order}
-            stopList={stopList}
-            addToOrder={addToOrder}
-            removeFromOrder={removeFromOrder}
+      {isInitialLoading ? (
+        <MenuSkeleton />
+      ) : (
+        <>
+          <Category
+            activeId={activeId}
+            activeCategories={activeCategories}
+            onSelectCategory={scrollToCategory}
           />
-        )}
-      </div>
+
+          <div className={style.item__wrapper}>
+            {activeCategories.length > 0 ? (
+              activeCategories.map((cat) => (
+                <MenuSection
+                  key={cat.id}
+                  categoryId={cat.id}
+                  categoryLabel={cat.label}
+                  items={groupedByCategory[cat.id]}
+                  order={order}
+                  stopList={stopList}
+                  addToOrder={addToOrder}
+                  removeFromOrder={removeFromOrder}
+                  setItem={setItem}
+                  sectionRef={registerSection(cat.id)}
+                />
+              ))
+            ) : (
+              <div className={style.emptyState}>
+                <p className={style.emptyTitle}>Меню временно недоступно</p>
+                <p className={style.emptySubtitle}>
+                  Попробуйте обновить страницу или выбрать другой филиал
+                </p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      {item && (
+        <ModalMenu
+          item={item}
+          closeModalForEdit={() => setItem(null)}
+          order={order}
+          stopList={stopList}
+          addToOrder={addToOrder}
+          removeFromOrder={removeFromOrder}
+        />
+      )}
     </div>
   );
 };
