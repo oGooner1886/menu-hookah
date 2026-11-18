@@ -1,39 +1,69 @@
+import React from 'react';
 import styles from './Order.module.css';
+import Placeholder from '../../../mocks/Placeholder/Placeholder';
 
 const Order = ({ item, add, remove, totalPrice, portion }) => {
-  const { title, gallery, uid, subtitle, weight } = item;
+  const { title, parentTitle, gallery, subtitle, weight, price } = item;
+
+  const displayTitle = parentTitle || title;
+  const displaySubtitle = parentTitle ? subtitle || title : subtitle;
+
+  const imageSrc = gallery
+    ? gallery.startsWith('/')
+      ? `/images/menu${gallery}`
+      : `/images/menu/${gallery}`
+    : null;
 
   return (
-    <div className={styles.order}>
-      <div className={styles.order__list}>
-        <div className={styles.order__item_wrapper}>
-          <div className={styles.order__item}>
-            <div className={styles.order__item_photo}>
-              <img className={styles.order__item_img} src={`/images/menu/${gallery}`} alt="" />
+    <div className={styles.itemCard}>
+      <div className={styles.itemPhotoWrap}>
+        {imageSrc ? (
+          <img
+            className={styles.itemImg}
+            src={imageSrc}
+            alt={displayTitle}
+            loading="lazy"
+          />
+        ) : (
+          <Placeholder />
+        )}
+      </div>
+
+      <div className={styles.itemBody}>
+        <div className={styles.itemInfo}>
+          <h3 className={styles.itemTitle}>{displayTitle}</h3>
+
+          {(displaySubtitle || weight) && (
+            <div className={styles.variantBadge}>
+              {displaySubtitle} {weight && weight !== displaySubtitle ? `• ${weight}` : ''}
             </div>
-            <div className={styles.order__item_info}>
-              <h2 className={styles.order__item_title}>{title}</h2>
-              <h3 className={styles.order__item_subtitle}>
-                {subtitle} {weight}
-              </h3>
-              <div className={styles.order__item_options}>
-                <div className={styles.order__counter}>
-                  <button className={styles.order__counter_button} onClick={() => remove(uid)}>
-                    <span>-</span>
-                  </button>
-                  <p className={styles.order__counter_quantity}>
-                    <span>{portion}</span>
-                  </p>
-                  <button className={styles.order__counter_button} onClick={() => add(uid)}>
-                    <span>+</span>
-                  </button>
-                </div>
-                <div className={styles.order__price}>
-                  <p>{totalPrice}₽</p>
-                </div>
-              </div>
-            </div>
+          )}
+
+          <div className={styles.unitPrice}>{price} ₽ / шт</div>
+        </div>
+
+        <div className={styles.itemControls}>
+          <div className={styles.stepper}>
+            <button
+              type="button"
+              className={styles.stepperBtn}
+              onClick={remove}
+              aria-label="Уменьшить количество"
+            >
+              −
+            </button>
+            <span className={styles.stepperQty}>{portion}</span>
+            <button
+              type="button"
+              className={styles.stepperBtn}
+              onClick={add}
+              aria-label="Увеличить количество"
+            >
+              +
+            </button>
           </div>
+
+          <div className={styles.itemPriceTotal}>{totalPrice} ₽</div>
         </div>
       </div>
     </div>

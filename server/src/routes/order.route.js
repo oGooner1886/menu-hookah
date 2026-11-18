@@ -4,38 +4,35 @@ import { getUserByToken } from '../services/auth.service.js';
 export default async function orderRoutes(fastify, options) {
   fastify.post('/api/order/dine-in', async (request, reply) => {
     try {
+      let phone = null;
       const authHeader = request.headers.authorization;
-      if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return reply.status(401).send({ success: false, error: 'Trebuetsya avtorizatsiya. please voidite v sistemu.' });
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        const token = authHeader.split(' ')[1];
+        const userSession = getUserByToken(token);
+        if (userSession) {
+          phone = userSession.phone;
+        }
       }
 
-      const token = authHeader.split(' ')[1];
-
-      const userSession = getUserByToken(token);
-      if (!userSession) {
-        return reply.status(401).send({ success: false, error: 'Sesiya ustarela ili nedeistvitelna. Voidite zanovo.' });
-      }
-
-      const { tableNumber, items, comment } = request.body;
+      const { tableNumber, items, comment, phone: bodyPhone } = request.body || {};
 
       if (!tableNumber) {
-        return reply.status(400).send({ success: false, error: 'Ne ukazan nomer stola.' });
+        return reply.status(400).send({ success: false, error: 'Не указан номер стола.' });
       }
       if (!items || !Array.isArray(items) || items.length === 0) {
-        return reply.status(400).send({ success: false, error: 'Korzina pusta.' });
+        return reply.status(400).send({ success: false, error: 'Корзина пуста.' });
       }
 
       const orderData = {
-        tableNumber,
+        tableNumber: String(tableNumber).trim(),
         items,
-        comment,
-        phone: userSession.phone
+        comment: comment || '',
+        phone: phone || bodyPhone || null,
       };
 
       const orderInfo = await createDineInOrder(orderData, request.log);
       
       return reply.send({ success: true, order: orderInfo });
-
     } catch (error) {
       request.log.error(error);
       return reply.status(400).send({ success: false, error: error.message });
