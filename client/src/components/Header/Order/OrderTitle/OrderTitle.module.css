@@ -1,50 +1,80 @@
-.blockTitle {
-  padding-top: 120px;
+.titleWrapper {
+  margin-bottom: 24px;
 }
-.empty__link {
-  margin: 20px 10px;
-  width: 100px;
-}
-.link__backArrow {
-  color: rgba(0, 0, 0, 0.5);
-  line-height: 1.15;
-  text-decoration: none;
-  font-size: 16px;
+
+.navBar {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
-.link__backArrow span {
-  width: 100%;
-}
-.link__backArrow:hover {
-  color: #000;
-}
-.link__description {
-  margin: 0 10px;
-}
-.order {
-  line-height: 1.15;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-.order_disclaimer {
-  padding: 10px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  color: #000;
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
   font-size: 14px;
-  background: #e1e1e1;
-  border-radius: 5px;
-  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+  user-select: none;
 }
-.order__disclaimer_title {
-  font-size: 24px;
-  margin: 20px 0;
-  font-weight: 400;
+
+.backLink:hover {
+  color: #0f172a;
+  transform: translateX(-2px);
 }
-@media screen and (max-width: 1024px) {
-  .blockTitle {
-    padding: 120px 20px 0 20px;
+
+.backIcon {
+  font-size: 16px;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.clearBtn:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.headlineRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.branchBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d6a4f;
+  background-color: #f0fdf4;
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 24px;
   }
 }
