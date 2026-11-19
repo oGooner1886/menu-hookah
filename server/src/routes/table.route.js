@@ -9,8 +9,25 @@ import {
   handleIikoWebhookEvent,
   registerIikoWebhookUri,
 } from '../services/table.service.js';
+import { generateTableSign } from '../services/security.service.js';
 
 export default async function tableRoutes(fastify, options) {
+  // Генерация подписанной ссылки для QR-кода столика
+  fastify.get('/api/tables/qr-link', async (request, reply) => {
+    try {
+      const { table, branch = 'gusto' } = request.query || {};
+      if (!table) {
+        return reply.status(400).send({ success: false, error: 'Укажите номер стола: ?table=14' });
+      }
+      const sign = generateTableSign(table);
+      const url = `/${branch}/menu?table=${table}&sign=${sign}`;
+      return reply.send({ success: true, table: String(table), sign, url });
+    } catch (error) {
+      request.log.error(error);
+      return reply.status(500).send({ success: false, error: error.message });
+    }
+  });
+
   fastify.get('/api/tables', async (request, reply) => {
     try {
       const tables = getAvailableTables();

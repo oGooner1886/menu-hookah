@@ -40,3 +40,27 @@ export function checkRateLimit(ip, phone) {
 
   return { allowed: true };
 }
+
+import crypto from 'crypto';
+
+const TABLE_SECRET = process.env.TABLE_SECRET || 'gusto_lounge_table_secret_2026';
+
+/**
+ * Генерирует 16-значную HMAC-SHA256 подпись для физического QR-кода стола
+ */
+export function generateTableSign(tableNumber) {
+  return crypto
+    .createHmac('sha256', TABLE_SECRET)
+    .update(String(tableNumber).trim())
+    .digest('hex')
+    .slice(0, 16);
+}
+
+/**
+ * Проверяет подлинность подписи стола
+ */
+export function isValidTableSign(tableNumber, sign) {
+  if (!sign) return false;
+  const expected = generateTableSign(tableNumber);
+  return String(sign).toLowerCase() === expected.toLowerCase();
+}
