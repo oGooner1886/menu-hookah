@@ -17,15 +17,26 @@ function App() {
   const location = useLocation();
   const setBranch = useStore((state) => state.setBranch);
   const setTableNumber = useStore((state) => state.setTableNumber);
+  const checkTableSession = useStore((state) => state.checkTableSession);
 
-  // Считываем номер стола из QR-кода (?table=... или ?t=...)
+  // Считываем номер стола и подпись из QR-кода (?table=...&sign=...)
   useEffect(() => {
+    // Проверяем актуальность сессии (не прошло ли 4 часа)
+    checkTableSession();
+
     const searchParams = new URLSearchParams(location.search);
     const tableParam = searchParams.get('table') || searchParams.get('t');
+    const signParam = searchParams.get('sign') || searchParams.get('s');
+
     if (tableParam) {
-      setTableNumber(tableParam);
+      setTableNumber(tableParam, signParam);
+
+      // УРОВЕНЬ 1: Моментально очищаем URL от секретных параметров и номера стола
+      // В истории браузера и закладках останется только чистый URL (напр. /gusto/menu)
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, '', cleanUrl);
     }
-  }, [location.search, setTableNumber]);
+  }, [location.search, setTableNumber, checkTableSession]);
 
   useEffect(() => {
     const pathBranch = location.pathname.split('/')[1];

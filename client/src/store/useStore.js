@@ -302,10 +302,43 @@ export const useStore = create(
       sessionToken: null,
       user: null,
       tableNumber: null,
+      tableSession: null, // { tableNumber: string, sign: string | null, expiresAt: number }
 
       setAuth: (token, user) => set({ sessionToken: token, user }),
       logout: () => set({ sessionToken: null, user: null }),
-      setTableNumber: (num) => set({ tableNumber: num ? String(num).trim() : null }),
+
+      setTableNumber: (num, sign = null) => {
+        if (!num) {
+          set({ tableNumber: null, tableSession: null });
+          return;
+        }
+        const cleanNum = String(num).trim();
+        // УРОВЕНЬ 2: Жёсткий TTL = 4 часа на сессию столика
+        const expiresAt = Date.now() + 4 * 60 * 60 * 1000;
+        set({
+          tableNumber: cleanNum,
+          tableSession: {
+            tableNumber: cleanNum,
+            sign: sign || null,
+            expiresAt,
+          },
+        });
+      },
+
+      checkTableSession: () => {
+        const session = get().tableSession;
+        if (!session) {
+          if (get().tableNumber) set({ tableNumber: null });
+          return null;
+        }
+        // Если прошло больше 4 часов — сессия столика протухла
+        if (Date.now() > session.expiresAt) {
+          console.warn('[TABLE SESSION] Сессия столика истекла (> 4ч). Стол сброшен для безопасности.');
+          set({ tableNumber: null, tableSession: null });
+          return null;
+        }
+        return session.tableNumber;
+      },
 
       //* ============================================================
       //!  MENU + филиалы
@@ -528,8 +561,19 @@ export const useStore = create(
         branch: state.branch,
         sessionToken: state.sessionToken,
         user: state.user,
-        tableNumber: state.tableNumber,
+        tableSession: state.tableSession,
       }),
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          // Проверяем 4-часовой TTL при восстановлении из localStorage
+          if (state.tableSession && Date.now() <= state.tableSession.expiresAt) {
+            state.tableNumber = state.tableSession.tableNumber;
+          } else {
+            state.tableSession = null;
+            state.tableNumber = null;
+          }
+        }
+      },
     },
   ),
 );

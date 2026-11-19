@@ -29,7 +29,9 @@ const OrderContainer = () => {
   const removeFromOrder = useStore((state) => state.removeFromOrder);
   const deleteOrder = useStore((state) => state.deleteOrder);
   const tableNumber = useStore((state) => state.tableNumber);
+  const tableSession = useStore((state) => state.tableSession);
   const setTableNumber = useStore((state) => state.setTableNumber);
+  const checkTableSession = useStore((state) => state.checkTableSession);
   const sessionToken = useStore((state) => state.sessionToken);
 
   const [comment, setComment] = useState('');
@@ -84,7 +86,10 @@ const OrderContainer = () => {
 
   // Отправка заказа на кухню
   const handlePlaceOrder = async () => {
-    if (!tableNumber) {
+    // Проверка УРОВНЯ 2: не истекла ли 4-часовая сессия стола
+    const activeTable = checkTableSession();
+    if (!activeTable) {
+      alert('Время сессии стола истекло (> 4ч). Пожалуйста, отсканируйте QR-код на столе заново.');
       setIsEditingTable(true);
       return;
     }
@@ -92,7 +97,8 @@ const OrderContainer = () => {
     setIsSubmitting(true);
     try {
       const payload = {
-        tableNumber: String(tableNumber),
+        tableNumber: String(activeTable),
+        tableSign: tableSession?.sign || undefined,
         items: orderEntries.map(([uid, amount]) => ({
           productId: uid,
           amount,
