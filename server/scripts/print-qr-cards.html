@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>QR-коды столов — Gusto Lounge</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1115;
+      color: #fff;
+      padding: 30px;
+    }
+    .header-bar {
+      max-width: 1000px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #181c23;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid #282f3c;
+    }
+    .header-title h1 {
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: #f3f4f6;
+    }
+    .header-title p {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .print-btn {
+      background: #e6a84e;
+      color: #0f1115;
+      font-weight: 700;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .print-btn:hover {
+      background: #f5b966;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .qr-card {
+      background: #ffffff;
+      color: #111827;
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      border: 2px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      page-break-inside: avoid;
+    }
+    .brand {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #b48332;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .table-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+    }
+    .section-name {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 2px;
+      margin-bottom: 12px;
+    }
+    .qr-wrapper {
+      background: #fff;
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 12px;
+    }
+    .qr-wrapper img {
+      width: 170px;
+      height: 170px;
+      display: block;
+    }
+    .action-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+      .header-bar {
+        display: none !important;
+      }
+      .grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+        max-width: 100% !important;
+      }
+      .qr-card {
+        box-shadow: none !important;
+        border: 1px solid #d1d5db !important;
+        page-break-inside: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-bar">
+    <div class="header-title">
+      <h1>Таблички с QR-кодами столов</h1>
+      <p>Базовый URL: <strong>https://gustolounge.ru</strong> • Всего столов: <strong>30</strong></p>
+    </div>
+    <button class="print-btn" onclick="window.print()">Распечатать все наклейки (Ctrl + P)</button>
+  </div>
+
+  <div class="grid">
+    
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 1</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D1%26sign%3Dc6c033c06493af0e" alt="QR Стол 1" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 2</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D2%26sign%3D06c1dc0dae48a69e" alt="QR Стол 2" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 3</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D3%26sign%3D3a62b92193b37791" alt="QR Стол 3" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 4</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D4%26sign%3Dcf49fccc301224f2" alt="QR Стол 4" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 5</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D5%26sign%3Dc94653211b752988" alt="QR Стол 5" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 6</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D6%26sign%3D78b3374f0f9e92de" alt="QR Стол 6" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 7</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D7%26sign%3Df8be605e72814a71" alt="QR Стол 7" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 8</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D8%26sign%3Dbdc1b55f79d9b37a" alt="QR Стол 8" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 9</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D9%26sign%3D64aefe947632e5e2" alt="QR Стол 9" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 10</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D10%26sign%3Db967aefdf87ca6cc" alt="QR Стол 10" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 11</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D11%26sign%3D87fc6f0bf822d2db" alt="QR Стол 11" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 12</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D12%26sign%3D2f155a4faacdfca1" alt="QR Стол 12" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 13</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D13%26sign%3D0e26d6e754b5f32e" alt="QR Стол 13" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 14</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D14%26sign%3Df84c316d30d130f2" alt="QR Стол 14" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 15</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D15%26sign%3D840f3537c09de688" alt="QR Стол 15" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 16</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D16%26sign%3D31fb92a8f0e20458" alt="QR Стол 16" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Балкон левый</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D51%26sign%3Dbd8466e30fc9dc5b" alt="QR Стол 51" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Балкон центральный</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D52%26sign%3D1670820480f5fb93" alt="QR Стол 52" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 17</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D17%26sign%3D365e136eb8b745bc" alt="QR Стол 17" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 18</div>
+      <div class="section-name">Зеленый зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D18%26sign%3Dc6695f2462d63a78" alt="QR Стол 18" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 21</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D21%26sign%3D3e3b756d818d6951" alt="QR Стол 21" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 22</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D22%26sign%3D1b0f944bb8b7164d" alt="QR Стол 22" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 23</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D23%26sign%3Ded4e7bcab2d4f0ad" alt="QR Стол 23" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 24</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D24%26sign%3D5a08bf5b2e06babb" alt="QR Стол 24" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 25</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D25%26sign%3D8efe74ab498bc0b7" alt="QR Стол 25" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 26</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D26%26sign%3D63c351f99d842386" alt="QR Стол 26" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 27</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D27%26sign%3Ddba1a527190872c8" alt="QR Стол 27" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 28</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D28%26sign%3Dcc9f0befc01ee414" alt="QR Стол 28" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Стол 29</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D29%26sign%3D55b12f4e31b2ac10" alt="QR Стол 29" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+
+    <div class="qr-card">
+      <div class="brand">GUSTO LOUNGE</div>
+      <div class="table-name">Балкон правый</div>
+      <div class="section-name">Второй зал</div>
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fgustolounge.ru%2Fgusto%2Fmenu%3Ftable%3D30%26sign%3Daeca267f95d7e286" alt="QR Стол 30" />
+      </div>
+      <div class="action-text">Наведите камеру<br>для заказа меню</div>
+    </div>
+  </div>
+</body>
+</html>
