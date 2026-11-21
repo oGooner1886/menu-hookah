@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -10,11 +10,11 @@ import Promo from './components/Promo/Promo';
 import Booking from './components/Booking/Booking';
 import { ScrollToTop } from './utils/scrollToTop';
 import { useStore, BRANCHES } from './store/useStore';
-import { Navigate } from 'react-router-dom';
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const setBranch = useStore((state) => state.setBranch);
   const setTableNumber = useStore((state) => state.setTableNumber);
   const checkTableSession = useStore((state) => state.checkTableSession);
@@ -28,17 +28,23 @@ function App() {
     const tableParam = searchParams.get('table') || searchParams.get('t');
     const signParam = searchParams.get('sign') || searchParams.get('s');
 
-    if (tableParam && signParam) {
-      setTableNumber(tableParam, signParam);
-    }
-
     if (tableParam || signParam) {
       // УРОВЕНЬ 1: Моментально очищаем URL от секретных параметров и номера стола
-      // В истории браузера и закладках останется только чистый URL (напр. /gusto/menu)
       const cleanUrl = window.location.pathname;
       window.history.replaceState({}, '', cleanUrl);
     }
-  }, [location.search, setTableNumber, checkTableSession]);
+
+    if (tableParam && signParam) {
+      setTableNumber(tableParam, signParam);
+
+      // Если у гостя уже собрана корзина в этом браузере — возвращаем его прямо в заказ
+      const pathBranch = location.pathname.split('/')[1] === 'aroma' ? BRANCHES.AROMA : BRANCHES.GUSTO;
+      const currentCart = useStore.getState().orders[pathBranch] || {};
+      if (Object.keys(currentCart).length > 0 && !location.pathname.includes('/order')) {
+        navigate(`/${pathBranch}/order`, { replace: true });
+      }
+    }
+  }, [location.search, location.pathname, setTableNumber, checkTableSession, navigate]);
 
   useEffect(() => {
     const pathBranch = location.pathname.split('/')[1];

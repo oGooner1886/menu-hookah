@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Order.module.css';
 import OrderTitle from './OrderTitle/OrderTitle';
 import EmptyOrder from './EmptyOrder/EmptyOrder';
 import AmountOrder from './AmountOrder/AmountOrder';
 import OrderItem from './Order';
+import QrScannerModal from './QrScannerModal/QrScannerModal';
 import {
   selectCurrentAmount,
   selectCurrentOrder,
@@ -28,14 +29,34 @@ const OrderContainer = () => {
   const addToOrder = useStore((state) => state.addToOrder);
   const removeFromOrder = useStore((state) => state.removeFromOrder);
   const deleteOrder = useStore((state) => state.deleteOrder);
+  const fetchMenu = useStore((state) => state.fetchMenu);
   const tableNumber = useStore((state) => state.tableNumber);
   const tableSession = useStore((state) => state.tableSession);
+  const setTableNumber = useStore((state) => state.setTableNumber);
   const checkTableSession = useStore((state) => state.checkTableSession);
   const sessionToken = useStore((state) => state.sessionToken);
 
   const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isScannerOpen, setIsScannerOpen] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(null);
+
+  // Подгружаем меню, если пользователь обновил страницу /order напрямую
+  useEffect(() => {
+    if (branch !== 'aroma' && (!currentProducts || currentProducts.length === 0)) {
+      fetchMenu();
+    }
+  }, [branch, currentProducts, fetchMenu]);
+
+  const handleQrSuccess = useCallback(
+    (table, sign) => {
+      setTableNumber(table, sign);
+      setIsScannerOpen(false);
+    },
+    [setTableNumber]
+  );
+
+  const isTableVerified = Boolean(tableNumber && tableSession?.sign);
 
   const orderEntries = Object.entries(order);
   const hasItems = orderEntries.length > 0;
@@ -77,7 +98,7 @@ const OrderContainer = () => {
     // Проверка УРОВНЯ 2: не истекла ли 4-часовая сессия стола
     const activeTable = checkTableSession();
     if (!activeTable) {
-      alert('Время сессии стола истекло (> 4ч) или QR-код не отсканирован. Пожалуйста, наведите камеру на QR-код на вашем столе.');
+      setIsScannerOpen(true);
       return;
     }
 
@@ -138,34 +159,17 @@ const OrderContainer = () => {
 
       {hasItems && (
         <>
-          {/* Карточка стола (только по QR-коду) */}
-          <div
-            className={`${styles.tableCard} ${
-              tableNumber && tableSession?.sign ? styles.tableCardSuccess : styles.tableCardWarning
-            }`}
-          >
-            <div className={styles.tableInfoLeft}>
-              <div
-                className={`${styles.tableBadge} ${
-                  !(tableNumber && tableSession?.sign) ? styles.tableBadgeWarning : ''
-                }`}
-              >
-                {tableNumber && tableSession?.sign ? `Стол №${tableNumber}` : 'Стол не определён'}
-              </div>
-              <div className={styles.tableDetails}>
-                <span className={styles.tableTitle}>
-                  {tableNumber && tableSession?.sign
-                    ? 'Стол подтверждён по QR'
-                    : 'Отсканируйте QR-код на столе'}
-                </span>
-                <span className={styles.tableSubtitle}>
-                  {tableNumber && tableSession?.sign
-                    ? 'Официант принесёт заказ к этому столику'
-                    : 'Для защиты от ложных заказов оформление доступно только по QR на столе'}
-                </span>
+          {/* Минималистичный бейдж стола (показывается только когда стол подтверждён) */}
+          {isTableVerified && (
+            <div className={`${styles.tableCard} ${styles.tableCardSuccess}`}>
+              <div className={styles.tableInfoLeft}>
+                <div className={styles.tableBadge}>Стол №{tableNumber}</div>
+                <div className={styles.tableDetails}>
+                  <span className={styles.tableTitle}>Подача к вашему столику</span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Список выбранных блюд */}
           <div className={styles.itemsList}>{orderItems}</div>
@@ -174,14 +178,22 @@ const OrderContainer = () => {
           <AmountOrder
             amount={amount}
             totalItems={totalItems}
-            tableNumber={tableNumber && tableSession?.sign ? tableNumber : null}
+            tableNumber={isTableVerified ? tableNumber : null}
             comment={comment}
             setComment={setComment}
             onPlaceOrder={handlePlaceOrder}
+            onScanQr={() => setIsScannerOpen(true)}
             isSubmitting={isSubmitting}
           />
         </>
       )}
+
+      {/* Встроенный QR-сканер (сохраняет корзину без перезагрузки) */}
+      <QrScannerModal
+        isOpen={isScannerOpen}
+        onClose={() => setIsScannerOpen(false)}
+        onScanSuccess={handleQrSuccess}
+      />
 
       {/* Модалка успешного заказа */}
       {orderSuccess && (

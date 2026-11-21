@@ -1,0 +1,108 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  background: #0f172a;
+  color: #f8fafc;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #f8fafc;
+}
+
+.closeBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame {
+  position: absolute;
+  width: 68%;
+  height: 68%;
+  border-radius: 18px;
+  box-shadow: 0 0 0 9999px rgba(2, 6, 23, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+
+.errorBox {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #cbd5e1;
+}
+
+.hint {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #94a3b8;
+  text-align: center;
+  min-height: 18px;
+}
+
+.hintError {
+  color: #fbbf24;
+}

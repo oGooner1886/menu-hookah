@@ -8,9 +8,18 @@ const AmountOrder = ({
   comment = '',
   setComment,
   onPlaceOrder,
+  onScanQr,
   isSubmitting = false,
 }) => {
   const isTableSet = Boolean(tableNumber);
+
+  const handleActionClick = () => {
+    if (isTableSet) {
+      onPlaceOrder();
+    } else if (onScanQr) {
+      onScanQr();
+    }
+  };
 
   return (
     <div className={styles.summaryWrapper}>
@@ -52,12 +61,12 @@ const AmountOrder = ({
           />
         </div>
 
-        {/* Кнопка оформления заказа */}
+        {/* Кнопка оформления заказа или сканирования QR стола */}
         <button
           type="button"
-          className={`${styles.submitBtn} ${!isTableSet ? styles.submitBtnDisabled : ''}`}
-          onClick={onPlaceOrder}
-          disabled={!isTableSet || isSubmitting}
+          className={styles.submitBtn}
+          onClick={handleActionClick}
+          disabled={isSubmitting}
         >
           {isSubmitting ? (
             <span className={styles.loaderWrap}>
@@ -65,17 +74,11 @@ const AmountOrder = ({
               <span>Отправляем заказ...</span>
             </span>
           ) : isTableSet ? (
-            <span>Отправить заказ на стол №{tableNumber} • {amount} ₽</span>
+            <span>Отправить заказ • Стол №{tableNumber} • {amount} ₽</span>
           ) : (
-            <span>Отсканируйте QR-код на столе для заказа</span>
+            <span>Сканировать QR стола • {amount} ₽</span>
           )}
         </button>
-
-        {!isTableSet && (
-          <p className={styles.tableHint}>
-            Для оформления заказа наведите камеру телефона на QR-код, расположенный на вашем столике.
-          </p>
-        )}
       </div>
     </div>
   );
