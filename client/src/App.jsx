@@ -28,9 +28,11 @@ function App() {
     const tableParam = searchParams.get('table') || searchParams.get('t');
     const signParam = searchParams.get('sign') || searchParams.get('s');
 
-    if (tableParam) {
+    if (tableParam && signParam) {
       setTableNumber(tableParam, signParam);
+    }
 
+    if (tableParam || signParam) {
       // УРОВЕНЬ 1: Моментально очищаем URL от секретных параметров и номера стола
       // В истории браузера и закладках останется только чистый URL (напр. /gusto/menu)
       const cleanUrl = window.location.pathname;

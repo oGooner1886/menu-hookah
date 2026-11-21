@@ -308,7 +308,7 @@ export const useStore = create(
       logout: () => set({ sessionToken: null, user: null }),
 
       setTableNumber: (num, sign = null) => {
-        if (!num) {
+        if (!num || !sign) {
           set({ tableNumber: null, tableSession: null });
           return;
         }
@@ -319,7 +319,7 @@ export const useStore = create(
           tableNumber: cleanNum,
           tableSession: {
             tableNumber: cleanNum,
-            sign: sign || null,
+            sign: String(sign).trim(),
             expiresAt,
           },
         });
@@ -327,8 +327,8 @@ export const useStore = create(
 
       checkTableSession: () => {
         const session = get().tableSession;
-        if (!session) {
-          if (get().tableNumber) set({ tableNumber: null });
+        if (!session || !session.sign) {
+          if (get().tableNumber || session) set({ tableNumber: null, tableSession: null });
           return null;
         }
         // Если прошло больше 4 часов — сессия столика протухла
@@ -565,8 +565,8 @@ export const useStore = create(
       }),
       onRehydrateStorage: () => (state) => {
         if (state) {
-          // Проверяем 4-часовой TTL при восстановлении из localStorage
-          if (state.tableSession && Date.now() <= state.tableSession.expiresAt) {
+          // Проверяем наличие подписи и 4-часовой TTL при восстановлении из localStorage
+          if (state.tableSession && state.tableSession.sign && Date.now() <= state.tableSession.expiresAt) {
             state.tableNumber = state.tableSession.tableNumber;
           } else {
             state.tableSession = null;

@@ -21,13 +21,13 @@ export default async function orderRoutes(fastify, options) {
         return reply.status(400).send({ success: false, error: 'Не указан номер стола.' });
       }
 
-      // Проверка криптографической подписи стола (если передана или включен строгий режим)
-      if (process.env.REQUIRE_TABLE_SIGN === 'true' || tableSign) {
-        if (!isValidTableSign(tableNumber, tableSign)) {
-          request.log.warn(`[SECURITY] Попытка заказа на стол №${tableNumber} с невалидной подписью: "${tableSign}"`);
+      // Строгая проверка криптографической подписи стола из QR-кода
+      if (process.env.ALLOW_UNSIGNED_TABLE !== 'true') {
+        if (!tableSign || !isValidTableSign(tableNumber, tableSign)) {
+          request.log.warn(`[SECURITY] Попытка заказа на стол №${tableNumber} без валидной подписи QR: "${tableSign}"`);
           return reply.status(403).send({
             success: false,
-            error: 'Недействительная подпись столика. Пожалуйста, отсканируйте QR-код на вашем столе заново.',
+            error: 'Недействительная или отсутствующая подпись столика. Пожалуйста, отсканируйте QR-код на вашем столе заново.',
           });
         }
       }
