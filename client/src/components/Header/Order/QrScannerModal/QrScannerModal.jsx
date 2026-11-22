@@ -143,3 +143,4 @@ const QrScannerModal = ({ isOpen, onClose, onScanSuccess }) => {
 };
 
 export default QrScannerModal;
+

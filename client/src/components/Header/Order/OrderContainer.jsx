@@ -5,6 +5,7 @@ import EmptyOrder from './EmptyOrder/EmptyOrder';
 import AmountOrder from './AmountOrder/AmountOrder';
 import OrderItem from './Order';
 import QrScannerModal from './QrScannerModal/QrScannerModal';
+import TableBill from './TableBill/TableBill';
 import {
   selectCurrentAmount,
   selectCurrentOrder,
@@ -40,6 +41,9 @@ const OrderContainer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isScannerOpen, setIsScannerOpen] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(null);
+  const [activeBill, setActiveBill] = useState(null);
+
+  const isTableVerified = Boolean(tableNumber && tableSession?.sign);
 
   // Подгружаем меню, если пользователь обновил страницу /order напрямую
   useEffect(() => {
@@ -48,6 +52,31 @@ const OrderContainer = () => {
     }
   }, [branch, currentProducts, fetchMenu]);
 
+  // Загружаем открытый счёт столика (если стол подтверждён)
+  const fetchTableBill = useCallback(async () => {
+    if (!tableNumber || !tableSession?.sign) {
+      setActiveBill(null);
+      return;
+    }
+    try {
+      const res = await fetch(
+        `${API_URL}/order/table-bill?table=${encodeURIComponent(tableNumber)}&sign=${encodeURIComponent(tableSession.sign)}`
+      );
+      const data = await res.json();
+      if (data.success && data.hasActiveBill && data.bill) {
+        setActiveBill(data.bill);
+      } else {
+        setActiveBill(null);
+      }
+    } catch {
+      // Если iiko временно недоступен — остаёмся в обычном режиме корзины
+    }
+  }, [tableNumber, tableSession]);
+
+  useEffect(() => {
+    fetchTableBill();
+  }, [fetchTableBill]);
+
   const handleQrSuccess = useCallback(
     (table, sign) => {
       setTableNumber(table, sign);
@@ -55,8 +84,6 @@ const OrderContainer = () => {
     },
     [setTableNumber]
   );
-
-  const isTableVerified = Boolean(tableNumber && tableSession?.sign);
 
   const orderEntries = Object.entries(order);
   const hasItems = orderEntries.length > 0;
@@ -133,6 +160,7 @@ const OrderContainer = () => {
           tableNumber,
         });
         deleteOrder();
+        fetchTableBill();
       } else {
         alert(`Не удалось отправить заказ: ${data.error || 'Ошибка сервера'}`);
       }
@@ -153,6 +181,15 @@ const OrderContainer = () => {
           onClear={deleteOrder}
           totalItems={totalItems}
         />
+      ) : isTableVerified && activeBill ? (
+        <TableBill
+          bill={activeBill}
+          tableNumber={tableNumber}
+          tableSign={tableSession.sign}
+          branch={branch}
+          apiUrl={API_URL}
+          onRefreshBill={fetchTableBill}
+        />
       ) : (
         <EmptyOrder branchName={branchName} branch={branch} />
       )}
@@ -165,7 +202,9 @@ const OrderContainer = () => {
               <div className={styles.tableInfoLeft}>
                 <div className={styles.tableBadge}>Стол №{tableNumber}</div>
                 <div className={styles.tableDetails}>
-                  <span className={styles.tableTitle}>Подача к вашему столику</span>
+                  <span className={styles.tableTitle}>
+                    {activeBill ? `Открытый счёт: ${activeBill.sum} ₽` : 'Подача к вашему столику'}
+                  </span>
                 </div>
               </div>
             </div>
@@ -179,6 +218,7 @@ const OrderContainer = () => {
             amount={amount}
             totalItems={totalItems}
             tableNumber={isTableVerified ? tableNumber : null}
+            hasActiveBill={Boolean(activeBill)}
             comment={comment}
             setComment={setComment}
             onPlaceOrder={handlePlaceOrder}

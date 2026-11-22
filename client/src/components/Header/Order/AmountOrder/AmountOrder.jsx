@@ -5,6 +5,7 @@ const AmountOrder = ({
   amount = 0,
   totalItems = 0,
   tableNumber,
+  hasActiveBill = false,
   comment = '',
   setComment,
   onPlaceOrder,
@@ -74,7 +75,9 @@ const AmountOrder = ({
               <span>Отправляем заказ...</span>
             </span>
           ) : isTableSet ? (
-            <span>Отправить заказ • Стол №{tableNumber} • {amount} ₽</span>
+            <span>
+              {hasActiveBill ? 'Дозаказать' : 'Отправить заказ'} • Стол №{tableNumber} • {amount} ₽
+            </span>
           ) : (
             <span>Сканировать QR стола • {amount} ₽</span>
           )}
