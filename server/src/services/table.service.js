@@ -230,6 +230,10 @@ export function getLiveOccupiedTablesList() {
   return result;
 }
 
+export function getLiveTableOrder(tableNumber) {
+  return liveOccupiedTables.get(String(tableNumber).trim()) || null;
+}
+
 /**
  * Обработчик входящих Webhook событий от iikoCloud (TableOrderUpdate, ReserveUpdate)
  */
@@ -258,10 +262,11 @@ export function handleIikoWebhookEvent(payload, logger) {
             status: order.status,
             sum: order.sum || 0,
             waiter: order.waiter?.name || 'Официант',
+            items: Array.isArray(order.items) ? order.items : [],
             updatedAt: Date.now(),
           });
           logger?.info?.(
-            `[iiko Webhook] Table №${num} is now OCCUPIED (Order #${order.number} status: ${order.status})`
+            `[iiko Webhook] Table №${num} is now OCCUPIED (Order #${order.number} status: ${order.status}, items: ${(order.items || []).length})`
           );
         }
       }

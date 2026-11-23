@@ -1,5 +1,5 @@
 import { getIikoToken, fetchMenuFromIiko } from './iiko.service.js';
-import { getTableInfo } from './table.service.js';
+import { getTableInfo, getLiveTableOrder } from './table.service.js';
 
 
 
@@ -109,24 +109,51 @@ export async function createDineInOrder(orderData, logger) {
 }
 
 /**
- * Получение текущего открытого счёта (чека) стола из iikoCloud
+ * Получение текущего открытого счёта (чека) стола из iikoCloud и Webhook-кэша
  */
 export async function getTableBill(tableNumber, logger) {
   const tableInfo = getTableInfo(tableNumber);
   const cleanOrgId = (process.env.IIKO_ORGANIZATION_GUSTO_ID || '').trim();
   const token = await getIikoToken(logger);
 
-  const activeOrder = await getActiveOrderForTable(tableInfo.tableId, cleanOrgId, token, logger);
-  if (!activeOrder || !activeOrder.order) {
+  // Ссылка для оплаты через Tapper
+  const tapperTemplate =
+    process.env.TAPPER_URL_TEMPLATE || 'https://tapper.cloud/gusto-lounge-18198/{table}';
+  const tapperUrl = tapperTemplate.replace('{table}', encodeURIComponent(tableNumber));
+
+  // 1. Проверяем заказ через облачный API
+  let activeOrder = await getActiveOrderForTable(tableInfo.tableId, cleanOrgId, token, logger);
+  let orderData = activeOrder?.order || null;
+
+  // 2. Если в API заказ ещё не виден или пуст, проверяем живой кэш вебхуков от iikoFront
+  const liveOrder = getLiveTableOrder(tableNumber);
+
+  if (!orderData && liveOrder && liveOrder.status !== 'Closed' && liveOrder.status !== 'Deleted') {
+    orderData = {
+      id: liveOrder.orderId,
+      number: liveOrder.orderNumber,
+      status: liveOrder.status,
+      sum: liveOrder.sum,
+      items: liveOrder.items || [],
+    };
+  }
+
+  if (!orderData) {
     return { hasActiveBill: false, bill: null };
   }
 
-  const order = activeOrder.order;
-  if (order.status === 'Closed' || order.status === 'Deleted') {
-    return { hasActiveBill: false, bill: null };
+  if (orderData.status === 'Closed' || orderData.status === 'Deleted') {
+    return { hasActiveBill: false, isClosed: true, bill: null };
   }
 
-  const rawItems = Array.isArray(order.items) ? order.items : [];
+  // Если в liveOrder позиций больше (например, официант только что на кассе вбил кальян), объединяем/используем их
+  const rawItems =
+    Array.isArray(liveOrder?.items) && liveOrder.items.length > (orderData.items || []).length
+      ? liveOrder.items
+      : Array.isArray(orderData.items)
+      ? orderData.items
+      : [];
+
   const items = rawItems
     .filter((item) => !item.deleted)
     .map((item) => {
@@ -139,27 +166,31 @@ export async function getTableBill(tableNumber, logger) {
         price: Number(item.price) || (amount > 0 ? Math.round(sum / amount) : sum),
         sum,
         modifiers: Array.isArray(item.modifiers)
-          ? item.modifiers.map((m) => m.product?.name).filter(Boolean)
+          ? item.modifiers.map((m) => m.product?.name || m.name).filter(Boolean)
           : [],
       };
     });
 
+  const calculatedSum = items.reduce((acc, it) => acc + it.sum, 0);
+  const finalSum = Number(orderData.sum) || (calculatedSum > 0 ? calculatedSum : Number(liveOrder?.sum) || 0);
+
   return {
     hasActiveBill: true,
     bill: {
-      orderId: activeOrder.id,
-      orderNumber: order.number || null,
-      status: order.status,
-      sum: Number(order.sum) || items.reduce((acc, it) => acc + it.sum, 0),
+      orderId: orderData.id || activeOrder?.id || liveOrder?.orderId,
+      orderNumber: orderData.number || liveOrder?.orderNumber || null,
+      status: orderData.status,
+      sum: finalSum,
       items,
+      tapperUrl,
     },
   };
 }
 
 /**
- * Инициация оплаты счёта гостем (СБП / Карта онлайн) или вызов официанта (доп. опция)
+ * Инициация оплаты счёта гостем (Tapper, СБП, Карта онлайн) или вызов официанта (доп. опция)
  */
-export async function payTableBill({ tableNumber, paymentMethod = 'sbp', tipAmount = 0 }, logger) {
+export async function payTableBill({ tableNumber, paymentMethod = 'tapper', tipAmount = 0 }, logger) {
   const { hasActiveBill, bill } = await getTableBill(tableNumber, logger);
   if (!hasActiveBill || !bill) {
     throw new Error('На этом столике нет открытого счёта для оплаты.');
@@ -167,6 +198,20 @@ export async function payTableBill({ tableNumber, paymentMethod = 'sbp', tipAmou
 
   const cleanOrgId = (process.env.IIKO_ORGANIZATION_GUSTO_ID || '').trim();
 
+  // 1. Оплата через Tapper (основной сценарий)
+  if (paymentMethod === 'tapper') {
+    logger.info(`[BILL] Стол №${tableNumber} переходит к оплате через Tapper (${bill.tapperUrl})`);
+    return {
+      status: 'tapper_redirect',
+      tapperUrl: bill.tapperUrl,
+      orderId: bill.orderId,
+      orderNumber: bill.orderNumber,
+      tableNumber,
+      sum: bill.sum,
+    };
+  }
+
+  // 2. Вызов официанта с терминалом
   if (paymentMethod === 'waiter') {
     logger.info(`[BILL] Стол №${tableNumber} запросил официанта для расчёта (чек #${bill.orderNumber}, сумма ${bill.sum}₽)`);
     try {
