@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './TableBill.module.css';
-
-const TIP_PRESETS = [0, 5, 10, 15];
+import { BsArrowRepeat, BsCheck2Circle } from 'react-icons/bs';
 
 const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill }) => {
-  const [tipPercent, setTipPercent] = useState(0);
-  const [paymentMethod, setPaymentMethod] = useState('sbp'); // 'sbp' | 'card'
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
 
   const billSum = Number(bill?.sum) || 0;
-  const tipAmount = Math.round((billSum * tipPercent) / 100);
-  const totalToPay = billSum + tipAmount;
+  const isClosed = bill?.status === 'Closed' || bill?.isClosed;
 
-  const handlePay = async (methodOverride) => {
-    const selectedMethod = methodOverride || paymentMethod;
+  const handleRefresh = async () => {
+    if (!onRefreshBill) return;
+    setIsRefreshing(true);
+    try {
+      await onRefreshBill();
+    } finally {
+      setTimeout(() => setIsRefreshing(false), 400);
+    }
+  };
+
+  const handlePay = async (method = 'tapper') => {
     setIsProcessing(true);
     setStatusMessage(null);
+
+    // Если оплата через Tapper и уже есть ссылка в счёте:
+    if (method === 'tapper' && bill?.tapperUrl) {
+      window.location.href = bill.tapperUrl;
+      return;
+    }
 
     try {
       const res = await fetch(`${apiUrl}/order/pay`, {
@@ -26,8 +38,7 @@ const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill
         body: JSON.stringify({
           tableNumber,
           tableSign,
-          paymentMethod: selectedMethod,
-          tipAmount: selectedMethod === 'waiter' ? 0 : tipAmount,
+          paymentMethod: method,
         }),
       });
       const data = await res.json();
@@ -37,17 +48,12 @@ const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill
         return;
       }
 
-      if (data.status === 'waiter_called') {
+      if (data.status === 'tapper_redirect' && data.tapperUrl) {
+        window.location.href = data.tapperUrl;
+      } else if (data.status === 'waiter_called') {
         setStatusMessage({
           type: 'success',
           text: `Официант уведомлён и скоро подойдёт с терминалом к столу №${tableNumber}.`,
-        });
-      } else if (data.status === 'payment_created' && data.paymentUrl) {
-        window.location.href = data.paymentUrl;
-      } else if (data.status === 'acquiring_not_configured') {
-        setStatusMessage({
-          type: 'info',
-          text: `Чек на ${totalToPay} ₽ подготовлен к оплате (${selectedMethod === 'sbp' ? 'СБП' : 'Карта'}). Онлайн-эквайринг будет подключен перед запуском.`,
         });
       } else if (onRefreshBill) {
         onRefreshBill();
@@ -59,11 +65,41 @@ const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill
     }
   };
 
+  if (isClosed) {
+    return (
+      <div className={styles.billWrapper}>
+        <div className={styles.closedCard}>
+          <div className={styles.closedIcon}>
+            <BsCheck2Circle />
+          </div>
+          <h2 className={styles.closedTitle}>Счёт успешно оплачен!</h2>
+          <p className={styles.closedSubtitle}>
+            Спасибо, что провели время в Gusto Lounge. Будем рады видеть вас снова!
+          </p>
+          <Link to={`/${branch}/menu`} className={styles.returnMenuBtn}>
+            В меню заведения
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.billWrapper}>
       <div className={styles.headerRow}>
         <div className={styles.titleGroup}>
-          <h1 className={styles.title}>Ваш счёт</h1>
+          <div className={styles.headerTopLine}>
+            <h1 className={styles.title}>Ваш счёт</h1>
+            <button
+              type="button"
+              className={`${styles.refreshBtn} ${isRefreshing ? styles.refreshBtnSpin : ''}`}
+              onClick={handleRefresh}
+              title="Обновить позиции счёта"
+              aria-label="Обновить счёт"
+            >
+              <BsArrowRepeat />
+            </button>
+          </div>
           <span className={styles.subtitle}>
             Стол №{tableNumber}
             {bill.orderNumber ? ` • Чек #${bill.orderNumber}` : ''}
@@ -76,12 +112,18 @@ const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill
       </div>
 
       <div className={styles.card}>
+        {/* Список подтверждённых позиций — строго Read-Only */}
         <div className={styles.itemsList}>
           {(bill.items || []).map((item) => (
             <div key={item.id} className={styles.billItem}>
-              <div className={styles.itemName}>
-                <span>{item.name}</span>
-                {item.amount > 1 && <span className={styles.itemMeta}>× {item.amount}</span>}
+              <div className={styles.itemLeft}>
+                <div className={styles.itemName}>
+                  <span>{item.name}</span>
+                  {item.amount > 1 && <span className={styles.itemMeta}>× {item.amount}</span>}
+                </div>
+                {Array.isArray(item.modifiers) && item.modifiers.length > 0 && (
+                  <div className={styles.itemModifiers}>{item.modifiers.join(', ')}</div>
+                )}
               </div>
               <div className={styles.itemPrice}>{item.sum} ₽</div>
             </div>
@@ -90,63 +132,30 @@ const TableBill = ({ bill, tableNumber, tableSign, branch, apiUrl, onRefreshBill
 
         <div className={styles.divider} />
 
-        {/* Чаевые */}
-        <div className={styles.tipsSection}>
-          <div className={styles.tipsLabel}>Чаевые персоналу</div>
-          <div className={styles.tipsRow}>
-            {TIP_PRESETS.map((pct) => (
-              <button
-                key={pct}
-                type="button"
-                className={`${styles.tipBtn} ${tipPercent === pct ? styles.tipBtnActive : ''}`}
-                onClick={() => setTipPercent(pct)}
-              >
-                {pct === 0 ? 'Без чаевых' : `${pct}%`}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Способ самостоятельной оплаты */}
-        <div className={styles.methodsRow}>
-          <button
-            type="button"
-            className={`${styles.methodBtn} ${paymentMethod === 'sbp' ? styles.methodBtnActive : ''}`}
-            onClick={() => setPaymentMethod('sbp')}
-          >
-            СБП
-          </button>
-          <button
-            type="button"
-            className={`${styles.methodBtn} ${paymentMethod === 'card' ? styles.methodBtnActive : ''}`}
-            onClick={() => setPaymentMethod('card')}
-          >
-            Картой онлайн
-          </button>
-        </div>
-
         <div className={styles.totalRow}>
-          <span className={styles.totalLabel}>К оплате</span>
-          <span className={styles.totalAmount}>{totalToPay} ₽</span>
+          <span className={styles.totalLabel}>Итого к оплате</span>
+          <span className={styles.totalAmount}>{billSum} ₽</span>
         </div>
 
+        {/* Главная кнопка: Оплата через Tapper (СБП / Карты / Разделение счёта / Чаевые) */}
         <button
           type="button"
-          className={styles.payBtn}
-          onClick={() => handlePay()}
+          className={styles.tapperPayBtn}
+          onClick={() => handlePay('tapper')}
           disabled={isProcessing}
         >
-          {isProcessing ? 'Подготовка оплаты...' : `Оплатить счёт • ${totalToPay} ₽`}
+          <span className={styles.tapperTitle}>Оплатить счёт • {billSum} ₽</span>
+          <span className={styles.tapperSub}>СБП • Карты • Разделение счёта • Чаевые</span>
         </button>
 
-        {/* Официант — лишь дополнительная опция */}
+        {/* Запасной вариант: позвать официанта для расчёта на кассе */}
         <button
           type="button"
           className={styles.waiterSecondaryBtn}
           onClick={() => handlePay('waiter')}
           disabled={isProcessing}
         >
-          Оплатить через официанта
+          Позвать официанта для расчёта
         </button>
 
         {statusMessage && (

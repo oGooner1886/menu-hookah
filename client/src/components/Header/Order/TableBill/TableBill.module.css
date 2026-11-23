@@ -16,12 +16,48 @@
   gap: 2px;
 }
 
+.headerTopLine {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .title {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
   color: #0f172a;
   letter-spacing: -0.4px;
+}
+
+.refreshBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshBtn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.refreshBtnSpin svg {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .subtitle {
@@ -71,6 +107,12 @@
   color: #1e293b;
 }
 
+.itemLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .itemName {
   font-weight: 500;
   line-height: 1.35;
@@ -80,6 +122,11 @@
   color: #94a3b8;
   font-size: 13px;
   margin-left: 6px;
+}
+
+.itemModifiers {
+  font-size: 12px;
+  color: #64748b;
 }
 
 .itemPrice {
@@ -94,73 +141,11 @@
   margin: 18px 0;
 }
 
-/* Чаевые */
-.tipsSection {
-  margin-bottom: 18px;
-}
-
-.tipsLabel {
-  font-size: 13px;
-  font-weight: 600;
-  color: #64748b;
-  margin-bottom: 8px;
-}
-
-.tipsRow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.tipBtn {
-  padding: 8px 6px;
-  border-radius: 10px;
-  border: 1.5px solid #e2e8f0;
-  background-color: #f8fafc;
-  color: #475569;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.tipBtnActive {
-  border-color: #2d6a4f;
-  background-color: #f0fdf4;
-  color: #2d6a4f;
-}
-
-/* Выбор способа оплаты */
-.methodsRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.methodBtn {
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1.5px solid #e2e8f0;
-  background-color: #ffffff;
-  color: #334155;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.methodBtnActive {
-  border-color: #2d6a4f;
-  background-color: #f0fdf4;
-  color: #2d6a4f;
-}
-
 .totalRow {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .totalLabel {
@@ -170,35 +155,53 @@
 }
 
 .totalAmount {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   color: #2d6a4f;
+  letter-spacing: -0.5px;
 }
 
-.payBtn {
+/* Главная кнопка Tapper */
+.tapperPayBtn {
   width: 100%;
-  height: 52px;
+  padding: 14px 18px;
   border-radius: 16px;
   border: none;
-  background: linear-gradient(135deg, #2d6a4f 0%, #1e513a 100%);
+  background: linear-gradient(135deg, #2d6a4f 0%, #1b4934 100%);
   color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(45, 106, 79, 0.25);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.payBtn:hover:not(:disabled) {
+.tapperPayBtn:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(45, 106, 79, 0.35);
+  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.38);
 }
 
-.payBtn:disabled {
+.tapperPayBtn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
+.tapperTitle {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.tapperSub {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.88;
+}
+
+/* Второстепенная кнопка официанта */
 .waiterSecondaryBtn {
   width: 100%;
   margin-top: 10px;
@@ -232,4 +235,50 @@
   background-color: #f8fafc;
   border-color: #e2e8f0;
   color: #475569;
+}
+
+/* Карточка закрытого / оплаченного счёта */
+.closedCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.closedIcon {
+  font-size: 48px;
+  color: #2d6a4f;
+  margin-bottom: 12px;
+}
+
+.closedTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.closedSubtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.returnMenuBtn {
+  display: inline-block;
+  background-color: #2d6a4f;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.returnMenuBtn:hover {
+  background-color: #235740;
 }

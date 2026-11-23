@@ -75,7 +75,19 @@ const OrderContainer = () => {
 
   useEffect(() => {
     fetchTableBill();
-  }, [fetchTableBill]);
+
+    // Фоновое автообновление открытого счёта каждые 15 сек:
+    // моментально подтягивает кальяны от официанта или статус закрытия чека
+    if (!tableNumber || !tableSession?.sign) return;
+
+    const intervalId = setInterval(() => {
+      if (!document.hidden) {
+        fetchTableBill();
+      }
+    }, 15000);
+
+    return () => clearInterval(intervalId);
+  }, [fetchTableBill, tableNumber, tableSession]);
 
   const handleQrSuccess = useCallback(
     (table, sign) => {
