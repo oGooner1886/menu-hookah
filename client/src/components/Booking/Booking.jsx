@@ -14,10 +14,24 @@ const Booking = () => {
   const { branch } = useParams();
   const branchName = branch === 'aroma' ? 'Aroma' : 'Gusto Lounge';
 
-  // Состояние бронирования
-  const todayIso = useMemo(() => new Date().toISOString().split('T')[0], []);
+  // Состояние бронирования (текущие локальные дата и время)
+  const todayIso = useMemo(() => {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }, []);
+
+  const currentTimeStr = useMemo(() => {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    return `${h}:${min}`;
+  }, []);
+
   const [selectedDate, setSelectedDate] = useState(todayIso);
-  const [selectedTime, setSelectedTime] = useState('17:30');
+  const [selectedTime, setSelectedTime] = useState(currentTimeStr);
   const [selectedGuests, setSelectedGuests] = useState(4);
   const [activeHall, setActiveHall] = useState('all');
   const [selectedTable, setSelectedTable] = useState(null);

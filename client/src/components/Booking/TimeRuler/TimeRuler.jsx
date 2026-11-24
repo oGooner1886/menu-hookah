@@ -10,12 +10,19 @@ const TOTAL_MINUTES = (END_HOUR - START_HOUR) * 60; // 900 минут (15 час
 const STEP_MINUTES = 10; // Шаг деления — 10 минут
 const TICK_WIDTH = 16; // Ширина одного 10-минутного деления в пикселях
 
-// Преобразование "17:30" в минуты от 00:00 (с учетом перехода через полночь)
+// Преобразование "HH:mm" в минуты от 00:00 (с учетом перехода через полночь 00:00–03:00)
 const parseTimeToMinutes = (timeStr) => {
-  if (!timeStr) return 17 * 60 + 30; // 17:30 по умолчанию
+  if (!timeStr) {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    let total = h * 60 + m;
+    if (h <= 3) total += 24 * 60;
+    return total;
+  }
   const [h, m] = timeStr.split(':').map(Number);
   let total = h * 60 + m;
-  if (h < START_HOUR) total += 24 * 60; // для 00:00 - 03:00
+  if (h <= 3) total += 24 * 60; // только для ночного времени 00:00 - 03:59
   return total;
 };
 
@@ -44,17 +51,24 @@ const TimeRuler = ({ selectedDate, onChangeDate, selectedTime, onChangeTime }) =
   // Форматирование заголовка выбранной даты (Сегодня, Завтра или 15 ноября)
   const dateTitle = useMemo(() => {
     if (!selectedDate) return 'Сегодня';
+    const formatLocalIso = (d) => {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    };
+
     const today = new Date();
-    const todayIso = today.toISOString().split('T')[0];
+    const todayIso = formatLocalIso(today);
 
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
-    const tomorrowIso = tomorrow.toISOString().split('T')[0];
+    const tomorrowIso = formatLocalIso(tomorrow);
 
     if (selectedDate === todayIso) return 'Сегодня';
     if (selectedDate === tomorrowIso) return 'Завтра';
 
-    const [y, m, d] = selectedDate.split('-').map(Number);
+    const [, m, d] = selectedDate.split('-').map(Number);
     const monthName = MONTH_NAMES[m - 1] || '';
     return `${d} ${monthName}`;
   }, [selectedDate]);
