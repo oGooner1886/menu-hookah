@@ -8,6 +8,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "qr": "node scripts/generate-qr-codes.js",
+    "simulate-waiter": "node scripts/simulate-waiter.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
