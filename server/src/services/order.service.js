@@ -1,7 +1,5 @@
 import { getIikoToken, fetchMenuFromIiko } from './iiko.service.js';
-import { getTableInfo, getLiveTableOrder } from './table.service.js';
-
-
+import { getTableInfo, getLiveTableOrder, setTableLiveStatus } from './table.service.js';
 
 export async function getActiveOrderForTable(tableId, orgId, token, logger) {
   const response = await fetch('https://api-ru.iiko.services/api/1/order/by_table', {
@@ -13,14 +11,30 @@ export async function getActiveOrderForTable(tableId, orgId, token, logger) {
     body: JSON.stringify({
       organizationIds: [orgId],
       tableIds: [tableId],
+      statuses: ['New', 'Bill'],
     }),
   });
   if (!response.ok) return null;
   const data = await response.json();
-  if (data && data.orders && data.orders.length > 0) {
-    return data.orders[0];
-  }
-  return null;
+  const rawOrders = Array.isArray(data?.orders) ? data.orders : [];
+
+  const now = Date.now();
+  // Отбираем только заказы текущей смены (не старше 14 часов), исключая закрытые и удалённые
+  const validRecentOrders = rawOrders
+    .filter((o) => {
+      const order = o.order;
+      if (!order) return false;
+      if (order.status === 'Closed' || order.status === 'Deleted') return false;
+      const createdTime = order.whenCreated ? new Date(order.whenCreated).getTime() : 0;
+      return now - createdTime < 14 * 60 * 60 * 1000;
+    })
+    .sort(
+      (a, b) =>
+        new Date(b.order?.whenCreated || 0).getTime() -
+        new Date(a.order?.whenCreated || 0).getTime()
+    );
+
+  return validRecentOrders[0] || null;
 }
 
 export async function createDineInOrder(orderData, logger) {
@@ -47,10 +61,11 @@ export async function createDineInOrder(orderData, logger) {
   });
 
   const cleanOrgId = (process.env.IIKO_ORGANIZATION_GUSTO_ID || '').trim();
-
   const token = await getIikoToken(logger);
 
   const activeOrder = await getActiveOrderForTable(tableInfo.tableId, cleanOrgId, token, logger);
+  let isAddedToExisting = false;
+
   if (activeOrder) {
     logger.info(`Na stole ${tableNumber} naiden otkritiy zakaz (${activeOrder.id}). Delaem dozakaz!`);
 
@@ -59,53 +74,114 @@ export async function createDineInOrder(orderData, logger) {
       orderId: activeOrder.id,
       items: orderItems,
     };
-    const response = await fetch('https://api-ru.iiko.services/api/1/order/add_items', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(addItemsPayload),
-    });
 
-    if (!response.ok) {
-      const errorBody = await response.text();
-      logger.error(` Oshibka iiko pri dozakaze: ${errorBody}`);
-      throw new Error('Ne udalos` dobavit` bluda v sushestvuyushiy chek.');
+    try {
+      const response = await fetch('https://api-ru.iiko.services/api/1/order/add_items', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(addItemsPayload),
+      });
+
+      if (response.ok) {
+        const addData = await response.json();
+        if (addData.correlationId) {
+          const statRes = await fetch('https://api-ru.iiko.services/api/1/commands/status', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              organizationId: cleanOrgId,
+              correlationId: addData.correlationId,
+            }),
+          });
+          const statData = await statRes.json();
+          if (statData.state === 'Error') {
+            logger.warn(
+              `iikoFront otklonil add_items (${statData.exception?.errorCode}): ${statData.exception?.message}. Sozdaem noviy zakaz!`
+            );
+            isAddedToExisting = false;
+          } else {
+            isAddedToExisting = true;
+          }
+        } else {
+          isAddedToExisting = true;
+        }
+      }
+    } catch (err) {
+      logger.warn(`Oshibka pri add_items: ${err.message}. Sozdaem noviy zakaz.`);
+      isAddedToExisting = false;
     }
 
-    logger.info(` Dozakaz uspeshno otpravken v chek!`);
-    return { status: 'added_to_existing', orderId: activeOrder.id };
-  } else {
-    logger.info(`Stol ${tableNumber} svoboden. Sozdaem noviy chek`);
-    const createPayload = {
-      organizationId: cleanOrgId,
-      terminalGroupId: tableInfo.terminalGroupId,
-      order: {
-        tableIds: [tableInfo.tableId],
-        phone: phone || null,
-        items: orderItems,
-        comment: comment || 'Zakaz cherez QR-menu',
-      },
-    };
-    const response = await fetch('https://api-ru.iiko.services/api/1/order/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(createPayload),
-    });
-    if (!response.ok) {
-      const errorBody = await response.text();
-      logger.error(`Oshibka pri sozdanii zakaza:  ${errorBody}`);
-      throw new Error(`Kassa otklonika zakaz. Poprobuite pozhe. ${errorBody}`);
+    if (isAddedToExisting) {
+      logger.info(`Dozakaz uspeshno otpravlen v chek!`);
+      return { status: 'added_to_existing', orderId: activeOrder.id, tableNumber };
     }
-    const result = await response.json();
-    logger.info(`Zakaz uspeshno sozdan. ID v sisteme IIKO : ${result.orderInfo.id}`);
-
-    return result.orderInfo;
   }
+
+  // Если активного чека нет или старый был отвергнут кассой -> создаём свежий заказ на стол в зале
+  logger.info(`Stol ${tableNumber} svoboden. Sozdaem noviy chek v zale`);
+  const commonOrderTypeId = (
+    process.env.IIKO_ORDER_TYPE_COMMON_ID || 'bbbef4dc-5a02-7ea3-81d3-826f4e8bb3e0'
+  ).trim();
+
+  const createPayload = {
+    organizationId: cleanOrgId,
+    terminalGroupId: tableInfo.terminalGroupId,
+    order: {
+      orderTypeId: commonOrderTypeId,
+      tableIds: [tableInfo.tableId],
+      phone: phone || null,
+      guests: { count: 1 },
+      items: orderItems,
+      comment: comment || 'Zakaz cherez QR-menu',
+    },
+  };
+
+  const response = await fetch('https://api-ru.iiko.services/api/1/order/create', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(createPayload),
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+    logger.error(`Oshibka pri sozdanii zakaza: ${errorBody}`);
+    throw new Error(`Kassa otklonila zakaz. Poprobuite pozhe: ${errorBody}`);
+  }
+
+  const result = await response.json();
+  const newOrderId = result.orderInfo?.id || result.correlationId;
+  logger.info(
+    `Zakaz uspeshno otpravlen v iiko (ID: ${newOrderId}, correlationId: ${result.correlationId})`
+  );
+
+  // Моментально регистрируем позиции в живом статусе стола, чтобы /table-bill сразу вернул счёт гостю
+  const liveItems = items.map((it) => ({
+    id: it.productId,
+    name: it.name || 'Блюдо из заказа',
+    amount: it.amount || 1,
+    price: it.price || 0,
+    sum: (it.price || 0) * (it.amount || 1),
+    modifiers: [],
+  }));
+
+  setTableLiveStatus(tableNumber, true, {
+    orderId: newOrderId,
+    orderNumber: result.orderInfo?.externalNumber || 'Новый',
+    status: 'New',
+    sum: liveItems.reduce((acc, it) => acc + it.sum, 0),
+    items: liveItems,
+  });
+
+  return { status: 'created', orderId: newOrderId, tableNumber };
 }
 
 /**

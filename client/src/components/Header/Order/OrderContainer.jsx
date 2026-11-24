@@ -146,10 +146,26 @@ const OrderContainer = () => {
       const payload = {
         tableNumber: String(activeTable),
         tableSign: tableSession?.sign || undefined,
-        items: orderEntries.map(([uid, amount]) => ({
-          productId: uid,
-          amount,
-        })),
+        items: orderEntries.map(([uid, amount]) => {
+          let item = (currentProducts || []).find((p) => String(p.uid) === uid);
+          if (!item) {
+            for (const prod of currentProducts || []) {
+              if (prod.editions) {
+                const ed = prod.editions.find((e) => String(e.uid) === uid);
+                if (ed) {
+                  item = ed;
+                  break;
+                }
+              }
+            }
+          }
+          return {
+            productId: uid,
+            name: item?.title || item?.name || 'Блюдо из заказа',
+            price: item?.price || 0,
+            amount,
+          };
+        }),
         comment: comment.trim() || undefined,
       };
 
@@ -172,7 +188,7 @@ const OrderContainer = () => {
           tableNumber,
         });
         deleteOrder();
-        fetchTableBill();
+        await fetchTableBill();
       } else {
         alert(`Не удалось отправить заказ: ${data.error || 'Ошибка сервера'}`);
       }
