@@ -1,0 +1,725 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(10, 12, 16, 0.72);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  width: 100%;
+  max-width: 440px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.headerSubtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.closeBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.closeBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* ================= АВТОРИЗАЦИЯ ================= */
+.authBody {
+  padding: 18px 20px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.welcomeBanner {
+  background: linear-gradient(135deg, #111814 0%, #192b20 100%);
+  color: #f8fafc;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.welcomeBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tierPillActive {
+  background: #2e7d32;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.tierPill {
+  background: rgba(255, 255, 255, 0.12);
+  color: #d1fae5;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.welcomeText {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #d1d5db;
+  margin: 0;
+}
+
+.welcomeText strong {
+  color: #4ade80;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.phoneInput,
+.codeInput,
+.textInput {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.phoneInput:focus,
+.codeInput:focus,
+.textInput:focus {
+  border-color: #2e7d32;
+  background: #ffffff;
+}
+
+.codeInput {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 8px;
+}
+
+.errorBox {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.primaryBtn {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: none;
+  background: #14171a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: #272c32;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.orDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.orDivider::before,
+.orDivider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.orDivider span {
+  padding: 0 10px;
+}
+
+.yandexBtn {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.yandexBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.yaIcon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fc3f1d;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sentInfo {
+  font-size: 13px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.changePhoneLink {
+  background: none;
+  border: none;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.devCodeBanner {
+  background: #ecfdf5;
+  border: 1px dashed #10b981;
+  color: #065f46;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.devCodeBanner strong {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* ================= ЛИЧНЫЙ КАБИНЕТ ================= */
+.cabinetBody {
+  padding: 18px 20px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.loyaltyCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #121714 0%, #192d1f 55%, #0f1b13 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(18, 29, 21, 0.28);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cardClubLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #4ade80;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.cardHolderName {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cardPhone {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.cashbackBadge {
+  background: rgba(74, 222, 128, 0.14);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-radius: 14px;
+  padding: 6px 12px;
+  text-align: center;
+  min-width: 64px;
+}
+
+.cashbackValue {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: #4ade80;
+  line-height: 1.1;
+}
+
+.cashbackCaption {
+  font-size: 10px;
+  color: #d1fae5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardBalanceSection {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.balanceLabel {
+  font-size: 11px;
+  color: #9ca3af;
+  display: block;
+}
+
+.balanceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 2px 0;
+}
+
+.balanceNumber {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.balanceUnit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+.balanceSub {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.showQrBtn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.showQrBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cardQrView {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qrImageBox {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.waiterQrImg {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+
+.qrHintBlock {
+  font-size: 12px;
+  color: #d1d5db;
+}
+
+.qrHintBlock strong {
+  display: block;
+  color: #ffffff;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.qrHintBlock p {
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+  color: #9ca3af;
+}
+
+.hideQrBtn {
+  background: none;
+  border: none;
+  color: #4ade80;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Статистика и прогресс */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.statBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 11px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.statValue {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.progressCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.progressTitle {
+  color: #334155;
+}
+
+.progressRemaining {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #2e7d32 0%, #4ade80 100%);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+.progressFoot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.vipMaxBanner {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Сетка уровней */
+.tiersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tiersRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.tierCard {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  position: relative;
+}
+
+.tierCardCurrent {
+  border-color: #2e7d32;
+  background: #f0fdf4;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.1);
+}
+
+.tierPercent {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.tierCardCurrent .tierPercent {
+  color: #2e7d32;
+}
+
+.tierName {
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+  margin-top: 2px;
+}
+
+.tierThreshold {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.currentTag {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  background: #2e7d32;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 99px;
+}
+
+/* Нижние кнопки профиля */
+.profileFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.savedToast {
+  background: #ecfdf5;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.footerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.secondaryActionBtn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.secondaryActionBtn:hover {
+  background: #f8fafc;
+}
+
+.logoutBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editProfileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.editGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}

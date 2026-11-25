@@ -297,15 +297,102 @@ export const useStore = create(
   persist(
     (set, get) => ({
       //* ============================================================
-      //!  AUTH + сессия
+      //!  AUTH + сессия + Бонусная программа iiko
       //* ============================================================
       sessionToken: null,
       user: null,
+      loyaltyProfile: null,
+      isLoyaltyLoading: false,
+      isLoyaltyModalOpen: false,
       tableNumber: null,
       tableSession: null, // { tableNumber: string, sign: string | null, expiresAt: number }
 
-      setAuth: (token, user) => set({ sessionToken: token, user }),
-      logout: () => set({ sessionToken: null, user: null }),
+      setLoyaltyModalOpen: (isOpen) => set({ isLoyaltyModalOpen: Boolean(isOpen) }),
+
+      setAuth: (token, user, loyalty = null) =>
+        set((state) => ({
+          sessionToken: token,
+          user,
+          loyaltyProfile: loyalty || state.loyaltyProfile,
+        })),
+
+      logout: () =>
+        set({
+          sessionToken: null,
+          user: null,
+          loyaltyProfile: null,
+        }),
+
+      fetchLoyaltyProfile: async (overridePhone = null) => {
+        const token = get().sessionToken;
+        const phone = overridePhone || get().user?.phone || get().loyaltyProfile?.phone;
+        if (!token && !phone) return null;
+
+        set({ isLoyaltyLoading: true });
+        try {
+          const headers = {};
+          if (token) headers['Authorization'] = `Bearer ${token}`;
+          const query = phone ? `?phone=${encodeURIComponent(phone)}` : '';
+          const res = await fetch(`${API_URL}/auth/loyalty${query}`, { headers });
+          const data = await res.json();
+          if (data.success && data.loyalty) {
+            set((state) => ({
+              loyaltyProfile: data.loyalty,
+              user: state.user
+                ? {
+                    ...state.user,
+                    phone: data.loyalty.phone || state.user.phone,
+                    name: data.loyalty.name || state.user.name,
+                    surname: data.loyalty.surname || state.user.surname,
+                    fullName: data.loyalty.fullName || state.user.fullName,
+                    birthday: data.loyalty.birthday || state.user.birthday,
+                  }
+                : {
+                    phone: data.loyalty.phone,
+                    name: data.loyalty.name,
+                    surname: data.loyalty.surname,
+                    fullName: data.loyalty.fullName,
+                    birthday: data.loyalty.birthday,
+                  },
+            }));
+            return data.loyalty;
+          }
+        } catch (err) {
+          console.error('Ошибка обновления бонусного баланса:', err);
+        } finally {
+          set({ isLoyaltyLoading: false });
+        }
+        return null;
+      },
+
+      updateUserProfile: async ({ name, surname, birthday }) => {
+        const token = get().sessionToken;
+        const phone = get().user?.phone || get().loyaltyProfile?.phone;
+        if (!phone) throw new Error('Не найден номер телефона');
+
+        set({ isLoyaltyLoading: true });
+        try {
+          const headers = { 'Content-Type': 'application/json' };
+          if (token) headers['Authorization'] = `Bearer ${token}`;
+
+          const res = await fetch(`${API_URL}/auth/profile`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({ phone, name, surname, birthday }),
+          });
+          const data = await res.json();
+          if (!data.success) {
+            throw new Error(data.error || 'Не удалось обновить профиль');
+          }
+          set({
+            user: data.user,
+            loyaltyProfile: data.loyalty,
+          });
+          return data.loyalty;
+        } finally {
+          set({ isLoyaltyLoading: false });
+        }
+      },
 
       setTableNumber: (num, sign = null) => {
         if (!num || !sign) {
@@ -561,6 +648,7 @@ export const useStore = create(
         branch: state.branch,
         sessionToken: state.sessionToken,
         user: state.user,
+        loyaltyProfile: state.loyaltyProfile,
         tableSession: state.tableSession,
       }),
       onRehydrateStorage: () => (state) => {
