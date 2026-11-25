@@ -3,7 +3,15 @@ import style from './Header.module.css';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo/Logo';
 
-const Header = ({ amount, deleteOrder, currentBranch, tableNumber }) => {
+const Header = ({
+  amount,
+  deleteOrder,
+  currentBranch,
+  tableNumber,
+  user,
+  loyaltyProfile,
+  onOpenLoyalty,
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -82,6 +90,30 @@ const Header = ({ amount, deleteOrder, currentBranch, tableNumber }) => {
                   Стол {tableNumber}
                 </div>
               )}
+
+              {/* Кнопка Личного кабинета и бонусов Gusto Club */}
+              <button
+                type="button"
+                className={
+                  user || loyaltyProfile ? style.header_loyaltyBtnActive : style.header_loyaltyBtn
+                }
+                onClick={onOpenLoyalty}
+                title="Личный кабинет и бонусная карта Gusto"
+              >
+                {user || loyaltyProfile ? (
+                  <>
+                    <span className={style.loyaltyBalanceDot} />
+                    <span>
+                      {Number(loyaltyProfile?.balance || 0).toLocaleString('ru-RU')} Б
+                    </span>
+                    <span className={style.loyaltyPercentTag}>
+                      {loyaltyProfile?.cashbackPercent || 10}%
+                    </span>
+                  </>
+                ) : (
+                  <span>Бонусы • Войти</span>
+                )}
+              </button>
 
               <NavLink to={`/${currentBranch}/order`} className={style.header_cartLink}>
                 <div className={style.header_cartWrapper} title="Корзина">

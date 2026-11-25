@@ -11,8 +11,14 @@ const AmountOrder = ({
   onPlaceOrder,
   onScanQr,
   isSubmitting = false,
+  user = null,
+  loyaltyProfile = null,
+  onOpenLoyalty,
 }) => {
   const isTableSet = Boolean(tableNumber);
+  const isLoggedIn = Boolean(user || loyaltyProfile);
+  const cashbackPercent = loyaltyProfile?.cashbackPercent || 10;
+  const bonusToEarn = Math.round((amount * cashbackPercent) / 100);
 
   const handleActionClick = () => {
     if (isTableSet) {
@@ -45,6 +51,31 @@ const AmountOrder = ({
           <span className={styles.totalLabel}>Итого к оплате</span>
           <span className={styles.totalAmount}>{amount} ₽</span>
         </div>
+
+        {/* Плашка начисления бонусов Gusto Club (iikoLoyalty) */}
+        {amount > 0 && (
+          <button
+            type="button"
+            className={isLoggedIn ? styles.loyaltyBannerActive : styles.loyaltyBannerPrompt}
+            onClick={onOpenLoyalty}
+          >
+            {isLoggedIn ? (
+              <div className={styles.loyaltyBannerRow}>
+                <span>
+                  Бонусы за заказ ({loyaltyProfile?.fullName || user?.name || 'Gusto Club'}):
+                </span>
+                <strong className={styles.bonusEarnedTag}>
+                  +{bonusToEarn} Б ({cashbackPercent}%)
+                </strong>
+              </div>
+            ) : (
+              <div className={styles.loyaltyBannerRow}>
+                <span>Войти в ЛК и получить бонусы за заказ:</span>
+                <strong className={styles.bonusEarnedTag}>+{bonusToEarn} Б (10%) →</strong>
+              </div>
+            )}
+          </button>
+        )}
 
         {/* Поле комментария для кухни и официанта */}
         <div className={styles.commentField}>

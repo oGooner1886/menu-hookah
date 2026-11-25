@@ -81,6 +81,64 @@
   white-space: nowrap;
 }
 
+.header_loyaltyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #f4f7f5;
+  color: #1e3a2a;
+  border: 1px solid #cfe3d5;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.header_loyaltyBtn:hover {
+  background-color: #e6f2e9;
+  border-color: #2e7d32;
+}
+
+.header_loyaltyBtnActive {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #121714 0%, #1c3123 100%);
+  color: #ffffff;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(18, 23, 20, 0.18);
+  transition: transform 0.15s;
+}
+
+.header_loyaltyBtnActive:hover {
+  transform: translateY(-1px);
+}
+
+.loyaltyBalanceDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+
+.loyaltyPercentTag {
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
 .header_cartLink {
   line-height: 1.15;
   touch-action: manipulation;
@@ -121,6 +179,11 @@
   .header_tableBadge {
     padding: 7px 10px;
     font-size: 13px;
+  }
+  .header_loyaltyBtn,
+  .header_loyaltyBtnActive {
+    padding: 7px 10px;
+    font-size: 12px;
   }
   .header_cartWrapper {
     padding: 7px 12px;

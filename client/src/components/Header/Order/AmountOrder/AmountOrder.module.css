@@ -70,6 +70,54 @@
   letter-spacing: -0.5px;
 }
 
+.loyaltyBannerActive,
+.loyaltyBannerPrompt {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.loyaltyBannerActive {
+  background: linear-gradient(135deg, #121714 0%, #1c3123 100%);
+  color: #e2e8f0;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+}
+
+.loyaltyBannerPrompt {
+  background: #f0fdf4;
+  color: #14532d;
+  border: 1px dashed #16a34a;
+}
+
+.loyaltyBannerActive:hover,
+.loyaltyBannerPrompt:hover {
+  transform: translateY(-1px);
+}
+
+.loyaltyBannerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bonusEarnedTag {
+  font-size: 13px;
+  font-weight: 800;
+  color: #15803d;
+  white-space: nowrap;
+}
+
+.loyaltyBannerActive .bonusEarnedTag {
+  color: #4ade80;
+}
+
 /* Поле комментария */
 .commentField {
   margin-bottom: 20px;

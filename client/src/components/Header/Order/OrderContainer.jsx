@@ -36,6 +36,10 @@ const OrderContainer = () => {
   const setTableNumber = useStore((state) => state.setTableNumber);
   const checkTableSession = useStore((state) => state.checkTableSession);
   const sessionToken = useStore((state) => state.sessionToken);
+  const user = useStore((state) => state.user);
+  const loyaltyProfile = useStore((state) => state.loyaltyProfile);
+  const setLoyaltyModalOpen = useStore((state) => state.setLoyaltyModalOpen);
+  const fetchLoyaltyProfile = useStore((state) => state.fetchLoyaltyProfile);
 
   const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -146,6 +150,7 @@ const OrderContainer = () => {
       const payload = {
         tableNumber: String(activeTable),
         tableSign: tableSession?.sign || undefined,
+        phone: user?.phone || loyaltyProfile?.phone || undefined,
         items: orderEntries.map(([uid, amount]) => {
           let item = (currentProducts || []).find((p) => String(p.uid) === uid);
           if (!item) {
@@ -189,6 +194,9 @@ const OrderContainer = () => {
         });
         deleteOrder();
         await fetchTableBill();
+        if (user?.phone || loyaltyProfile?.phone) {
+          fetchLoyaltyProfile();
+        }
       } else {
         alert(`Не удалось отправить заказ: ${data.error || 'Ошибка сервера'}`);
       }
@@ -252,6 +260,9 @@ const OrderContainer = () => {
             onPlaceOrder={handlePlaceOrder}
             onScanQr={() => setIsScannerOpen(true)}
             isSubmitting={isSubmitting}
+            user={user}
+            loyaltyProfile={loyaltyProfile}
+            onOpenLoyalty={() => setLoyaltyModalOpen(true)}
           />
         </>
       )}
